@@ -10,7 +10,22 @@
 
 int abilityScores[6];
 int currentHitPoints;
+int currentLevel = 1;
 
+//default constructor
+Character::Character()
+{
+
+	abilityScores[0] = 15; //default strength
+	abilityScores[1] = 14; //default dexterity
+	abilityScores[2] = 13; //default constitution
+	abilityScores[3] = 10; //default intelligence
+	abilityScores[4] = 8; //default wisdom
+	abilityScores[5] = 12; //default charisma
+
+	// and set hit points to 10
+	currentHitPoints = 10;
+}
 
 //! Constructor: passes values to each ability score and set hit points to 10
 Character::Character(int str, int dex, int con, int intel, int wis, int cha)

@@ -18,5 +18,6 @@ public:
 private:
 	int abilityScores[6];
 	int currentHitPoints;
+	int currentLevel;
 };
 

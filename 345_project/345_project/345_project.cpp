@@ -12,7 +12,11 @@ using namespace std;
 
 int main()
 {
+
+	Character fighter = Character();
+
 	std::cout << "my first c++ program" << std::endl;
+	getchar();
     return 0;
 }
 
