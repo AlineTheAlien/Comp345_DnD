@@ -2,10 +2,9 @@
 //! @brief Implementation file for the Character class  
 //!
 
+#include "stdafx.h" 
 #include "Character.h"
 #include <stdlib.h>
-#include <stdio.h>
-#include "stdafx.h"
 #include <cstdlib>
 
 
