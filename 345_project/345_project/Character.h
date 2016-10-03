@@ -13,6 +13,8 @@ public:
 	bool validateNewCharacter();
 	void hit(int);
 	int getHitPoints();
+	int rollSixSidedDie();
+	int generateAbilityModifier(int);
 private:
 	int abilityScores[6];
 	int currentHitPoints;

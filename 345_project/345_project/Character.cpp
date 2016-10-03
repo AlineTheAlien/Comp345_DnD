@@ -3,10 +3,20 @@
 //!
 
 #include "Character.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include "stdafx.h"
+#include <cstdlib>
+
+
+int abilityScores[6];
+int currentHitPoints;
+
 
 //! Constructor: passes values to each ability score and set hit points to 10
 Character::Character(int str, int dex, int con, int intel, int wis, int cha)
 {
+
 	abilityScores[0] = str;
 	abilityScores[1] = dex;
 	abilityScores[2] = con;
@@ -40,4 +50,13 @@ void Character::hit(int damage)
 int Character::getHitPoints()
 {
 	return currentHitPoints;
+}
+
+int Character::rollSixSidedDie() {
+	return ("%10d", 1 + (rand() % 6));
+}
+
+int Character::generateAbilityModifier(int score) {
+	// to get ability modifier, substract 10 from ability score, then divide by 2 (round down)
+	return ((score - 10) / 2);
 }
