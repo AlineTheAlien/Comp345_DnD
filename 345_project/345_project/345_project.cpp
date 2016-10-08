@@ -14,7 +14,8 @@ int main()
 {
 
 	Character fighter = Character();
-
+	fighter.rollSixSidedDie();
+	std::cout << fighter.rollSixSidedDie();
 	std::cout << "my first c++ program" << std::endl;
 	getchar();
     return 0;
