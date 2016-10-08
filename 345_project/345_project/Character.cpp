@@ -79,7 +79,6 @@ int Character::getHitPoints()
 }
 
 int Character::rollSixSidedDie() {
-	srand(static_cast<unsigned int>(time(0)));
 	return rand() % 6 + 1;
 }
 
@@ -93,13 +92,6 @@ void Character::calculateAbilityScores(int holder[]) {
 	for (int i = 0; i < 6; i++) {
 
 		int diceRollHolder[4];
-
-		for (int j = 0; j < 4; j++) {
-			int r = rollSixSidedDie();
-			Sleep(258);
-			diceRollHolder[j] = r;
-		}
-
 		int largest = 0;
 		int indexOfLargest;
 		int secondLargest = 0;
@@ -107,6 +99,12 @@ void Character::calculateAbilityScores(int holder[]) {
 		int thirdLargest = 0;
 		int indexOfThirdLargest;
 		int totalOfDice;
+
+		for (int j = 0; j < 4; j++) {
+			int r = rollSixSidedDie();
+			//Sleep(258); for debugging purposes
+			diceRollHolder[j] = r;
+		}
 
 		for (int k = 0; k < 4; k++)  // find the largest 3 dice
 		{
@@ -131,7 +129,7 @@ void Character::calculateAbilityScores(int holder[]) {
 
 		for (int m = 0; m < 4; m++)  // find the third largest
 		{
-			if ((m != indexOfLargest) || (m != indexOfSecondLargest)) // skip over the largest and second largest
+			if ((m != indexOfLargest) && (m != indexOfSecondLargest)) // skip over the largest and second largest
 			{
 				if (diceRollHolder[m] >= thirdLargest)
 				{
@@ -151,8 +149,7 @@ void Character::displayAbilityScores(Character c) {
 	std::cout << "Strength is:" << c.abilityScores[0] << std::endl;
 	std::cout << "Dexterity is:" << c.abilityScores[1] << std::endl;
 	std::cout << "Constitution is:" << c.abilityScores[2] << std::endl;
-	std::cout << "Charisma is:" << c.abilityScores[3] << std::endl;
 	std::cout << "Intelligence is:" << c.abilityScores[4] << std::endl;
 	std::cout << "Wisdom is:" << c.abilityScores[5] << std::endl;
-	return;
+	std::cout << "Charisma is:" << c.abilityScores[3] << std::endl;
 }

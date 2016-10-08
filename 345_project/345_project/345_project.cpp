@@ -6,12 +6,14 @@
 #include "stdafx.h"
 #include "Character.h"
 #include <iostream>
+#include <ctime>
 using namespace std; 
 
 
 
 int main()
 {
+	srand(time(NULL));
 
 	Character fighter = Character();
 	
