@@ -15,6 +15,8 @@ public:
 	int getHitPoints();
 	int rollSixSidedDie();
 	int generateAbilityModifier(int);
+	void calculateAbilityScores(int[]);
+	void displayAbilityScores(Character);
 private:
 	int abilityScores[6];
 	int currentHitPoints;
