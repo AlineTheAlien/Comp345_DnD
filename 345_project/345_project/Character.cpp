@@ -16,6 +16,7 @@ using namespace std;
 
 
 int abilityScores[6];
+int abilityModifiers[6];
 int currentHitPoints;
 int currentLevel = 1;
 
@@ -23,6 +24,7 @@ int currentLevel = 1;
 Character::Character()
 {
 	int abilityHolder[6];
+	int modifierHolder[6];
 
 	calculateAbilityScores(abilityHolder);
 
@@ -38,6 +40,14 @@ Character::Character()
 	abilityScores[4] = abilityHolder[4]; //intelligence
 	abilityScores[5] = abilityHolder[5]; //wisdom
 
+	assignAbilityModifiers(modifierHolder);
+
+	abilityModifiers[0] = modifierHolder[0]; //strength
+	abilityModifiers[1] = modifierHolder[1]; //dexterity
+	abilityModifiers[2] = modifierHolder[2]; //constitution
+	abilityModifiers[3] = modifierHolder[3]; //charisma
+	abilityModifiers[4] = modifierHolder[4]; //intelligence
+	abilityModifiers[5] = modifierHolder[5]; //wisdom
 }
 
 //constructor: passes values to each ability score and set hit points to 10
@@ -82,11 +92,9 @@ int Character::rollSixSidedDie() {
 	return rand() % 6 + 1;
 }
 
-int Character::generateAbilityModifier(int score) {
-	// to get ability modifier, substract 10 from ability score, then divide by 2 (round down)
-	return ((score - 10) / 2);
-}
-
+//Ability scores are calculated by rolling four 6-sided dice,
+//where 3 of the highest rolls are recorded and summed up to a total.
+//This is done for a total of 6 times, where each total is assigned to a character's ability
 void Character::calculateAbilityScores(int holder[]) {
 
 	for (int i = 0; i < 6; i++) {
@@ -144,7 +152,6 @@ void Character::calculateAbilityScores(int holder[]) {
 	}
 }
 
-
 void Character::displayAbilityScores(Character c) {
 	std::cout << "Strength is:" << c.abilityScores[0] << std::endl;
 	std::cout << "Dexterity is:" << c.abilityScores[1] << std::endl;
@@ -153,3 +160,24 @@ void Character::displayAbilityScores(Character c) {
 	std::cout << "Wisdom is:" << c.abilityScores[5] << std::endl;
 	std::cout << "Charisma is:" << c.abilityScores[3] << std::endl;
 }
+
+// to get ability modifier, substract 10 from ability score, then divide by 2 (round down)
+int Character::generateAbilityModifier(int score) {
+	return ((score - 10) / 2);
+}
+
+void Character::assignAbilityModifiers(int holder[]) {
+	for (int i = 0; i < 6; i++) {
+		holder[i] = generateAbilityModifier(abilityScores[i]);
+	}
+}
+
+void Character::displayAbilityModifiers(Character c) {
+	std::cout << "Strength modifier is:" << c.abilityModifiers[0] << std::endl;
+	std::cout << "Dexterity modifier is:" << c.abilityModifiers[1] << std::endl;
+	std::cout << "Constitution modifier is:" << c.abilityModifiers[2] << std::endl;
+	std::cout << "Intelligence modifier is:" << c.abilityModifiers[4] << std::endl;
+	std::cout << "Wisdom modifier is:" << c.abilityModifiers[5] << std::endl;
+	std::cout << "Charisma modifier is:" << c.abilityModifiers[3] << std::endl;
+}
+

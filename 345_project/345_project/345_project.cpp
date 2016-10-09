@@ -7,7 +7,7 @@
 #include "Character.h"
 #include <iostream>
 #include <ctime>
-using namespace std; 
+using namespace std;
 
 
 
@@ -16,13 +16,23 @@ int main()
 	srand(time(NULL));
 
 	Character fighter = Character();
-	
+
 	fighter.displayAbilityScores(fighter);
 
-	std::cout << fighter.rollSixSidedDie();
+	if (fighter.validateNewCharacter()) {
+		std::cout << "\nThis character  is valid!" << endl;
+	}
+	else {
+		std::cout << "\nThis character  is invalid!" << endl;
+	}
 
-	std::cout << "   my first c++ program" << std::endl;
+	fighter.displayAbilityModifiers(fighter);
+
+	// std::cout << fighter.rollSixSidedDie();
+
+	//std::cout << "   my first c++ program" << std::endl;
+
 	getchar();
-    return 0;
+	return 0;
 }
 

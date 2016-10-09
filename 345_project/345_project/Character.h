@@ -17,8 +17,11 @@ public:
 	int generateAbilityModifier(int);
 	void calculateAbilityScores(int[]);
 	void displayAbilityScores(Character);
+	void assignAbilityModifiers(int[]);
+	void displayAbilityModifiers(Character);
 private:
 	int abilityScores[6];
+	int abilityModifiers[6];
 	int currentHitPoints;
 	int currentLevel;
 };
