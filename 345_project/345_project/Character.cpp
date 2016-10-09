@@ -28,11 +28,13 @@ Character::Character()
 
 	calculateAbilityScores(abilityHolder);
 
+	//Sorts the ability scores in descending order
+	//Higher scores will be assigned to abilities with higher priority
 	std::sort(abilityHolder, abilityHolder + 6, std::greater<int>());
 
-	//assign the totals to abilities based on priority
-	//as the game only have fighter class, the highest score is strength
-	//second highest should be dexterity, followed by constitution, charisma, intelligence, and wisdom
+	//Assign the totals to abilities based on priority
+	//As the game only has the fighter class, the highest score is strength
+	//Second highest should be dexterity, followed by constitution, charisma, intelligence, and wisdom
 	abilityScores[0] = abilityHolder[0]; //strength
 	abilityScores[1] = abilityHolder[1]; //dexterity
 	abilityScores[2] = abilityHolder[2]; //constitution
@@ -40,8 +42,10 @@ Character::Character()
 	abilityScores[4] = abilityHolder[4]; //intelligence
 	abilityScores[5] = abilityHolder[5]; //wisdom
 
+	//Calculates ability modifiers based on the characters ability scores
 	assignAbilityModifiers(modifierHolder);
 
+	//Assigns the modifiers with the same priority as listed above
 	abilityModifiers[0] = modifierHolder[0]; //strength
 	abilityModifiers[1] = modifierHolder[1]; //dexterity
 	abilityModifiers[2] = modifierHolder[2]; //constitution
@@ -108,13 +112,18 @@ void Character::calculateAbilityScores(int holder[]) {
 		int indexOfThirdLargest;
 		int totalOfDice;
 
+		//This loop is the action of rolling dice 4 times, where the array diceRollHolder
+		//points to the values of the dice rolls
 		for (int j = 0; j < 4; j++) {
 			int r = rollSixSidedDie();
 			//Sleep(258); for debugging purposes
 			diceRollHolder[j] = r;
 		}
 
-		for (int k = 0; k < 4; k++)  // find the largest 3 dice
+		//The below loops are to find the highest three dice rolls out of the four
+
+		//This loop find the highest dice roll
+		for (int k = 0; k < 4; k++)  
 		{
 			if (diceRollHolder[k] >= largest)
 			{
@@ -123,9 +132,10 @@ void Character::calculateAbilityScores(int holder[]) {
 			}
 		}
 
-		for (int l = 0; l < 4; l++)  // find the second largest
+		//This loop finds the second highest dice roll
+		for (int l = 0; l < 4; l++)  
 		{
-			if (l != indexOfLargest) // skip over the largest one
+			if (l != indexOfLargest) //The largest roll is ignored
 			{
 				if (diceRollHolder[l] >= secondLargest)
 				{
@@ -135,9 +145,10 @@ void Character::calculateAbilityScores(int holder[]) {
 			}
 		}
 
-		for (int m = 0; m < 4; m++)  // find the third largest
+		//This loop finds the third highest dice roll
+		for (int m = 0; m < 4; m++) 
 		{
-			if ((m != indexOfLargest) && (m != indexOfSecondLargest)) // skip over the largest and second largest
+			if ((m != indexOfLargest) && (m != indexOfSecondLargest)) //The largest and second largest rolls are ignored
 			{
 				if (diceRollHolder[m] >= thirdLargest)
 				{
@@ -147,7 +158,9 @@ void Character::calculateAbilityScores(int holder[]) {
 			}
 		}
 
+		//Calculates the total of the top 3 largest dice
 		totalOfDice = largest + secondLargest + thirdLargest;
+		//Assigns that value in the array that is passed as a parameter 
 		holder[i] = totalOfDice;
 	}
 }
@@ -161,11 +174,12 @@ void Character::displayAbilityScores(Character c) {
 	std::cout << "Charisma is:" << c.abilityScores[3] << std::endl;
 }
 
-// to get ability modifier, substract 10 from ability score, then divide by 2 (round down)
+//To get ability modifier, substract 10 from ability score, then divide by 2 (round down)
 int Character::generateAbilityModifier(int score) {
 	return ((score - 10) / 2);
 }
 
+//Calculates the ability modifier for each score in the array that is passed as a parameter
 void Character::assignAbilityModifiers(int holder[]) {
 	for (int i = 0; i < 6; i++) {
 		holder[i] = generateAbilityModifier(abilityScores[i]);

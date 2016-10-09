@@ -10,9 +10,9 @@
 using namespace std;
 
 
-
 int main()
 {
+	//Initializes the seed used for the random dice rolls
 	srand(time(NULL));
 
 	Character fighter = Character();
@@ -28,9 +28,9 @@ int main()
 
 	fighter.displayAbilityModifiers(fighter);
 
-	// std::cout << fighter.rollSixSidedDie();
+	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
 
-	//std::cout << "   my first c++ program" << std::endl;
+	//std::cout << "   my first c++ program" << std::endl; testing purposes
 
 	getchar();
 	return 0;
