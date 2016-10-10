@@ -12,6 +12,7 @@
 #include <iostream>
 #include <conio.h>
 #include <windows.h>
+#include <math.h>
 using namespace std;
 
 
@@ -177,7 +178,7 @@ void Character::displayAbilityScores(Character c) {
 
 //To get ability modifier, substract 10 from ability score, then divide by 2 (round down)
 int Character::generateAbilityModifier(int score) {
-	return ((score - 10) / 2);
+	return floor ((score - 10) / 2); //fix this so it rounds down on the 1.5,3.5
 }
 
 //Calculates the ability modifier for each score in the array that is passed as a parameter

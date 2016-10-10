@@ -20,13 +20,15 @@ int main()
 	fighter.displayAbilityScores(fighter);
 
 	if (fighter.validateNewCharacter()) {
-		std::cout << "\nThis character  is valid!" << endl;
+		std::cout << "\nThis character  is valid!\n\n" << endl;
 	}
 	else {
-		std::cout << "\nThis character  is invalid!" << endl;
+		std::cout << "\nThis character  is invalid!\n\n" << endl;
 	}
 
 	fighter.displayAbilityModifiers(fighter);
+
+	std::cout << fighter.generateAbilityModifier(3);  //for testing purpose, make test case to test the lowest possible dice roll
 
 	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
 
