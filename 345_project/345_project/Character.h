@@ -24,5 +24,6 @@ private:
 	int abilityModifiers[6];
 	int currentHitPoints;
 	int currentLevel;
+	long currentExperiencePoints;
 };
 

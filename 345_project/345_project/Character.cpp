@@ -19,6 +19,7 @@ int abilityScores[6];
 int abilityModifiers[6];
 int currentHitPoints;
 int currentLevel = 1;
+int currentExperiencePoints = 0;
 
 // default constructor
 Character::Character()
