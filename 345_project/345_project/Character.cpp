@@ -178,7 +178,8 @@ void Character::displayAbilityScores(Character c) {
 
 //To get ability modifier, substract 10 from ability score, then divide by 2 (round down)
 int Character::generateAbilityModifier(int score) {
-	return floor ((score - 10) / 2); //fix this so it rounds down on the 1.5,3.5
+	double x = ((score - 10) / 2.0);
+	return floor(x);//fix this so it rounds down on the 1.5,3.5
 }
 
 //Calculates the ability modifier for each score in the array that is passed as a parameter

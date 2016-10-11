@@ -28,7 +28,8 @@ int main()
 
 	fighter.displayAbilityModifiers(fighter);
 
-	std::cout << fighter.generateAbilityModifier(3);  //for testing purpose, make test case to test the lowest possible dice roll
+	std::cout << "\n\nTest ability modifier is:" << fighter.generateAbilityModifier(3);  //for testing purpose, make test case to test the lowest possible dice roll
+
 
 	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
 
