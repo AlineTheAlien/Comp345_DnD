@@ -54,10 +54,16 @@ Character::Character()
 	abilityModifiers[3] = modifierHolder[3]; //charisma
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
+
+	//set hit points as a d10 dice roll summed with the character's calculated  constitution modifier
+	currentHitPoints = rollTenSidedDie() + abilityModifiers[2]; 
 }
 
 //constructor: passes values to each ability score and set hit points to 10
 Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
+	
+	int modifierHolder[6];
+
 	abilityScores[0] = str;
 	abilityScores[1] = dex;
 	abilityScores[2] = con;
@@ -65,8 +71,18 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	abilityScores[4] = wis;
 	abilityScores[5] = cha;
 
-	// and set hit points to 10
-	currentHitPoints = 10;
+	assignAbilityModifiers(modifierHolder);
+
+	abilityModifiers[0] = modifierHolder[0]; //strength
+	abilityModifiers[1] = modifierHolder[1]; //dexterity
+	abilityModifiers[2] = modifierHolder[2]; //constitution
+	abilityModifiers[3] = modifierHolder[3]; //charisma
+	abilityModifiers[4] = modifierHolder[4]; //intelligence
+	abilityModifiers[5] = modifierHolder[5]; //wisdom
+
+	// and set default hit points to 10
+	currentHitPoints = rollTenSidedDie() + abilityModifiers[2];
+
 }
 
 
@@ -96,6 +112,10 @@ int Character::getHitPoints()
 
 int Character::rollSixSidedDie() {
 	return rand() % 6 + 1;
+}
+
+int Character::rollTenSidedDie() {
+	return rand() % 10 + 1;
 }
 
 //Ability scores are calculated by rolling four 6-sided dice,

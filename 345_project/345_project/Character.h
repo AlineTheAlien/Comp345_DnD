@@ -19,6 +19,7 @@ public:
 	void displayAbilityScores(Character);
 	void assignAbilityModifiers(int[]);
 	void displayAbilityModifiers(Character);
+	int rollTenSidedDie();
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];

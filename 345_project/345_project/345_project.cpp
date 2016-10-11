@@ -17,6 +17,12 @@ int main()
 
 	Character fighter = Character();
 
+	Character fighter2 = Character(10, 9, 8, 7, 6, 5);
+
+	fighter.displayAbilityScores(fighter2);
+
+	fighter2.displayAbilityModifiers(fighter2);
+
 	fighter.displayAbilityScores(fighter);
 
 	if (fighter.validateNewCharacter()) {
