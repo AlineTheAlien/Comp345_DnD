@@ -26,5 +26,7 @@ private:
 	int currentHitPoints;
 	int currentLevel;
 	long currentExperiencePoints;
+	int armorClass;
+	int equippedItems[6];
 };
 

@@ -19,8 +19,10 @@ using namespace std;
 int abilityScores[6];
 int abilityModifiers[6];
 int currentHitPoints;
-int currentLevel = 1;
+int currentLevel = 0;
 long currentExperiencePoints = 0;
+int armorClass = 0;
+int equippedItems[6];
 
 // default constructor
 Character::Character()
@@ -55,7 +57,8 @@ Character::Character()
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-	//set hit points as a d10 dice roll summed with the character's calculated  constitution modifier
+	//set hit points as a 1d10 dice roll summed with the character's calculated  constitution modifier
+	//1d10 according to the officical d20 rules
 	currentHitPoints = rollTenSidedDie() + abilityModifiers[2]; 
 }
 
@@ -80,7 +83,8 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-	// and set default hit points to 10
+	//set hit points as a 1d10 dice roll summed with the character's calculated  constitution modifier
+	//1d10 according to the d20 rules
 	currentHitPoints = rollTenSidedDie() + abilityModifiers[2];
 
 }
