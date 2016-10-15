@@ -17,13 +17,9 @@ int main()
 
 	Character fighter = Character();
 
-	Character fighter2 = Character(10, 9, 8, 7, 6, 5);
+	// Character fighter2 = Character(10, 9, 8, 7, 6, 5); testing
 
-	fighter.displayAbilityScores(fighter2);
-
-	fighter2.displayAbilityModifiers(fighter2);
-
-	fighter.displayAbilityScores(fighter);
+	fighter.displayCharacterInfo();
 
 	if (fighter.validateNewCharacter()) {
 		std::cout << "\nThis character  is valid!\n\n" << endl;
@@ -32,14 +28,9 @@ int main()
 		std::cout << "\nThis character  is invalid!\n\n" << endl;
 	}
 
-	fighter.displayAbilityModifiers(fighter);
-
-	std::cout << "\n\nTest ability modifier is:" << fighter.generateAbilityModifier(3);  //for testing purpose, make test case to test the lowest possible dice roll
-
+	// std::cout << "\n\nTest ability modifier is:" << fighter.generateAbilityModifier(3);  for testing purpose, make test case to test the lowest possible dice roll
 
 	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
-
-	//std::cout << "   my first c++ program" << std::endl; testing purposes
 
 	getchar();
 	return 0;
