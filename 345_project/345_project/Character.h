@@ -38,12 +38,6 @@ public:
 	int getAttackBonus();
 	int getDamageBonus();
 	void levelUp();
-	void setArmor(std::string);
-	void setShield(std::string);
-	void setWeapon(std::string);
-	void setBoots(std::string);
-	void setRing(std::string);
-	void setHelmet(std::string);
 	void displayEquipment();
 	std::string getArmor();
 	std::string getShield();

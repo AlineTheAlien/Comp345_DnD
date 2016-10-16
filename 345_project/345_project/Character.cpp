@@ -126,7 +126,7 @@ Character::Character(string prevequip[], int lvl, long exp,  int str, int dex, i
 	armorClass = 11 + abilityModifiers[1];
 
 	//Attack bonus, is based on strength modifier, dexterity modifier, and level
-	attackBonus = abilityModifiers[0] + abilityModifiers[1] ;
+	attackBonus = (abilityModifiers[0] * currentLevel) + abilityModifiers[1];
 
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
@@ -268,12 +268,6 @@ string Character::getRing() {
 string Character::getHelmet() {
 	return equippedItems[5];
 }
-
-void Character::setArmor(string arm) {
-	equippedItems[0] = arm;
-	return;
-}
-
 
 //! Damage recieved by character
 //! @param damage: damage sustained by the character
