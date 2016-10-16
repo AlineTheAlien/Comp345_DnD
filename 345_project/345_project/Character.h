@@ -3,13 +3,14 @@
 //!
 
 #pragma once
+#include <string>
 
 //! Class that implements a character 
 class Character
 {
 public:
 	Character();
-	Character(int, int, int, int, int, int);
+	Character(std::string[], int, long, int, int, int, int, int, int);
 	bool validateNewCharacter();
 	void getDamaged(int);
 	int getHitPoints();
@@ -37,6 +38,21 @@ public:
 	int getAttackBonus();
 	int getDamageBonus();
 	void levelUp();
+	void setArmor(std::string);
+	void setShield(std::string);
+	void setWeapon(std::string);
+	void setBoots(std::string);
+	void setRing(std::string);
+	void setHelmet(std::string);
+	void displayEquipment();
+	std::string getArmor();
+	std::string getShield();
+	std::string getWeapon();
+	std::string getBoots();
+	std::string getRing();
+	std::string getHelmet();
+
+
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];
@@ -44,7 +60,7 @@ private:
 	int currentLevel;
 	long currentExperiencePoints;
 	int armorClass;
-	int equippedItems[6];
+	std::string equippedItems[6];
 	int attackBonus;
 	int damageBonus;
 };

@@ -13,7 +13,10 @@
 #include <conio.h>
 #include <windows.h>
 #include <math.h>
+#include <string>
 using namespace std;
+using std::string;
+
 
 
 int abilityScores[6];
@@ -22,10 +25,12 @@ int currentHitPoints;
 int currentLevel;
 long currentExperiencePoints;
 int armorClass;
-int equippedItems[6];
+//equipped items is an array that holds objects of type Item (is implementted in partner's assignment)
+string equippedItems[6];//in the future, will be of type Item, not string. string only for demonstration purposes
 int attackBonus;
 
 // default constructor
+//used for the first time a certain character is created
 Character::Character()
 {
 	int abilityHolder[6];
@@ -62,9 +67,8 @@ Character::Character()
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-	//set hit points as a 1d10 dice roll summed with the character's calculated  constitution modifier
-	//1d10 according to the officical d20 rules
-	currentHitPoints = rollTenSidedDie() + abilityModifiers[2]; 
+	//set hit points as 10 summed with the character's calculated  constitution modifier
+	currentHitPoints = 10 + abilityModifiers[2]; 
 
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
@@ -77,12 +81,25 @@ Character::Character()
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
 
+	//No equipped items because a new character does not have equipped items
+	equippedItems[0] = "None";
+	equippedItems[1] = "None";
+	equippedItems[2] = "None";
+	equippedItems[3] = "None";
+	equippedItems[4] = "None";
+	equippedItems[5] = "None";
 }
 
-//constructor: passes values to each ability score and set hit points to 10
-Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
+//constructor: passes values to level and to each ability score
+//Used when a character needs to be recreated for a new map
+//In the future, prevequip will be an array or vector holding the characters Item equipment (objects), if any
+//In this case, I am using string array for demonstration purposes only
+Character::Character(string prevequip[], int lvl, long exp,  int str, int dex, int con, int intel, int wis, int cha) {
 	
 	int modifierHolder[6];
+
+	currentLevel = lvl;
+	currentExperiencePoints = exp;
 
 	abilityScores[0] = str; //strength
 	abilityScores[1] = dex; //dexterity
@@ -102,17 +119,26 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 
 	//set hit points as a 1d10 dice roll summed with the character's calculated  constitution modifier
 	//1d10 according to the d20 rules
-	currentHitPoints = rollTenSidedDie() + abilityModifiers[2];
+	currentHitPoints = (rollTenSidedDie() * currentLevel) + abilityModifiers[2];
 
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
 	armorClass = 11 + abilityModifiers[1];
 
 	//Attack bonus, is based on strength modifier, dexterity modifier, and level
-	attackBonus = abilityModifiers[0] + abilityModifiers[1];
+	attackBonus = abilityModifiers[0] + abilityModifiers[1] ;
 
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
+
+	//For demonstration, equipped items will be initialized with strings
+	equippedItems[0] = prevequip[0];
+	equippedItems[1] = prevequip[1];
+	equippedItems[2] = prevequip[2];
+	equippedItems[3] = prevequip[3];
+	equippedItems[4] = prevequip[4];
+	equippedItems[5] = prevequip[5];
+
 }
 
 
@@ -218,6 +244,36 @@ int Character::getHitPoints()
 {
 	return currentHitPoints;
 }
+
+string Character::getArmor() {
+	return equippedItems[0];
+}
+
+string Character::getShield() {
+	return equippedItems[1];
+}
+
+string Character::getWeapon() {
+	return equippedItems[2];
+}
+
+string Character::getBoots() {
+	return equippedItems[3];
+}
+
+string Character::getRing() {
+	return equippedItems[4];
+}
+
+string Character::getHelmet() {
+	return equippedItems[5];
+}
+
+void Character::setArmor(string arm) {
+	equippedItems[0] = arm;
+	return;
+}
+
 
 //! Damage recieved by character
 //! @param damage: damage sustained by the character
@@ -345,6 +401,13 @@ void Character::displayCharacterInfo() {
 	std::cout << "\nCurrent Armor Class is: " << getArmorClass() << std::endl;
 	std::cout << "\nCurrent Attack Bonus is: " << getAttackBonus() << std::endl;
 	std::cout << "\nCurrent Damage Bonus is: " << getDamageBonus() << std::endl;
+}
 
-
+void Character::displayEquipment() {
+	std::cout << "\nArmor worn is : " << getArmor() << std::endl;
+	std::cout << "Shield equipped is : " << getShield() << std::endl;
+	std::cout << "Weapon equipped is : " << getWeapon() << std::endl;
+	std::cout << "Boots worn are : " << getBoots() << std::endl;
+	std::cout << "Ring equipped is : " << getRing() << std::endl;
+	std::cout << "Helmet worn is : " << getHelmet() << std::endl;
 }
