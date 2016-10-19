@@ -45,8 +45,7 @@ public:
 	std::string getBoots();
 	std::string getRing();
 	std::string getHelmet();
-
-
+	bool validateAbilityModifiers();
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];

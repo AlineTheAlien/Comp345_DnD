@@ -152,6 +152,17 @@ bool Character::validateNewCharacter()
 	return true;
 }
 
+//! Implementation of the verification of a newly created Character's ability modifiers
+//! @return bool value, true of the character is valid (modifiers should be in the -4 to +4 range for a new character), false if invalid. 
+bool Character::validateAbilityModifiers()
+{
+	for (int i = 0; i <= 5; i++)
+		if (abilityModifiers[i] < -4 || abilityModifiers[i] > 4)
+			return false;
+	return true;
+}
+
+
 //All character attributes accessors
 int Character::getStrengthScore()
 {
