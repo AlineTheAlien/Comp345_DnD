@@ -17,10 +17,10 @@ using namespace CppUnit;
 using namespace std;
 
 
-//! test case registration
+//! Test case registration
 CPPUNIT_TEST_SUITE_REGISTRATION(CharacterTest);
 
-//! test method to test the validateNewCharacter() method of the Character class 
+//! Test method to test the validateNewCharacter() method of the Character class 
 //! Test Case: a valid newly created character should have all its ability scores in the [3-18] range
 //! Tested item: Character::validateNewCharacter()
 void CharacterTest::testValidNewCharacter()
@@ -38,7 +38,6 @@ void CharacterTest::testInvalidNewCharacter()
 	CPPUNIT_ASSERT(conan->validateNewCharacter() == false);
 }
 
-
 //! test method to test the hit() method of the Map class 
 //! Test Case: a character that has been hit(x) should have its hit points reduced by x 
 //! Tested item: Character::hit()
@@ -49,9 +48,9 @@ void CharacterTest::testHit()
 	CPPUNIT_ASSERT(conan->getHitPoints() == 7);
 }
 
-
-// Test case to ensure that if dice rolls for ability scores were 1, 1, 1, and 1, summing up the highest 3 to a total of 3 
-// that the odd negative ability modifier associated to it is rounded down instead of up
+//! Test case to ensure that if dice rolls for ability scores were 1, 1, 1, and 1, summing up the highest 3 to a total of 3, that the odd negative ability modifier associated to it is rounded down instead of up.
+//! Test Case: A correct ability modifier associated with the lowest possible dice rolls must be -4
+//! Tested item: Character::generateAbilityModifiers()
 void CharacterTest::testLowestDiceRolls()
 {
 	Character *fighter = new Character();
@@ -59,8 +58,9 @@ void CharacterTest::testLowestDiceRolls()
 	CPPUNIT_ASSERT(test == -4);
 }
 
-// Test case to ensure that if dice rolls for ability scores were 6, 6, 6, and 1-6, summing up the highest 3 to a total of 18 
-// that the ability modifier associated to it is 14
+//! Test case to ensure that if dice rolls for ability scores were 6, 6, 6, and 1-6, summing up the highest 3 to a total of 18, the ability modifier associated to it is 4.
+//! Test Case: A correct ability modifier associated with the highest possible dice rolls must be 4
+//! Tested item: Character::generateAbilityModifiers()
 void CharacterTest::testHighestDiceRolls()
 {
 	Character *fighter = new Character();
@@ -68,6 +68,9 @@ void CharacterTest::testHighestDiceRolls()
 	CPPUNIT_ASSERT(test == 4);
 }
 
+//! Test case to ensure that the ability modifiers are in the correct range, for the default constructor
+//! Test Case: A correct ability modifier should have all of its scores in the [-4, 4] range
+//! Tested item: Character::validateAbilityModifiers()
 void CharacterTest::testAbilityModifier()
 {
 	Character *fighter = new Character();

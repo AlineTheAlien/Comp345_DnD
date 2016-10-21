@@ -1,7 +1,5 @@
-// 345_project.cpp : Defines the entry point for the console application.
-// hello
-// hello!!!!!!
-//
+//! @file 
+//! @brief Entry point for the console application
 
 #include "stdafx.h"
 #include "Character.h"
@@ -10,12 +8,13 @@
 #include <string>
 using namespace std;
 
-/*
+
 int main()
 {
 	//Initializes the seed used for the random dice rolls
 	srand(time(NULL));
 
+	//Displaying default constructor...
 	Character fighter = Character();
 	fighter.displayCharacterInfo();
 	fighter.displayEquipment();
@@ -27,9 +26,7 @@ int main()
 		std::cout << "\nThis character  is invalid!\n\n" << endl;
 	}
 
-	// std::cout << "\n\nTest ability modifier is:" << fighter.generateAbilityModifier(3);  for testing purpose, make test case to test the lowest possible dice roll
-	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
-
+	//Displaying nondefault constructor...
 	Character fighter2 = Character(17, 16, 13, 9, 9, 10);
 	fighter2.displayCharacterInfo();
 	fighter2.displayEquipment();
@@ -45,8 +42,10 @@ int main()
 	return 0;
 }
 
-*/
+//All code below this is the main function to run the test cases
+//Code should be uncommented to be executed, and the driver's main function should be commented
 
+/*
 
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -78,3 +77,5 @@ int main(int argc, char* argv[])
 	// Return error code 1 if the one of test failed.
 	return wasSucessful ? 0 : 1;
 }
+
+*/

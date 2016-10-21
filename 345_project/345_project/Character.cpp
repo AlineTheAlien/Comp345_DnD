@@ -1,6 +1,7 @@
 //! @file 
 //! @brief Implementation file for the Character class  
-//! Assuming the character is a fighter 
+//!  
+//! Assumes that Character is of fighter type
 //!
 
 #include "stdafx.h" 
@@ -142,7 +143,7 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 }
 
 //! Implementation of the verification of a newly created Character
-//! @return bool value, true of the character is valid (stats should be in the 3-18 range for a new character), false if invalid. 
+//! @return bool value, true ff the character is valid (stats should be in the 3-18 range for a new character), false if invalid. 
 bool Character::validateNewCharacter()
 {
 	for (int i = 0; i <= 5; i++)
@@ -152,7 +153,7 @@ bool Character::validateNewCharacter()
 }
 
 //! Implementation of the verification of a newly created Character's ability modifiers
-//! @return bool value, true of the character is valid (modifiers should be in the -4 to +4 range for a new character), false if invalid. 
+//! @return bool value, true if the character is valid (modifiers should be in the -4 to +4 range for a new character), false if invalid. 
 bool Character::validateAbilityModifiers()
 {
 	for (int i = 0; i <= 5; i++)
@@ -184,7 +185,7 @@ int Character::getConstitutionScore()
 }
 
 //! Accessor method for charisma score attribute
-//! @return int value, the value of the charisma ability score
+//! @return int value: the value of the charisma ability score
 int Character::getCharismaScore()
 {
 	return abilityScores[3];
@@ -266,45 +267,59 @@ int Character::getArmorClass()
 	return armorClass;
 }
 
-//! Accessor method for strength score modifier
-//! @return int value, the value of the strength modifier
+//! Accessor method for attack bonus
+//! @return int value: the value of the character's attack bonus
 int Character::getAttackBonus()
 {
 	return attackBonus;
 }
 
+//! Accessor method for damage bonus
+//! @return int value, the value of the character's damage bonus
 int Character::getDamageBonus()
 {
 	return damageBonus;
 }
 
 //! Implementation of a getter method for currentHitPoints
-//! @return int: value of currentHitPoints
+//! @return int, value of currentHitPoints
 int Character::getHitPoints()
 {
 	return currentHitPoints;
 }
 
+//! Accessor method for armor, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped armor
 string Character::getArmor() {
 	return myArmor;
 }
 
+//! Accessor method for shield, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped shield
 string Character::getShield() {
 	return myShield;
 }
 
+//! Accessor method for weapon, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped weapon
 string Character::getWeapon() {
 	return myWeapon;
 }
 
+//! Accessor method for boots, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped boots
 string Character::getBoots() {
 	return myBoots;
 }
 
+//! Accessor method for ring, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped ring
 string Character::getRing() {
 	return myRing;
 }
 
+//! Accessor method for helmet, note that this will be modified when items will be implemented
+//! @return string value, the value of the character's equipped helmet
 string Character::getHelmet() {
 	return myHelmet;
 }
@@ -316,23 +331,26 @@ void Character::getDamaged(int damage)
 	currentHitPoints = currentHitPoints - damage;
 }
 
+//! Implementation that incrememnts level by one to show that character has leveled up
 void Character::levelUp() {
-	currentLevel = currentLevel++;
-
+	currentLevel++;
 }
 
-//In the future, roll dice functions of the Dice class will be used
+//! Randomizer function that simulates a dice roll of values between 1 and 6
+//! @return int value, the value of the random dice roll between 1 and 6
 int Character::rollSixSidedDie() {
 	return rand() % 6 + 1;
 }
 
+//! Randomizer function that simulates a dice roll of values between 1 and 10
+//! @return int value, the value of the random dice roll between 1 and 10
 int Character::rollTenSidedDie() {
 	return rand() % 10 + 1;
 }
 
-//Ability scores are calculated by rolling four 6-sided dice,
-//where 3 of the highest rolls are recorded and summed up to a total.
+//Ability scores are calculated by rolling four 6-sided dice, where 3 of the highest rolls are summed up to a total
 //This is done for a total of 6 times, where each total is assigned to a character's ability
+//! Implementation of ability score calculator
 void Character::calculateAbilityScores(int holder[]) {
 
 	for (int i = 0; i < 6; i++) {
@@ -399,20 +417,23 @@ void Character::calculateAbilityScores(int holder[]) {
 	}
 }
 
-//To get ability modifier, substract 10 from ability score, then divide by 2 (round down)
+//! Implementation for an ability modifier calculator
+//! @param score: ability score for the certain attribute
+//! @return int value, the value of the corresponding ability modifier
 int Character::generateAbilityModifier(int score) {
 	double x = ((score - 10) / 2.0);
 	return floor(x);//fix this so it rounds down on the 1.5,3.5
 }
 
-//Calculates the ability modifier for each score in the array that is passed as a parameter
+//! Implementation to assign ability modifiers to the modifiers array
+//! @param holder: array that will be passed in this function
 void Character::assignAbilityModifiers(int holder[]) {
 	for (int i = 0; i < 6; i++) {
 		holder[i] = generateAbilityModifier(abilityScores[i]);
 	}
 }
 
-
+//! Function to display character information
 void Character::displayCharacterInfo() {
 	std::cout << "************CHARACTER INFO!************\n\n"  << std::endl;
 
@@ -438,6 +459,7 @@ void Character::displayCharacterInfo() {
 	std::cout << "\nCurrent Damage Bonus is: " << getDamageBonus() << std::endl;
 }
 
+//! Function that displays character's current equipment
 void Character::displayEquipment() {
 	std::cout << "\nArmor worn is : " << getArmor() << std::endl;
 	std::cout << "Shield equipped is : " << getShield() << std::endl;
