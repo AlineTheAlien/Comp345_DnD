@@ -10,7 +10,7 @@ class Character
 {
 public:
 	Character();
-	Character(std::string[], int, long, int, int, int, int, int, int);
+	Character(int, int, int, int, int, int);
 	bool validateNewCharacter();
 	void getDamaged(int);
 	int getHitPoints();
@@ -53,8 +53,13 @@ private:
 	int currentLevel;
 	long currentExperiencePoints;
 	int armorClass;
-	std::string equippedItems[6];
 	int attackBonus;
 	int damageBonus;
+	std::string myArmor;
+	std::string myShied;
+	std::string myWeapon;
+	std::string myBoots;
+	std::string myRing;
+	std::string myHelmet;
 };
 

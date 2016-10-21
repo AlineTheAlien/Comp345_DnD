@@ -30,8 +30,7 @@ int main()
 	// std::cout << "\n\nTest ability modifier is:" << fighter.generateAbilityModifier(3);  for testing purpose, make test case to test the lowest possible dice roll
 	// std::cout << fighter.rollSixSidedDie(); debbugging purposes
 
-	string equips[6] = { "Heavy Armor", "Silver Shield", "Crystal Longsword", "Leather Boots", "Saphire Ring", "Brass Helmet" };
-	Character fighter2 = Character(equips, 5, 500, 17, 16, 13, 9, 9, 10);
+	Character fighter2 = Character(17, 16, 13, 9, 9, 10);
 	fighter2.displayCharacterInfo();
 	fighter2.displayEquipment();
 
@@ -45,7 +44,9 @@ int main()
 	getchar();
 	return 0;
 }
+
 */
+
 
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>

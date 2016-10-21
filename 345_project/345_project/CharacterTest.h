@@ -19,16 +19,16 @@ class CharacterTest : public CppUnit::TestFixture
 	CPPUNIT_TEST_SUITE(CharacterTest);
 	CPPUNIT_TEST(testValidNewCharacter);
 	CPPUNIT_TEST(testInvalidNewCharacter);
-	//CPPUNIT_TEST(testHit);
-	//CPPUNIT_TEST(testLowestDiceRolls);
-	//CPPUNIT_TEST(testHighestDiceRolls);
-	//CPPUNIT_TEST(testAbilityModifier);
+	CPPUNIT_TEST(testHit);
+	CPPUNIT_TEST(testLowestDiceRolls);
+	CPPUNIT_TEST(testHighestDiceRolls);
+	CPPUNIT_TEST(testAbilityModifier);
 	CPPUNIT_TEST_SUITE_END();
 protected:
 	void testValidNewCharacter();
 	void testInvalidNewCharacter();
-	//void testHit();
-	//void testLowestDiceRolls();
-	//void testHighestDiceRolls();
-	//void testAbilityModifier();
+	void testHit();
+	void testLowestDiceRolls();
+	void testHighestDiceRolls();
+	void testAbilityModifier();
 };

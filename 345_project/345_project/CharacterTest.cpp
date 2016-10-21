@@ -25,8 +25,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(CharacterTest);
 //! Tested item: Character::validateNewCharacter()
 void CharacterTest::testValidNewCharacter()
 {
-	string items[6] = { "none", "none", "none", "none", "none", "none" };
-	Character *conan = new Character(items, 5, 100, 12, 12, 12, 12, 12, 12);
+	Character *conan = new Character(12, 12, 12, 12, 12, 12);
 	CPPUNIT_ASSERT(conan->validateNewCharacter());
 }
 
@@ -35,29 +34,28 @@ void CharacterTest::testValidNewCharacter()
 //! Tested item: Character::validateNewCharacter()
 void CharacterTest::testInvalidNewCharacter()
 {
-	string items[6] = { "none", "none", "none", "none", "none", "none" };
-	Character *conan = new Character(items, 5, 100, 20, 12, 12, 12, 12, 12);
+	Character *conan = new Character(20, 12, 12, 12, 12, 12);
 	CPPUNIT_ASSERT(conan->validateNewCharacter() == false);
 }
 
-/*
+
 //! test method to test the hit() method of the Map class 
 //! Test Case: a character that has been hit(x) should have its hit points reduced by x 
 //! Tested item: Character::hit()
 void CharacterTest::testHit()
 {
-	string items[6] = { "none", "none", "none", "none", "none", "none" };
-	Character *conan = new Character(items, 5, 100, 12, 12, 12, 12, 12, 12);
+	Character *conan = new Character(12, 12, 12, 12, 12, 12);
 	conan->getDamaged(4);
-	CPPUNIT_ASSERT(conan->getHitPoints() == 6);
+	CPPUNIT_ASSERT(conan->getHitPoints() == 7);
 }
+
 
 // Test case to ensure that if dice rolls for ability scores were 1, 1, 1, and 1, summing up the highest 3 to a total of 3 
 // that the odd negative ability modifier associated to it is rounded down instead of up
 void CharacterTest::testLowestDiceRolls()
 {
-	Character fighter = Character();
-	int test = fighter.generateAbilityModifier(3);
+	Character *fighter = new Character();
+	int test = fighter->generateAbilityModifier(3);
 	CPPUNIT_ASSERT(test == -4);
 }
 
@@ -65,15 +63,13 @@ void CharacterTest::testLowestDiceRolls()
 // that the ability modifier associated to it is 14
 void CharacterTest::testHighestDiceRolls()
 {
-	Character fighter = Character();
-	int test = fighter.generateAbilityModifier(18);
-	CPPUNIT_ASSERT(test == 14);
+	Character *fighter = new Character();
+	int test = fighter->generateAbilityModifier(18);
+	CPPUNIT_ASSERT(test == 4);
 }
 
 void CharacterTest::testAbilityModifier()
 {
-	Character *conan = new Character();
-	CPPUNIT_ASSERT(conan->validateAbilityModifiers());
+	Character *fighter = new Character();
+	CPPUNIT_ASSERT(fighter->validateAbilityModifiers());
 }
-
-*/

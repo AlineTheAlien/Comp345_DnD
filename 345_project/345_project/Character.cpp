@@ -1,5 +1,6 @@
 //! @file 
 //! @brief Implementation file for the Character class  
+//! Assuming the character is a fighter 
 //!
 
 #include "stdafx.h" 
@@ -17,20 +18,23 @@
 using namespace std;
 using std::string;
 
-
-
 int abilityScores[6];
 int abilityModifiers[6];
 int currentHitPoints;
 int currentLevel;
 long currentExperiencePoints;
 int armorClass;
-//equipped items is an array that holds objects of type Item (is implementted in partner's assignment)
-string equippedItems[6];//in the future, will be of type Item, not string. string only for demonstration purposes
+//The items equipped in the future will be objects of type Item (is implemented in partner's assignment)
+//in the future, will be of type Item, not string. string only for demonstration purposes
+string myArmor;
+string myShield;
+string myWeapon;
+string myBoots;
+string myRing;
+string myHelmet;
 int attackBonus;
 
-// default constructor
-//used for the first time a certain character is created
+//! Default constructor for a fighter character
 Character::Character()
 {
 	int abilityHolder[6];
@@ -44,7 +48,7 @@ Character::Character()
 
 	//Sorts the ability scores in descending order
 	//Higher scores will be assigned to abilities with higher priority
-	std::sort(abilityHolder, abilityHolder + 6, std::greater<int>());
+	sort(abilityHolder, abilityHolder + 6, greater<int>());
 
 	//Assign the totals to abilities based on priority
 	//As the game only has the fighter class, the highest score is strength
@@ -82,24 +86,22 @@ Character::Character()
 	damageBonus = abilityModifiers[0];
 
 	//No equipped items because a new character does not have equipped items
-	equippedItems[0] = "None";
-	equippedItems[1] = "None";
-	equippedItems[2] = "None";
-	equippedItems[3] = "None";
-	equippedItems[4] = "None";
-	equippedItems[5] = "None";
+	myArmor = "None";
+	myShield = "None";
+	myWeapon = "None";
+	myBoots = "None";
+	myRing = "None";
+	myHelmet = "None";
 }
 
-//constructor: passes values to level and to each ability score
-//Used when a character needs to be recreated for a new map
-//In the future, prevequip will be an array or vector holding the characters Item equipment (objects), if any
-//In this case, I am using string array for demonstration purposes only
-Character::Character(string prevequip[], int lvl, long exp,  int str, int dex, int con, int intel, int wis, int cha) {
+//! Constructor: passes values to each ability score
+//! @param str: strength score, dex: dexterity score, con: constitution score, intel: intelligence score, wis: wisdom score, cha: charisma score
+Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	
 	int modifierHolder[6];
 
-	currentLevel = lvl;
-	currentExperiencePoints = exp;
+	currentLevel = 0;
+	currentExperiencePoints = 0;
 
 	abilityScores[0] = str; //strength
 	abilityScores[1] = dex; //dexterity
@@ -117,30 +119,27 @@ Character::Character(string prevequip[], int lvl, long exp,  int str, int dex, i
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-	//set hit points as a 1d10 dice roll summed with the character's calculated  constitution modifier
-	//1d10 according to the d20 rules
-	currentHitPoints = (rollTenSidedDie() * currentLevel) + abilityModifiers[2];
+	currentHitPoints = 10 + abilityModifiers[2];
 
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
 	armorClass = 11 + abilityModifiers[1];
 
 	//Attack bonus, is based on strength modifier, dexterity modifier, and level
-	attackBonus = (abilityModifiers[0] * currentLevel) + abilityModifiers[1];
+	attackBonus = abilityModifiers[0] + abilityModifiers[1];
 
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
 
 	//For demonstration, equipped items will be initialized with strings
-	equippedItems[0] = prevequip[0];
-	equippedItems[1] = prevequip[1];
-	equippedItems[2] = prevequip[2];
-	equippedItems[3] = prevequip[3];
-	equippedItems[4] = prevequip[4];
-	equippedItems[5] = prevequip[5];
+	myArmor = "None";
+	myShield = "None";
+	myWeapon = "None";
+	myBoots = "None";
+	myRing = "None";
+	myHelmet = "None";
 
 }
-
 
 //! Implementation of the verification of a newly created Character
 //! @return bool value, true of the character is valid (stats should be in the 3-18 range for a new character), false if invalid. 
@@ -163,82 +162,112 @@ bool Character::validateAbilityModifiers()
 }
 
 
-//All character attributes accessors
+//! Accessor method for strength score attribute
+//! @return int value, the value of the strength ability score
 int Character::getStrengthScore()
 {
 	return abilityScores[0];
 }
 
+//! Accessor method for dexterity score attribute
+//! @return int value, the value of the dexterity ability score
 int Character::getDexterityScore()
 {
 	return abilityScores[1];
 }
 
+//! Accessor method for constitution score attribute
+//! @return int value, the value of the constitution ability score
 int Character::getConstitutionScore()
 {
 	return abilityScores[2];
 }
 
+//! Accessor method for charisma score attribute
+//! @return int value, the value of the charisma ability score
 int Character::getCharismaScore()
 {
 	return abilityScores[3];
 }
 
+//! Accessor method for intelligence score attribute
+//! @return int value, the value of the intelligence ability score
 int Character::getIntelligenceScore()
 {
 	return abilityScores[4];
 }
 
+//! Accessor method for wisdom score attribute
+//! @return int value, the value of the wisdom ability score
 int Character::getWisdomScore()
 {
 	return abilityScores[5];
 }
 
+//! Accessor method for strength score modifier
+//! @return int value, the value of the strength modifier
 int Character::getStrengthModifier()
 {
 	return abilityModifiers[0];
 }
 
+//! Accessor method for dexterity score modifier
+//! @return int value, the value of the dexterity modifier
 int Character::getDexterityModifier()
 {
 	return abilityModifiers[1];
 }
-
+//! Accessor method for constitution score modifier
+//! @return int value, the value of the constitution modifier
 int Character::getConstitutionModifier()
 {
 	return abilityModifiers[2];
 }
 
+//! Accessor method for charisma score modifier
+//! @return int value, the value of the charisma modifier
 int Character::getCharismaModifier()
 {
 	return abilityModifiers[3];
 }
 
+//! Accessor method for intelligence score modifier
+//! @return int value, the value of the intelligence modifier
 int Character::getIntelligenceModifier()
 {
 	return abilityModifiers[4];
 }
 
+//! Accessor method for wisdom score modifier
+//! @return int value, the value of the wisdom modifier
 int Character::getWisdomModifier()
 {
 	return abilityModifiers[5];
 }
 
+//! Accessor method for character's current level
+//! @return int value, the value of the character's level
 int Character::getCurrentLevel()
 {
 	return currentLevel;
 }
 
+//! Accessor method for experience points 
+//! @return int value, the value of character's current experience points
 int Character::getCurrentExperiencePoints()
 {
 	return currentExperiencePoints;
 }
 
+//! Accessor method for character's armor class 
+//! @return int value, the value of the character's armor class
 int Character::getArmorClass()
 {
 	return armorClass;
 }
 
+//! Accessor method for strength score modifier
+//! @return int value, the value of the strength modifier
 int Character::getAttackBonus()
 {
 	return attackBonus;
@@ -257,27 +286,27 @@ int Character::getHitPoints()
 }
 
 string Character::getArmor() {
-	return equippedItems[0];
+	return myArmor;
 }
 
 string Character::getShield() {
-	return equippedItems[1];
+	return myShield;
 }
 
 string Character::getWeapon() {
-	return equippedItems[2];
+	return myWeapon;
 }
 
 string Character::getBoots() {
-	return equippedItems[3];
+	return myBoots;
 }
 
 string Character::getRing() {
-	return equippedItems[4];
+	return myRing;
 }
 
 string Character::getHelmet() {
-	return equippedItems[5];
+	return myHelmet;
 }
 
 //! Damage recieved by character
@@ -289,6 +318,7 @@ void Character::getDamaged(int damage)
 
 void Character::levelUp() {
 	currentLevel = currentLevel++;
+
 }
 
 //In the future, roll dice functions of the Dice class will be used
