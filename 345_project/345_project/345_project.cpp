@@ -9,6 +9,8 @@
 using namespace std;
 
 
+/*
+
 int main()
 {
 	//Initializes the seed used for the random dice rolls
@@ -42,10 +44,11 @@ int main()
 	return 0;
 }
 
+*/
 //All code below this is the main function to run the test cases
 //Code should be uncommented to be executed, and the driver's main function should be commented
 
-/*
+
 
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
@@ -78,4 +81,3 @@ int main(int argc, char* argv[])
 	return wasSucessful ? 0 : 1;
 }
 
-*/
