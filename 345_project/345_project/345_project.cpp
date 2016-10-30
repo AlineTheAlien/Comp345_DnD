@@ -7,6 +7,7 @@
 #include <ctime>
 #include <string>
 using namespace std;
+#include "HealthBar.h"
 #include "SFML/Graphics.hpp"
 
 #include <cppunit/CompilerOutputter.h>
@@ -16,43 +17,54 @@ using namespace std;
 
 int main()
 {
-	sf::RenderWindow renderWindow(sf::VideoMode(600, 600), "Kirby practice");
+
+
+	//Initializes the seed used for the random dice rolls
+	std::srand(time(NULL));
+
+	sf::RenderWindow window(sf::VideoMode(900, 900), "Kirby practice");
+
+	window.setFramerateLimit(60);
+	window.setVerticalSyncEnabled(true);
 
 	sf::Texture background;
 	if (!background.loadFromFile("Floor.png")) {
-		renderWindow.close();
+		window.close();
 	}
 	background.setRepeated(true); // repeat tile over sprite height
 
 	sf::Texture kirby;
 	if (!kirby.loadFromFile("Kirby.png")) {
-		renderWindow.close();
+		window.close();
 	}
 
 	sf::Sprite bg(background);
 	bg.setPosition(0, 0);
 	bg.setTexture(background);
-	bg.setTextureRect(sf::IntRect(0, 0, 600, 600));
+	bg.setTextureRect(sf::IntRect(0, 0, 900, 900));
 
 	sf::Sprite sprite(kirby);
 	sprite.setPosition(0, 0);
 
+	//Keeo this commented until i integrate character creation with the display
+	//HealthBar healthbar(window);
 
-	while (renderWindow.isOpen()) {
+
+	while (window.isOpen()) {
 		sf::Event event;
 
-		while (renderWindow.pollEvent(event)) {
+		while (window.pollEvent(event)) {
 			if (event.type == sf::Event::EventType::Closed)
 			{
-				renderWindow.close();
+				window.close();
 			}
 
 			if (event.type == sf::Event::EventType::KeyPressed)
 			{
 				// Event driven input handling
-				if (event.key.code == sf::Keyboard::Left)
-					sprite.move(-30, 0); //Relative transform
-				if (event.key.code == sf::Keyboard::Right)
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+					sprite.move(-30, 0);
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 					sprite.move(30, 0);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 					sprite.move(0, -30);
@@ -62,19 +74,19 @@ int main()
 		}
 		// Polled input handling -- mouse coordinates are in screen space, not window space
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(
-				renderWindow)));//Absolute transform
+			sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
 
-		renderWindow.clear(sf::Color::White);
-		renderWindow.draw(bg);
-		renderWindow.draw(sprite);
-		renderWindow.display();
+		//HealthBar(&window); dunno what to do here
+		//window.display();
+
+		window.clear(sf::Color::White);
+		window.draw(bg);
+		window.draw(sprite);
+		window.display();
+
 
 	}
 
-
-	//Initializes the seed used for the random dice rolls
-	std::srand(time(NULL));
 
 	//Displaying default constructor...
 	Character fighter = Character();
