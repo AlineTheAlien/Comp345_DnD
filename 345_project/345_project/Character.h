@@ -40,6 +40,7 @@ public:
 	bool validateNewCharacter();
 	void getDamaged(int);
 	int getHitPoints();
+	int getMaxHitPoints();
 	int rollSixSidedDie();
 	int generateAbilityModifier(int);
 	void calculateAbilityScores(int[]);
@@ -76,6 +77,7 @@ private:
 	int abilityScores[6];
 	int abilityModifiers[6];
 	int currentHitPoints;
+	int maxHitPoints;
 	int currentLevel;
 	long currentExperiencePoints;
 	int armorClass;

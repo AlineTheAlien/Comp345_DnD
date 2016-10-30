@@ -14,9 +14,9 @@ HealthBar::HealthBar(sf::RenderWindow &window, Character &cr)
 	}
 
 	//Create Hello World text objecct using our font and size 128pt
-	sf::Text text("40/100", font, 100);
+	sf::Text text("HP Goes here", font, 100);
 
-	text.setString("Hehehehe");
+	text.setString(std::to_string(cr.getHitPoints()) + "/" + std::to_string(cr.getMaxHitPoints()));
 
 	sf::FloatRect bounds(text.getLocalBounds());
 
@@ -43,4 +43,10 @@ HealthBar::HealthBar(sf::RenderWindow &window, Character &cr)
 	}
 }
 
-HealthBar::~HealthBar() {}
+HealthBar::HealthBar() {
+
+}
+
+HealthBar::~HealthBar() {
+
+}

@@ -22,6 +22,7 @@ using std::string;
 int abilityScores[6];
 int abilityModifiers[6];
 int currentHitPoints;
+int maxHitPoints;
 int currentLevel;
 long currentExperiencePoints;
 int armorClass;
@@ -75,6 +76,9 @@ Character::Character()
 	//set hit points as 10 summed with the character's calculated  constitution modifier
 	currentHitPoints = 10 + abilityModifiers[2]; 
 
+	//Initially, as character is not hit, the maximum HP is the same as the current HP
+	maxHitPoints = currentHitPoints;
+
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
 	armorClass = 11 + abilityModifiers[1];
@@ -121,6 +125,8 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
 	currentHitPoints = 10 + abilityModifiers[2];
+
+	maxHitPoints = currentHitPoints;
 
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
@@ -287,6 +293,12 @@ int Character::getHitPoints()
 {
 	return currentHitPoints;
 }
+
+int Character::getMaxHitPoints() 
+{
+	return maxHitPoints;
+}
+
 
 //! Accessor method for armor, note that this will be modified when items will be implemented
 //! @return string value, the value of the character's equipped armor

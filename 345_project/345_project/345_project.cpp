@@ -18,12 +18,7 @@ using namespace std;
 int main()
 {
 
-
-	//Initializes the seed used for the random dice rolls
-	std::srand(time(NULL));
-
 	sf::RenderWindow window(sf::VideoMode(900, 900), "Kirby practice");
-
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 
@@ -32,6 +27,21 @@ int main()
 		window.close();
 	}
 	background.setRepeated(true); // repeat tile over sprite height
+
+	//Initializes the seed used for the random dice rolls
+	std::srand(time(NULL));
+
+	//Displaying default constructor...
+	Character fighter = Character();
+	fighter.displayCharacterInfo();
+	fighter.displayEquipment();
+
+	if (fighter.validateNewCharacter()) {
+		std::cout << "\nThis character  is valid!\n\n" << endl;
+	}
+	else {
+		std::cout << "\nThis character  is invalid!\n\n" << endl;
+	}
 
 	sf::Texture kirby;
 	if (!kirby.loadFromFile("Kirby.png")) {
@@ -45,9 +55,6 @@ int main()
 
 	sf::Sprite sprite(kirby);
 	sprite.setPosition(0, 0);
-
-	//Keeo this commented until i integrate character creation with the display
-	//HealthBar healthbar(window);
 
 
 	while (window.isOpen()) {
@@ -76,30 +83,18 @@ int main()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
 
-		//HealthBar(&window); dunno what to do here
-		//window.display();
+		HealthBar(window, fighter);
+		window.display();
 
 		window.clear(sf::Color::White);
 		window.draw(bg);
 		window.draw(sprite);
 		window.display();
 
-
 	}
 
 
-	//Displaying default constructor...
-	Character fighter = Character();
-	fighter.displayCharacterInfo();
-	fighter.displayEquipment();
-
-	if (fighter.validateNewCharacter()) {
-		std::cout << "\nThis character  is valid!\n\n" << endl;
-	}
-	else {
-		std::cout << "\nThis character  is invalid!\n\n" << endl;
-	}
-
+	/*
 	//Displaying nondefault constructor...
 	Character fighter2 = Character(17, 16, 13, 9, 9, 10);
 	fighter2.displayCharacterInfo();
@@ -111,6 +106,8 @@ int main()
 	else {
 		std::cout << "\nThis character  is invalid!\n\n" << endl;
 	}
+	*/
+
 
 	getchar();
 	return 0;
