@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "stdafx.h"
 #include "HealthBar.h"
+#include "CharacterObserver.h"
 #include "Character.h"
 sf::Text stext;
 

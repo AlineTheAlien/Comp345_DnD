@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Character.h"
+#include "CharacterObserver.h"
 
-class HealthBar
+class HealthBar : public CharacterObserver
 {
 public:
 	HealthBar(void);

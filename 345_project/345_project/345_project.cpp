@@ -83,8 +83,8 @@ int main()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
 
-		HealthBar(window, fighter);
-		window.display();
+		//HealthBar(window, fighter);
+		//window.display();
 
 		window.clear(sf::Color::White);
 		window.draw(bg);
