@@ -29,10 +29,11 @@
 //! - And finally, for the driver, some CPPUnit libraries were included to perform and run the test cases
 
 #pragma once
+#include "Subject.h"
 #include <string>
 
 //! Class that implements a character 
-class Character
+class Character : public Subject
 {
 public:
 	Character();
@@ -64,6 +65,12 @@ public:
 	int getArmorClass();
 	int getAttackBonus();
 	int getDamageBonus();
+	void setStrengthScore(int);
+	void setDexterityScore(int);
+	void setConstitutionScore(int);
+	void setCharismaScore(int);
+	void setIntelligenceScore(int);
+	void setWisdomScore(int);
 	void levelUp();
 	void displayEquipment();
 	std::string getArmor();

@@ -16,6 +16,7 @@
 #include <windows.h>
 #include <math.h>
 #include <string>
+#include "Subject.h"
 using namespace std;
 using std::string;
 
@@ -341,11 +342,43 @@ string Character::getHelmet() {
 void Character::getDamaged(int damage)
 {
 	currentHitPoints = currentHitPoints - damage;
+	Notify(); //Notify observers that current hit points have been modified
+}
+
+void Character::setStrengthScore(int str) {
+	abilityScores[0] = str;
+	Notify();
+}
+
+void Character::setDexterityScore(int dex) {
+	abilityScores[1] = dex;
+	Notify();
+}
+
+void Character::setConstitutionScore(int con) {
+	abilityScores[2] = con;
+	Notify();
+}
+
+void Character::setCharismaScore(int cha) {
+	abilityScores[3] = cha;
+	Notify();
+}
+
+void Character::setIntelligenceScore(int intel) {
+	abilityScores[4] = intel;
+	Notify();
+}
+
+void Character::setWisdomScore(int wis) {
+	abilityScores[5] = wis;
+	Notify();
 }
 
 //! Implementation that incrememnts level by one to show that character has leveled up
 void Character::levelUp() {
 	currentLevel++;
+	Notify(); //Notify observers that level has been increased
 }
 
 //! Randomizer function that simulates a dice roll of values between 1 and 6
