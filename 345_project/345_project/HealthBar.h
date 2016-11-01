@@ -3,7 +3,7 @@
 #include "Character.h"
 #include "CharacterObserver.h"
 
-class HealthBar : public CharacterObserver
+class HealthBar //: public CharacterObserver
 {
 public:
 	HealthBar(void);
@@ -11,6 +11,6 @@ public:
 	HealthBar(sf::RenderWindow &window, Character &cr);
 	//void Draw();
 private:
-	sf::RenderWindow * swindow;
+//	sf::RenderWindow * swindow;
 	sf::Text stext;
 };

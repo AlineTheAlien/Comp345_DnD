@@ -17,14 +17,13 @@ using namespace std;
 
 int main()
 {
-
 	sf::RenderWindow window(sf::VideoMode(900, 900), "Kirby practice");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 
 	sf::Texture background;
-	if (!background.loadFromFile("Floor.png")) {
-		window.close();
+	if (!background.loadFromFile("Images/Floor.png")) {
+		//window.close();
 	}
 	background.setRepeated(true); // repeat tile over sprite height
 
@@ -44,8 +43,8 @@ int main()
 	}
 
 	sf::Texture kirby;
-	if (!kirby.loadFromFile("Kirby.png")) {
-		window.close();
+	if (!kirby.loadFromFile("Images/Kirby.png")) {
+		//window.close();
 	}
 
 	sf::Sprite bg(background);
@@ -80,15 +79,14 @@ int main()
 			}
 		}
 		// Polled input handling -- mouse coordinates are in screen space, not window space
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-			sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
-
-		//HealthBar(window, fighter);
-		//window.display();
+		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		//	sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
 
 		window.clear(sf::Color::White);
 		window.draw(bg);
 		window.draw(sprite);
+		HealthBar(window, fighter);
+		//window.display();
 		window.display();
 
 	}
