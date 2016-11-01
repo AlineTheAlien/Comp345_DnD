@@ -17,7 +17,7 @@ using namespace std;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(900, 900), "Kirby practice");
+	sf::RenderWindow window(sf::VideoMode(660, 1100), "Kirby practice");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 
@@ -50,7 +50,7 @@ int main()
 	sf::Sprite bg(background);
 	bg.setPosition(0, 0);
 	bg.setTexture(background);
-	bg.setTextureRect(sf::IntRect(0, 0, 900, 900));
+	bg.setTextureRect(sf::IntRect(0, 0, 660, 660));
 
 	sf::Sprite sprite(kirby);
 	sprite.setPosition(0, 0);
@@ -82,7 +82,7 @@ int main()
 		//if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 		//	sprite.setPosition(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)));//Absolute transform
 
-		window.clear(sf::Color::White);
+		window.clear(sf::Color::Black);
 		window.draw(bg);
 		window.draw(sprite);
 		HealthBar(window, fighter);
