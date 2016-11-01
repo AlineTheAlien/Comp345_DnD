@@ -17,7 +17,7 @@ using namespace std;
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(660, 1100), "Kirby practice");
+	sf::RenderWindow window(sf::VideoMode(660, 725), "Kirby practice");
 	window.setFramerateLimit(60);
 	window.setVerticalSyncEnabled(true);
 
