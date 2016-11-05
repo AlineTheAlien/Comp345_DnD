@@ -15,7 +15,7 @@ Weapon::Weapon()
 //! Constructor that calls an Item constructor
 //! @param attackValue : Integer representing the enhancement bonus for the stats Attack bonus
 //! @param damageValue : Integer representing the enhancement bonus for the stats Damage bonus
-Weapon::Weapon(int attackValue, int damageValue) : Item("WEAPON", vector<Enhancement>())
+Weapon::Weapon(string name, int attackValue, int damageValue) : Item("WEAPON", name, vector<Enhancement>())
 {
 	if (attackValue > 0)
 	{
@@ -34,7 +34,7 @@ Weapon::Weapon(int attackValue, int damageValue) : Item("WEAPON", vector<Enhance
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Weapon::Weapon(vector<Enhancement> enhancements) : Item("WEAPON", enhancements)
+Weapon::Weapon(string name, vector<Enhancement> enhancements) : Item("WEAPON", name, enhancements)
 {
 }
 

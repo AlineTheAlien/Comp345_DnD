@@ -17,9 +17,9 @@ public:
 	// Default constructor
 	Ring();
 	// Constructor
-	Ring(int armorClass, int strength, int constitution, int wisdom, int charisma);
+	Ring(string name, int armorClass, int strength, int constitution, int wisdom, int charisma);
 	// Constructor taking a vector of enhancements as parameter
-	Ring(vector<Enhancement> enhancements);
+	Ring(string name, vector<Enhancement> enhancements);
 	// Overrided method to validate that the armor only enhances 'ARMOR CLASS', 'STRENGTH', 'CONSTITUTION',
 	// 'WISDOM' and 'CHARISMA' and verify that the bonus values are within [1..5]
 	bool validateItem();

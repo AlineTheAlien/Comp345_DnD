@@ -17,9 +17,9 @@ public:
 	// Default constructor
 	Helmet();
 	// Constructor
-	Helmet(int intelligence, int wisdom, int armorClass);
+	Helmet(string name, int intelligence, int wisdom, int armorClass);
 	// Constructor
-	Helmet(vector<Enhancement> enhancements);
+	Helmet(string name, vector<Enhancement> enhancements);
 	// Overrided method to validate that the armor only enhances 'ARMOR CLASS', 'WISDOM' and 'INTELLIGENCE' and verify that the bonus values are within [1..5]
 	bool validateItem();
 };

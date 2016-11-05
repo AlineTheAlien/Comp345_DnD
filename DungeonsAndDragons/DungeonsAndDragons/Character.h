@@ -34,6 +34,7 @@
 #pragma once
 #include "Subject.h"
 #include "MapObject.h"
+#include "ItemContainer.h"
 #include <string>
 
 //! Class that implements a character 
@@ -78,7 +79,7 @@ public:
 	void setWisdomScore(int);
 	void levelUp();
 	void displayEquipment();
-	string getArmor();
+	string getArmorName();
 	string getShield();
 	string getWeapon();
 	string getBoots();
@@ -92,6 +93,8 @@ public:
 	void setRing(string);
 	void setHelmet(string);
 	int levelHitPoints();
+	ItemContainer* getEquippedItems();
+	ItemContainer* getBackpack();
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];
@@ -109,5 +112,7 @@ private:
 	string myRing;
 	string myHelmet;
 	char objectType;
+	ItemContainer* equippedItems;
+	ItemContainer* backpack;
 };
 

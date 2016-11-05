@@ -15,7 +15,7 @@ Armor::Armor()
 
 //! Constructor that calls an Item constructor
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
-Armor::Armor(int armorClassBonus) : Item("ARMOR", vector<Enhancement>())
+Armor::Armor(string name, int armorClassBonus) : Item("ARMOR", name, vector<Enhancement>())
 {
 	if (armorClassBonus > 0)
 	{
@@ -27,7 +27,7 @@ Armor::Armor(int armorClassBonus) : Item("ARMOR", vector<Enhancement>())
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Armor::Armor(vector<Enhancement> enhancements) : Item("ARMOR", enhancements)
+Armor::Armor(string name, vector<Enhancement> enhancements) : Item("ARMOR", name, enhancements)
 {
 }
 

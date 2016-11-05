@@ -16,7 +16,7 @@ Belt::Belt()
 //! Constructor that calls an Item constructor
 //! @param constitutionBonus : Integer representing the enhancement bonus for the stats Constitution
 //! @param strengthBonus : Integer representing the enhancement bonus for the stats Strength
-Belt::Belt(int constitutionBonus, int strengthBonus) : Item("BELT", vector<Enhancement>())
+Belt::Belt(string name, int constitutionBonus, int strengthBonus) : Item("BELT", name, vector<Enhancement>())
 {
 	if (constitutionBonus > 0)
 	{
@@ -34,7 +34,7 @@ Belt::Belt(int constitutionBonus, int strengthBonus) : Item("BELT", vector<Enhan
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Belt::Belt(vector<Enhancement> enhancements) : Item("BELT", enhancements)
+Belt::Belt(string name, vector<Enhancement> enhancements) : Item("BELT", name, enhancements)
 {
 }
 

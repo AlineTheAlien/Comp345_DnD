@@ -17,9 +17,9 @@ public:
 	// Default constructor
 	Boots();
 	// Constructor
-	Boots(int armorClass, int dexterity);
+	Boots(string name, int armorClass, int dexterity);
 	// Constructor taking a vector of enhancements as parameter
-	Boots(vector<Enhancement> enhancements);
+	Boots(string name, vector<Enhancement> enhancements);
 	// Overrided method to validate that the armor only enhances 'ARMOR CLASS' and 'DEXTERITY' and verify that the bonus values are within [1..5]
 	bool validateItem();
 };

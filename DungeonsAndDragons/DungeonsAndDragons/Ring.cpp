@@ -19,7 +19,7 @@ Ring::Ring()
 //! @param constitutionBonus : Integer representing the enhancement bonus for the stats Constitution
 //! @param wisdomBonus : Integer representing the enhancement bonus for the stats Wisdom
 //! @param charismaBonus : Integer representing the enhancement bonus for the stats Charisma
-Ring::Ring(int armorClassBonus, int strengthBonus, int constitutionBonus, int wisdomBonus, int charismaBonus) : Item("RING", vector<Enhancement>())
+Ring::Ring(string name, int armorClassBonus, int strengthBonus, int constitutionBonus, int wisdomBonus, int charismaBonus) : Item("RING", name, vector<Enhancement>())
 {
 	if (armorClassBonus > 0)
 	{
@@ -55,7 +55,7 @@ Ring::Ring(int armorClassBonus, int strengthBonus, int constitutionBonus, int wi
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Ring::Ring(vector<Enhancement> enhancements) : Item("RING", enhancements)
+Ring::Ring(string name, vector<Enhancement> enhancements) : Item("RING", name, enhancements)
 {
 	this->enhancements = enhancements;
 }

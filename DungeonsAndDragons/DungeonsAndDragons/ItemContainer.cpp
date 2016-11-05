@@ -64,12 +64,12 @@ vector<Item> ItemContainer::getItems()
 }
 
 //! Method to get the position of an item of a specified type
-//! @param itemType : Type of item
+//! @param name: Name of item
 //! @return Index of item in the vector
-int ItemContainer::getItemPosition(string itemType)
+int ItemContainer::getItemPosition(string itemName)
 {
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getType() == itemType)
+		if (items[i].getName() == itemName)
 			return i;
 	}
 
@@ -80,10 +80,10 @@ int ItemContainer::getItemPosition(string itemType)
 //! Assumption: Each container may only contain one element of a type
 //! @param itemType : Type of item to extract from the container
 //! @return Item of the specified kind provided in input
-Item ItemContainer::getItem(string itemType)
+Item ItemContainer::getItem(string itemName)
 {
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getType() == itemType)
+		if (items[i].getName() == itemName)
 			return items[i];
 	}
 }
@@ -92,7 +92,7 @@ Item ItemContainer::getItem(string itemType)
 //! @param item : Item type
 void ItemContainer::addItem(Item item)
 {
-	cout << "***Adding " << item.getType() << " to " << type << "***\n" << endl;
+	cout << "***Adding " << item.getName() << " to " << type << "***\n" << endl;
 	items.push_back(item);
 	cout << "After adding the item, here is the content of the container: " << endl;
 	this->displayItems();
@@ -101,15 +101,21 @@ void ItemContainer::addItem(Item item)
 //! Method to remove an item from the container
 //! @param itemType : Type of item to be removed
 //! @return Item removed
-Item ItemContainer::removeItem(string itemType)
+Item ItemContainer::removeItem(string itemName)
 {
-	cout << "***Removing " << itemType << " from " << type << "***\n" << endl;
-	int pos = getItemPosition(itemType);
+	cout << "***Removing " << itemName << " from " << type << "***\n" << endl;
+	int pos = getItemPosition(itemName);
 	Item temp = items[pos];
 	items.erase(items.begin() + pos);
 	cout << "After removing the item, here is the content of the container: " << endl;
 	this->displayItems();
 	return temp;
+}
+
+void ItemContainer::transfer(ItemContainer* destination, string itemName) {
+	cout << "*** Transferring " << itemName << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
+	Item transferItem = this->removeItem(itemName);
+	destination->addItem(transferItem);
 }
 
 //! Method to display all items inside the container with a list of enhancements and bonus values
@@ -123,7 +129,7 @@ void ItemContainer::displayItems()
 
 	for (unsigned int i = 0; i < items.size(); i++)
 	{
-		cout << "Type: \t" << items[i].getType() << endl;
+		cout << "Type: \t" << items[i].getName() << endl;
 		items[i].displayEnhancements();
 		cout << endl;
 	}

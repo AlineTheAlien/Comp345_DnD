@@ -17,9 +17,9 @@ public:
 	// Default constructor
 	Weapon();
 	// Constructor
-	Weapon(int attackBonus, int damageBonus);
+	Weapon(string name, int attackBonus, int damageBonus);
 	// Constructor taking a vector of enhancements as parameter
-	Weapon(vector<Enhancement> enhancements);
+	Weapon(string name, vector<Enhancement> enhancements);
 	// Overrided method to validate that the armor only enhances 'ATTACK BONUS' and 'DAMAGE BONUS'and verify that the bonus values are within [1..5]
 	bool validateItem();
 };

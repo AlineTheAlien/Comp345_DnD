@@ -17,7 +17,7 @@ Helmet::Helmet()
 //! @param intelligenceBonus : Integer representing the enhancement bonus for the stats Intelligence
 //! @param wisdomBonus : Integer representing the enhancement bonus for the stats Wisdom
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
-Helmet::Helmet(int intelligenceBonus, int wisdomBonus, int armorClassBonus) : Item("HELMET", vector<Enhancement>())
+Helmet::Helmet(string name, int intelligenceBonus, int wisdomBonus, int armorClassBonus) : Item("HELMET", name,vector<Enhancement>())
 {
 	if (intelligenceBonus > 0)
 	{
@@ -41,7 +41,7 @@ Helmet::Helmet(int intelligenceBonus, int wisdomBonus, int armorClassBonus) : It
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Helmet::Helmet(vector<Enhancement> enhancements) : Item("HELMET", enhancements)
+Helmet::Helmet(string name, vector<Enhancement> enhancements) : Item("HELMET", name, enhancements)
 {
 }
 

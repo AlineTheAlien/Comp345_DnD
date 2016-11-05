@@ -17,9 +17,9 @@ public:
 	// Default constructor
 	Belt();
 	// Constructor
-	Belt(int constitution, int strength);
+	Belt(string name, int constitution, int strength);
 	// Constructor
-	Belt(vector<Enhancement> enhancements);
+	Belt(string name, vector<Enhancement> enhancements);
 	// Overrided method to validate that the armor only enhances 'CONSTITUTION' and 'STRENGTH' and verify that the bonus values are within [1..5]
 	bool validateItem();
 };

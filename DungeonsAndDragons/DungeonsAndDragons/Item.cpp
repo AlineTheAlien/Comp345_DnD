@@ -18,12 +18,13 @@ Item::Item()
 //! Constructor that receives an item type as a string and a vector containing the enhancements
 //! @param type : String representing the type of item
 //! @param enhancements : Vector containing all the enhancements
-Item::Item(string type, vector<Enhancement> enhancements)
+Item::Item(string type, string name, vector<Enhancement> enhancements)
 {
 	if (type == "HELMET" || type == "ARMOR" || type == "SHIELD" || type == "RING" || type == "BELT" ||
 		type == "BOOTS" || type == "WEAPON")
 	{
 		this->type = type;
+		this->name = name;
 		this->enhancements = enhancements;
 	}
 	else
@@ -38,6 +39,13 @@ Item::Item(string type, vector<Enhancement> enhancements)
 string Item::getType()
 {
 	return type;
+}
+
+//! Method to get the name of the item
+//! @return Name of the item
+string Item::getName()
+{
+	return name;
 }
 
 //! Method to get the enhancements of the item

@@ -44,7 +44,7 @@ void CharacterObserver::display() {
 	int wisdom = _subject->getWisdomScore();
 	int charisma = _subject->getCharismaScore();
 
-	string armor = _subject->getArmor();
+	string armor = _subject->getArmorName();
 	string shield = _subject->getShield();
 	string weapon = _subject->getWeapon();
 	string boots = _subject->getBoots();

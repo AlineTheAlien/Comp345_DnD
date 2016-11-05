@@ -2,10 +2,32 @@
 //
 
 #include "stdafx.h"
+#include "ItemContainer.h"
+#include "Item.h"
+#include "Character.h"
+#include "Enhancement.h"
+#include <Vector>
+#include "Shield.h"
+using namespace std;
 
 
 int main()
 {
-    return 0;
-}
+	Character* player = new Character();
 
+	ItemContainer* testBackPack = player->getBackpack();
+	ItemContainer* testEquipped = player->getEquippedItems();
+
+	Enhancement str = Enhancement("STRENGTH", 5);
+	vector<Enhancement> enhList1 = vector<Enhancement>();
+	enhList1.push_back(str);
+
+	Shield s = Shield("Super Shild", enhList1);
+	testEquipped->addItem(s);
+
+	testEquipped->transfer(testBackPack, s.getName());
+
+	getchar();
+
+	return 0;
+}

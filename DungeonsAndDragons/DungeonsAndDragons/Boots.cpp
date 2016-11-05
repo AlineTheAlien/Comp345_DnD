@@ -16,7 +16,7 @@ Boots::Boots()
 //! Constructor that calls an Item constructor
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
 //! @param dexterityBonus : Integer representing the enhancement bonus for the stats Dexterity
-Boots::Boots(int armorClassBonus, int dexterityBonus) : Item("BOOTS", vector<Enhancement>())
+Boots::Boots(string name, int armorClassBonus, int dexterityBonus) : Item("BOOTS", name, vector<Enhancement>())
 {
 	if (armorClassBonus > 0)
 	{
@@ -34,7 +34,7 @@ Boots::Boots(int armorClassBonus, int dexterityBonus) : Item("BOOTS", vector<Enh
 //! Constructor taking a vector of enhancements as parameter
 //! It also calls an Item constructor and pass a vector of enhancements as parameter.
 //! @param enhancements : Vector of enhancements
-Boots::Boots(vector<Enhancement> enhancements) : Item("BOOTS", enhancements)
+Boots::Boots(string name, vector<Enhancement> enhancements) : Item("BOOTS", name, enhancements)
 {
 	this->enhancements = enhancements;
 }

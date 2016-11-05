@@ -16,7 +16,7 @@
 #include <windows.h>
 #include <math.h>
 #include <string>
-
+#include <vector>
 using namespace std;
 using std::string;
 
@@ -98,6 +98,9 @@ Character::Character()
 	myBoots = "None";
 	myRing = "None";
 	myHelmet = "None";
+
+	equippedItems = new ItemContainer("EQUIPPED");
+	backpack = new ItemContainer("BACKPACK");
 }
 
 //! Constructor: Passes values to each ability score
@@ -147,11 +150,14 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	myRing = "None";
 	myHelmet = "None";
 
+	equippedItems = new ItemContainer("EQUIPPED");
+	backpack = new ItemContainer("BACKPACK");
 }
 
 //! Desctructor
 Character::~Character() {
-
+	delete equippedItems;
+	delete backpack;
 };
 
 
@@ -308,9 +314,23 @@ int Character::getMaxHitPoints()
 	return maxHitPoints;
 }
 
+ItemContainer* Character::getEquippedItems() {
+	return equippedItems;
+}
+
+ItemContainer* Character::getBackpack() {
+	return backpack;
+}
+
 //! Accessor method for armor, note that this will be modified when items will be implemented
 //! @return string value, the value of the character's equipped armor
-string Character::getArmor() {
+string Character::getArmorName() {
+
+	vector<Item> items = equippedItems->getItems();
+	for (unsigned int i = 0; i < items.size(); i++) {
+		if (items[i].getType() == "ARMOR")
+			return items[i].getName();
+	}
 	return myArmor;
 }
 
@@ -612,7 +632,7 @@ void Character::displayCharacterInfo() {
 
 //! Function that displays character's current equipment
 void Character::displayEquipment() {
-	cout << "\nArmor worn is : " << getArmor() << endl;
+	cout << "\nArmor worn is : " << getArmorName() << endl;
 	cout << "Shield equipped is : " << getShield() << endl;
 	cout << "Weapon equipped is : " << getWeapon() << endl;
 	cout << "Boots worn are : " << getBoots() << endl;

@@ -58,6 +58,7 @@ public:
 	void addItem(Item item);
 	// Method to remove an item from the container
 	Item removeItem(string itemType);
+	void transfer(ItemContainer*, string itemName);
 	// Method to display all items inside the container with a list of enhancements and bonus values
 	void displayItems();
 };
