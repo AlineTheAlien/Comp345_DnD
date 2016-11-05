@@ -382,16 +382,16 @@ void Character::setHelmet(string h) {
 
 
 void Character::equipItem(int index) {
-	backpack->transfer(equipped, index);
 	vector<Item*> backpackItems = backpack->getItems();
-	cout << "Equipped " << backpackItems[index]->getName() << endl;
+	cout << "Equipping " << backpackItems[index]->getName() << endl;
+	backpack->transfer(equipped, index);
 	cout << endl;
 }
 
 void Character::unequipItem(int index) {
-	equipped->transfer(backpack, index);
 	vector<Item*> equippedItems = equipped->getItems();
-	cout << "Unequipped " << equippedItems[index]->getName() << endl;
+	cout << "Unequipping " << equippedItems[index]->getName() << endl;
+	equipped->transfer(backpack, index);
 	cout << endl;
 }
 
