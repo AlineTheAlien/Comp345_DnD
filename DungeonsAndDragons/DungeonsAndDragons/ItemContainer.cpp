@@ -12,13 +12,13 @@ using namespace std;
 ItemContainer::ItemContainer()
 {
 	type = "UNNAMED CONTAINER";
-	items = vector<Item>();
+	items = vector<Item*>();
 }
 
 //! Constructor that takes a vector of items
 //! @param type : String representing the type of item
 //! @param items : Vector of items
-ItemContainer::ItemContainer(string type, vector<Item> items)
+ItemContainer::ItemContainer(string type, vector<Item*> items)
 {
 	if (type == "BACKPACK" || type == "EQUIPPED" || type == "TREASURE CHEST")
 	{
@@ -40,7 +40,7 @@ ItemContainer::ItemContainer(string type)
 	if (type == "BACKPACK" || type == "EQUIPPED" || type == "TREASURE CHEST")
 	{
 		this->type = type;
-		items = vector<Item>();
+		items = vector<Item*>();
 	}
 	else
 	{
@@ -58,7 +58,7 @@ string ItemContainer::getType()
 
 //! Method to get items from the container
 //! @return Vector containing a list of items inside the container
-vector<Item> ItemContainer::getItems()
+vector<Item*> ItemContainer::getItems()
 {
 	return items;
 }
@@ -69,7 +69,7 @@ vector<Item> ItemContainer::getItems()
 int ItemContainer::getItemPosition(string itemName)
 {
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getName() == itemName)
+		if (items[i]->getName() == itemName)
 			return i;
 	}
 
@@ -80,33 +80,34 @@ int ItemContainer::getItemPosition(string itemName)
 //! Assumption: Each container may only contain one element of a type
 //! @param itemType : Type of item to extract from the container
 //! @return Item of the specified kind provided in input
-Item ItemContainer::getItem(string itemName)
+Item* ItemContainer::getItem(string itemName)
 {
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getName() == itemName)
+		if (items[i]->getName() == itemName)
 			return items[i];
 	}
 }
 
 //! Method to add an item to the item container
 //! @param item : Item type
-void ItemContainer::addItem(Item item)
+int ItemContainer::addItem(Item* item)
 {
-	cout << "***Adding " << item.getName() << " to " << type << "***\n" << endl;
+	cout << "*** Adding " << item->getName() << " to " << type << " ***\n" << endl;
 	items.push_back(item);
-	cout << "After adding the item, here is the content of the container: " << endl;
-	this->displayItems();
+	int position = items.size() - 1;
+	return position;
 }
 
 //! Method to remove an item from the container
-//! @param itemType : Type of item to be removed
+//! @param index : Index of item to be removed
 //! @return Item removed
-Item ItemContainer::removeItem(string itemName)
+Item* ItemContainer::removeItem(int index)
 {
-	cout << "***Removing " << itemName << " from " << type << "***\n" << endl;
+	vector<Item*> item = 
+	cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
 	int pos = getItemPosition(itemName);
-	Item temp = items[pos];
-	items.erase(items.begin() + pos);
+	Item* temp = items[index];
+	items.erase(items.begin() + index);
 	cout << "After removing the item, here is the content of the container: " << endl;
 	this->displayItems();
 	return temp;
