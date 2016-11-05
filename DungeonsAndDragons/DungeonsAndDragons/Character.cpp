@@ -606,4 +606,5 @@ void Character::displayEquipment() {
 	cout << "Boots worn are : " << getWornItemName("BOOTS") << endl;
 	cout << "Ring equipped is : " << getWornItemName("RING") << endl;
 	cout << "Helmet worn is : " << getWornItemName("HELMET") << endl;
+	cout << "Belt worn is : " << getWornItemName("BELT") << endl;
 }
