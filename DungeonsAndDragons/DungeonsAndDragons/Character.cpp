@@ -324,44 +324,12 @@ ItemContainer* Character::getBackpack() {
 
 //! Accessor method for armor, note that this will be modified when items will be implemented
 //! @return string value, the value of the character's equipped armor
-string Character::getArmorName() {
-
+string Character::getWornItemName(string type) {
 	vector<Item> items = equippedItems->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getType() == "ARMOR")
+		if (items[i].getType() == type)
 			return items[i].getName();
 	}
-	return myArmor;
-}
-
-//! Accessor method for shield, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped shield
-string Character::getShield() {
-	return myShield;
-}
-
-//! Accessor method for weapon, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped weapon
-string Character::getWeapon() {
-	return myWeapon;
-}
-
-//! Accessor method for boots, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped boots
-string Character::getBoots() {
-	return myBoots;
-}
-
-//! Accessor method for ring, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped ring
-string Character::getRing() {
-	return myRing;
-}
-
-//! Accessor method for helmet, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped helmet
-string Character::getHelmet() {
-	return myHelmet;
 }
 
 //! Mutator method for held armor attribute, note that this will be modified when items will be implemented
@@ -632,10 +600,10 @@ void Character::displayCharacterInfo() {
 
 //! Function that displays character's current equipment
 void Character::displayEquipment() {
-	cout << "\nArmor worn is : " << getArmorName() << endl;
-	cout << "Shield equipped is : " << getShield() << endl;
-	cout << "Weapon equipped is : " << getWeapon() << endl;
-	cout << "Boots worn are : " << getBoots() << endl;
-	cout << "Ring equipped is : " << getRing() << endl;
-	cout << "Helmet worn is : " << getHelmet() << endl;
+	cout << "\nArmor worn is : " << getWornItemName("ARMOR") << endl;
+	cout << "Shield equipped is : " << getWornItemName("SHIELD") << endl;
+	cout << "Weapon equipped is : " << getWornItemName("WEAPON") << endl;
+	cout << "Boots worn are : " << getWornItemName("BOOTS") << endl;
+	cout << "Ring equipped is : " << getWornItemName("RING") << endl;
+	cout << "Helmet worn is : " << getWornItemName("HELMET") << endl;
 }

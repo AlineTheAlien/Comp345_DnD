@@ -79,12 +79,7 @@ public:
 	void setWisdomScore(int);
 	void levelUp();
 	void displayEquipment();
-	string getArmorName();
-	string getShield();
-	string getWeapon();
-	string getBoots();
-	string getRing();
-	string getHelmet();
+	string getWornItemName(string);
 	bool validateAbilityModifiers();
 	void setArmor(string);
 	void setShield(string);
