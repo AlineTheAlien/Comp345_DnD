@@ -99,13 +99,27 @@ int ItemContainer::addItem(Item* item)
 }
 
 //! Method to remove an item from the container
-//! @param index : Index of item to be removed
+//! @param itemType : Type of item to be removed
+//! @return Item removed
+Item* ItemContainer::removeItem(string itemName)
+{
+	cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
+	int pos = getItemPosition(itemName);
+	Item* temp = items[pos];
+	items.erase(items.begin() + pos);
+	cout << "After removing the item, here is the content of the container: " << endl;
+	this->displayItems();
+	return temp;
+}
+
+
+//! Method to remove an item from the container using index
+//! @param index : Index of item
 //! @return Item removed
 Item* ItemContainer::removeItem(int index)
 {
-	vector<Item*> item = 
-	cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
-	int pos = getItemPosition(itemName);
+	vector<Item*> origin = this->getItems();
+	cout << "*** Removing " << origin[index] << " from " << type << " ***\n" << endl;
 	Item* temp = items[index];
 	items.erase(items.begin() + index);
 	cout << "After removing the item, here is the content of the container: " << endl;
@@ -113,9 +127,10 @@ Item* ItemContainer::removeItem(int index)
 	return temp;
 }
 
-void ItemContainer::transfer(ItemContainer* destination, string itemName) {
-	cout << "*** Transferring " << itemName << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
-	Item transferItem = this->removeItem(itemName);
+void ItemContainer::transfer(ItemContainer* destination, int index) {
+	vector<Item*> origin = this->getItems();
+	cout << "*** Transferring " << origin[index] << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
+	Item* transferItem = this->removeItem(index);
 	destination->addItem(transferItem);
 }
 
@@ -130,8 +145,8 @@ void ItemContainer::displayItems()
 
 	for (unsigned int i = 0; i < items.size(); i++)
 	{
-		cout << "Type: \t" << items[i].getName() << endl;
-		items[i].displayEnhancements();
+		cout << "[" << i << "]" << "Item: " << items[i]->getName() << endl;
+		items[i]->displayEnhancements();
 		cout << endl;
 	}
 }
