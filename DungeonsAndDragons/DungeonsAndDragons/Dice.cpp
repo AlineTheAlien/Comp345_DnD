@@ -35,7 +35,7 @@ int Dice::roll(string diceString)
 
 		for (int a = 0; a < arr[0]; a++) {
 			//seed the random number generator
-			srand(static_cast<unsigned int>(time(0)));
+			//srand(static_cast<unsigned int>(time(0)));
 			//generate random number between 1 and x, holding the second position in the vector 
 			rollResult += (rand() % arr[1]) + 1;
 		}
