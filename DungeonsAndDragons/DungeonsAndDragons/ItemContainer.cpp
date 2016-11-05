@@ -119,7 +119,7 @@ Item* ItemContainer::removeItem(string itemName)
 Item* ItemContainer::removeItem(int index)
 {
 	vector<Item*> origin = this->getItems();
-	cout << "*** Removing " << origin[index] << " from " << type << " ***\n" << endl;
+	cout << "*** Removing " << origin[index]->getName() << " from " << type << " ***\n" << endl;
 	Item* temp = items[index];
 	items.erase(items.begin() + index);
 	cout << "After removing the item, here is the content of the container: " << endl;
@@ -129,7 +129,7 @@ Item* ItemContainer::removeItem(int index)
 
 void ItemContainer::transfer(ItemContainer* destination, int index) {
 	vector<Item*> origin = this->getItems();
-	cout << "*** Transferring " << origin[index] << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
+	cout << "*** Transferring " << origin[index]->getName() << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
 	Item* transferItem = this->removeItem(index);
 	destination->addItem(transferItem);
 }
