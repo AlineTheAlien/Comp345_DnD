@@ -28,6 +28,5 @@ int main()
 	testEquipped->transfer(testBackPack, s.getName());
 
 	getchar();
-	// Ideawin test :D
 	return 0;
 }
