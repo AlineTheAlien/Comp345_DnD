@@ -6,6 +6,7 @@
 
 #include "stdafx.h" 
 #include "Character.h"
+#include "Dice.h"
 #include <stdlib.h>
 #include <cstdlib>
 #include <ctime>
@@ -380,8 +381,6 @@ void Character::setHelmet(string h) {
 	Notify();
 }
 
-
-void equipItem()
 //! Damage recieved by character
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param damage: damage sustained by the character
@@ -466,6 +465,8 @@ int Character::rollTenSidedDie() {
 //! Implementation of ability score calculator
 void Character::calculateAbilityScores(int holder[]) {
 
+	Dice myDice = Dice();
+
 	for (int i = 0; i < 6; i++) {
 
 		int diceRollHolder[4];
@@ -480,7 +481,8 @@ void Character::calculateAbilityScores(int holder[]) {
 		//This loop is the action of rolling dice 4 times, where the array diceRollHolder
 		//points to the values of the dice rolls
 		for (int j = 0; j < 4; j++) {
-			int r = rollSixSidedDie();
+			//int r = rollSixSidedDie();
+			int r = myDice.roll("1d6");
 			//Sleep(258); for debugging purposes
 			diceRollHolder[j] = r;
 		}
@@ -549,26 +551,32 @@ void Character::assignAbilityModifiers(int holder[]) {
 //! Method that calculates amount that HP will increase after character levels up
 //! @return int value, the value added to max hit points after gaining a level
 int Character::levelHitPoints() {
+	Dice myDice = Dice();
 	int x = getConstitutionModifier();
-	int y = rollTenSidedDie();
+	//int y = rollTenSidedDie();
+	int y = myDice.roll("1d10");
 		if (x == -4) {
 			while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
+				//y = rollTenSidedDie();
+				y = myDice.roll("1d10");
 			}
 		}
 		else if (x == -3) {
 			while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
+				//y = rollTenSidedDie();
+				y = myDice.roll("1d10");
 			}
 		}
 		else if (x == -2) {
 			while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
+				//y = rollTenSidedDie();
+				y = myDice.roll("1d10");
 			}
 		}
 		else if (x == -1) {
 			while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
+				//y = rollTenSidedDie();
+				y = myDice.roll("1d10");
 			}
 		}
 	return (x + y);

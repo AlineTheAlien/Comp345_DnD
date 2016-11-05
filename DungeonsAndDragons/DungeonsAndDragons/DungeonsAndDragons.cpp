@@ -8,11 +8,18 @@
 #include "Enhancement.h"
 #include <Vector>
 #include "Shield.h"
+#include <ctime>
 using namespace std;
 
 
 int main()
 {
+	srand(time(NULL));
+	//Displaying default constructor...
+	Character fighter = Character();
+	fighter.displayCharacterInfo();
+
+
 	Character* player = new Character();
 
 	ItemContainer* testBackPack = player->getBackpack();
