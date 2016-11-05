@@ -28,6 +28,6 @@ int main()
 	testEquipped->transfer(testBackPack, s.getName());
 
 	getchar();
-	// Hi Aline, how are youuuuuuuuuuuuuuuu
+	//wassap
 	return 0;
 }
