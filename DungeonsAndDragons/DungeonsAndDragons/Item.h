@@ -35,20 +35,13 @@ using namespace std;
 class Item
 {
 public:
-	// Default constructor
 	Item();
-	// Constructor that receives an item type as a string and a vector containing the enhancements
 	Item(string type, string name, vector<Enhancement> enhancements);
-	// Method to get the type of the item
 	string getType();
 	string getName();
-	// Method to get the enhancements of the item
 	vector<Enhancement> getEnhancements();
-	// Method to add an enhancement
 	void addEnhancement(Enhancement e);
-	// Method to display enhancements
 	void displayEnhancements();
-	// Method to validate an item, e.g. verify that an item of a certain type only enhances a character statistic valid for this item type
 	bool validateItem();
 protected:
 	string type;
