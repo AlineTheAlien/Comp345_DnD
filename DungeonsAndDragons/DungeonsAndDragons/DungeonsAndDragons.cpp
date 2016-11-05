@@ -28,6 +28,7 @@ int main()
 	testEquipped->transfer(testBackPack, s.getName());
 
 	getchar();
+	//i am so tired of this!!!
 	//wassap
 	// :D pull me pull meeeeeeee!!!!!!!! :D i want da super shild!
 	return 0;
