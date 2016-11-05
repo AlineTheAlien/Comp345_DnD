@@ -87,6 +87,8 @@ public:
 	void setBoots(string);
 	void setRing(string);
 	void setHelmet(string);
+	void equipItem(string);
+	void unequipItem(string);
 	int levelHitPoints();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
