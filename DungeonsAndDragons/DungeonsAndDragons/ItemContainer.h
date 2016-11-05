@@ -36,22 +36,30 @@ class ItemContainer : public MapObject
 {
 private:
 	string type;
-	vector<Item*> items;
+	vector<Item> items;
 	char objectType;
 
 public:
+	// Default constructor
 	ItemContainer();
-	~ItemContainer();
-	ItemContainer(string type, vector<Item*> items);
+	// Constructor that takes a vector of items
+	ItemContainer(string type, vector<Item> items);
+	// Constructor
 	ItemContainer(string type);
+	// Method to get the container type
 	string getType();
-	vector<Item*> getItems();
+	// Method to get items from the container
+	vector<Item> getItems();
+	// Method to get the position of an item of a specified type
 	int getItemPosition(string itemType);
-	Item* getItem(string itemType);
-	int addItem(Item* item);
-	Item* removeItem(string itemType);
-	Item* removeItem(int index); // remove item by index
-	void transfer(ItemContainer*, int);
+	// Method to get an item of a specific type, assuming that each container may only contain one element of a type
+	Item getItem(string itemType);
+	// Method to add an item to the item container
+	void addItem(Item item);
+	// Method to remove an item from the container
+	Item removeItem(string itemType);
+	void transfer(ItemContainer*, string itemName);
+	// Method to display all items inside the container with a list of enhancements and bonus values
 	void displayItems();
 };
 

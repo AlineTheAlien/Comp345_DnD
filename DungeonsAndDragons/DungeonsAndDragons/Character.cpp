@@ -99,7 +99,7 @@ Character::Character()
 	myRing = "None";
 	myHelmet = "None";
 
-	equipped = new ItemContainer("EQUIPPED");
+	equippedItems = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
 
@@ -150,13 +150,13 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	myRing = "None";
 	myHelmet = "None";
 
-	equipped = new ItemContainer("EQUIPPED");
+	equippedItems = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
 
 //! Desctructor
 Character::~Character() {
-	delete equipped;
+	delete equippedItems;
 	delete backpack;
 };
 
@@ -315,7 +315,7 @@ int Character::getMaxHitPoints()
 }
 
 ItemContainer* Character::getEquippedItems() {
-	return equipped;
+	return equippedItems;
 }
 
 ItemContainer* Character::getBackpack() {
@@ -325,12 +325,11 @@ ItemContainer* Character::getBackpack() {
 //! Accessor method for armor, note that this will be modified when items will be implemented
 //! @return string value, the value of the character's equipped armor
 string Character::getWornItemName(string type) {
-	vector<Item*> items = equipped->getItems();
+	vector<Item> items = equippedItems->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i]->getType() == type)
-			return items[i]->getName();
+		if (items[i].getType() == type)
+			return items[i].getName();
 	}
-	return "";
 }
 
 //! Mutator method for held armor attribute, note that this will be modified when items will be implemented
@@ -382,20 +381,7 @@ void Character::setHelmet(string h) {
 }
 
 
-void Character::equipItem(int index) {
-	backpack->transfer(equipped, index);
-	vector<Item*> backPackItems = equipped->getItems();
-	cout << "Equipped " << backPackItems[index]->getName() << endl;
-	cout << endl;
-}
-
-void Character::unequipItem(int index) {
-	equipped->transfer(backpack, index);
-	vector<Item*> equippedItems = equipped->getItems();
-	cout << "Unequipped " << equippedItems[index]->getName() << endl;
-	cout << endl;
-}
-
+void equipItem()
 //! Damage recieved by character
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param damage: damage sustained by the character
@@ -590,9 +576,8 @@ int Character::levelHitPoints() {
 
 //! Function to display character information
 void Character::displayCharacterInfo() {
-	cout << "---------------------------" << endl;
-	cout << "Character Info" << endl;
-	cout << "---------------------------" << endl;
+	cout << "************CHARACTER INFO!************\n\n" << std::endl;
+
 	cout << "Strength Score is: " << getStrengthScore() << endl;
 	cout << "Dexterity Score is: " << getDexterityScore() << endl;
 	cout << "Constitution Score is: " << getConstitutionScore() << endl;
@@ -617,15 +602,11 @@ void Character::displayCharacterInfo() {
 
 //! Function that displays character's current equipment
 void Character::displayEquipment() {
-	cout << "---------------------------" << endl;
-	cout << "Currently equipped" << endl;
-	cout << "---------------------------" << endl;
-	cout << "Armor worn is : " << getWornItemName("ARMOR") << endl;
+	cout << "\nArmor worn is : " << getWornItemName("ARMOR") << endl;
 	cout << "Shield equipped is : " << getWornItemName("SHIELD") << endl;
 	cout << "Weapon equipped is : " << getWornItemName("WEAPON") << endl;
 	cout << "Boots worn are : " << getWornItemName("BOOTS") << endl;
 	cout << "Ring equipped is : " << getWornItemName("RING") << endl;
 	cout << "Helmet worn is : " << getWornItemName("HELMET") << endl;
 	cout << "Belt worn is : " << getWornItemName("BELT") << endl;
-	cout << endl;
 }
