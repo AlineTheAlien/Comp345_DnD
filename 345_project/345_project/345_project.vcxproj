@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{2C0595CC-C3C9-43EA-A449-9FE0A6AB5356}</ProjectGuid>
+    <ProjectGuid>{32526B9C-6BF4-4ACE-B38B-935C74768039}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>DungeonsAndDragons</RootNamespace>
+    <RootNamespace>My345_project</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -88,11 +88,18 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Aline.DESKTOP-VCDAI84\Documents\School\COMP 345\CPPUnit\cppunit-1.12.1\include; C:\Users\Aline.DESKTOP-VCDAI84\Documents\SFML\SFML-2.4.0-windows-vc14-32-bit\SFML-2.4.0\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Users\Aline.DESKTOP-VCDAI84\Documents\School\COMP 345\CPPUnit\cppunit-1.12.1\lib\cppunit.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ProfileGuidedDatabase>$(OutDir)$(TargetName).pgd</ProfileGuidedDatabase>
+      <AdditionalLibraryDirectories>C:\Users\Aline.DESKTOP-VCDAI84\Documents\SFML\SFML-2.4.0-windows-vc14-32-bit\SFML-2.4.0\lib</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetPath)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -101,11 +108,17 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Aline.DESKTOP-VCDAI84\Documents\School\COMP 345\CPPUnit\cppunit-1.12.1 (1).tar\cppunit-1.12.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>C:\Users\Aline.DESKTOP-VCDAI84\Documents\School\COMP 345\CPPUnit\cppunit-1.12.1 (1).tar\cppunit-1.12.1\lib\cppunit.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetPath)"</Command>
+      <Message>Unit Tests...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -145,45 +158,22 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Armor.h" />
-    <ClInclude Include="Belt.h" />
-    <ClInclude Include="Boots.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterObserver.h" />
-    <ClInclude Include="ConsoleView.h" />
-    <ClInclude Include="Dice.h" />
-    <ClInclude Include="Enhancement.h" />
-    <ClInclude Include="Helmet.h" />
-    <ClInclude Include="Item.h" />
-    <ClInclude Include="ItemContainer.h" />
-    <ClInclude Include="MapObject.h" />
-    <ClInclude Include="MapPlay.h" />
+    <ClInclude Include="CharacterTest.h" />
+    <ClInclude Include="HealthBar.h" />
     <ClInclude Include="Observer.h" />
-    <ClInclude Include="Ring.h" />
-    <ClInclude Include="Shield.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Subject.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Armor.cpp" />
-    <ClCompile Include="Belt.cpp" />
-    <ClCompile Include="Boots.cpp" />
+    <ClCompile Include="345_project.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="CharacterObserver.cpp" />
-    <ClCompile Include="ConsoleView.cpp" />
-    <ClCompile Include="Dice.cpp" />
-    <ClCompile Include="DungeonsAndDragons.cpp" />
-    <ClCompile Include="Enhancement.cpp" />
-    <ClCompile Include="Helmet.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemContainer.cpp" />
-    <ClCompile Include="MapObject.cpp" />
-    <ClCompile Include="MapPlay.cpp" />
+    <ClCompile Include="CharacterTest.cpp" />
+    <ClCompile Include="HealthBar.cpp" />
     <ClCompile Include="Observer.cpp" />
-    <ClCompile Include="Ring.cpp" />
-    <ClCompile Include="Shield.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -191,7 +181,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Subject.cpp" />
-    <ClCompile Include="Weapon.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
