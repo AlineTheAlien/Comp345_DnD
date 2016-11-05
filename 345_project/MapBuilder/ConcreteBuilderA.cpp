@@ -16,6 +16,7 @@ void ConcreteBuilderA::buildWall(int x, int y)
 {
 	// Create a wall object
 	MapObject* wall = new MapObject('W');
+	// Place object on the map
 	map->setTile(x,y,wall);
 }
 
@@ -26,12 +27,14 @@ void ConcreteBuilderA::buildDoor(int x, int y)
 {
 	// Create a door object
 	MapObject* door = new MapObject('D');
+	// Place the object on the map
 	map->setTile(x,y,door);
 }
 
 //! Method to build a single enemy character
 //! @param x : Position x on the map of the character as an integer value
 //! @param y : Position x on the map of the character as an integer value
+//! @param enemyFile : File name of the file that contains the enemy as a string value
 void ConcreteBuilderA::buildEnemy(int x, int y, string enemyFile)
 {
 	// Open and read file containing the enemy
@@ -42,7 +45,10 @@ void ConcreteBuilderA::buildEnemy(int x, int y, string enemyFile)
 
 	// Create an enemy
 	MapObject* enemy = new Character('E', level, currentHP, totalHP, str, dex, con, intel, wis, cha);
+
+	// Place the object on the map
 	map->setEnemy(x, y, enemy);
+
 	myfile.close();
 }
 
@@ -51,6 +57,7 @@ void ConcreteBuilderA::buildEnemy(int x, int y, string enemyFile)
 //! @param y : Position x on the map of the character as an integer value
 void ConcreteBuilderA::buildPlayer(int x, int y)
 {
+	// Get the right path to the player's file at the right level
 	string actualFile = "";
 	actualFile += "Characters/playerlvl" + to_string(playerLevel);
 
@@ -63,8 +70,9 @@ void ConcreteBuilderA::buildPlayer(int x, int y)
 	// Create player
 	MapObject* currentPlayer = new Character('P', level, currentHP, totalHP, str, dex, con, intel, wis, cha);
 
-	// Set the player at a position in the map
+	// Place the player on the map
 	map->setPlayer(x, y, currentPlayer);
+
 	myfile.close();
 }
 
@@ -75,12 +83,12 @@ void ConcreteBuilderA::buildPlayer(int x, int y)
 //! @param containerFile : File name of the container as a string value
 void ConcreteBuilderA::buildContainer(int x, int y, int level, string containerFile)
 {
-
+	// Get the right path to the container's file at the right level
 	string actualFile = "";
 	actualFile += containerFile + "lvl";
-	actualFile += to_string(level); // level is needed since container files are named after the level
+	actualFile += to_string(level); // Level of the map is needed since container files are named after the level
 	ifstream myfile;
-	myfile.open(actualFile + ".txt"); // open the file for the container, which contains items
+	myfile.open(actualFile + ".txt"); // Open the file for the container, which contains items
 
 	// Read the type of the container. For the purpose of this assignment, there are only chests, but containers could be EQUIPPED or BACKPACK as well.
 	string containerType;
@@ -122,6 +130,6 @@ void ConcreteBuilderA::buildContainer(int x, int y, int level, string containerF
 		numOfItems--;
 	}
 	myfile.close();
-	// Set the container on the map
+	// Place the container on the map
 	map->setChest(x, y, container);
 }

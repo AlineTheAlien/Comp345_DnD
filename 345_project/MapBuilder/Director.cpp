@@ -1,3 +1,7 @@
+//! @file 
+//! @brief Implementation file for the Director class  
+//!
+
 #include "Director.h"
 #include <fstream>
 #include <iostream>

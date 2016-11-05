@@ -1,6 +1,8 @@
 //! @file 
 //! @brief Header file for the ItemContainer class  
 //!
+//! This is a simplified version of the ItemContainer class implemented in assignment 1.
+//! It inherits from 'MapObject' as it has to be placed in an array of pointers to a MapObject.
 #ifndef ITEMCONTAINER_H
 #define ITEMCONTAINER_H
 
@@ -11,24 +13,18 @@
 
 using namespace std;
 
-//! Class that implements an item container
+//! Class for the implementation of an item container
 class ItemContainer : public MapObject
 {
 private:
 	string type;
-	vector<Item> items;
+	vector<Item> items; // Each container has a list of items
 public:
-	// Default constructor
 	ItemContainer();
-	// Constructor that takes a vector of items
 	ItemContainer(string type, vector<Item> items);
-	// Constructor
 	ItemContainer(string type);
-	// Method to get the container type
 	string getType();
-	// Method to add an item to the item container
 	void addItem(Item item);
-	// Method to display all items inside the container with a list of enhancements and bonus values
 	void displayContainer();
 };
 

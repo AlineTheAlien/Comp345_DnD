@@ -3,8 +3,9 @@
 //!
 #include "MapObject.h"
 
+//! Default constructor
 MapObject::MapObject() {
-	this->objectType = ' ';
+	this->objectType = 'W';
 }
 
 //! Constructor

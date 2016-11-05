@@ -26,7 +26,17 @@ Character::Character()
 	totalHitPoints = 10;
 }
 
-//! Constructor: passes values to each ability score and set hit points to 10
+//! Constructor: passes values to each ability score
+//! @param type : Type of the character (Player or Enemy) as a char value
+//! @param level : Level of the character as an integer value
+//! @param current : Current hit points of the character as an integer value
+//! @param total : Total hit points of the character as an integer value
+//! @param str : Strength ability score as an integer value
+//! @param dex : Dexterity ability score as an integer value
+//! @param con : Constitution ability score as an integer value
+//! @param intel : Intelligence ability score as an integer value
+//! @param wis : Wisdom ability score as an integer value
+//! @param cha : Charisma ability score  as an integer value
 Character::Character(char type, int level, int current, int total, int str, int dex, int con, int intel, int wis, int cha)
 {
 	objectType = type;
@@ -43,14 +53,19 @@ Character::Character(char type, int level, int current, int total, int str, int 
 	totalHitPoints = total;
 }
 
+//! Method to set the current hit points of the character
+//! @param hp : Current hit points as an integer value
 void Character::setcurrentHP(int hp) {
 	currentHitPoints = hp;
 }
 
+//! Method to set the total hit points of the character
+//! @param hp : Total hit points as an integer value
 void Character::settotalHP(int hp) {
 	totalHitPoints = hp;
 }
 
+//! Method to display characteristics of the character
 void Character::displayCharacter() {
 	if (this->getObjectType() == 'E') {
 		cout << "---------------------------" << endl;
@@ -77,6 +92,8 @@ void Character::displayCharacter() {
 	cout << endl;
 }
 
+//! Method to get the level of the character
+//! @return Level of the character
 int Character::getLevel() {
 	return level;
 }

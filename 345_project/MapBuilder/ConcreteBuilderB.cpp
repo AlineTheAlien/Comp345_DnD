@@ -16,6 +16,7 @@ void ConcreteBuilderB::buildWall(int x, int y)
 {
 	// Create a wall object
 	MapObject* wall = new MapObject('W');
+	// Place the object on the map
 	map->setTile(x, y, wall);
 }
 
@@ -26,13 +27,14 @@ void ConcreteBuilderB::buildDoor(int x, int y)
 {
 	// Create a door object
 	MapObject* door = new MapObject('D');
+	// Place the object on the map
 	map->setTile(x, y, door);
 }
 
 //! Method to build a single enemy character
 //! @param x : Position x on the map of the character as an integer value
 //! @param y : Position x on the map of the character as an integer value
-//! @param enemyFile : File name of the enemy as a string value
+//! @param enemyFile : File name of the file that contains the enemy as a string value
 void ConcreteBuilderB::buildEnemy(int x, int y, string enemyFile)
 {
 	// Open and read file containing the enemy
@@ -52,6 +54,7 @@ void ConcreteBuilderB::buildEnemy(int x, int y, string enemyFile)
 	for (int i = 0; i < playerLevel; i++) {
 		sum += (rand() % 10 + 1);
 	}
+
 	// After getting the ability scores bonus that must be assigned, randomly assign to one of the abilities.
 	// If the player level is higher than the current enemy level, it will increase some ability scores.
 	// If the player level is lower than the current enemy level, it will decrease some ability scores.
@@ -75,6 +78,7 @@ void ConcreteBuilderB::buildEnemy(int x, int y, string enemyFile)
 			}
 		}
 	}
+
 	// Calculate the difference between old and new constitution scores to figure out how many points must be added or removed from the hit points
 	int differenceInConstitution = abs(abilityScores[2] - con);
 
@@ -87,10 +91,11 @@ void ConcreteBuilderB::buildEnemy(int x, int y, string enemyFile)
 		currentHP -= (differenceInConstitution + sum);
 		totalHP -= (differenceInConstitution + sum);
 	}
+
 	// Create enemy object
 	MapObject* enemy = new Character('E', playerLevel, currentHP, totalHP, abilityScores[0], abilityScores[1], abilityScores[2], abilityScores[3], abilityScores[4], abilityScores[5]);
 
-	// Set the enemy on the map
+	// Place the enemy on the map
 	map->setEnemy(x, y, enemy);
 	myfile.close();
 }
@@ -100,6 +105,7 @@ void ConcreteBuilderB::buildEnemy(int x, int y, string enemyFile)
 //! @param y : Position x on the map of the character as an integer value
 void ConcreteBuilderB::buildPlayer(int x, int y)
 {
+	// Get the right path to the player's file at the right level
 	string actualFile = "";
 	actualFile += "Characters/playerlvl" + to_string(playerLevel);
 
@@ -112,7 +118,7 @@ void ConcreteBuilderB::buildPlayer(int x, int y)
 	// Create player
 	MapObject* currentPlayer = new Character('P', level, currentHP, totalHP, str, dex, con, intel, wis, cha);
 
-	// Set the player at a position in the map
+	// Place the player on the map
 	map->setPlayer(x, y, currentPlayer);
 	myfile.close();
 }
@@ -120,13 +126,15 @@ void ConcreteBuilderB::buildPlayer(int x, int y)
 //! Method to build a single enemy character
 //! @param x : Position x on the map of the character as an integer value
 //! @param y : Position y on the map of the character as an integer value
+//! @param level : Level of the map
 //! @param containerFile : File name of the container as a string value
 void ConcreteBuilderB::buildContainer(int x, int y, int level, string containerFile)
 {
+	// Get the right path to the container's file at the right level
 	ifstream myfile;
 	string actualFile = "";
 	actualFile += containerFile + "lvl";
-	actualFile += to_string(playerLevel);
+	actualFile += to_string(playerLevel); // Level of the player
 
 	// Open the file for the container adapted to the level
 	myfile.open(actualFile + ".txt");
@@ -170,6 +178,6 @@ void ConcreteBuilderB::buildContainer(int x, int y, int level, string containerF
 		numOfItems--;
 	}
 	myfile.close();
-	// Set the container on the map
+	// Place the container on the map
 	map->setChest(x, y, container);
 }

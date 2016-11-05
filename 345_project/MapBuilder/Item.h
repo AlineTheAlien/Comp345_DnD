@@ -1,7 +1,8 @@
 //! @file 
 //! @brief Header file for the Item class  
 //!
-
+//! This is a simplified version of the Item class implemented in assignment 1. For the purpose of this assignment, the enhancements of
+//! each item are set as the item's attributes. Only 'RING', 'BOOTS' and 'WEAPON' are used.
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -15,11 +16,8 @@ class Item
 public:
 	// Default constructor
 	Item();
-	// Constructor that receives an item type as a string
 	Item(string type, int ac, int str, int consti, int wisd, int chari);
-	// Constructor that receives an item type as a string
 	Item(string type, int ac, int dext);
-	// Method to get the type of the item
 	string getType();
 	void displayEnhancements();
 protected:

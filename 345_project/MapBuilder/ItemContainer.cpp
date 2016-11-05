@@ -1,7 +1,6 @@
 //! @file 
 //! @brief Implementation file for the ItemContainer class  
 //!
-
 #include "ItemContainer.h"
 #include <iostream>
 
@@ -10,7 +9,7 @@ using namespace std;
 //! Default constructor
 ItemContainer::ItemContainer()
 {
-	type = "CHEST";
+	type = "CHEST"; // By default, a chest
 	objectType = 'C';
 	items = vector<Item>();
 }
@@ -26,11 +25,6 @@ ItemContainer::ItemContainer(string type, vector<Item> items)
 		this->items = items;
 		this->objectType = 'C';
 	}
-	else
-	{
-		cout << "Invalid container type." << endl;
-		exit(1);
-	}
 }
 
 //! Constructor
@@ -42,11 +36,6 @@ ItemContainer::ItemContainer(string type)
 		this->type = type;
 		this->objectType = 'C';
 		items = vector<Item>();
-	}
-	else
-	{
-		cout << "Invalid container type." << endl;
-		exit(1);
 	}
 }
 
