@@ -28,6 +28,5 @@ int main()
 	testEquipped->transfer(testBackPack, s.getName());
 
 	getchar();
-
 	return 0;
 }

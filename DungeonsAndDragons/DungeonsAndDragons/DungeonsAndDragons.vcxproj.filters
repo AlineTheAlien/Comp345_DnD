@@ -72,10 +72,10 @@
     <ClInclude Include="ConsoleView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MapPlay.h">
+    <ClInclude Include="Dice.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Dice.h">
+    <ClInclude Include="MapPlay.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -134,10 +134,10 @@
     <ClCompile Include="ConsoleView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MapPlay.cpp">
+    <ClCompile Include="Dice.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dice.cpp">
+    <ClCompile Include="MapPlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

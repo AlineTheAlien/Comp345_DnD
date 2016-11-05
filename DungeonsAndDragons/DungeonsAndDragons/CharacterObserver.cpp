@@ -44,12 +44,13 @@ void CharacterObserver::display() {
 	int wisdom = _subject->getWisdomScore();
 	int charisma = _subject->getCharismaScore();
 
-	string armor = _subject->getArmorName();
-	string shield = _subject->getShield();
-	string weapon = _subject->getWeapon();
-	string boots = _subject->getBoots();
-	string ring = _subject->getRing();
-	string helmet = _subject->getHelmet();
+	string armor = _subject->getWornItemName("ARMOR");
+	string shield = _subject->getWornItemName("SHIELD");
+	string weapon = _subject->getWornItemName("WEAPON");
+	string boots = _subject->getWornItemName("BOOTS");
+	string ring = _subject->getWornItemName("RING");
+	string helmet = _subject->getWornItemName("HELMET");
+	string belt = _subject->getWornItemName("BELT");
 
 	cout << "\n\n Displaying your character's current stats...\n" << endl;
 	cout << " Your character's current level is: " << level << endl;
