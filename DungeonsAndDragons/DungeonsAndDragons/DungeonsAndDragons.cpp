@@ -38,7 +38,8 @@ int main()
 	testBackPack->addItem(s2);
 	testBackPack->addItem(ar1);
 	player->equipItem(index);
-	//player->unequipItem(0); // item should be in index 0
+	player->displayEquipment();
+	player->unequipItem(0); // item should be in index 0
 
 	player->displayEquipment();
 	testBackPack->displayItems();

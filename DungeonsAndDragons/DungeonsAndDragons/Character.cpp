@@ -621,6 +621,7 @@ void Character::displayCharacterInfo() {
 	cout << "\nCurrent Armor Class is: " << getArmorClass() << endl;
 	cout << "\nCurrent Attack Bonus is: " << getAttackBonus() << endl;
 	cout << "\nCurrent Damage Bonus is: " << getDamageBonus() << endl;
+	cout << endl;
 }
 
 //! Function that displays character's current equipment
@@ -630,7 +631,7 @@ void Character::displayEquipment() {
 	cout << "---------------------------" << endl;
 	vector<Item*> items = equipped->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
-		cout << items[i]->getType() << ": " << items[i]->getName() << endl;
+		cout << "[" << i << "]" << items[i]->getType() << ": " << items[i]->getName() << endl;
 	}
 	cout << endl;
 }
