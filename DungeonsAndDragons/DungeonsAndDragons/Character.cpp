@@ -63,7 +63,7 @@ Character::Character()
 	abilityScores[4] = abilityHolder[4]; //intelligence
 	abilityScores[5] = abilityHolder[5]; //wisdom
 
-	//Calculates ability modifiers based on the characters ability scores
+										 //Calculates ability modifiers based on the characters ability scores
 	assignAbilityModifiers(modifierHolder);
 
 	//Assigns the modifiers with the same priority as listed above
@@ -74,7 +74,7 @@ Character::Character()
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-	//set hit points as 10 summed with the character's calculated  constitution modifier
+											 //set hit points as 10 summed with the character's calculated  constitution modifier
 	currentHitPoints = 10 + abilityModifiers[2];
 
 	//Initially, as character is not hit, the maximum HP is the same as the current HP
@@ -99,7 +99,7 @@ Character::Character()
 	myRing = "None";
 	myHelmet = "None";
 
-	equippedItems = new ItemContainer("EQUIPPED");
+	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
 
@@ -150,13 +150,13 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	myRing = "None";
 	myHelmet = "None";
 
-	equippedItems = new ItemContainer("EQUIPPED");
+	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
 
 //! Desctructor
 Character::~Character() {
-	delete equippedItems;
+	delete equipped;
 	delete backpack;
 };
 
@@ -315,7 +315,7 @@ int Character::getMaxHitPoints()
 }
 
 ItemContainer* Character::getEquippedItems() {
-	return equippedItems;
+	return equipped;
 }
 
 ItemContainer* Character::getBackpack() {
@@ -325,11 +325,12 @@ ItemContainer* Character::getBackpack() {
 //! Accessor method for armor, note that this will be modified when items will be implemented
 //! @return string value, the value of the character's equipped armor
 string Character::getWornItemName(string type) {
-	vector<Item> items = equippedItems->getItems();
+	vector<Item*> items = equipped->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
-		if (items[i].getType() == type)
-			return items[i].getName();
+		if (items[i]->getType() == type)
+			return items[i]->getName();
 	}
+	return "";
 }
 
 //! Mutator method for held armor attribute, note that this will be modified when items will be implemented
@@ -381,14 +382,27 @@ void Character::setHelmet(string h) {
 }
 
 
-void equipItem()
+void Character::equipItem(int index) {
+	backpack->transfer(equipped, index);
+	vector<Item*> backPackItems = equipped->getItems();
+	cout << "Equipped " << backPackItems[index]->getName() << endl;
+	cout << endl;
+}
+
+void Character::unequipItem(int index) {
+	equipped->transfer(backpack, index);
+	vector<Item*> equippedItems = equipped->getItems();
+	cout << "Unequipped " << equippedItems[index]->getName() << endl;
+	cout << endl;
+}
+
 //! Damage recieved by character
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param damage: damage sustained by the character
 void Character::getDamaged(int damage)
 {
 	currentHitPoints = currentHitPoints - damage;
-	Notify(); 
+	Notify();
 }
 
 //! Mutator method for strength ability score
@@ -551,33 +565,34 @@ void Character::assignAbilityModifiers(int holder[]) {
 int Character::levelHitPoints() {
 	int x = getConstitutionModifier();
 	int y = rollTenSidedDie();
-		if (x == -4) {
-			while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
-			}
+	if (x == -4) {
+		while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
+			y = rollTenSidedDie();
 		}
-		else if (x == -3) {
-			while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
-			}
+	}
+	else if (x == -3) {
+		while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
+			y = rollTenSidedDie();
 		}
-		else if (x == -2) {
-			while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
-			}
+	}
+	else if (x == -2) {
+		while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
+			y = rollTenSidedDie();
 		}
-		else if (x == -1) {
-			while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
-				y = rollTenSidedDie();
-			}
+	}
+	else if (x == -1) {
+		while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
+			y = rollTenSidedDie();
 		}
+	}
 	return (x + y);
 }
 
 //! Function to display character information
 void Character::displayCharacterInfo() {
-	cout << "************CHARACTER INFO!************\n\n" << std::endl;
-
+	cout << "---------------------------" << endl;
+	cout << "Character Info" << endl;
+	cout << "---------------------------" << endl;
 	cout << "Strength Score is: " << getStrengthScore() << endl;
 	cout << "Dexterity Score is: " << getDexterityScore() << endl;
 	cout << "Constitution Score is: " << getConstitutionScore() << endl;
@@ -602,11 +617,15 @@ void Character::displayCharacterInfo() {
 
 //! Function that displays character's current equipment
 void Character::displayEquipment() {
-	cout << "\nArmor worn is : " << getWornItemName("ARMOR") << endl;
+	cout << "---------------------------" << endl;
+	cout << "Currently equipped" << endl;
+	cout << "---------------------------" << endl;
+	cout << "Armor worn is : " << getWornItemName("ARMOR") << endl;
 	cout << "Shield equipped is : " << getWornItemName("SHIELD") << endl;
 	cout << "Weapon equipped is : " << getWornItemName("WEAPON") << endl;
 	cout << "Boots worn are : " << getWornItemName("BOOTS") << endl;
 	cout << "Ring equipped is : " << getWornItemName("RING") << endl;
 	cout << "Helmet worn is : " << getWornItemName("HELMET") << endl;
 	cout << "Belt worn is : " << getWornItemName("BELT") << endl;
+	cout << endl;
 }

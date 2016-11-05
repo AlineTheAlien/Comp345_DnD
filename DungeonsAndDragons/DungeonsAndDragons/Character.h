@@ -87,8 +87,8 @@ public:
 	void setBoots(string);
 	void setRing(string);
 	void setHelmet(string);
-	void equipItem(string);
-	void unequipItem(string);
+	void equipItem(int);
+	void unequipItem(int);
 	int levelHitPoints();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
@@ -109,7 +109,7 @@ private:
 	string myRing;
 	string myHelmet;
 	char objectType;
-	ItemContainer* equippedItems;
+	ItemContainer* equipped;
 	ItemContainer* backpack;
 };
 
