@@ -71,6 +71,7 @@ public:
 	int getArmorClass();
 	int getAttackBonus();
 	int getDamageBonus();
+	string getWornItemName(string);
 	void setStrengthScore(int);
 	void setDexterityScore(int);
 	void setConstitutionScore(int);
@@ -79,7 +80,6 @@ public:
 	void setWisdomScore(int);
 	void levelUp();
 	void displayEquipment();
-	string getWornItemName(string);
 	bool validateAbilityModifiers();
 	void setArmor(string);
 	void setShield(string);

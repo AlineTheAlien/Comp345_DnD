@@ -37,7 +37,8 @@ int main()
 	int index = testBackPack->addItem(s1);
 	testBackPack->addItem(s2);
 	testBackPack->addItem(ar1);
-	testBackPack->transfer(testEquipped, index);
+	player->equipItem(index);
+	//player->unequipItem(0); // item should be in index 0
 
 	player->displayEquipment();
 	testBackPack->displayItems();

@@ -323,8 +323,6 @@ ItemContainer* Character::getBackpack() {
 	return backpack;
 }
 
-//! Accessor method for armor, note that this will be modified when items will be implemented
-//! @return string value, the value of the character's equipped armor
 string Character::getWornItemName(string type) {
 	vector<Item*> items = equipped->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
@@ -385,8 +383,8 @@ void Character::setHelmet(string h) {
 
 void Character::equipItem(int index) {
 	backpack->transfer(equipped, index);
-	vector<Item*> backPackItems = equipped->getItems();
-	cout << "Equipped " << backPackItems[index]->getName() << endl;
+	vector<Item*> backpackItems = backpack->getItems();
+	cout << "Equipped " << backpackItems[index]->getName() << endl;
 	cout << endl;
 }
 
@@ -630,12 +628,9 @@ void Character::displayEquipment() {
 	cout << "---------------------------" << endl;
 	cout << "Currently equipped" << endl;
 	cout << "---------------------------" << endl;
-	cout << "Armor worn is : " << getWornItemName("ARMOR") << endl;
-	cout << "Shield equipped is : " << getWornItemName("SHIELD") << endl;
-	cout << "Weapon equipped is : " << getWornItemName("WEAPON") << endl;
-	cout << "Boots worn are : " << getWornItemName("BOOTS") << endl;
-	cout << "Ring equipped is : " << getWornItemName("RING") << endl;
-	cout << "Helmet worn is : " << getWornItemName("HELMET") << endl;
-	cout << "Belt worn is : " << getWornItemName("BELT") << endl;
+	vector<Item*> items = equipped->getItems();
+	for (unsigned int i = 0; i < items.size(); i++) {
+		cout << items[i]->getType() << ": " << items[i]->getName() << endl;
+	}
 	cout << endl;
 }
