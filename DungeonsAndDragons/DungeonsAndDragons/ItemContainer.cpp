@@ -15,7 +15,7 @@ ItemContainer::ItemContainer()
 	items = vector<Item*>();
 }
 
-//! Constructor that takes a vector of items
+//! Constructor
 //! @param type : String representing the type of item
 //! @param items : Vector of items
 ItemContainer::ItemContainer(string type, vector<Item*> items)
@@ -76,10 +76,9 @@ int ItemContainer::getItemPosition(string itemName)
 	return -1;
 }
 
-//! Method to get an item of a specific type from the container
-//! Assumption: Each container may only contain one element of a type
-//! @param itemType : Type of item to extract from the container
-//! @return Item of the specified kind provided in input
+//! Method to get an item of a specific name from the container
+//! @param itemName : Name of item to extract from the container
+//! @return Item of the specified name provided in input
 Item* ItemContainer::getItem(string itemName)
 {
 	for (unsigned int i = 0; i < items.size(); i++) {
@@ -89,7 +88,8 @@ Item* ItemContainer::getItem(string itemName)
 }
 
 //! Method to add an item to the item container
-//! @param item : Item type
+//! @param item : Pointer to an item object
+//! @return The index position of the item inside the vector
 int ItemContainer::addItem(Item* item)
 {
 	cout << "*** Adding " << item->getName() << " to " << type << " ***\n" << endl;
@@ -98,9 +98,9 @@ int ItemContainer::addItem(Item* item)
 	return position;
 }
 
-//! Method to remove an item from the container
-//! @param itemType : Type of item to be removed
-//! @return Item removed
+//! Method to remove an item from the container by its name
+//! @param itemName : Name of item to be removed from the container
+//! @return A pointer to the item
 Item* ItemContainer::removeItem(string itemName)
 {
 	cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
@@ -113,25 +113,28 @@ Item* ItemContainer::removeItem(string itemName)
 }
 
 
-//! Method to remove an item from the container using index
-//! @param index : Index of item
-//! @return Item removed
+//! Method to remove an item from the container by its index position in the vector
+//! @param index : Index position of the item inside the vector
+//! @return A pointer to an item object
 Item* ItemContainer::removeItem(int index)
 {
 	vector<Item*> origin = this->getItems();
 	cout << "*** Removing " << origin[index]->getName() << " from " << type << " ***\n" << endl;
-	Item* temp = items[index];
-	items.erase(items.begin() + index);
+	Item* temp = items[index]; //temp points to where items[index] points to
+	items.erase(items.begin() + index); //remove the pointer at the specified index from the vector
 	cout << "After removing the item, here is the content of the container: " << endl;
 	this->displayItems();
-	return temp;
+	return temp; //returns the pointer
 }
 
+//! Method to transfer an item between different two containers
+//! @param destination : Pointer to the destination container
+//! @param index : Index of the item inside the origin container
 void ItemContainer::transfer(ItemContainer* destination, int index) {
 	vector<Item*> origin = this->getItems();
 	cout << "*** Transferring " << origin[index]->getName() << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
-	Item* transferItem = this->removeItem(index);
-	destination->addItem(transferItem);
+	Item* transferItem = this->removeItem(index); //Remove item
+	destination->addItem(transferItem); //Add the removed item into the destination container
 }
 
 //! Method to display all items inside the container with a list of enhancements and bonus values
