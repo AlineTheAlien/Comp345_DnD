@@ -164,8 +164,8 @@ int main()
 	delete testBackPack;
 	delete testEquipped;
 	delete s1;
-	delete s2;
-	delete ar1;
+	//delete s2;
+	//delete ar1;
 	delete newChest;
 	return 0;
 }
