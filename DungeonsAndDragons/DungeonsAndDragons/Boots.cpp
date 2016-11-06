@@ -11,13 +11,18 @@ using namespace std;
 Boots::Boots()
 {
 	type = "BOOTS";
+	name = "Boots";
+	enhancements = vector<Enhancement>();
 }
 
 //! Constructor that calls an Item constructor
+//! @param name : Name of the boots item
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
 //! @param dexterityBonus : Integer representing the enhancement bonus for the stats Dexterity
 Boots::Boots(string name, int armorClassBonus, int dexterityBonus) : Item("BOOTS", name, vector<Enhancement>())
 {
+	this->name = name;
+
 	if (armorClassBonus > 0)
 	{
 		Enhancement armorClass = Enhancement("ARMOR CLASS", armorClassBonus);
@@ -32,10 +37,11 @@ Boots::Boots(string name, int armorClassBonus, int dexterityBonus) : Item("BOOTS
 }
 
 //! Constructor taking a vector of enhancements as parameter
-//! It also calls an Item constructor and pass a vector of enhancements as parameter.
+//! @param name : Name of the boots item
 //! @param enhancements : Vector of enhancements
 Boots::Boots(string name, vector<Enhancement> enhancements) : Item("BOOTS", name, enhancements)
 {
+	this->name = name;
 	this->enhancements = enhancements;
 }
 

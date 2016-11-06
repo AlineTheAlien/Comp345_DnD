@@ -12,12 +12,15 @@ using namespace std;
 Shield::Shield()
 {
 	type = "SHIELD";
+	name = "Shield";
 }
 
 //! Constructor that calls an Item constructor
+//! @param name : Name of shield item
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
 Shield::Shield(string name, int armorClassBonus) : Item("SHIELD", name, vector<Enhancement>())
 {
+	this->name = name;
 	if (armorClassBonus > 0)
 	{
 		Enhancement armorClass = Enhancement("ARMOR CLASS", armorClassBonus);
@@ -26,7 +29,7 @@ Shield::Shield(string name, int armorClassBonus) : Item("SHIELD", name, vector<E
 }
 
 //! Constructor taking a vector of enhancements as parameter
-//! It also calls an Item constructor and pass a vector of enhancements as parameter.
+//! @param name : Name of shield item
 //! @param enhancements : Vector of enhancements
 Shield::Shield(string name, vector<Enhancement> enhancements) : Item("SHIELD", name, enhancements)
 {

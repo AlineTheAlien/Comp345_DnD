@@ -10,13 +10,18 @@ using namespace std;
 Weapon::Weapon()
 {
 	type = "WEAPON";
+	name = "Weapon";
+	enhancements = vector<Enhancement>();
 }
 
 //! Constructor that calls an Item constructor
+//! @param name : Name of weapon item
 //! @param attackValue : Integer representing the enhancement bonus for the stats Attack bonus
 //! @param damageValue : Integer representing the enhancement bonus for the stats Damage bonus
 Weapon::Weapon(string name, int attackValue, int damageValue) : Item("WEAPON", name, vector<Enhancement>())
 {
+	this->name = name;
+
 	if (attackValue > 0)
 	{
 		Enhancement attackBonus = Enhancement("ATTACK BONUS", attackValue);
@@ -32,10 +37,12 @@ Weapon::Weapon(string name, int attackValue, int damageValue) : Item("WEAPON", n
 }
 
 //! Constructor taking a vector of enhancements as parameter
-//! It also calls an Item constructor and pass a vector of enhancements as parameter.
+//! @param name : Name of weapon item
 //! @param enhancements : Vector of enhancements
 Weapon::Weapon(string name, vector<Enhancement> enhancements) : Item("WEAPON", name, enhancements)
 {
+	this->name = name;
+	this->enhancements = enhancements;
 }
 
 //! Overrided method to validate that the armor only enhances 'ATTACK BONUS' and 'DAMAGE BONUS'and verify that the bonus values are within [1..5]

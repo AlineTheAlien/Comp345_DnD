@@ -1,5 +1,5 @@
 //! @file
-//! \brief Header file for the Armor class
+//! @brief Header file for the Armor class
 //!
 //! This class represents a specific Item type. It is a subclass of Item.
 #ifndef ARMOR_H
