@@ -20,7 +20,7 @@ ItemContainer::ItemContainer()
 //! @param items : Vector of items
 ItemContainer::ItemContainer(string type, vector<Item*> items)
 {
-	if (type == "BACKPACK" || type == "EQUIPPED" || type == "TREASURE CHEST")
+	if (type == "BACKPACK" || type == "EQUIPPED" || type == "CHEST")
 	{
 		this->type = type;
 		this->items = items;
@@ -28,7 +28,7 @@ ItemContainer::ItemContainer(string type, vector<Item*> items)
 	else
 	{
 		cout << "Invalid container type." << endl;
-		exit(1);
+		exit(123);
 	}
 
 }
@@ -37,7 +37,7 @@ ItemContainer::ItemContainer(string type, vector<Item*> items)
 //! @param type : String representing the type of item
 ItemContainer::ItemContainer(string type)
 {
-	if (type == "BACKPACK" || type == "EQUIPPED" || type == "TREASURE CHEST")
+	if (type == "BACKPACK" || type == "EQUIPPED" || type == "CHEST")
 	{
 		this->type = type;
 		items = vector<Item*>();
@@ -45,7 +45,7 @@ ItemContainer::ItemContainer(string type)
 	else
 	{
 		cout << "Invalid container type." << endl;
-		exit(1);
+		exit(123);
 	}
 }
 
