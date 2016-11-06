@@ -617,6 +617,8 @@ void Character::displayEquipment() {
 	vector<Item*> items = equipped->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
 		cout << "[" << i << "]" << items[i]->getType() << ": " << items[i]->getName() << endl;
+		items[i]->displayEnhancements();
+		cout << endl;
 	}
 	cout << endl;
 }
