@@ -366,8 +366,57 @@ void Character::setHelmet(string h) {
 //! @param : The index position of the item to wear inside the vector representing a backpack
 void Character::equipItem(int index) {
 	vector<Item*> backpackItems = backpack->getItems();
-	cout << "Equipping " << backpackItems[index]->getName() << endl;
+	string itemName = backpackItems[index]->getName();
+	cout << "Equipping " << itemName << endl;
 	backpack->transfer(equipped, index); // transfer from 'BACKPACK' container to 'EQUIPPED'
+
+	Item* ptr = equipped->getItem(itemName);
+	vector<Enhancement> enhance;
+	enhance = ptr->getEnhancements();
+
+	for (int i = 0; i != enhance.size(); i++) {
+		string enhanceType;
+		int enhanceBonus;
+		enhanceType = enhance[i].getType();
+		enhanceBonus = enhance[i].getBonus();
+
+		if (enhanceType == "STRENGTH") {
+			abilityScores[0] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "DEXTERITY") {
+			abilityScores[1] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "CONSTITUTION") {
+			abilityScores[2] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "CHARISMA") {
+			abilityScores[3] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "INTELLIGENCE") {
+			abilityScores[4] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "WISDOM") {
+			abilityScores[5] += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "ARMOR CLASS") {
+			armorClass += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "ATTACK BONUS") {
+			attackBonus += enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "DAMAGE BONUS") {
+			damageBonus += enhanceBonus;
+			Notify();
+		}
+	}
 	cout << endl;
 }
 
@@ -375,8 +424,58 @@ void Character::equipItem(int index) {
 //! @param : The index position of the item to be equipped inside the vector representing a list of equipped items
 void Character::unequipItem(int index) {
 	vector<Item*> equippedItems = equipped->getItems();
-	cout << "Unequipping " << equippedItems[index]->getName() << endl;
+	string itemName = equippedItems[index]->getName();
+	cout << "Unequipping " << itemName << endl;
 	equipped->transfer(backpack, index); // transfer from 'EQUIPPED' to 'BACKPACK'
+
+	Item* ptr = backpack->getItem(itemName);
+	vector<Enhancement> enhance;
+	enhance = ptr->getEnhancements();
+
+	for (int i = 0; i != enhance.size(); i++) {
+		string enhanceType;
+		int enhanceBonus;
+		enhanceType = enhance[i].getType();
+		enhanceBonus = enhance[i].getBonus();
+
+		if (enhanceType == "STRENGTH") {
+			abilityScores[0] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "DEXTERITY") {
+			abilityScores[1] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "CONSTITUTION") {
+			abilityScores[2] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "CHARISMA") {
+			abilityScores[3] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "INTELLIGENCE") {
+			abilityScores[4] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "WISDOM") {
+			abilityScores[5] -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "ARMOR CLASS") {
+			armorClass -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "ATTACK BONUS") {
+			attackBonus -= enhanceBonus;
+			Notify();
+		}
+		else if (enhanceType == "DAMAGE BONUS") {
+			damageBonus -= enhanceBonus;
+			Notify();
+		}
+	}
+
 	cout << endl;
 }
 
@@ -554,63 +653,63 @@ int Character::levelHitPoints() {
 	int x = getConstitutionModifier();
 	//int y = rollTenSidedDie();
 	int y = myDice.roll("1d10");
-		if (x == -4) {
-			while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
-				//y = rollTenSidedDie();
-				y = myDice.roll("1d10");
-			}
+	if (x == -4) {
+		while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
+			//y = rollTenSidedDie();
+			y = myDice.roll("1d10");
 		}
-		else if (x == -3) {
-			while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
-				//y = rollTenSidedDie();
-				y = myDice.roll("1d10");
-			}
+	}
+	else if (x == -3) {
+		while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
+			//y = rollTenSidedDie();
+			y = myDice.roll("1d10");
 		}
-		else if (x == -2) {
-			while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
-				//y = rollTenSidedDie();
-				y = myDice.roll("1d10");
-			}
+	}
+	else if (x == -2) {
+		while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
+			//y = rollTenSidedDie();
+			y = myDice.roll("1d10");
 		}
-		else if (x == -1) {
-			while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
-				//y = rollTenSidedDie();
-				y = myDice.roll("1d10");
-			}
+	}
+	else if (x == -1) {
+		while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
+			//y = rollTenSidedDie();
+			y = myDice.roll("1d10");
 		}
+	}
 	return (x + y);
 }
 
 //! Method to display character information
 void Character::displayCharacterInfo() {
-	cout << "---------------------------" << endl;
-	cout << "Character Info" << endl;
-	cout << "---------------------------" << endl;
-	cout << "Strength Score is: " << getStrengthScore() << endl;
-	cout << "Dexterity Score is: " << getDexterityScore() << endl;
-	cout << "Constitution Score is: " << getConstitutionScore() << endl;
-	cout << "Intelligence Score is: " << getIntelligenceScore() << endl;
-	cout << "Wisdom Score is: " << getWisdomScore() << endl;
-	cout << "Charisma Score is: " << getCharismaScore() << endl;
 
-	cout << "\nStrength Modifier is: " << getStrengthModifier() << endl;
-	cout << "Dexterity Modifier is: " << getDexterityModifier() << endl;
-	cout << "Constitution Modifier is: " << getConstitutionModifier() << endl;
-	cout << "Intelligence Modifier is: " << getIntelligenceModifier() << endl;
-	cout << "Wisdom Modifier is: " << getWisdomModifier() << endl;
-	cout << "Charisma Modifier is: " << getCharismaModifier() << endl;
+	cout << "\n\n Displaying your character's current stats...\n" << endl;
+	cout << " Your character's current Level is: " << currentLevel << endl;
+	cout << " Your character's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
 
-	cout << "\nCurrent Level is:  " << getCurrentLevel() << endl;
-	cout << "\nCurrent HP is: " << getHitPoints() << endl;
-	cout << "\nCurrent EXP is: " << getCurrentExperiencePoints() << endl;
-	cout << "\nCurrent Armor Class is: " << getArmorClass() << endl;
-	cout << "\nCurrent Attack Bonus is: " << getAttackBonus() << endl;
-	cout << "\nCurrent Damage Bonus is: " << getDamageBonus() << endl;
+	cout << " Your character's current Strength Score is: " << abilityScores[0] << endl;
+	cout << " Your character's current Dexterity Score is: " << abilityScores[1] << endl;
+	cout << " Your character's current Constitution Score is: " << abilityScores[2] << endl;
+	cout << " Your character's current Intelligence Score is: " << abilityScores[4] << endl;
+	cout << " Your character's current Wisdom Score is: " << abilityScores[5] << endl;
+	cout << " Your character's current Charisma Score is: " << abilityScores[3] << endl;
+
+	cout << "\n Your character's current Strength Modifier is: " << abilityModifiers[0] << endl;
+	cout << " Your character's current Dexterity Modifier is: " << abilityModifiers[1] << endl;
+	cout << " Your character's current Constitution Modifier is: " << abilityModifiers[2] << endl;
+	cout << " Your character's current Intelligence Modifier is: " << abilityModifiers[4] << endl;
+	cout << " Your character's current Wisdom Modifier is: " << abilityModifiers[5] << endl;
+	cout << " Your character's current Charisma Modifier is: " << abilityModifiers[3] << endl;
+
+	cout << "\n Your character's current current Armor Class is: " << getArmorClass() << endl;
+	cout << " Your character's current current Attack Bonus is: " << getAttackBonus() << endl;
+	cout << " Your character's current current Damage Bonus is: " << getDamageBonus() << endl;
 	cout << endl;
 }
 
 //! Method that displays character's current equipment
 void Character::displayEquipment() {
+	/*
 	cout << "---------------------------" << endl;
 	cout << "Currently equipped" << endl;
 	cout << "---------------------------" << endl;
@@ -618,5 +717,23 @@ void Character::displayEquipment() {
 	for (unsigned int i = 0; i < items.size(); i++) {
 		cout << "[" << i << "]" << items[i]->getType() << ": " << items[i]->getName() << endl;
 	}
+	cout << endl;
+	*/
+
+	string armor = this->getWornItemName("ARMOR");
+	string shield = this->getWornItemName("SHIELD");
+	string weapon = this->getWornItemName("WEAPON");
+	string boots = this->getWornItemName("BOOTS");
+	string ring = this->getWornItemName("RING");
+	string helmet = this->getWornItemName("HELMET");
+	string belt = this->getWornItemName("BELT");
+
+	cout << "\n\n Displaying your character's current equipped items..." << endl;
+	cout << "\n Armor worn is : " << armor << endl;
+	cout << " Shield equipped is : " << shield << endl;
+	cout << " Weapon equipped is : " << weapon << endl;
+	cout << " Boots worn are : " << boots << endl;
+	cout << " Ring equipped is : " << ring << endl;
+	cout << " Helmet worn is : " << helmet << endl;
 	cout << endl;
 }

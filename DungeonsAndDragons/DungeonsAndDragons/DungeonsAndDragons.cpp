@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "ItemContainer.h"
+#include "CharacterObserver.h"
 #include "Item.h"
 #include "Character.h"
 #include "Enhancement.h"
@@ -17,39 +18,42 @@ int main()
 {
 	srand(time(NULL));
 	//Displaying default constructor...
-	Character fighter = Character();
-	fighter.displayCharacterInfo();
-
+	//Character fighter = Character();
+	//fighter.displayCharacterInfo();
 
 	Character* player = new Character();
+	CharacterObserver *charobv = new CharacterObserver(player);
+
+	player->displayCharacterInfo();
+	player->displayEquipment();
 
 	ItemContainer* testBackPack = player->getBackpack();
 	ItemContainer* testEquipped = player->getEquippedItems();
 
-	Enhancement str = Enhancement("STRENGTH", 5);
+	Enhancement str = Enhancement("ARMOR CLASS", 5);
 	vector<Enhancement> enhList1 = vector<Enhancement>();
 	enhList1.push_back(str);
 
 	Shield* s1 = new Shield("Super Shild", enhList1);
-	Shield* s2 = new Shield("Super Awsom Shild", enhList1);
-	Armor* ar1 = new Armor("GREAT AMOR", 4);
+	//Shield* s2 = new Shield("Super Awsom Shild", enhList1);
+	//Armor* ar1 = new Armor("GREAT AMOR", 4);
 
 	int index = testBackPack->addItem(s1);
-	testBackPack->addItem(s2);
-	testBackPack->addItem(ar1);
+	//testBackPack->addItem(s2);
+	//testBackPack->addItem(ar1);
 	player->equipItem(index);
-	player->displayEquipment();
+	//player->displayEquipment();
 	player->unequipItem(0); // item should be in index 0
 
-	player->displayEquipment();
-	testBackPack->displayItems();
+	//player->displayEquipment();
+	//testBackPack->displayItems();
 
 	getchar();
 	delete player;
 	delete testBackPack;
 	delete testEquipped;
 	delete s1;
-	delete s2;
-	delete ar1;
+	//delete s2;
+	//delete ar1;
 	return 0;
 }
