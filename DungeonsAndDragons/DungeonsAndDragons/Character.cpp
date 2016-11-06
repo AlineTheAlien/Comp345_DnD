@@ -21,23 +21,6 @@
 using namespace std;
 using std::string;
 
-int abilityScores[6];
-int abilityModifiers[6];
-int currentHitPoints;
-int maxHitPoints;
-int currentLevel;
-long currentExperiencePoints;
-int armorClass;
-//The items equipped in the future will be objects of type Item (is implemented in partner's assignment)
-//in the future, will be of type Item, not string. string only for demonstration purposes
-string myArmor;
-string myShield;
-string myWeapon;
-string myBoots;
-string myRing;
-string myHelmet;
-int attackBonus;
-
 //! Default constructor for a fighter character
 Character::Character()
 {
@@ -64,7 +47,7 @@ Character::Character()
 	abilityScores[4] = abilityHolder[4]; //intelligence
 	abilityScores[5] = abilityHolder[5]; //wisdom
 
-										 //Calculates ability modifiers based on the characters ability scores
+	//Calculates ability modifiers based on the characters ability scores
 	assignAbilityModifiers(modifierHolder);
 
 	//Assigns the modifiers with the same priority as listed above
@@ -75,7 +58,7 @@ Character::Character()
 	abilityModifiers[4] = modifierHolder[4]; //intelligence
 	abilityModifiers[5] = modifierHolder[5]; //wisdom
 
-											 //set hit points as 10 summed with the character's calculated  constitution modifier
+	//set hit points as 10 summed with the character's calculated  constitution modifier
 	currentHitPoints = 10 + abilityModifiers[2];
 
 	//Initially, as character is not hit, the maximum HP is the same as the current HP
@@ -99,6 +82,7 @@ Character::Character()
 	myBoots = "None";
 	myRing = "None";
 	myHelmet = "None";
+	myBelt = "None";
 
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
@@ -143,36 +127,27 @@ Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
 
-	//For demonstration, equipped items will be initialized with strings
-	myArmor = "None";
-	myShield = "None";
-	myWeapon = "None";
-	myBoots = "None";
-	myRing = "None";
-	myHelmet = "None";
-
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
 
-//! Desctructor
+//! Destructor
 Character::~Character() {
 	delete equipped;
 	delete backpack;
-};
+}
 
-
-//! Implementation of the verification of a newly created Character
+//! Method to validate a newly created Character
 //! @return bool value, true ff the character is valid (stats should be in the 3-18 range for a new character), false if invalid. 
 bool Character::validateNewCharacter()
 {
 	for (int i = 0; i <= 5; i++)
-		if (abilityScores[i] < 3 || abilityScores[i]>18)
+		if (abilityScores[i] < 3 || abilityScores[i] > 18)
 			return false;
 	return true;
 }
 
-//! Implementation of the verification of a newly created Character's ability modifiers
+//! Method to validate a newly created character's ability modifiers
 //! @return bool value, true if the character is valid (modifiers should be in the -4 to +4 range for a new character), false if invalid. 
 bool Character::validateAbilityModifiers()
 {
@@ -301,28 +276,35 @@ int Character::getDamageBonus()
 	return damageBonus;
 }
 
-//! Implementation of a getter method for currentHitPoints
+//! Method to get the current hit points
 //! @return int, value of currentHitPoints
 int Character::getHitPoints()
 {
 	return currentHitPoints;
 }
 
-//! Implementation of a getter method for maxHitPoints
+//! Method to get the maximum hit points
 //! @return int, value of maxHitPoints
 int Character::getMaxHitPoints()
 {
 	return maxHitPoints;
 }
 
+//! Method to get all equipped items
+//! @return A pointer to an item container representing equipped items
 ItemContainer* Character::getEquippedItems() {
 	return equipped;
 }
 
+//! Method to get all items inside the backpack
+//! @return A pointer to an item container representing the backpack
 ItemContainer* Character::getBackpack() {
 	return backpack;
 }
 
+//! Method to display the name of a specified type of equipped item
+//! @param : The type of the equipment as a string value
+//! return The name of the item as a string value
 string Character::getWornItemName(string type) {
 	vector<Item*> items = equipped->getItems();
 	for (unsigned int i = 0; i < items.size(); i++) {
@@ -380,22 +362,25 @@ void Character::setHelmet(string h) {
 	Notify();
 }
 
-
+//! Method to equip an item on the character from the backpack
+//! @param : The index position of the item to wear inside the vector representing a backpack
 void Character::equipItem(int index) {
 	vector<Item*> backpackItems = backpack->getItems();
 	cout << "Equipping " << backpackItems[index]->getName() << endl;
-	backpack->transfer(equipped, index);
+	backpack->transfer(equipped, index); // transfer from 'BACKPACK' container to 'EQUIPPED'
 	cout << endl;
 }
 
+//! Method to unequip an item and put it into the backpack
+//! @param : The index position of the item to be equipped inside the vector representing a list of equipped items
 void Character::unequipItem(int index) {
 	vector<Item*> equippedItems = equipped->getItems();
 	cout << "Unequipping " << equippedItems[index]->getName() << endl;
-	equipped->transfer(backpack, index);
+	equipped->transfer(backpack, index); // transfer from 'EQUIPPED' to 'BACKPACK'
 	cout << endl;
 }
 
-//! Damage recieved by character
+//! Method to get the damage received by the character
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param damage: damage sustained by the character
 void Character::getDamaged(int damage)
@@ -452,7 +437,7 @@ void Character::setWisdomScore(int wis) {
 	Notify();
 }
 
-//! Implementation that incrememnts level by one to show that character has leveled up
+//! Method that increments the level by one to show that the character has leveled up
 void Character::levelUp() {
 	currentLevel++;
 
@@ -554,7 +539,7 @@ int Character::generateAbilityModifier(int score) {
 	return floor(x);
 }
 
-//! Implementation to assign ability modifiers to the modifiers array
+//! Method to assign ability modifiers to the modifiers array
 //! @param holder: array that will be passed in this function
 void Character::assignAbilityModifiers(int holder[]) {
 	for (int i = 0; i < 6; i++) {
@@ -596,7 +581,7 @@ int Character::levelHitPoints() {
 	return (x + y);
 }
 
-//! Function to display character information
+//! Method to display character information
 void Character::displayCharacterInfo() {
 	cout << "---------------------------" << endl;
 	cout << "Character Info" << endl;
@@ -624,7 +609,7 @@ void Character::displayCharacterInfo() {
 	cout << endl;
 }
 
-//! Function that displays character's current equipment
+//! Method that displays character's current equipment
 void Character::displayEquipment() {
 	cout << "---------------------------" << endl;
 	cout << "Currently equipped" << endl;

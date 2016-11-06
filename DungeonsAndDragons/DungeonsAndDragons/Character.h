@@ -95,6 +95,8 @@ public:
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];
+	int abilityHolder[6];
+	int modifierHolder[6];
 	int currentHitPoints;
 	int maxHitPoints;
 	int currentLevel;
@@ -103,11 +105,12 @@ private:
 	int attackBonus;
 	int damageBonus;
 	string myArmor;
-	string myShied;
+	string myShield;
 	string myWeapon;
 	string myBoots;
 	string myRing;
 	string myHelmet;
+	string myBelt;
 	char objectType;
 	ItemContainer* equipped;
 	ItemContainer* backpack;

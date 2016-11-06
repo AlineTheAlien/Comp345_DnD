@@ -41,14 +41,14 @@ private:
 
 public:
 	ItemContainer();
-	ItemContainer(string type, vector<Item*> items);
-	ItemContainer(string type);
+	ItemContainer(string, vector<Item*>);
+	ItemContainer(string);
 	string getType();
 	vector<Item*> getItems();
-	int getItemPosition(string itemType);
-	Item* getItem(string itemType);
-	int addItem(Item* item);
-	Item* removeItem(string itemType);
+	int getItemPosition(string);
+	Item* getItem(string);
+	int addItem(Item*);
+	Item* removeItem(string itemName); // remove item by name
 	Item* removeItem(int index); // remove item by index
 	void transfer(ItemContainer*, int);
 	void displayItems();
