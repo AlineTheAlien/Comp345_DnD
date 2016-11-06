@@ -11,9 +11,12 @@ using namespace std;
 Ring::Ring()
 {
 	type = "RING";
+	name = "Ring";
+	enhancements = vector<Enhancement>();
 }
 
 //! Constructor that calls an Item constructor
+//!@param name : Name of ring item
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
 //! @param strengthBonus : Integer representing the enhancement bonus for the stats Strength
 //! @param constitutionBonus : Integer representing the enhancement bonus for the stats Constitution
@@ -21,6 +24,8 @@ Ring::Ring()
 //! @param charismaBonus : Integer representing the enhancement bonus for the stats Charisma
 Ring::Ring(string name, int armorClassBonus, int strengthBonus, int constitutionBonus, int wisdomBonus, int charismaBonus) : Item("RING", name, vector<Enhancement>())
 {
+	this->name = name;
+
 	if (armorClassBonus > 0)
 	{
 		Enhancement armorClass = Enhancement("ARMOR CLASS", armorClassBonus);
@@ -53,10 +58,11 @@ Ring::Ring(string name, int armorClassBonus, int strengthBonus, int constitution
 }
 
 //! Constructor taking a vector of enhancements as parameter
-//! It also calls an Item constructor and pass a vector of enhancements as parameter.
+//! @param name : Name of items
 //! @param enhancements : Vector of enhancements
 Ring::Ring(string name, vector<Enhancement> enhancements) : Item("RING", name, enhancements)
 {
+	this->name = name;
 	this->enhancements = enhancements;
 }
 

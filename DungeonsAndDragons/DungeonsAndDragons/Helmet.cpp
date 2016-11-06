@@ -11,6 +11,8 @@ using namespace std;
 Helmet::Helmet()
 {
 	type = "HELMET";
+	name = "Helmet";
+	enhancements = vector<Enhancement>();
 }
 
 //! Constructor that calls an Item constructor
@@ -19,6 +21,7 @@ Helmet::Helmet()
 //! @param armorClassBonus : Integer representing the enhancement bonus for the stats Armor Class
 Helmet::Helmet(string name, int intelligenceBonus, int wisdomBonus, int armorClassBonus) : Item("HELMET", name,vector<Enhancement>())
 {
+	this->name = name;
 	if (intelligenceBonus > 0)
 	{
 		Enhancement intelligence = Enhancement("INTELLIGENCE", intelligenceBonus);
@@ -43,6 +46,8 @@ Helmet::Helmet(string name, int intelligenceBonus, int wisdomBonus, int armorCla
 //! @param enhancements : Vector of enhancements
 Helmet::Helmet(string name, vector<Enhancement> enhancements) : Item("HELMET", name, enhancements)
 {
+	this->name = name;
+	this->enhancements = enhancements;
 }
 
 //! Overrided method to validate that the armor only enhances 'ARMOR CLASS', 'WISDOM' and 'INTELLIGENCE' and verify that the bonus values are within [1..5]
