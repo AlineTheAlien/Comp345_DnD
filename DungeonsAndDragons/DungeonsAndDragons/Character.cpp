@@ -365,6 +365,11 @@ void Character::setHelmet(string h) {
 	Notify();
 }
 
+void Character::setType(char c)
+{
+	objectType = c;
+}
+
 //! Method to equip an item on the character from the backpack
 //! @param : The index position of the item to wear inside the vector representing a backpack
 void Character::equipItem(int index) {

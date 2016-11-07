@@ -174,7 +174,8 @@ void Map::setTile(int x, int y, MapObject* object)
 			if (map[i]->getObjectType() == DOOR)
 				map[i] = new MapObject();
 		}
-
+//	delete map[x + y * mapX];
+//	map[x + y * mapX] = NULL;
 	map[x + y * mapX] = ptr;
 }
 

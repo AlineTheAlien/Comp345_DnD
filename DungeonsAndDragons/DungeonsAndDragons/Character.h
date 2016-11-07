@@ -87,6 +87,7 @@ public:
 	void setBoots(string);
 	void setRing(string);
 	void setHelmet(string);
+	void setType(char);
 	void equipItem(int);
 	void unequipItem(int);
 	int levelHitPoints();

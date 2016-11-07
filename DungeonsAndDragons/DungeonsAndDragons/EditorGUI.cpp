@@ -995,12 +995,15 @@ void EditorGUI::openMapView()
 							{
 								mapTiles.at(index).setTexture(textures.getEnemyTexture());
 								MapObject* enemy = new Character('E', 1,1,1,1,1,1);
+								enemy->setObjectType('E');
 								mapEditor->setTile(j, i, enemy);
 							}
 							if (selectedTile == 'C')
 							{
 								mapTiles.at(index).setTexture(textures.getTreasureTexture());
-								mapEditor->setTile(j, i, ContainerEditor::createChest());
+								MapObject* newChest = ContainerEditor::createChest();
+								newChest->setObjectType('C');
+								mapEditor->setTile(j, i, newChest);
 							}
 							if (selectedTile == 'D')
 							{

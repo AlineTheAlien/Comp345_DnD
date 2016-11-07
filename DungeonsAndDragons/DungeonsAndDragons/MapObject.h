@@ -15,6 +15,7 @@ public:
 	MapObject();
 	MapObject(char type);
 	char getObjectType();
+	void setObjectType(char type);
 	// Serialization
 	// When the class Archive corresponds to an output archive, the
 	// & operator is defined similar to <<. Likewise, when the class Archive
