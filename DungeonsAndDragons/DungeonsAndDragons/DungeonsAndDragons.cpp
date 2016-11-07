@@ -138,9 +138,11 @@ int main()
 	// For the purpose of creating items inside container
 	MapObject* newChest = new ItemContainer("CHEST");
 	int numOfItems = 1;
+	string chestName = "";
+	cout << "Enter chest name: " << endl;
+	cin >> chestName;
 	cout << "How many items would you like to put inside the chest?" << endl;
 	cin >> numOfItems;
-
 	int itemNum = 1;
 	string name = "";
 	string empty = ""; // to consume any white-space characters
@@ -371,6 +373,15 @@ int main()
 		numOfItems--;
 	}
 	static_cast<ItemContainer*>(newChest)->displayItems();
+	// Create and open a character archive for output
+	std::ofstream ofs("Chests/" + chestName);
+
+	// Save data to archive
+	{
+		boost::archive::binary_oarchive oa(ofs);
+		// Write class instance to archive
+		oa << newChest;
+	}
 
 //// ... some time later restore the class instance to its orginal state
 //Item* newg;
