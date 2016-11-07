@@ -23,8 +23,8 @@
 #ifndef ENHANCEMENT_H
 #define ENHANCEMENT_H
 // include headers that implement a archive in simple text format
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
 
 #include <string>
 
