@@ -26,9 +26,6 @@ using namespace std;
 int main()
 {
 	srand(time(NULL));
-	//Displaying default constructor...
-	//Character fighter = Character();
-	//fighter.displayCharacterInfo();
 
 	Character* player = new Character();
 	CharacterObserver *charobv = new CharacterObserver(player);
@@ -56,6 +53,83 @@ int main()
 
 	//player->displayEquipment();
 	//testBackPack->displayItems();
+
+	bool valid = false;
+	int charCreate = 0;
+	Character* fighter;
+	CharacterObserver *charobserver;
+	cout << "So you want to create a new character?" << endl;
+	cout << "Press 1 to enter ability scores manually, or press 2 to generate by rolling dice." << endl;
+	cin >> charCreate;
+
+		if (charCreate == 2) {
+			while (valid == false) {
+				fighter = new Character();
+				charobserver = new CharacterObserver(fighter);
+				valid = fighter->validateNewCharacter();
+				if (valid == false) {
+					delete fighter;
+					delete charobserver;
+				}
+				else {
+					fighter->displayCharacterInfo();
+					fighter->displayEquipment();
+				}
+			}
+		}
+
+		else if (charCreate == 1) {
+			while (valid == false) {
+				int str = 0;
+				int dex = 0;
+				int con = 0;
+				int intel = 0;
+				int wis = 0;
+				int cha = 0;
+				while (str < 3 || str > 18) {
+					cout << "What would you like to have as the Strength Score of your character?" << endl;
+					cout << "Strength Score must be at least 3, and at most 18." << endl;
+					cin >> str;
+				}
+				while (dex < 3 || dex > 18) {
+					cout << "What would you like to have as the Dexterity Score of your character?" << endl;
+					cout << "Dexterity Score must be at least 3, and at most 18." << endl;
+					cin >> dex;
+				}
+				while (con < 3 || con > 18) {
+					cout << "What would you like to have as the Constitution Score of your character?" << endl;
+					cout << "Constitution Score must be at least 3, and at most 18." << endl;
+					cin >> con;
+				}
+				while (intel < 3 || intel > 18) {
+					cout << "What would you like to have as the Intelligence Score of your character?" << endl;
+					cout << "Intelligence Score must be at least 3, and at most 18." << endl;
+					cin >> intel;
+				}
+				while (wis < 3 || wis > 18) {
+					cout << "What would you like to have as the Wisdom Score of your character?" << endl;
+					cout << "Wisdom Score must be at least 3, and at most 18." << endl;
+					cin >> wis;
+				}
+				while (cha < 3 || cha > 18) {
+					cout << "What would you like to have as the Charisma Score of your character?" << endl;
+					cout << "Charisma Score must be at least 3, and at most 18." << endl;
+					cin >> cha;
+				}
+				fighter = new Character(str, dex, con, intel, wis, cha);
+				charobserver = new CharacterObserver(fighter);
+				valid = fighter->validateNewCharacter();
+				if (valid == false) {
+					delete fighter;
+					delete charobserver;
+				}
+				else {
+					fighter->displayCharacterInfo();
+					fighter->displayEquipment();
+				}
+			}
+	}
+
 
 	// For the purpose of creating items inside container
 	MapObject* newChest = new ItemContainer("CHEST");
