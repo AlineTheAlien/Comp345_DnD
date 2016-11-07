@@ -136,10 +136,10 @@ int main()
 
 
 	// For the purpose of creating items inside container
-	MapObject* newChest = new ItemContainer("CHEST");
-	int numOfItems = 1;
-	cout << "How many items would you like to put inside the chest?" << endl;
-	cin >> numOfItems;
+	//MapObject* newChest = new ItemContainer("CHEST");
+	//int numOfItems = 1;
+	//cout << "How many items would you like to put inside the chest?" << endl;
+	//cin >> numOfItems;
 
 	//int itemNum = 1;
 	//string name = "";
@@ -321,22 +321,24 @@ int main()
 		// Write class instance to archive
 		oa << testWeapon;
 		// archive and stream closed when destructors are called
-		delete testWeapon;
+		//delete testWeapon;
 	}
 
-//// ... some time later restore the class instance to its orginal state
-//Item* newg;
-//{
-//	// create and open an archive for input
-//	std::ifstream ifs("TestFile");
-//	boost::archive::text_iarchive ia(ifs);
-//	// read class state from archive
-//	ia >> newg;
-//	// archive and stream closed when destructors are called
-//}
-//
-//string itemName = newg->getName();
-//cout << itemName;
+	string itemName = testWeapon->getName();
+	cout << "Saving " << itemName << "..." << endl;
+// ... some time later restore the class instance to its orginal state
+Item* newg;
+{
+	// create and open an archive for input
+	std::ifstream ifs("TestFile");
+	boost::archive::text_iarchive ia(ifs);
+	// read class state from archive
+	ia >> newg;
+	// archive and stream closed when destructors are called
+}
+
+itemName = newg->getName();
+cout << "Retrieved" << itemName << "..." << endl;
 
 
 
