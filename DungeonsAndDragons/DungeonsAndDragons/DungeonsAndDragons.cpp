@@ -21,6 +21,7 @@
 #include <fstream>
 #include "MapObject.h"
 #include <string>
+#include "Launch.h"
 // include headers that implement a archive in simple text format
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -344,7 +345,8 @@ cout << "Retrieved" << itemName << "..." << endl;
 
 	system("PAUSE");
 	getchar();
-
+	Launch game;
+	game.Start();
 	delete player;
 	//delete testBackPack;
 	//delete testEquipped;
