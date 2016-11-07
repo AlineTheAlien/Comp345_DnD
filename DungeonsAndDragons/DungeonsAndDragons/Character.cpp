@@ -381,7 +381,7 @@ void Character::setHelmet(string h) {
 }
 
 
-void equipItem()
+void equipItem();
 //! Damage recieved by character
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param damage: damage sustained by the character
