@@ -22,6 +22,9 @@
 
 #ifndef ENHANCEMENT_H
 #define ENHANCEMENT_H
+// include headers that implement a archive in simple text format
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 
 #include <string>
 
@@ -43,6 +46,17 @@ public:
 	string getType();
 	// Method to get the bonus of the enhancement
 	int getBonus();
+
+	// Serialization
+	// When the class Archive corresponds to an output archive, the
+	// & operator is defined similar to <<. Likewise, when the class Archive
+	// is a type of input archive the & operator is defined similar to >>.
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version)
+	{
+		ar & type;
+		ar & bonus;
+	}
 };
 
 #endif
