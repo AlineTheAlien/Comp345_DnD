@@ -30,7 +30,7 @@ public:
 	void newMap(int mapX, int mapY);
 	int getMapSizeX();
 	int getMapSizeY();
-	void setTile(int x, int y, char object);
+	void setTile(int x, int y, MapObject* object);
 	char getTile(int x, int y);
 	string getAvailableMap(int index);
 	void setAvailableMaps();

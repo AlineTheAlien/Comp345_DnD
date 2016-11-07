@@ -7,7 +7,7 @@
 
 //! Default constructor
 MapObject::MapObject() {
-	this->objectType = 'W';
+	this->objectType = 'X';
 }
 
 //! Constructor

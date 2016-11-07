@@ -24,6 +24,8 @@ using std::string;
 //! Default constructor for a fighter character
 Character::Character()
 {
+	objectType = 'P';
+
 	int abilityHolder[6];
 	int modifierHolder[6];
 
@@ -90,10 +92,11 @@ Character::Character()
 
 //! Constructor: Passes values to each ability score
 //! @param str: strength score, dex: dexterity score, con: constitution score, intel: intelligence score, wis: wisdom score, cha: charisma score
-Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
+Character::Character(char type, int str, int dex, int con, int intel, int wis, int cha) {
 
 	int modifierHolder[6];
 
+	objectType = type;
 	currentLevel = 0;
 	currentExperiencePoints = 0;
 

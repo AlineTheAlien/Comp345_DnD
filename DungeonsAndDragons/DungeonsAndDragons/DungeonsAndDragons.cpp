@@ -14,7 +14,6 @@
 #include "Boots.h"
 #include "Helmet.h"
 #include "Ring.h"
-#include "Shield.h"
 #include "Weapon.h"
 #include <ctime>
 #include <iostream>

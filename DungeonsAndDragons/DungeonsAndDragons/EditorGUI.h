@@ -15,6 +15,7 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include "GameState.h"
+#include "ContainerEditor.h"
 
 using namespace std;
 

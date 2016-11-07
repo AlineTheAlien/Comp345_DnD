@@ -71,10 +71,10 @@ int MapEditor::getMapSizeY()
 //! @param x : an integer value for the horizontal position
 //! @param y : an integer value for the vertical position
 //! @param object : a char value for the tile type
-void MapEditor::setTile(int x, int y, char object)
+void MapEditor::setTile(int x, int y, MapObject* object)
 {
 	map->setTile(x, y, object);
-	cout << "Map was updated at position : " << x << ", " << y << " with " << object << endl;
+	cout << "Map was updated at position : " << x << ", " << y << " with " << object->getObjectType() << endl;
 	map->showMap();
 }
 

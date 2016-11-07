@@ -17,9 +17,9 @@ Map::Map()
 	mapX = MAX_WIDTH;
 	mapY = MAX_LENGTH;
 	//map = new char(mapX * mapY);
-
 	for (int i = 0; i < mapX * mapY; i++) {
-		map.push_back(EMPTY);
+		MapObject* p = new MapObject();
+		map.push_back(p);
 	}
 }
 
@@ -37,7 +37,8 @@ Map::Map(int x, int y)
 	//map = new char[mapX * mapY];
 
 	for (int i = 0; i < mapX * mapY; i++) {
-		map.push_back(EMPTY);
+		MapObject* p = new MapObject();
+		map.push_back(p);
 	}
 }
 
@@ -72,7 +73,7 @@ bool Map::validatePath()
 		{
 			correctPath[j + i * mapX] = false;
 			wasHere[j + i * mapX] = false;
-			if (map[j + i * mapX] == 'P') //Finds player start position
+			if (map[j + i * mapX]->getObjectType() == 'P') //Finds player start position
 			{
 				playerPositionX = j;
 				playerPositionY = i;
@@ -98,7 +99,7 @@ bool Map::validatePath()
 //! @return : a boolean true if a path was found, false if a wall was encountered or if location was already visited
 bool Map::findPath(int x, int y)
 {
-	if (map[x + y * mapX] == DOOR) //Checks if the door was reached
+	if (map[x + y * mapX]->getObjectType() == DOOR) //Checks if the door was reached
 		return true;
 
 	if (isOccupied(x, y) || wasHere[x + y * mapX]) //Checks if not an empty cell or if already visited
@@ -141,7 +142,7 @@ bool Map::findPath(int x, int y)
 //! @param x : an integer value of the vertical index of the map's grid
 //! @param y : an integer value of the horizontal index of the map's grid
 //! @param object : a char value to set on the map
-void Map::setTile(int x, int y, char object)
+void Map::setTile(int x, int y, MapObject* object)
 {
 	if (x > getMapX() || x < 0 || y > getMapY() || y < 0)
 	{
@@ -149,30 +150,32 @@ void Map::setTile(int x, int y, char object)
 		return;
 	}
 
-	if (object != EMPTY && object != ENEMY && object != DOOR &&
-		object != WALL && object != PLAYER && object != CHEST)
+	if (object->getObjectType() != EMPTY && object->getObjectType() != ENEMY && object->getObjectType() != DOOR &&
+		object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST)
 	{
 		cout << "Invalid object input for setTile, an empty object was placed" << endl;
 		return;
 	}
-
+	MapObject* ptr = object;
 	//If a player is already on the map, replace the last player position with an empty tile
-	if (object == PLAYER)
+	if (object->getObjectType() == PLAYER)
 		for (int i = 0; i < mapY * mapX; i++)
 		{
-			if (map[i] == PLAYER)
-				map[i] = EMPTY;
+			if (map[i]->getObjectType() == PLAYER)
+			{
+				map[i] = new MapObject();
+			}
 		}
 
 	//If a door is already on the map, replace the last door position with an empty tile
-	if (object == DOOR)
+	if (object->getObjectType() == DOOR)
 		for (int i = 0; i < mapY * mapX; i++)
 		{
-			if (map[i] == DOOR)
-				map[i] = EMPTY;
+			if (map[i]->getObjectType() == DOOR)
+				map[i] = new MapObject();
 		}
 
-	map[x + y * mapX] = object;
+	map[x + y * mapX] = ptr;
 }
 
 //! Implementation getTile to retrieve a specific tile on the map
@@ -180,6 +183,11 @@ void Map::setTile(int x, int y, char object)
 //! @param y : an integer value of the horizontal index of the map's grid
 //! @return : a char value of the specfied tile on the map
 char Map::getTile(int x, int y)
+{
+	return map[x + y * mapX]->getObjectType();
+}
+
+MapObject* Map::getObjectTile(int x, int y)
 {
 	return map[x + y * mapX];
 }
@@ -191,7 +199,7 @@ char Map::getTile(int x, int y)
 //! @return : a boolean true if the cell is occupied false otherwise
 bool Map::isOccupied(int x, int y)
 {
-	return map[x + y * mapX] == WALL;
+	return map[x + y * mapX]->getObjectType() == WALL;
 }
 
 //! Implementation showMap to display the map on the console

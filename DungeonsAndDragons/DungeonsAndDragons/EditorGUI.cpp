@@ -982,22 +982,25 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'X')
 							{
 								mapTiles.at(index).setTexture(textures.getGroundTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								MapObject* ground = new MapObject();
+								mapEditor->setTile(j, i, ground);
 							}
 							if (selectedTile == 'W')
 							{
 								mapTiles.at(index).setTexture(textures.getWallTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								MapObject* wall = new MapObject('W');
+								mapEditor->setTile(j, i, wall);
 							}
 							if (selectedTile == 'E')
 							{
 								mapTiles.at(index).setTexture(textures.getEnemyTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								MapObject* enemy = new Character('E', 1,1,1,1,1,1);
+								mapEditor->setTile(j, i, enemy);
 							}
 							if (selectedTile == 'C')
 							{
 								mapTiles.at(index).setTexture(textures.getTreasureTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								mapEditor->setTile(j, i, ContainerEditor::createChest());
 							}
 							if (selectedTile == 'D')
 							{
@@ -1010,7 +1013,8 @@ void EditorGUI::openMapView()
 									}
 
 								mapTiles.at(index).setTexture(textures.getDoorTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								MapObject* newDoor = new MapObject('D');
+								mapEditor->setTile(j, i, newDoor);
 							}
 							if (selectedTile == 'P')
 							{
@@ -1022,7 +1026,8 @@ void EditorGUI::openMapView()
 											mapTiles.at(indexD).setTexture(textures.getGroundTexture());
 									}
 								mapTiles.at(index).setTexture(textures.getPlayerTexture());
-								mapEditor->setTile(j, i, selectedTile);
+								MapObject* character = new MapObject('P');
+								mapEditor->setTile(j, i, character);
 							}
 						}
 					}

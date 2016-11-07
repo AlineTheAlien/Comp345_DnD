@@ -38,11 +38,11 @@
 #include <string>
 
 //! Class that implements a character 
-class Character : public Subject, MapObject
+class Character : public Subject, public MapObject
 {
 public:
 	Character();
-	Character(int, int, int, int, int, int);
+	Character(char, int, int, int, int, int, int);
 	~Character();
 	bool validateNewCharacter();
 	void getDamaged(int);

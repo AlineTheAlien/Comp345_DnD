@@ -14,6 +14,9 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/serialization/vector.hpp>
 #include <vector>
+#include "MapObject.h"
+#include "Character.h"
+#include "ItemContainer.h"
 using namespace std;
 
 //! Class implementing a game map
@@ -28,8 +31,8 @@ private:
 	int mapY;
 	//! integer for map horizontal size
 	int mapX;
-	//! Pointer to a vector of characters that represents the map
-	vector<char> map;
+	//! vector of characters that represents the map
+	vector<MapObject*> map;
 	//! Pointer to a one dimensional dynamic array of booleans that represents the path a player can take
 	bool *correctPath;
 	//! Pointer to a one dimension dynamic array of booleans that represents the locations the player visited
@@ -64,10 +67,11 @@ public:
 	~Map();
 	bool validatePath();
 	bool findPath(int x, int y);
-	void setTile(int x, int y, char object);
+	void setTile(int x, int y, MapObject* object);
 	int getMapY();
 	int getMapX();
 	char getTile(int x, int y);
+	MapObject* getObjectTile(int x, int y);
 	bool isOccupied(int x, int y);
 	void showMap();
 
