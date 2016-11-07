@@ -74,7 +74,11 @@ int MapEditor::getMapSizeY()
 void MapEditor::setTile(int x, int y, MapObject* object)
 {
 	map->setTile(x, y, object);
-	cout << "Map was updated at position : " << x << ", " << y << " with " << object->getObjectType() << endl;
+	if (object == NULL) {
+		cout << "Map was updated at position : " << x << ", " << y << " with 'X'"<< endl;
+	}
+	else
+		cout << "Map was updated at position : " << x << ", " << y << " with " << object->getObjectType() << endl;
 	map->showMap();
 }
 

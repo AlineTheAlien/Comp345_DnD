@@ -18,7 +18,7 @@ Map::Map()
 	mapY = MAX_LENGTH;
 	//map = new char(mapX * mapY);
 	for (int i = 0; i < mapX * mapY; i++) {
-		MapObject* p = new MapObject();
+		MapObject* p = NULL;
 		map.push_back(p);
 	}
 }
@@ -37,7 +37,7 @@ Map::Map(int x, int y)
 	//map = new char[mapX * mapY];
 
 	for (int i = 0; i < mapX * mapY; i++) {
-		MapObject* p = new MapObject();
+		MapObject* p = NULL;
 		map.push_back(p);
 	}
 }
@@ -144,39 +144,47 @@ bool Map::findPath(int x, int y)
 //! @param object : a char value to set on the map
 void Map::setTile(int x, int y, MapObject* object)
 {
-	if (x > getMapX() || x < 0 || y > getMapY() || y < 0)
-	{
-		cout << "Invalid x,y input for setTile" << endl;
-		return;
-	}
-
-	if (object->getObjectType() != EMPTY && object->getObjectType() != ENEMY && object->getObjectType() != DOOR &&
-		object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST)
-	{
-		cout << "Invalid object input for setTile, an empty object was placed" << endl;
-		return;
-	}
-	MapObject* ptr = object;
-	//If a player is already on the map, replace the last player position with an empty tile
-	if (object->getObjectType() == PLAYER)
-		for (int i = 0; i < mapY * mapX; i++)
+	if (object != NULL) {
+		if (x > getMapX() || x < 0 || y > getMapY() || y < 0)
 		{
-			if (map[i]->getObjectType() == PLAYER)
+			cout << "Invalid x,y input for setTile" << endl;
+			return;
+		}
+
+		if (object->getObjectType() != EMPTY && object->getObjectType() != ENEMY && object->getObjectType() != DOOR &&
+			object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST)
+		{
+			cout << "Invalid object input for setTile, an empty object was placed" << endl;
+			return;
+		}
+		MapObject* ptr = object;
+		//If a player is already on the map, replace the last player position with an empty tile
+		if (object->getObjectType() == PLAYER)
+			for (int i = 0; i < mapY * mapX; i++)
 			{
-				map[i] = new MapObject();
+				if (map[i] != NULL) {
+					if (map[i]->getObjectType() == PLAYER)
+					{
+						map[i] = new MapObject();
+					}
+				}
 			}
-		}
 
-	//If a door is already on the map, replace the last door position with an empty tile
-	if (object->getObjectType() == DOOR)
-		for (int i = 0; i < mapY * mapX; i++)
-		{
-			if (map[i]->getObjectType() == DOOR)
-				map[i] = new MapObject();
-		}
-//	delete map[x + y * mapX];
-//	map[x + y * mapX] = NULL;
-	map[x + y * mapX] = ptr;
+		//If a door is already on the map, replace the last door position with an empty tile
+		if (object->getObjectType() == DOOR)
+			for (int i = 0; i < mapY * mapX; i++)
+			{
+				if (map[i] != NULL) {
+					if (map[i]->getObjectType() == DOOR)
+						map[i] = new MapObject();
+				}
+			}
+		//	delete map[x + y * mapX];
+		//	map[x + y * mapX] = NULL;
+		map[x + y * mapX] = ptr;
+	}
+	else
+		map[x + y * mapX] = NULL;
 }
 
 //! Implementation getTile to retrieve a specific tile on the map
@@ -185,7 +193,11 @@ void Map::setTile(int x, int y, MapObject* object)
 //! @return : a char value of the specfied tile on the map
 char Map::getTile(int x, int y)
 {
-	return map[x + y * mapX]->getObjectType();
+	if (map[x + y * mapX] != NULL) {
+		return map[x + y * mapX]->getObjectType();
+	}
+	else
+		return 'X';
 }
 
 MapObject* Map::getObjectTile(int x, int y)

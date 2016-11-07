@@ -982,7 +982,7 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'X')
 							{
 								mapTiles.at(index).setTexture(textures.getGroundTexture());
-								MapObject* ground = new MapObject();
+								MapObject* ground = NULL;
 								mapEditor->setTile(j, i, ground);
 							}
 							if (selectedTile == 'W')
