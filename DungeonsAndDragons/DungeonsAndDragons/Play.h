@@ -29,9 +29,11 @@ public:
 	bool loadMaps();
 	bool loadCharacter(string characterName);
 	int getAvailableCharactersSize();
+	int getCampaignSize();
 	string getAvailableCharacters(int index);
 	void createNewCharacter();
 	bool saveCharacter(string);
+	void placeCharacterOnMap(Map* map);
 
 	~Play();
 };
