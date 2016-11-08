@@ -14,13 +14,13 @@ ItemContainer* ContainerEditor::createChest()
 	MapObject* newChest = new ItemContainer("CHEST");
 	int numOfItems = 1;
 	string chestName = "";
+	string empty = "";
 	cout << "Enter chest name: " << endl;
-	cin >> chestName;
+	getline(cin, chestName);
 	cout << "How many items would you like to put inside the chest?" << endl;
 	cin >> numOfItems;
 	int itemNum = 1;
-	string name = "";
-	string empty = ""; // to consume any white-space characters
+	string name = ""; // to consume any white-space characters
 	int bonus1 = 2;
 	int bonus2 = 2;
 	int bonus3 = 2;
@@ -31,12 +31,12 @@ ItemContainer* ContainerEditor::createChest()
 		cout << "Select item type: " << endl;
 		cout << "[1] Armor\n[2] Belt\n[3] Boots\n[4] Helmet\n[5] Ring\n[6] Shield\n[7] Weapon" << endl;
 		cin >> itemNum;
+		getline(cin, empty);
 		if (itemNum == 1) {
 			bool valid = false;
 			Item* armor = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -46,6 +46,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete armor;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -64,7 +65,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* belt = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Constitution bonus: ";
 				cin >> bonus1;
@@ -76,6 +76,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete belt;
+					getline(cin, empty);
 				}
 			}
 			//// Create and open a character archive for output
@@ -94,7 +95,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* boots = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -106,6 +106,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete boots;
+					getline(cin, empty);
 				}
 			}
 			//// Create and open a character archive for output
@@ -124,7 +125,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* helmet = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Intelligence bonus: ";
 				cin >> bonus1;
@@ -138,6 +138,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete helmet;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -156,7 +157,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* ring = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -174,6 +174,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete ring;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -192,7 +193,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* shield = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -202,6 +202,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete shield;
+					getline(cin, empty);
 				}
 			}
 			//// Create and open a character archive for output
@@ -220,7 +221,6 @@ ItemContainer* ContainerEditor::createChest()
 			Item* weapon = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Attack value: ";
 				cin >> bonus1;
@@ -232,6 +232,7 @@ ItemContainer* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete weapon;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -247,6 +248,7 @@ ItemContainer* ContainerEditor::createChest()
 		}
 		numOfItems--;
 	}
+	getline(cin, empty);
 	static_cast<ItemContainer*>(newChest)->displayItems();
 	// Create and open a character archive for output
 	//std::ofstream ofs("Chests/" + chestName);
