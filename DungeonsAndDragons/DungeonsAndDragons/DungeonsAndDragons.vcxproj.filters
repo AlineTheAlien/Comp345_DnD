@@ -108,7 +108,7 @@
     <ClInclude Include="Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ContainerEditor.h">
+    <ClInclude Include="UserDrivenEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -203,7 +203,7 @@
     <ClCompile Include="Resources.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ContainerEditor.cpp">
+    <ClCompile Include="UserDrivenEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

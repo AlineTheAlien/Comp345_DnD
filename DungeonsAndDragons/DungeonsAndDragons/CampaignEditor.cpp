@@ -139,7 +139,16 @@ bool CampaignEditor::loadMaps()
 		if (!ifs)
 			return false;
 		boost::archive::binary_iarchive ar(ifs);
-
+		ar.template register_type<MapObject>();
+		ar.template register_type<ItemContainer>();
+		ar.template register_type<Item>();
+		ar.template register_type<Armor>();
+		ar.template register_type<Helmet>();
+		ar.template register_type<Boots>();
+		ar.template register_type<Ring>();
+		ar.template register_type<Weapon>();
+		ar.template register_type<Shield>();
+		ar.template register_type<Belt>();
 		//read class state from archive
 		ar >> campaignMaps[i];
 		if (!campaignMaps[i]->validatePath())
@@ -170,6 +179,16 @@ bool CampaignEditor::loadCampaign(string campaignName)
 	if (!ifs)
 		return false;
 	boost::archive::binary_iarchive ar(ifs);
+	ar.template register_type<MapObject>();
+	ar.template register_type<ItemContainer>();
+	ar.template register_type<Item>();
+	ar.template register_type<Armor>();
+	ar.template register_type<Helmet>();
+	ar.template register_type<Boots>();
+	ar.template register_type<Ring>();
+	ar.template register_type<Weapon>();
+	ar.template register_type<Shield>();
+	ar.template register_type<Belt>();
 	//read class state from archive
 	ar >> campaign;
 
@@ -208,6 +227,16 @@ void CampaignEditor::saveCampaign(string campaignName)
 		//Create an output archive
 		ofstream ofs("Campaigns/" + campaign->getName(), std::ios::binary);
 		boost::archive::binary_oarchive ar(ofs);
+		ar.template register_type<MapObject>();
+		ar.template register_type<ItemContainer>();
+		ar.template register_type<Item>();
+		ar.template register_type<Armor>();
+		ar.template register_type<Helmet>();
+		ar.template register_type<Boots>();
+		ar.template register_type<Ring>();
+		ar.template register_type<Weapon>();
+		ar.template register_type<Shield>();
+		ar.template register_type<Belt>();
 		//Write data
 		ar << campaign;
 		cout << "Campaign is valid and was saved to file " << endl;

@@ -1,5 +1,10 @@
 #pragma once
 #include "Campaign.h"
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/string.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include "UserDrivenEditor.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -9,18 +14,24 @@ class Play
 {
 private:
 	Campaign* campaign;
+	Character* character;
 	vector<Map*> campaignMaps;
 	vector<string> availableCampaigns;
+	vector<string> availableCharacters;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
 	Map* getCampaignMap(int index);
 	int getAvailableCampaignsSize();
 	void setAvailableCampaigns();
+	void setAvailableCharacters();
 	string getAvailableCampaigns(int index);
 	bool loadMaps();
-
-
+	bool loadCharacter(string characterName);
+	int getAvailableCharactersSize();
+	string getAvailableCharacters(int index);
+	void createNewCharacter();
+	bool saveCharacter(string);
 
 	~Play();
 };
