@@ -14,13 +14,13 @@ MapObject* ContainerEditor::createChest()
 	MapObject* newChest = new ItemContainer("CHEST");
 	int numOfItems = 1;
 	string chestName = "";
+	string empty = "";
 	cout << "Enter chest name: " << endl;
-	cin >> chestName;
+	getline(cin, chestName);
 	cout << "How many items would you like to put inside the chest?" << endl;
 	cin >> numOfItems;
 	int itemNum = 1;
-	string name = "";
-	string empty = ""; // to consume any white-space characters
+	string name = ""; // to consume any white-space characters
 	int bonus1 = 2;
 	int bonus2 = 2;
 	int bonus3 = 2;
@@ -31,12 +31,12 @@ MapObject* ContainerEditor::createChest()
 		cout << "Select item type: " << endl;
 		cout << "[1] Armor\n[2] Belt\n[3] Boots\n[4] Helmet\n[5] Ring\n[6] Shield\n[7] Weapon" << endl;
 		cin >> itemNum;
+		getline(cin, empty);
 		if (itemNum == 1) {
 			bool valid = false;
 			Armor* armor = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -64,7 +64,6 @@ MapObject* ContainerEditor::createChest()
 			Belt* belt = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Constitution bonus: ";
 				cin >> bonus1;
@@ -94,7 +93,6 @@ MapObject* ContainerEditor::createChest()
 			Boots* boots = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -124,7 +122,6 @@ MapObject* ContainerEditor::createChest()
 			Helmet* helmet = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Intelligence bonus: ";
 				cin >> bonus1;
@@ -156,7 +153,6 @@ MapObject* ContainerEditor::createChest()
 			Ring* ring = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -192,7 +188,6 @@ MapObject* ContainerEditor::createChest()
 			Shield* shield = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Armor class bonus: ";
 				cin >> bonus1;
@@ -220,7 +215,6 @@ MapObject* ContainerEditor::createChest()
 			Weapon* weapon = NULL;
 			while (valid == false) {
 				cout << "Name: ";
-				getline(cin, empty);
 				getline(cin, name);
 				cout << "Attack value: ";
 				cin >> bonus1;
@@ -247,16 +241,16 @@ MapObject* ContainerEditor::createChest()
 		}
 		numOfItems--;
 	}
+	getline(cin, empty);
 	static_cast<ItemContainer*>(newChest)->displayItems();
 	// Create and open a character archive for output
 	std::ofstream ofs("Chests/" + chestName);
 	// Save data to archive
 	{
-		boost::archive::binary_oarchive oa2(ofs);
+		boost::archive::binary_oarchive oa(ofs);
 		// Write class instance to archive
-		oa2 << newChest;
+		oa << newChest;
 	}
-
 	return newChest;
 }
 
