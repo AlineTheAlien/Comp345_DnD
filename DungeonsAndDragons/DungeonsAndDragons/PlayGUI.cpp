@@ -65,6 +65,10 @@ void PlayGUI::openLoadCharacterWindow()
 	sf::Text nextText;
 	bool nextClicked = false;
 
+	sf::FloatRect newCharacterButton;
+	sf::Text newCharacterText;
+	bool newCharacterClicked = false;
+
 	sf::FloatRect backButton;
 	sf::Text backText;
 	bool backClicked = false;
@@ -82,10 +86,10 @@ void PlayGUI::openLoadCharacterWindow()
 
 	int currentXPosition = 300;
 	int currentYPosition = 100;
-	for (int i = 0; i < play->getAvailableCampaignsSize(); i++)
+	for (int i = 0; i < play->getAvailableCharactersSize(); i++)
 	{
 		texts.push_back(sf::Text());
-		texts.back().setString(play->getAvailableCampaigns(i));
+		texts.back().setString(play->getAvailableCharacters(i));
 		texts.back().setFont(textFont);
 		texts.back().setStyle(sf::Text::Italic);
 		texts.back().setCharacterSize(15);
@@ -111,6 +115,13 @@ void PlayGUI::openLoadCharacterWindow()
 	nextText.setStyle(sf::Text::Italic);
 	nextText.setCharacterSize(15);
 	nextButton = nextText.getGlobalBounds();
+
+	newCharacterText.setPosition(sf::Vector2f(300, 50));
+	newCharacterText.setString("Create a new character");
+	newCharacterText.setFont(textFont);
+	newCharacterText.setStyle(sf::Text::Italic);
+	newCharacterText.setCharacterSize(15);
+	newCharacterButton = newCharacterText.getGlobalBounds();
 
 	backText.setPosition(sf::Vector2f(100, GameState::WINDOW_SCALE - 100));
 	backText.setString("Back");
@@ -151,8 +162,16 @@ void PlayGUI::openLoadCharacterWindow()
 							{
 								texts.at(j).setFillColor(normalColor);
 								clicked.at(j) = false;
+								newCharacterClicked = false;
 							}
-					}
+					}			
+				}
+
+				if (newCharacterButton.contains(mousePosition))
+				{
+					newCharacterClicked = true;
+					for (int j = 0; j < buttons.size(); j++)
+						clicked.at(j) = false;
 				}
 
 				if (nextButton.contains(mousePosition))
@@ -160,13 +179,19 @@ void PlayGUI::openLoadCharacterWindow()
 					for (int i = 0; i < clicked.size(); i++)
 						if (clicked.at(i))
 						{
-							if (play->loadCampaign(play->getAvailableCampaigns(i)))
+							if(play->loadCharacter(play->getAvailableCharacters(i)))
 							{
 								state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 								return;
 							}
-
 						}
+
+					if (newCharacterClicked)
+					{
+						play->createNewCharacter();
+						state.setPlayState(PlayState::CAMPAIGN_SELECTION);
+						return;
+					}
 					//Change state
 				}
 
@@ -186,18 +211,23 @@ void PlayGUI::openLoadCharacterWindow()
 				{
 					if (!clicked.at(i))
 						texts.at(i).setFillColor(normalColor);
-
+					else
 					if (!nextClicked)
 						nextText.setFillColor(normalColor);
-
+					else
 					if (!backClicked)
 						backText.setFillColor(normalColor);
+					else
+					if (!newCharacterClicked)
+						newCharacterText.setFillColor(normalColor);
 				}
 			}
 
 			if (nextButton.contains(mousePosition) && !nextClicked)
 				nextText.setFillColor(hoverColor);
 
+			if (newCharacterButton.contains(mousePosition) && !newCharacterClicked)
+				newCharacterText.setFillColor(hoverColor);
 
 			if (backButton.contains(mousePosition) && !backClicked)
 				backText.setFillColor(hoverColor);
@@ -208,6 +238,7 @@ void PlayGUI::openLoadCharacterWindow()
 			window->draw(texts.at(i));
 		window->draw(backText);
 		window->draw(nextText);
+		window->draw(newCharacterText);
 		window->display();
 	}
 }

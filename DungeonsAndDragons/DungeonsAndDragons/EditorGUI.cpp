@@ -1002,7 +1002,7 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'C')
 							{
 								mapTiles.at(index).setTexture(textures.getTreasureTexture());
-								MapObject* newChest = ContainerEditor::createChest();
+								MapObject* newChest = UserDrivenEditor::createChest();
 								newChest->setObjectType('C');
 								mapEditor->setTile(j, i, newChest);
 							}

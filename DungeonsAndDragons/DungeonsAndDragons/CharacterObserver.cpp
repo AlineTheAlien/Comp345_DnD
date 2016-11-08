@@ -53,6 +53,7 @@ void CharacterObserver::display() {
 	int attackbonus = _subject->getAttackBonus();
 	int damagebonus = _subject->getDamageBonus();
 
+	string characterName = _subject->getCharacterName();
 	string armor = _subject->getWornItemName("ARMOR");
 	string shield = _subject->getWornItemName("SHIELD");
 	string weapon = _subject->getWornItemName("WEAPON");
@@ -62,7 +63,8 @@ void CharacterObserver::display() {
 	string belt = _subject->getWornItemName("BELT");
 
 	cout << "\n\n Displaying your character's current stats...\n" << endl;
-	cout << " Your character's current level is: " << level << endl;
+	cout << "\n\n Your character's name is: " << characterName << endl;
+	cout << " \nYour character's current level is: " << level << endl;
 	cout << " Your character's current HP is: " << hp << "/" << maxhp << endl;
 
 	cout << "\n Your character's current Strength score is: " << strength << endl;

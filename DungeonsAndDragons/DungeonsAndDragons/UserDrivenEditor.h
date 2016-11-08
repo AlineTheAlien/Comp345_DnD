@@ -1,5 +1,7 @@
 #pragma once
 #include "ItemContainer.h"
+#include "CharacterObserver.h"
+#include "Character.h"
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include "Shield.h"
@@ -10,11 +12,12 @@
 #include "Ring.h"
 #include "Shield.h"
 #include "Weapon.h"
-class ContainerEditor
+class UserDrivenEditor
 {
 public:
-	ContainerEditor();
+	UserDrivenEditor();
 	static ItemContainer* createChest();
-	~ContainerEditor();
+	static Character* createCharacter();
+	~UserDrivenEditor();
 };
 

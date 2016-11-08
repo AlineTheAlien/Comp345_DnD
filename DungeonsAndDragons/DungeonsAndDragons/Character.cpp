@@ -88,6 +88,7 @@ Character::Character()
 
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
+
 }
 
 //! Constructor: Passes values to each ability score
@@ -554,6 +555,14 @@ void Character::levelUp() {
 	Notify(); //Notify observers that level has been increased
 }
 
+void Character::setCharacterName(string name) {
+	characterName = name;
+}
+
+string Character::getCharacterName() {
+	return characterName;
+}
+
 //! Randomizer function that simulates a dice roll of values between 1 and 6
 //! @return int value, the value of the random dice roll between 1 and 6
 int Character::rollSixSidedDie() {
@@ -692,7 +701,8 @@ int Character::levelHitPoints() {
 void Character::displayCharacterInfo() {
 
 	cout << "\n\n Displaying your character's current stats...\n" << endl;
-	cout << " Your character's current Level is: " << currentLevel << endl;
+	cout << "\n\n Your character's name is: " << characterName << endl;
+	cout << " \nYour character's current Level is: " << currentLevel << endl;
 	cout << " Your character's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
 
 	cout << " Your character's current Strength Score is: " << abilityScores[0] << endl;
