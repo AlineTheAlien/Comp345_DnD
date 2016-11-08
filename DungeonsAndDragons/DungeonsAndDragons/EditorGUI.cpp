@@ -959,7 +959,9 @@ void EditorGUI::openMapView()
 				if (saveButton.contains(mousePosition))
 				{
 					string name;
+					string empty;
 					cout << "Enter file name for the map" << endl;
+					getline(cin, empty);
 					getline(cin, name);
 					mapEditor->saveMap(name);
 				}

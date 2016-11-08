@@ -250,6 +250,13 @@ MapObject* ContainerEditor::createChest()
 	static_cast<ItemContainer*>(newChest)->displayItems();
 	// Create and open a character archive for output
 	std::ofstream ofs("Chests/" + chestName);
+	// Save data to archive
+	{
+		boost::archive::binary_oarchive oa2(ofs);
+		// Write class instance to archive
+		oa2 << newChest;
+	}
+
 	return newChest;
 }
 

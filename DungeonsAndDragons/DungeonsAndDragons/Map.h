@@ -46,7 +46,7 @@ private:
 	{
 		ar & mapX;
 		ar & mapY;
-		ar & map;;
+		ar & map;
 	}
 
 public:

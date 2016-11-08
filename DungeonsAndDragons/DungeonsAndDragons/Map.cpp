@@ -73,11 +73,13 @@ bool Map::validatePath()
 		{
 			correctPath[j + i * mapX] = false;
 			wasHere[j + i * mapX] = false;
-			if (map[j + i * mapX]->getObjectType() == 'P') //Finds player start position
-			{
-				playerPositionX = j;
-				playerPositionY = i;
-				playerExists = true;
+			if (map[j + i * mapX] != NULL) {
+				if (map[j + i * mapX]->getObjectType() == 'P') //Finds player start position
+				{
+					playerPositionX = j;
+					playerPositionY = i;
+					playerExists = true;
+				}
 			}
 		}
 
@@ -99,9 +101,10 @@ bool Map::validatePath()
 //! @return : a boolean true if a path was found, false if a wall was encountered or if location was already visited
 bool Map::findPath(int x, int y)
 {
-	if (map[x + y * mapX]->getObjectType() == DOOR) //Checks if the door was reached
-		return true;
-
+	if (map[x + y * mapX] != NULL) {
+		if (map[x + y * mapX]->getObjectType() == DOOR) //Checks if the door was reached
+			return true;
+	}
 	if (isOccupied(x, y) || wasHere[x + y * mapX]) //Checks if not an empty cell or if already visited
 		return false;
 
@@ -165,7 +168,8 @@ void Map::setTile(int x, int y, MapObject* object)
 				if (map[i] != NULL) {
 					if (map[i]->getObjectType() == PLAYER)
 					{
-						map[i] = new MapObject();
+						delete map[i];
+						map[i] = NULL;
 					}
 				}
 			}
@@ -176,11 +180,10 @@ void Map::setTile(int x, int y, MapObject* object)
 			{
 				if (map[i] != NULL) {
 					if (map[i]->getObjectType() == DOOR)
-						map[i] = new MapObject();
+						delete map[i];
+						map[i] = NULL;
 				}
 			}
-		//	delete map[x + y * mapX];
-		//	map[x + y * mapX] = NULL;
 		map[x + y * mapX] = ptr;
 	}
 	else
@@ -212,7 +215,11 @@ MapObject* Map::getObjectTile(int x, int y)
 //! @return : a boolean true if the cell is occupied false otherwise
 bool Map::isOccupied(int x, int y)
 {
-	return map[x + y * mapX]->getObjectType() == WALL;
+	if (map[x + y * mapX] != NULL) {
+		return map[x + y * mapX]->getObjectType() == WALL;
+	}
+	else
+		return false;
 }
 
 //! Implementation showMap to display the map on the console

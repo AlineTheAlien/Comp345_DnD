@@ -107,7 +107,6 @@ void MapEditor::saveMap(string mapName)
 	}
 	else
 		cout << "Map is invalid!" << endl;
-
 	ofs.close();
 }
 
