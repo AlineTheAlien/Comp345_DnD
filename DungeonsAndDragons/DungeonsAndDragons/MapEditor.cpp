@@ -130,6 +130,20 @@ bool MapEditor::loadMap(string mapName)
 		cout << "Loading the map has failed, it is not valid!" << endl;
 		return false;
 	}
+
+	//int mapX = this->getMapSizeX();
+	//int mapY = this->getMapSizeY();
+
+	//for (int i = 0; i < mapY; i++)
+	//{
+	//	for (int j = 0; j < mapX; j++)
+	//	{
+	//		if (map->getTile(j, i) == 'C') {
+	//			MapObject* testMap = map->getObjectTile(j, i);
+	//			static_cast<ItemContainer*>(testMap)->displayItems();
+	//		}
+	//	}
+	//}
 	return true;
 }
 MapEditor::~MapEditor()
