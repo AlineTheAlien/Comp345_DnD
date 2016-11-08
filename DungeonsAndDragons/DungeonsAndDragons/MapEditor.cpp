@@ -99,6 +99,17 @@ void MapEditor::saveMap(string mapName)
 	//Create an output archive
 	ofstream ofs("Maps/" + mapName, std::ios::binary);
 	boost::archive::binary_oarchive ar(ofs);
+	ar.template register_type<MapObject>();
+	ar.template register_type<ItemContainer>();
+	ar.template register_type<Item>();
+	ar.template register_type<Armor>();
+	ar.template register_type<Helmet>();
+	ar.template register_type<Boots>();
+	ar.template register_type<Ring>();
+	ar.template register_type<Weapon>();
+	ar.template register_type<Shield>();
+	ar.template register_type<Belt>();
+
 	//Write data
 	if (map->validatePath())
 	{
@@ -122,6 +133,17 @@ bool MapEditor::loadMap(string mapName)
 	if (!ifs)
 		return false;
 	boost::archive::binary_iarchive ar(ifs);
+	ar.template register_type<MapObject>();
+	ar.template register_type<ItemContainer>();
+	ar.template register_type<Item>();
+	ar.template register_type<Armor>();
+	ar.template register_type<Helmet>();
+	ar.template register_type<Boots>();
+	ar.template register_type<Ring>();
+	ar.template register_type<Weapon>();
+	ar.template register_type<Shield>();
+	ar.template register_type<Belt>();
+
 	//read class state from archive
 	ar >> map;
 	ifs.close();
@@ -129,6 +151,15 @@ bool MapEditor::loadMap(string mapName)
 	{
 		cout << "Loading the map has failed, it is not valid!" << endl;
 		return false;
+	}
+
+	for (int i = 0; i < getMapSizeY(); i++)
+	{
+		for (int j = 0; j < getMapSizeX(); j++)
+		{
+			if (map->getTile(j, i) == 'C')
+				static_cast<ItemContainer*>(map->getObjectTile(j, i))->displayItems();
+		}
 	}
 	return true;
 }

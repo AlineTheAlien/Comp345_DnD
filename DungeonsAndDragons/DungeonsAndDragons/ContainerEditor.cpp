@@ -9,7 +9,7 @@ ContainerEditor::ContainerEditor()
 
 }
 
-MapObject* ContainerEditor::createChest()
+ItemContainer* ContainerEditor::createChest()
 {
 	MapObject* newChest = new ItemContainer("CHEST");
 	int numOfItems = 1;
@@ -33,7 +33,7 @@ MapObject* ContainerEditor::createChest()
 		cin >> itemNum;
 		if (itemNum == 1) {
 			bool valid = false;
-			Armor* armor = NULL;
+			Item* armor = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -49,19 +49,19 @@ MapObject* ContainerEditor::createChest()
 				}
 			}
 			// Create and open a character archive for output
-			std::ofstream ofs("Items/"+name);
+			//std::ofstream ofs("Items/"+name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << armor;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << armor;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(armor);
 		}
 		else if (itemNum == 2) {
 			bool valid = false;
-			Belt* belt = NULL;
+			Item* belt = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -78,20 +78,20 @@ MapObject* ContainerEditor::createChest()
 					delete belt;
 				}
 			}
-			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//// Create and open a character archive for output
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << belt;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << belt;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(belt);
 		}
 		else if (itemNum == 3) {
 			bool valid = false;
-			Boots* boots = NULL;
+			Item* boots = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -108,20 +108,20 @@ MapObject* ContainerEditor::createChest()
 					delete boots;
 				}
 			}
-			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//// Create and open a character archive for output
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << boots;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << boots;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(boots);
 		}
 		else if (itemNum == 4) {
 			bool valid = false;
-			Helmet* helmet = NULL;
+			Item* helmet = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -141,19 +141,19 @@ MapObject* ContainerEditor::createChest()
 				}
 			}
 			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << helmet;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << helmet;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(helmet);
 		}
 		else if (itemNum == 5) {
 			bool valid = false;
-			Ring* ring = NULL;
+			Item* ring = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -177,19 +177,19 @@ MapObject* ContainerEditor::createChest()
 				}
 			}
 			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << ring;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << ring;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(ring);
 		}
 		else if (itemNum == 6) {
 			bool valid = false;
-			Shield* shield = NULL;
+			Item* shield = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -204,20 +204,20 @@ MapObject* ContainerEditor::createChest()
 					delete shield;
 				}
 			}
-			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//// Create and open a character archive for output
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << shield;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << shield;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(shield);
 		}
 		else if (itemNum == 7) {
 			bool valid = false;
-			Weapon* weapon = NULL;
+			Item* weapon = NULL;
 			while (valid == false) {
 				cout << "Name: ";
 				getline(cin, empty);
@@ -235,29 +235,29 @@ MapObject* ContainerEditor::createChest()
 				}
 			}
 			// Create and open a character archive for output
-			std::ofstream ofs("Items/" + name);
+			//std::ofstream ofs("Items/" + name);
 
-			// Save data to archive
-			{
-				boost::archive::binary_oarchive oa(ofs);
-				// Write class instance to archive
-				oa << weapon;
-			}
+			//// Save data to archive
+			//{
+			//	boost::archive::binary_oarchive oa(ofs);
+			//	// Write class instance to archive
+			//	oa << weapon;
+			//}
 			static_cast<ItemContainer*>(newChest)->addItem(weapon);
 		}
 		numOfItems--;
 	}
 	static_cast<ItemContainer*>(newChest)->displayItems();
 	// Create and open a character archive for output
-	std::ofstream ofs("Chests/" + chestName);
-	// Save data to archive
-	{
-		boost::archive::binary_oarchive oa2(ofs);
-		// Write class instance to archive
-		oa2 << newChest;
-	}
+	//std::ofstream ofs("Chests/" + chestName);
+	//// Save data to archive
+	//{
+	//	boost::archive::binary_oarchive oa2(ofs);
+	//	// Write class instance to archive
+	//	oa2 << newChest;
+	//}
 
-	return newChest;
+	return static_cast<ItemContainer*>(newChest);
 }
 
 ContainerEditor::~ContainerEditor()

@@ -14,7 +14,7 @@ class ContainerEditor
 {
 public:
 	ContainerEditor();
-	static MapObject* createChest();
+	static ItemContainer* createChest();
 	~ContainerEditor();
 };
 

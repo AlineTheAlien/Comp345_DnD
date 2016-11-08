@@ -13,10 +13,18 @@
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/serialization/vector.hpp>
+#include <boost/serialization/string.hpp>
 #include <vector>
 #include "MapObject.h"
 #include "Character.h"
 #include "ItemContainer.h"
+#include "Armor.h"
+#include "Boots.h"
+#include "Ring.h"
+#include "Belt.h"
+#include "Shield.h"
+#include "Weapon.h"
+#include "Helmet.h"
 using namespace std;
 
 //! Class implementing a game map

@@ -180,8 +180,11 @@ void Map::setTile(int x, int y, MapObject* object)
 			{
 				if (map[i] != NULL) {
 					if (map[i]->getObjectType() == DOOR)
+					{
 						delete map[i];
 						map[i] = NULL;
+					}
+						
 				}
 			}
 		map[x + y * mapX] = ptr;
