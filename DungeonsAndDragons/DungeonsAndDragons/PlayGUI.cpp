@@ -169,9 +169,10 @@ void PlayGUI::openLoadCharacterWindow()
 
 				if (newCharacterButton.contains(mousePosition))
 				{
-					newCharacterClicked = true;
-					for (int j = 0; j < buttons.size(); j++)
+					for (int j = 0; j < buttons.size(); j++) {
+						newCharacterClicked = true;
 						clicked.at(j) = false;
+					}
 				}
 
 				if (nextButton.contains(mousePosition))
@@ -211,13 +212,10 @@ void PlayGUI::openLoadCharacterWindow()
 				{
 					if (!clicked.at(i))
 						texts.at(i).setFillColor(normalColor);
-					else
 					if (!nextClicked)
 						nextText.setFillColor(normalColor);
-					else
 					if (!backClicked)
 						backText.setFillColor(normalColor);
-					else
 					if (!newCharacterClicked)
 						newCharacterText.setFillColor(normalColor);
 				}
