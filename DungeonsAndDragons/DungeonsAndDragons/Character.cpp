@@ -24,6 +24,8 @@ using std::string;
 //! Default constructor for a fighter character
 Character::Character()
 {
+	objectType = 'P';
+
 	int abilityHolder[6];
 	int modifierHolder[6];
 
@@ -86,14 +88,16 @@ Character::Character()
 
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
+
 }
 
 //! Constructor: Passes values to each ability score
 //! @param str: strength score, dex: dexterity score, con: constitution score, intel: intelligence score, wis: wisdom score, cha: charisma score
-Character::Character(int str, int dex, int con, int intel, int wis, int cha) {
+Character::Character(char type, int str, int dex, int con, int intel, int wis, int cha) {
 
 	int modifierHolder[6];
 
+	objectType = type;
 	currentLevel = 0;
 	currentExperiencePoints = 0;
 
@@ -362,6 +366,11 @@ void Character::setHelmet(string h) {
 	Notify();
 }
 
+void Character::setType(char c)
+{
+	objectType = c;
+}
+
 //! Method to equip an item on the character from the backpack
 //! @param : The index position of the item to wear inside the vector representing a backpack
 void Character::equipItem(int index) {
@@ -546,6 +555,14 @@ void Character::levelUp() {
 	Notify(); //Notify observers that level has been increased
 }
 
+void Character::setCharacterName(string name) {
+	characterName = name;
+}
+
+string Character::getCharacterName() {
+	return characterName;
+}
+
 //! Randomizer function that simulates a dice roll of values between 1 and 6
 //! @return int value, the value of the random dice roll between 1 and 6
 int Character::rollSixSidedDie() {
@@ -684,7 +701,8 @@ int Character::levelHitPoints() {
 void Character::displayCharacterInfo() {
 
 	cout << "\n\n Displaying your character's current stats...\n" << endl;
-	cout << " Your character's current Level is: " << currentLevel << endl;
+	cout << "\n\n Your character's name is: " << characterName << endl;
+	cout << " \nYour character's current Level is: " << currentLevel << endl;
 	cout << " Your character's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
 
 	cout << " Your character's current Strength Score is: " << abilityScores[0] << endl;

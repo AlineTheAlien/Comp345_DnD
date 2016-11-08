@@ -7,7 +7,6 @@
 
 //! Default constructor
 MapObject::MapObject() {
-	this->objectType = 'W';
 }
 
 //! Constructor
@@ -15,6 +14,12 @@ MapObject::MapObject() {
 MapObject::MapObject(char type) {
 	this->objectType = type;
 }
+
+void MapObject::setObjectType(char type)
+{
+	objectType = type;
+}
+
 
 //! Method to obtain the type of the map object
 //! @return A map object type as a char value

@@ -36,13 +36,14 @@
 #include "MapObject.h"
 #include "ItemContainer.h"
 #include <string>
-
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/string.hpp>
 //! Class that implements a character 
-class Character : public Subject, MapObject
+class Character : public Subject, public MapObject
 {
 public:
 	Character();
-	Character(int, int, int, int, int, int);
+	Character(char, int, int, int, int, int, int);
 	~Character();
 	bool validateNewCharacter();
 	void getDamaged(int);
@@ -87,9 +88,12 @@ public:
 	void setBoots(string);
 	void setRing(string);
 	void setHelmet(string);
+	void setType(char);
 	void equipItem(int);
 	void unequipItem(int);
 	int levelHitPoints();
+	string getCharacterName();
+	void setCharacterName(string);
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
 private:
@@ -112,7 +116,29 @@ private:
 	string myHelmet;
 	string myBelt;
 	char objectType;
+	string characterName = "";
 	ItemContainer* equipped;
 	ItemContainer* backpack;
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version)
+	{
+		ar & boost::serialization::base_object<MapObject>(*this);
+		ar & abilityScores;
+		ar & abilityModifiers;
+		ar & abilityHolder;
+		ar & modifierHolder;
+		ar & currentHitPoints;
+		ar & maxHitPoints;
+		ar & currentLevel;
+		ar & currentExperiencePoints;
+		ar & armorClass;
+		ar & attackBonus;
+		ar & damageBonus;
+		ar & objectType;
+		ar & equipped;
+		ar & backpack;
+		ar & characterName;
+	}
 };
 

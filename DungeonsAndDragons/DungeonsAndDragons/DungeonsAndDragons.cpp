@@ -14,133 +14,135 @@
 #include "Boots.h"
 #include "Helmet.h"
 #include "Ring.h"
-#include "Shield.h"
 #include "Weapon.h"
 #include <ctime>
 #include <iostream>
 #include <fstream>
 #include "MapObject.h"
 #include <string>
+#include "Launch.h"
 // include headers that implement a archive in simple text format
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
 using namespace std;
 
 
 int main()
 {
-	srand(time(NULL));
+	//srand(time(NULL));
 
-	Character* player = new Character();
-	CharacterObserver *charobv = new CharacterObserver(player);
+	//Character* player = new Character();
+	//CharacterObserver *charobv = new CharacterObserver(player);
 
-	player->displayCharacterInfo();
-	player->displayEquipment();
-
-	ItemContainer* testBackPack = player->getBackpack();
-	ItemContainer* testEquipped = player->getEquippedItems();
-
-	Enhancement str = Enhancement("ARMOR CLASS", 5);
-	vector<Enhancement> enhList1 = vector<Enhancement>();
-	enhList1.push_back(str);
-
-	Shield* s1 = new Shield("Super Shild", enhList1);
-	//Shield* s2 = new Shield("Super Awsom Shild", enhList1);
-	//Armor* ar1 = new Armor("GREAT AMOR", 4);
-
-	int index = testBackPack->addItem(s1);
-	//testBackPack->addItem(s2);
-	//testBackPack->addItem(ar1);
-	player->equipItem(index);
+	//player->displayCharacterInfo();
 	//player->displayEquipment();
-	player->unequipItem(0); // item should be in index 0
 
-	//player->displayEquipment();
-	//testBackPack->displayItems();
+	//ItemContainer* testBackPack = player->getBackpack();
+	//ItemContainer* testEquipped = player->getEquippedItems();
 
-	bool valid = false;
-	int charCreate = 0;
-	Character* fighter;
-	CharacterObserver *charobserver;
-	cout << "So you want to create a new character?" << endl;
-	cout << "Press 1 to enter ability scores manually, or press 2 to generate by rolling dice." << endl;
-	cin >> charCreate;
+	//Enhancement str = Enhancement("ARMOR CLASS", 5);
+	//vector<Enhancement> enhList1 = vector<Enhancement>();
+	//enhList1.push_back(str);
 
-		if (charCreate == 2) {
-			while (valid == false) {
-				fighter = new Character();
-				charobserver = new CharacterObserver(fighter);
-				valid = fighter->validateNewCharacter();
-				if (valid == false) {
-					delete fighter;
-					delete charobserver;
-				}
-				else {
-					fighter->displayCharacterInfo();
-					fighter->displayEquipment();
-				}
-			}
-		}
+	//Shield* s1 = new Shield("Super Shild", enhList1);
+	////Shield* s2 = new Shield("Super Awsom Shild", enhList1);
+	////Armor* ar1 = new Armor("GREAT AMOR", 4);
 
-		else if (charCreate == 1) {
-			while (valid == false) {
-				int str = 0;
-				int dex = 0;
-				int con = 0;
-				int intel = 0;
-				int wis = 0;
-				int cha = 0;
-				while (str < 3 || str > 18) {
-					cout << "What would you like to have as the Strength Score of your character?" << endl;
-					cout << "Strength Score must be at least 3, and at most 18." << endl;
-					cin >> str;
-				}
-				while (dex < 3 || dex > 18) {
-					cout << "What would you like to have as the Dexterity Score of your character?" << endl;
-					cout << "Dexterity Score must be at least 3, and at most 18." << endl;
-					cin >> dex;
-				}
-				while (con < 3 || con > 18) {
-					cout << "What would you like to have as the Constitution Score of your character?" << endl;
-					cout << "Constitution Score must be at least 3, and at most 18." << endl;
-					cin >> con;
-				}
-				while (intel < 3 || intel > 18) {
-					cout << "What would you like to have as the Intelligence Score of your character?" << endl;
-					cout << "Intelligence Score must be at least 3, and at most 18." << endl;
-					cin >> intel;
-				}
-				while (wis < 3 || wis > 18) {
-					cout << "What would you like to have as the Wisdom Score of your character?" << endl;
-					cout << "Wisdom Score must be at least 3, and at most 18." << endl;
-					cin >> wis;
-				}
-				while (cha < 3 || cha > 18) {
-					cout << "What would you like to have as the Charisma Score of your character?" << endl;
-					cout << "Charisma Score must be at least 3, and at most 18." << endl;
-					cin >> cha;
-				}
-				fighter = new Character(str, dex, con, intel, wis, cha);
-				charobserver = new CharacterObserver(fighter);
-				valid = fighter->validateNewCharacter();
-				if (valid == false) {
-					delete fighter;
-					delete charobserver;
-				}
-				else {
-					fighter->displayCharacterInfo();
-					fighter->displayEquipment();
-				}
-			}
-	}
+	//int index = testBackPack->addItem(s1);
+	////testBackPack->addItem(s2);
+	////testBackPack->addItem(ar1);
+	//player->equipItem(index);
+	////player->displayEquipment();
+	//player->unequipItem(0); // item should be in index 0
+
+	////player->displayEquipment();
+	////testBackPack->displayItems();
+
+	//bool valid = false;
+	//int charCreate = 0;
+	//Character* fighter;
+	//CharacterObserver *charobserver;
+	//cout << "So you want to create a new character?" << endl;
+	//cout << "Press 1 to enter ability scores manually, or press 2 to generate by rolling dice." << endl;
+	//cin >> charCreate;
+
+	//	if (charCreate == 2) {
+	//		while (valid == false) {
+	//			fighter = new Character();
+	//			charobserver = new CharacterObserver(fighter);
+	//			valid = fighter->validateNewCharacter();
+	//			if (valid == false) {
+	//				delete fighter;
+	//				delete charobserver;
+	//			}
+	//			else {
+	//				fighter->displayCharacterInfo();
+	//				fighter->displayEquipment();
+	//			}
+	//		}
+	//	}
+
+	//	else if (charCreate == 1) {
+	//		while (valid == false) {
+	//			int str = 0;
+	//			int dex = 0;
+	//			int con = 0;
+	//			int intel = 0;
+	//			int wis = 0;
+	//			int cha = 0;
+	//			while (str < 3 || str > 18) {
+	//				cout << "What would you like to have as the Strength Score of your character?" << endl;
+	//				cout << "Strength Score must be at least 3, and at most 18." << endl;
+	//				cin >> str;
+	//			}
+	//			while (dex < 3 || dex > 18) {
+	//				cout << "What would you like to have as the Dexterity Score of your character?" << endl;
+	//				cout << "Dexterity Score must be at least 3, and at most 18." << endl;
+	//				cin >> dex;
+	//			}
+	//			while (con < 3 || con > 18) {
+	//				cout << "What would you like to have as the Constitution Score of your character?" << endl;
+	//				cout << "Constitution Score must be at least 3, and at most 18." << endl;
+	//				cin >> con;
+	//			}
+	//			while (intel < 3 || intel > 18) {
+	//				cout << "What would you like to have as the Intelligence Score of your character?" << endl;
+	//				cout << "Intelligence Score must be at least 3, and at most 18." << endl;
+	//				cin >> intel;
+	//			}
+	//			while (wis < 3 || wis > 18) {
+	//				cout << "What would you like to have as the Wisdom Score of your character?" << endl;
+	//				cout << "Wisdom Score must be at least 3, and at most 18." << endl;
+	//				cin >> wis;
+	//			}
+	//			while (cha < 3 || cha > 18) {
+	//				cout << "What would you like to have as the Charisma Score of your character?" << endl;
+	//				cout << "Charisma Score must be at least 3, and at most 18." << endl;
+	//				cin >> cha;
+	//			}
+	//			fighter = new Character(str, dex, con, intel, wis, cha);
+	//			charobserver = new CharacterObserver(fighter);
+	//			valid = fighter->validateNewCharacter();
+	//			if (valid == false) {
+	//				delete fighter;
+	//				delete charobserver;
+	//			}
+	//			else {
+	//				fighter->displayCharacterInfo();
+	//				fighter->displayEquipment();
+	//			}
+	//		}
+	//}
 
 
-	// For the purpose of creating items inside container
+	//// For the purpose of creating items inside container
 	//MapObject* newChest = new ItemContainer("CHEST");
 	//int numOfItems = 1;
+	//string chestName = "";
+	//cout << "Enter chest name: " << endl;
+	//cin >> chestName;
 	//cout << "How many items would you like to put inside the chest?" << endl;
 	//cin >> numOfItems;
-
 	//int itemNum = 1;
 	//string name = "";
 	//string empty = ""; // to consume any white-space characters
@@ -171,6 +173,15 @@ int main()
 	//				delete armor;
 	//			}
 	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/"+name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << armor;
+	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(armor);
 	//	}
 	//	else if (itemNum == 2) {
@@ -192,6 +203,15 @@ int main()
 	//				delete belt;
 	//			}
 	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << belt;
+	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(belt);
 	//	}
 	//	else if (itemNum == 3) {
@@ -212,6 +232,15 @@ int main()
 	//				cout << "Invalid item. Try again." << endl;
 	//				delete boots;
 	//			}
+	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << boots;
 	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(boots);
 	//	}
@@ -235,6 +264,15 @@ int main()
 	//				cout << "Invalid item. Try again." << endl;
 	//				delete helmet;
 	//			}
+	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << helmet;
 	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(helmet);
 	//	}
@@ -263,6 +301,15 @@ int main()
 	//				delete ring;
 	//			}
 	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << ring;
+	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(ring);
 	//	}
 	//	else if (itemNum == 6) {
@@ -281,6 +328,15 @@ int main()
 	//				cout << "Invalid item. Try again." << endl;
 	//				delete shield;
 	//			}
+	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << shield;
 	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(shield);
 	//	}
@@ -303,52 +359,54 @@ int main()
 	//				delete weapon;
 	//			}
 	//		}
+	//		// Create and open a character archive for output
+	//		std::ofstream ofs("Items/" + name);
+
+	//		// Save data to archive
+	//		{
+	//			boost::archive::binary_oarchive oa(ofs);
+	//			// Write class instance to archive
+	//			oa << weapon;
+	//		}
 	//		static_cast<ItemContainer*>(newChest)->addItem(weapon);
 	//	}
 	//	numOfItems--;
 	//}
 	//static_cast<ItemContainer*>(newChest)->displayItems();
+	//// Create and open a character archive for output
+	//std::ofstream ofs("Chests/" + chestName);
 
-	// Create and open a character archive for output
-	std::ofstream ofs("TestFile");
+	//// Save data to archive
+	//{
+	//	boost::archive::binary_oarchive oa(ofs);
+	//	// Write class instance to archive
+	//	oa << newChest;
+	//}
 
-	// Create class instance
-	Weapon* testWeapon = new Weapon("Test", 1, 1);
-
-	// Save data to archive
-	{
-		boost::archive::text_oarchive oa(ofs);
-		// Write class instance to archive
-		oa << testWeapon;
-		// archive and stream closed when destructors are called
-		//delete testWeapon;
-	}
-
-	string itemName = testWeapon->getName();
-	cout << "Saving " << itemName << "..." << endl;
-// ... some time later restore the class instance to its orginal state
-Item* newg;
-{
-	// create and open an archive for input
-	std::ifstream ifs("TestFile");
-	boost::archive::text_iarchive ia(ifs);
-	// read class state from archive
-	ia >> newg;
-	// archive and stream closed when destructors are called
-}
-
-itemName = newg->getName();
-cout << "Retrieved" << itemName << "..." << endl;
+//// ... some time later restore the class instance to its orginal state
+//Item* newg;
+//{
+//	// create and open an archive for input
+//	std::ifstream ifs("TestFile");
+//	boost::archive::binary_iarchive ia(ifs);
+//	// read class state from archive
+//	ia >> newg;
+//	// archive and stream closed when destructors are called
+//}
+//
+//itemName = newg->getName();
+//cout << "Retrieved " << itemName << "..." << endl;
 
 
 
 	system("PAUSE");
 	getchar();
-
-	delete player;
+	Launch game;
+	game.Start();
+	//delete player;
 	//delete testBackPack;
 	//delete testEquipped;
-	delete s1;
+	//delete s1;
 	//delete s2;
 	//delete ar1;
 	//delete newChest;

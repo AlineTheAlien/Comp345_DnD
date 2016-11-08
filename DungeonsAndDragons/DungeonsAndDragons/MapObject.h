@@ -7,18 +7,22 @@
 #ifndef MAPOBJECT_H
 #define MAPOBJECT_H
 // include headers that implement a archive in simple text format
-#include <boost/archive/text_oarchive.hpp>
-#include <boost/archive/text_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
 //! Class for the implementation of a superclass which consists of all objects that can be added onto the map
 class MapObject {
 public:
 	MapObject();
 	MapObject(char type);
+	virtual ~MapObject() {}
 	char getObjectType();
+	void setObjectType(char type);
 	// Serialization
 	// When the class Archive corresponds to an output archive, the
 	// & operator is defined similar to <<. Likewise, when the class Archive
 	// is a type of input archive the & operator is defined similar to >>.
+private:
+	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
 	{
