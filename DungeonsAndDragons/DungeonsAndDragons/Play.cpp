@@ -198,7 +198,7 @@ bool Play::saveCharacter(string characterName) {
 	ar.template register_type<Weapon>();
 	ar.template register_type<Shield>();
 	ar.template register_type<Belt>();
-
+	ar << character;
 	ofs.close();
 	cout << "Your character has been succesfully saved!" << endl;
 	return true;
