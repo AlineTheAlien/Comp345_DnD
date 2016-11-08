@@ -46,6 +46,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete armor;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -75,6 +76,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete belt;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -104,6 +106,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete boots;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -135,6 +138,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete helmet;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -170,6 +174,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete ring;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -197,6 +202,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete shield;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
@@ -226,6 +232,7 @@ MapObject* ContainerEditor::createChest()
 				if (valid == false) {
 					cout << "Invalid item. Try again." << endl;
 					delete weapon;
+					getline(cin, empty);
 				}
 			}
 			// Create and open a character archive for output
