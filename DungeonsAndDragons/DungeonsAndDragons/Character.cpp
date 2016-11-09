@@ -391,41 +391,42 @@ void Character::equipItem(int index) {
 
 		if (enhanceType == "STRENGTH") {
 			abilityScores[0] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "DEXTERITY") {
 			abilityScores[1] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "CONSTITUTION") {
 			abilityScores[2] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "CHARISMA") {
 			abilityScores[3] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "INTELLIGENCE") {
 			abilityScores[4] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "WISDOM") {
 			abilityScores[5] += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "ARMOR CLASS") {
 			armorClass += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "ATTACK BONUS") {
 			attackBonus += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 		else if (enhanceType == "DAMAGE BONUS") {
 			damageBonus += enhanceBonus;
-			Notify();
+			//Notify();
 		}
 	}
+	Notify();
 	cout << endl;
 }
 
