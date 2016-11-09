@@ -6,6 +6,7 @@ Play::Play()
 {
 	setAvailableCampaigns();
 	setAvailableCharacters();
+
 }
 
 
@@ -33,6 +34,19 @@ int Play::getCampaignSize()
 //! @return : a map object at the specified position
 Map* Play::getCampaignMap(int index)
 {
+	Map* loadingMap = campaignMaps[index]; // get the map
+	mbuilder->setMap(loadingMap); // set the current map for the map builder
+	for (int i = 0; i < loadingMap->getMapY(); i++)
+	{
+		for (int j = 0; j < loadingMap->getMapY(); j++)
+		{
+			if (loadingMap->getTile(j, i) == 'E') {
+				MapObject* enemy = loadingMap->getObjectTile(j, i);
+				mbuilder->buildCharacter('E', j, i, enemy);
+			}
+				
+		}
+	}
 	return campaignMaps[index];
 }
 
@@ -170,6 +184,7 @@ bool Play::loadCharacter(string characterName) {
 	ar >> character;
 	character->displayCharacterInfo();
 	character->displayEquipment();
+	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -219,6 +234,11 @@ void Play::placeCharacterOnMap(Map* map)
 				map->setTile(j, i, character);
 		}
 	}
+}
+
+// Method to set the map builder to a concrete builder that adapts map contents to the level
+void Play::setMapBuilder(MapBuilder* concreteMapBuilder) {
+	mbuilder = concreteMapBuilder;
 }
 
 Play::~Play()

@@ -111,6 +111,15 @@
     <ClInclude Include="UserDrivenEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ConcreteBuilderA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteBuilderB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -204,6 +213,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="UserDrivenEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
