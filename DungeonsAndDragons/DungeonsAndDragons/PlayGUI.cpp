@@ -169,8 +169,8 @@ void PlayGUI::openLoadCharacterWindow()
 
 				if (newCharacterButton.contains(mousePosition))
 				{
+					newCharacterClicked = true;
 					for (int j = 0; j < buttons.size(); j++) {
-						newCharacterClicked = true;
 						clicked.at(j) = false;
 					}
 				}
@@ -208,26 +208,26 @@ void PlayGUI::openLoadCharacterWindow()
 				if (buttons.at(i).contains(mousePosition) && !clicked.at(i))
 					texts.at(i).setFillColor(hoverColor);
 
-				else
-				{
-					if (!clicked.at(i))
-						texts.at(i).setFillColor(normalColor);
-					if (!nextClicked)
-						nextText.setFillColor(normalColor);
-					if (!backClicked)
-						backText.setFillColor(normalColor);
-					if (!newCharacterClicked)
-						newCharacterText.setFillColor(normalColor);
-				}
+				if (!clicked.at(i))
+					texts.at(i).setFillColor(normalColor);		
 			}
 
-			if (nextButton.contains(mousePosition) && !nextClicked)
+			if (!nextButton.contains(mousePosition))
+				nextText.setFillColor(normalColor);
+
+			if (!backButton.contains(mousePosition))
+				backText.setFillColor(normalColor);
+
+			if (!newCharacterClicked)
+				newCharacterText.setFillColor(normalColor);
+
+			if (nextButton.contains(mousePosition))
 				nextText.setFillColor(hoverColor);
 
-			if (newCharacterButton.contains(mousePosition) && !newCharacterClicked)
+			if (newCharacterButton.contains(mousePosition))
 				newCharacterText.setFillColor(hoverColor);
 
-			if (backButton.contains(mousePosition) && !backClicked)
+			if (backButton.contains(mousePosition))
 				backText.setFillColor(hoverColor);
 		}
 
