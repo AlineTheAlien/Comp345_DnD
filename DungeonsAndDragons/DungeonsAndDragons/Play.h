@@ -34,6 +34,7 @@ public:
 	void createNewCharacter();
 	bool saveCharacter(string);
 	void placeCharacterOnMap(Map* map);
+	bool moveCharacter(Map* map, char direction);
 
 	~Play();
 };

@@ -86,7 +86,6 @@ void Play::setAvailableCampaigns()
 	cout << endl;
 }
 
-
 //! Implementation of loadMaps to load all the maps of the campaign into campaignMaps 
 bool Play::loadMaps()
 {
@@ -219,6 +218,43 @@ void Play::placeCharacterOnMap(Map* map)
 				map->setTile(j, i, character);
 		}
 	}
+}
+
+bool Play::moveCharacter(Map* map, char direction)
+{
+	for (int i = 0; i < map->getMapY(); i++)
+	{
+		for (int j = 0; j < map->getMapX(); j++)
+		{
+			if (map->getTile(j, i) == 'P')
+			{
+				if (direction == 'L' && j > 0)
+				{
+					map->movePlayer(j - 1, i, character);
+					return true;
+				}
+				else
+				if (direction == 'R' && j < map->getMapX() - 1)
+				{
+					map->movePlayer(j + 1, i, character);
+					return true;
+				}
+				else
+				if (direction == 'U' && i > 0)
+				{
+					map->movePlayer(j, i - 1, character);
+					return true;
+				}
+				else
+				if (direction == 'D' && i < map->getMapY() - 1)
+				{
+					map->movePlayer(j, i + 1, character);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 Play::~Play()

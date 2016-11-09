@@ -479,7 +479,22 @@ void PlayGUI::openMapView()
 	}
 
 	play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+	int currentPositionX;
+	int currentPositionY;
 
+	for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
+	{
+		for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
+		{
+			if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
+			{
+				currentPositionX = j;
+				currentPositionY = i;
+			}
+
+		}
+	}
+	window->setKeyRepeatEnabled(false);
 	while (window->isOpen())
 	{
 		sf::Event event;
@@ -495,6 +510,65 @@ void PlayGUI::openMapView()
 			// transform the mouse position from window coordinates to world coordinates
 			sf::Vector2f mousePosition = static_cast<sf::Vector2f>(sf::Mouse::getPosition(*window));
 
+				// Event driven input handling
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && event.KeyReleased &&
+					!sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+				{
+					if (currentPositionX > 0)
+					if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX - 1, currentPositionY) == NULL)
+						if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
+						{
+							play->getCampaignMap(currentMap)->showMap();
+							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+							maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+							currentPositionX--;
+						}
+
+				}
+				else
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && event.KeyReleased
+					&& !sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+
+				{
+					if (currentPositionX < play->getCampaignMap(currentMap)->getMapX() - 1)
+					if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX + 1, currentPositionY) == NULL)
+						if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
+						{
+							play->getCampaignMap(currentMap)->showMap();
+							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+							maps[currentMap].at(currentPositionX + 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+							currentPositionX++;
+						}
+				}
+				else
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && event.KeyReleased
+					&& !sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+				{
+					if (currentPositionY > 0)
+					if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX, currentPositionY - 1) == NULL)				
+						if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
+						{
+							play->getCampaignMap(currentMap)->showMap();
+							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+							maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+							currentPositionY--;
+						}			
+				}
+				else
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && event.KeyReleased
+					&& !sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+				{
+					if (currentPositionY < play->getCampaignMap(currentMap) -> getMapY() - 1)
+					if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX, currentPositionY + 1) == NULL)
+						if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
+						{
+							play->getCampaignMap(currentMap)->showMap();
+							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+							maps[currentMap].at(currentPositionX + (currentPositionY + 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+							currentPositionY++;
+						}
+				}
+		
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && event.MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
 			{
 
