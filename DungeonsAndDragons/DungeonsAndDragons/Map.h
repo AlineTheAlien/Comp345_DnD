@@ -76,6 +76,7 @@ public:
 	bool validatePath();
 	bool findPath(int x, int y);
 	void setTile(int x, int y, MapObject* object);
+	void movePlayer(int x, int y, MapObject* object);
 	int getMapY();
 	int getMapX();
 	char getTile(int x, int y);

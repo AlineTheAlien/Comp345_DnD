@@ -211,6 +211,24 @@ MapObject* Map::getObjectTile(int x, int y)
 	return map[x + y * mapX];
 }
 
+void Map::movePlayer(int x, int y, MapObject* object)
+{
+	if (object->getObjectType() == PLAYER)
+	{
+		for (int i = 0; i < mapY * mapX; i++)
+		{
+			if (map[i] != NULL)
+			{
+				if (map[i]->getObjectType() == PLAYER)
+				{
+					map[i] = NULL;
+				}
+			}
+		}
+		map[x + y * mapX] = object;
+	}
+}
+
 
 //! Implementation isOccupied to check if a tile has a wall
 //! @param x: an integer value of vertical index of the map's grid

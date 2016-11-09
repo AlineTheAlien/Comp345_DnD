@@ -21,6 +21,8 @@
 #include "MapObject.h"
 #include <string>
 #include "Launch.h"
+#include "MapBuilder.h"
+#include "ConcreteBuilderA.h"
 // include headers that implement a archive in simple text format
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
@@ -397,7 +399,16 @@ int main()
 //itemName = newg->getName();
 //cout << "Retrieved " << itemName << "..." << endl;
 
-
+//vector<MapObject*> list = vector<MapObject*>();
+//MapObject* enemy = new Character('E', 13, 13, 13, 13, 13, 13);
+//static_cast<Character*>(enemy)->displayCharacterInfo();
+//list.push_back(enemy);
+//MapBuilder* m = new ConcreteBuilderA();
+//m->setPlayerLevel(15);
+//m->buildCharacter('E', 0, 0, enemy);
+//static_cast<Character*>(enemy)->displayCharacterInfo();
+//int x;
+//cin >> x;
 
 	system("PAUSE");
 	getchar();

@@ -497,6 +497,24 @@ void Character::getDamaged(int damage)
 	Notify();
 }
 
+//! Method to set the level of the character
+//! @param level : level to set to the character
+void Character::setLevel(int level) {
+	currentLevel = level;
+}
+
+//! Method to set the current hit points of the character
+//! @param level : current hit points to set to the character
+void Character::setCurrentHitPoints(int currentHP) {
+	currentHitPoints = currentHP;
+}
+
+//! Method to set the total hit points of the character
+//! @param level : total hit points to set to the character
+void Character::setTotalHitPoints(int totalHP) {
+	maxHitPoints = totalHP;
+}
+
 //! Mutator method for strength ability score
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param str: new strength score to modify previous value to it
@@ -580,7 +598,7 @@ int Character::rollTenSidedDie() {
 //! Implementation of ability score calculator
 void Character::calculateAbilityScores(int holder[]) {
 
-	Dice myDice = Dice();
+	//Dice myDice = Dice();
 
 	for (int i = 0; i < 6; i++) {
 
@@ -597,7 +615,7 @@ void Character::calculateAbilityScores(int holder[]) {
 		//points to the values of the dice rolls
 		for (int j = 0; j < 4; j++) {
 			//int r = rollSixSidedDie();
-			int r = myDice.roll("1d6");
+			int r = Dice::roll("1d6");
 			//Sleep(258); for debugging purposes
 			diceRollHolder[j] = r;
 		}
@@ -666,32 +684,32 @@ void Character::assignAbilityModifiers(int holder[]) {
 //! Method that calculates amount that HP will increase after character levels up
 //! @return int value, the value added to max hit points after gaining a level
 int Character::levelHitPoints() {
-	Dice myDice = Dice();
+	//Dice myDice = Dice();
 	int x = getConstitutionModifier();
 	//int y = rollTenSidedDie();
-	int y = myDice.roll("1d10");
+	int y = Dice::roll("1d10");
 	if (x == -4) {
 		while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
 			//y = rollTenSidedDie();
-			y = myDice.roll("1d10");
+			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -3) {
 		while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
 			//y = rollTenSidedDie();
-			y = myDice.roll("1d10");
+			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -2) {
 		while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
 			//y = rollTenSidedDie();
-			y = myDice.roll("1d10");
+			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -1) {
 		while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
 			//y = rollTenSidedDie();
-			y = myDice.roll("1d10");
+			y = Dice::roll("1d10");
 		}
 	}
 	return (x + y);

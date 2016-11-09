@@ -6,6 +6,8 @@ Play::Play()
 {
 	setAvailableCampaigns();
 	setAvailableCharacters();
+	MapBuilder* m = new ConcreteBuilderA();
+	mbuilder = m;
 }
 
 
@@ -23,12 +25,35 @@ int Play::getAvailableCampaignsSize()
 	return availableCampaigns.size();
 }
 
+int Play::getCampaignSize()
+{
+	return campaign->getMapListSize();
+}
+
 //! Implementation of getCampaignMap to get a specific map from a campaign
 //! @param index : an integer value of the position of the map in the campaign vector
 //! @return : a map object at the specified position
 Map* Play::getCampaignMap(int index)
 {
 	return campaignMaps[index];
+}
+
+void Play::adaptMapToPlayer(Map* map)
+{
+	mbuilder->setMap(map); // set the current map for the map builder
+	for (int i = 0; i < map->getMapY(); i++)
+	{
+		for (int j = 0; j < map->getMapX(); j++)
+		{
+			if (map->getTile(j, i) == 'E') {
+				delete map->getObjectTile(j, i);
+				map->setTile(j, i, NULL);
+				MapObject* enemy = new Character('E', 5, 5, 5, 5, 5 ,5);
+				map->setTile(j, i, enemy);
+				mbuilder->buildCharacter('E', j, i, enemy);
+			}
+		}
+	}
 }
 
 //! Implementation of loadCampaign to load the specified campaign into the campaign object
@@ -80,7 +105,6 @@ void Play::setAvailableCampaigns()
 	}
 	cout << endl;
 }
-
 
 //! Implementation of loadMaps to load all the maps of the campaign into campaignMaps 
 bool Play::loadMaps()
@@ -164,7 +188,15 @@ bool Play::loadCharacter(string characterName) {
 	//read class state from archive
 	ar >> character;
 	character->displayCharacterInfo();
-	character->getEquippedItems();
+	character->displayEquipment();
+	cout << "OBJECT TYPE" << endl;
+	cout << character->getObjectType() << endl;
+	character->levelUp();
+	character->levelUp();
+
+	character->levelUp();
+
+	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -204,6 +236,65 @@ bool Play::saveCharacter(string characterName) {
 	return true;
 }
 
+void Play::placeCharacterOnMap(Map* map)
+{
+	for (int i = 0; i < map->getMapY(); i++)
+	{
+		for (int j = 0; j < map->getMapX(); j++)
+		{
+			if (map->getTile(j, i) == 'P')
+				map->setTile(j, i, character);
+		}
+	}
+}
+
+bool Play::moveCharacter(Map* map, char direction)
+{
+	for (int i = 0; i < map->getMapY(); i++)
+	{
+		for (int j = 0; j < map->getMapX(); j++)
+		{
+			if (map->getTile(j, i) == 'P')
+			{
+				if (direction == 'L' && j > 0)
+				{
+					map->movePlayer(j - 1, i, character);
+					return true;
+				}
+				else
+				if (direction == 'R' && j < map->getMapX() - 1)
+				{
+					map->movePlayer(j + 1, i, character);
+					return true;
+				}
+				else
+				if (direction == 'U' && i > 0)
+				{
+					map->movePlayer(j, i - 1, character);
+					return true;
+				}
+				else
+				if (direction == 'D' && i < map->getMapY() - 1)
+				{
+					map->movePlayer(j, i + 1, character);
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
 Play::~Play()
 {
+	delete campaign;
+	campaign = NULL;
+	delete character;
+	character = NULL;
+	for (int i = 0; i < campaignMaps.size(); i++)
+	{
+		delete campaignMaps[i];
+		campaignMaps[i] = NULL;
+	}
+	delete mbuilder;
 }
