@@ -25,12 +25,13 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	int bonus = levelDifference * 2;
 	int abilityScores[6] = { str, dex, con, intel, wis, cha };
 
-	// For the purpose of the assignment, the character is a fighter and thus a d10 hit dice was used
+	// Since the character is a fighter, a d10 hit dice was used
 	// to get a number that will be added or removed to the total and current hit points
 	int sum = 0;
-	for (int i = 0; i < playerLevel; i++) {
-		sum += (rand() % 10 + 1);
-	}
+	srand(static_cast<unsigned int>(time(0)));
+	string dice = to_string(playerLevel) + "d10";
+	sum = Dice::roll(dice);
+	cout << "Sum is " << sum << endl;
 
 	// After getting the ability scores bonus that must be assigned, randomly assign to one of the abilities.
 	// If the player level is higher than the current enemy level, it will increase some ability scores.
@@ -68,12 +69,16 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 		currentHP -= (differenceInConstitution + sum);
 		totalHP -= (differenceInConstitution + sum);
 	}
-
-	// Create enemy object
-	MapObject* newCharacter = new Character(type, playerLevel, currentHP, totalHP, abilityScores[0], abilityScores[1], abilityScores[2], abilityScores[3], abilityScores[4], abilityScores[5]);
-
-	// Place the enemy on the map
-	map->setTile(j, i, newCharacter);
+	// Set all the attributes of the character
+	static_cast<Character*>(character)->setLevel(playerLevel);
+	static_cast<Character*>(character)->setCurrentHitPoints(currentHP);
+	static_cast<Character*>(character)->setTotalHitPoints(totalHP);
+	static_cast<Character*>(character)->setStrengthScore(abilityScores[0]);
+	static_cast<Character*>(character)->setDexterityScore(abilityScores[1]);
+	static_cast<Character*>(character)->setConstitutionScore(abilityScores[2]);
+	static_cast<Character*>(character)->setIntelligenceScore(abilityScores[3]);
+	static_cast<Character*>(character)->setWisdomScore(abilityScores[4]);
+	static_cast<Character*>(character)->setCharismaScore(abilityScores[5]);
 }
 
 void ConcreteBuilderA::buildContainer(int j, int i) {

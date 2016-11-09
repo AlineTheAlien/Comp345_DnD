@@ -73,6 +73,9 @@ public:
 	int getAttackBonus();
 	int getDamageBonus();
 	string getWornItemName(string);
+	void setLevel(int);
+	void setCurrentHitPoints(int);
+	void setTotalHitPoints(int);
 	void setStrengthScore(int);
 	void setDexterityScore(int);
 	void setConstitutionScore(int);

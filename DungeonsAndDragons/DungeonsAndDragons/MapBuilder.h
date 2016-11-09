@@ -1,7 +1,7 @@
 #pragma once
 #include "Map.h"
 #include "MapObject.h"
-
+#include "Dice.h"
 //! Class for the implementation of a MapBuilder
 class MapBuilder {
 public:
