@@ -995,7 +995,7 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'E')
 							{
 								mapTiles.at(index).setTexture(textures.getEnemyTexture());
-								MapObject* enemy = new Character('E', 1,1,1,1,1,1);
+								MapObject* enemy = new MapObject('E');
 								enemy->setObjectType('E');
 								mapEditor->setTile(j, i, enemy);
 							}
