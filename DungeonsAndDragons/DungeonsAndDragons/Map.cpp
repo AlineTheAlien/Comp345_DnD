@@ -259,4 +259,7 @@ void Map::showMap()
 
 Map::~Map()
 {
+	for (int i = 0; i < map.size(); i++) {
+		delete map[i];
+	}
 }

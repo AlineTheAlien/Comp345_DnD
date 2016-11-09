@@ -46,6 +46,7 @@ private:
 
 public:
 	ItemContainer();
+	~ItemContainer();
 	ItemContainer(string, vector<Item*>);
 	ItemContainer(string);
 	string getType();
