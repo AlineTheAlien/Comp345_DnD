@@ -13,6 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Items">
+      <UniqueIdentifier>{e1d2cc1e-c970-4f44-a3c6-94cfb1f71c59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Editors">
+      <UniqueIdentifier>{8213c4f0-8716-4aad-a85c-ec5e6adb55f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GUI">
+      <UniqueIdentifier>{8e8e9c18-ed5e-4d3e-a4f4-025e62acb0f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Design Patterns">
+      <UniqueIdentifier>{784ff71c-9180-4fcb-95a2-105e15613550}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Map Objects">
+      <UniqueIdentifier>{be991c67-f7ff-4ae3-b6d1-d5628df2ea62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{822de995-277c-4688-93b3-42b3c39b0e76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Campaign">
+      <UniqueIdentifier>{31c401a9-2cfe-4f0c-8d26-791d919ac271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Dice">
+      <UniqueIdentifier>{d5e33d9d-abd3-44da-a048-a762f815624c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Items">
+      <UniqueIdentifier>{0efe552e-73dc-4615-8b5c-bd1e258d89e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Editors">
+      <UniqueIdentifier>{d3fc065f-dbc4-43b5-99de-0cfa38e690a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Design Patterns">
+      <UniqueIdentifier>{a827366c-3465-4f45-8bde-a6eca9dc2698}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{2014a68f-cca2-4692-8d57-d3aff9cb5798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Map Objects">
+      <UniqueIdentifier>{83f364c6-4ee4-4f5e-bbba-494fda750bb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Campaign">
+      <UniqueIdentifier>{108d64a4-44c1-4de8-9a98-b945439f6264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Dice">
+      <UniqueIdentifier>{a5b3597f-d524-4679-b451-4f6cb4f7dccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{b1033f84-b4e5-44aa-8af9-755dbea24fb8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -25,90 +73,99 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Armor.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Belt.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Boots.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enhancement.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Helmet.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Item.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemContainer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Ring.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Shield.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="Weapon.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CharacterObserver.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Observer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Subject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Dice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapPlay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Campaign.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Items</Filter>
     </ClInclude>
     <ClInclude Include="CampaignEditor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EditorGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Launch.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapEditor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Play.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayGUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Resources.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Editors</Filter>
     </ClInclude>
     <ClInclude Include="UserDrivenEditor.h">
+      <Filter>Header Files\Editors</Filter>
+    </ClInclude>
+    <ClInclude Include="MapEditor.h">
+      <Filter>Header Files\Editors</Filter>
+    </ClInclude>
+    <ClInclude Include="EditorGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGUI.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleView.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterObserver.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Enhancement.h">
+      <Filter>Header Files\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Header Files\Map Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="MapObject.h">
+      <Filter>Header Files\Map Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemContainer.h">
+      <Filter>Header Files\Map Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="MapPlay.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Play.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Launch.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Campaign.h">
+      <Filter>Header Files\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Header Files\Campaign</Filter>
+    </ClInclude>
+    <ClInclude Include="Dice.h">
+      <Filter>Header Files\Dice</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteBuilderA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcreteBuilderB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -120,90 +177,96 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Armor.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Belt.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Boots.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CharacterObserver.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Enhancement.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Helmet.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Item.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemContainer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Observer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Ring.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Shield.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Subject.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="Weapon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Dice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapPlay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Campaign.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Enhancement.cpp">
+      <Filter>Source Files\Items</Filter>
     </ClCompile>
     <ClCompile Include="CampaignEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EditorGUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GameState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Launch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MapEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Play.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayGUI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Resources.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Editors</Filter>
     </ClCompile>
     <ClCompile Include="UserDrivenEditor.cpp">
+      <Filter>Source Files\Editors</Filter>
+    </ClCompile>
+    <ClCompile Include="MapEditor.cpp">
+      <Filter>Source Files\Editors</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterObserver.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleView.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="EditorGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGUI.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Resources.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Source Files\Map Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemContainer.cpp">
+      <Filter>Source Files\Map Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="MapObject.cpp">
+      <Filter>Source Files\Map Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Campaign.cpp">
+      <Filter>Source Files\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files\Campaign</Filter>
+    </ClCompile>
+    <ClCompile Include="Dice.cpp">
+      <Filter>Source Files\Dice</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Launch.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="MapPlay.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="Play.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

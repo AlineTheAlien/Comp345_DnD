@@ -497,6 +497,24 @@ void Character::getDamaged(int damage)
 	Notify();
 }
 
+//! Method to set the level of the character
+//! @param level : level to set to the character
+void Character::setLevel(int level) {
+	currentLevel = level;
+}
+
+//! Method to set the current hit points of the character
+//! @param level : current hit points to set to the character
+void Character::setCurrentHitPoints(int currentHP) {
+	currentHitPoints = currentHP;
+}
+
+//! Method to set the total hit points of the character
+//! @param level : total hit points to set to the character
+void Character::setTotalHitPoints(int totalHP) {
+	maxHitPoints = totalHP;
+}
+
 //! Mutator method for strength ability score
 //! Notify message is sent in this function in order to trigger an update of the view
 //! @param str: new strength score to modify previous value to it
