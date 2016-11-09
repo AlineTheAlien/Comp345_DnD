@@ -70,6 +70,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 		totalHP -= (differenceInConstitution + sum);
 	}
 	// Set all the attributes of the character
+	character->setObjectType('E');
 	static_cast<Character*>(character)->setLevel(playerLevel);
 	static_cast<Character*>(character)->setCurrentHitPoints(currentHP);
 	static_cast<Character*>(character)->setTotalHitPoints(totalHP);

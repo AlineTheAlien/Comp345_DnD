@@ -35,20 +35,25 @@ int Play::getCampaignSize()
 //! @return : a map object at the specified position
 Map* Play::getCampaignMap(int index)
 {
-	Map* loadingMap = campaignMaps[index]; // get the map
-	mbuilder->setMap(loadingMap); // set the current map for the map builder
-	for (int i = 0; i < loadingMap->getMapY(); i++)
+	return campaignMaps[index];
+}
+
+void Play::adaptMapToPlayer(Map* map)
+{
+	mbuilder->setMap(map); // set the current map for the map builder
+	for (int i = 0; i < map->getMapY(); i++)
 	{
-		for (int j = 0; j < loadingMap->getMapY(); j++)
+		for (int j = 0; j < map->getMapX(); j++)
 		{
-			if (loadingMap->getTile(j, i) == 'E') {
-				MapObject* enemy = loadingMap->getObjectTile(j, i);
+			if (map->getTile(j, i) == 'E') {
+				delete map->getObjectTile(j, i);
+				map->setTile(j, i, NULL);
+				MapObject* enemy = new Character('E', 5, 5, 5, 5, 5 ,5);
+				map->setTile(j, i, enemy);
 				mbuilder->buildCharacter('E', j, i, enemy);
 			}
-				
 		}
 	}
-	return campaignMaps[index];
 }
 
 //! Implementation of loadCampaign to load the specified campaign into the campaign object
@@ -184,6 +189,13 @@ bool Play::loadCharacter(string characterName) {
 	ar >> character;
 	character->displayCharacterInfo();
 	character->displayEquipment();
+	cout << "OBJECT TYPE" << endl;
+	cout << character->getObjectType() << endl;
+	character->levelUp();
+	character->levelUp();
+
+	character->levelUp();
+
 	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign

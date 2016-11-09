@@ -349,6 +349,7 @@ void PlayGUI::openLoadCampaignWindow()
 							{
 								play->loadMaps();
 								play->placeCharacterOnMap(play->getCampaignMap(0));
+								play->adaptMapToPlayer(play->getCampaignMap(0));
 								state.setPlayState(PlayState::MAP_VIEW);
 								return;
 							}
@@ -478,7 +479,6 @@ void PlayGUI::openMapView()
 		maps.push_back(mapTiles);
 	}
 
-	play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 	int currentPositionX;
 	int currentPositionY;
 
@@ -592,6 +592,16 @@ void PlayGUI::openMapView()
 							}
 						}
 
+
+						if (play->getCampaignMap(currentMap)->getTile(j, i) == 'E')
+						{
+							if (maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
+							{
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayCharacterInfo();
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
+							}
+						}
+
 					}
 				}
 
@@ -601,7 +611,7 @@ void PlayGUI::openMapView()
 					if (currentMap < maps.size() - 1)
 					{
 						currentMap++;
-						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						//play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 					}
 				}
 
@@ -610,7 +620,7 @@ void PlayGUI::openMapView()
 					if (currentMap > 0)
 					{
 						currentMap--;
-						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						//play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 					}
 				}
 

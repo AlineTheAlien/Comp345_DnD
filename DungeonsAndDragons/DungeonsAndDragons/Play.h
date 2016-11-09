@@ -39,6 +39,7 @@ public:
 	bool saveCharacter(string);
 	void placeCharacterOnMap(Map* map);
 	bool moveCharacter(Map* map, char direction);
+	void adaptMapToPlayer(Map* map);
 	void setMapBuilder(MapBuilder*);
 	~Play();
 };
