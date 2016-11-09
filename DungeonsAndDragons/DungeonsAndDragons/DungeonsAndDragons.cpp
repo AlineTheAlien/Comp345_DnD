@@ -31,7 +31,7 @@ using namespace std;
 
 int main()
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 
 	//Character* player = new Character();
 	//CharacterObserver *charobv = new CharacterObserver(player);
