@@ -30,7 +30,6 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	// Since the character is a fighter, a d10 hit dice was used
 	// to get a number that will be added or removed to the total and current hit points
 	int sum = 0;
-	srand(static_cast<unsigned int>(time(0)));
 	string dice = to_string(playerLevel) + "d10";
 	sum = Dice::roll(dice);
 	cout << "Sum is " << sum << endl;
