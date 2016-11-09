@@ -348,7 +348,6 @@ void PlayGUI::openLoadCampaignWindow()
 							if (play->loadCampaign(play->getAvailableCampaigns(i)))
 							{
 								play->loadMaps();
-								play->placeCharacterOnMap(play->getCampaignMap(0));
 								state.setPlayState(PlayState::MAP_VIEW);
 								return;
 							}
@@ -404,6 +403,7 @@ void PlayGUI::openMapView()
 {
 	vector<vector<sf::Sprite>> maps;
 	int currentMap = 0;
+
 	sf::Text nextText;
 	sf::Text backText;
 	sf::Text menuText;
@@ -478,7 +478,7 @@ void PlayGUI::openMapView()
 		maps.push_back(mapTiles);
 	}
 
-
+	play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 
 	while (window->isOpen())
 	{
@@ -506,7 +506,10 @@ void PlayGUI::openMapView()
 						if (play->getCampaignMap(currentMap)->getTile(j, i) == 'C')
 						{
 							if (maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
+							{
 								static_cast<ItemContainer*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayItems();
+							}
+						
 						}
 
 						if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')

@@ -115,7 +115,6 @@ private:
 	string myRing;
 	string myHelmet;
 	string myBelt;
-	char objectType;
 	string characterName = "";
 	ItemContainer* equipped;
 	ItemContainer* backpack;
