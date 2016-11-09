@@ -510,7 +510,7 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionX > 0)
 					{
-						if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX - 1, currentPositionY) == NULL)
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
 							{
@@ -549,7 +549,7 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionX < play->getCampaignMap(currentMap)->getMapX() - 1)
 					{
-						if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX + 1, currentPositionY) == NULL)
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
 							{
@@ -589,7 +589,7 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionY > 0)
 					{
-						if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX, currentPositionY - 1) == NULL)
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
 							{
@@ -628,7 +628,7 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionY < play->getCampaignMap(currentMap)->getMapY() - 1)
 					{
-						if (play->getCampaignMap(currentMap)->getObjectTile(currentPositionX, currentPositionY + 1) == NULL)
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
 							{
