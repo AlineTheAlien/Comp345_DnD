@@ -23,6 +23,11 @@ int Play::getAvailableCampaignsSize()
 	return availableCampaigns.size();
 }
 
+int Play::getCampaignSize()
+{
+	return campaign->getMapListSize();
+}
+
 //! Implementation of getCampaignMap to get a specific map from a campaign
 //! @param index : an integer value of the position of the map in the campaign vector
 //! @return : a map object at the specified position
@@ -164,7 +169,7 @@ bool Play::loadCharacter(string characterName) {
 	//read class state from archive
 	ar >> character;
 	character->displayCharacterInfo();
-	character->getEquippedItems();
+	character->displayEquipment();
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -204,6 +209,29 @@ bool Play::saveCharacter(string characterName) {
 	return true;
 }
 
+void Play::placeCharacterOnMap(Map* map)
+{
+	for (int i = 0; i < map->getMapY(); i++)
+	{
+		for (int j = 0; j < map->getMapX(); j++)
+		{
+			if (map->getTile(j, i) == 'P')
+				map->setTile(j, i, character);
+		}
+	}
+}
+
 Play::~Play()
 {
+	delete campaign;
+	campaign = NULL;
+	delete character;
+	character = NULL;
+	for (int i = 0; i < campaignMaps.size(); i++)
+	{
+		delete campaignMaps[i];
+		campaignMaps[i] = NULL;
+	}
+
+
 }
