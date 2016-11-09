@@ -1,6 +1,8 @@
 #pragma once
 #include "Campaign.h"
 #include "MapBuilder.h"
+#include "ConcreteBuilderA.h"
+#include "ConcreteBuilderB.h"
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/archive/binary_oarchive.hpp>

@@ -6,7 +6,8 @@ Play::Play()
 {
 	setAvailableCampaigns();
 	setAvailableCharacters();
-
+	MapBuilder* m = new ConcreteBuilderA();
+	mbuilder = m;
 }
 
 
@@ -252,6 +253,5 @@ Play::~Play()
 		delete campaignMaps[i];
 		campaignMaps[i] = NULL;
 	}
-
-
+	delete mbuilder;
 }
