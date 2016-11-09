@@ -509,18 +509,7 @@ void PlayGUI::openMapView()
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				{
 					if (currentPositionX > 0)
-					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
-						{
-							if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
-							{
-								play->getCampaignMap(currentMap)->showMap();
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-								currentPositionX--;
-							}
-						}
-						else
+					{					
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
@@ -541,6 +530,17 @@ void PlayGUI::openMapView()
 										currentPositionY = i;
 									}
 						}
+						else
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
+						{
+							if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
+							{
+								play->getCampaignMap(currentMap)->showMap();
+								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+								maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+								currentPositionX--;
+							}
+						}
 					}					
 				}
 
@@ -548,18 +548,7 @@ void PlayGUI::openMapView()
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
 					if (currentPositionX < play->getCampaignMap(currentMap)->getMapX() - 1)
-					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) != 'W')
-						{
-							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
-							{
-								play->getCampaignMap(currentMap)->showMap();
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-								currentPositionX++;
-							}
-						}
-						else
+					{		
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
@@ -580,6 +569,17 @@ void PlayGUI::openMapView()
 										currentPositionY = i;
 									}
 						}
+						else
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) != 'W')
+						{
+							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
+							{
+								play->getCampaignMap(currentMap)->showMap();
+								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+								maps[currentMap].at(currentPositionX + 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+								currentPositionX++;
+							}
+						}
 					}				
 				}
 
@@ -589,17 +589,6 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionY > 0)
 					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) != 'W')
-						{
-							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
-							{
-								play->getCampaignMap(currentMap)->showMap();
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-								currentPositionY--;
-							}
-						}							
-						else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
@@ -620,6 +609,17 @@ void PlayGUI::openMapView()
 										currentPositionY = i;
 									}
 						}
+						else
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) != 'W')
+						{
+							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
+							{
+								play->getCampaignMap(currentMap)->showMap();
+								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+								maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+								currentPositionY--;
+							}
+						}													
 					}				
 				}
 
@@ -628,17 +628,6 @@ void PlayGUI::openMapView()
 				{
 					if (currentPositionY < play->getCampaignMap(currentMap)->getMapY() - 1)
 					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) != 'W')
-						{
-							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
-							{
-								play->getCampaignMap(currentMap)->showMap();
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + (currentPositionY + 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-								currentPositionY++;
-							}
-						}
-						else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
@@ -657,6 +646,17 @@ void PlayGUI::openMapView()
 										currentPositionX = j;
 										currentPositionY = i;
 									}
+						}
+						else
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) != 'W')
+						{
+							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
+							{
+								play->getCampaignMap(currentMap)->showMap();
+								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+								maps[currentMap].at(currentPositionX + (currentPositionY + 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+								currentPositionY++;
+							}
 						}
 					}						
 				}
@@ -679,6 +679,7 @@ void PlayGUI::openMapView()
 							{
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayCharacterInfo();
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayBackpack();
 							}
 						}
 

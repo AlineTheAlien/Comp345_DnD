@@ -260,11 +260,16 @@ bool Play::moveCharacter(Map* map, char direction)
 			if (map->getTile(j, i) == 'P')
 			{
 				if (direction == 'L' && j > 0)
-				{
+				{	
 					if (map->getTile(j - 1, i) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), x);
+							x--;
+						}
 						character->displayBackpack();
 					}
 					map->movePlayer(j - 1, i, character);
@@ -275,8 +280,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j + 1, i) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j + 1, i, character);
 					return true;
@@ -286,8 +297,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j, i - 1) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j, i - 1, character);
 					return true;
@@ -297,8 +314,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j, i + 1) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j, i + 1, character);
 					return true;
