@@ -38,9 +38,11 @@ public:
 	string getAvailableCharacters(int index);
 	void createNewCharacter();
 	bool saveCharacter(string);
+	void saveCharacter();
 	void placeCharacterOnMap(Map* map);
 	bool moveCharacter(Map* map, char direction);
 	void adaptMapToPlayer(Map* map);
+	void levelUpCharacter();
 	void setCurrentMap(int);
 	int getCurrentMap();
 	void setMapBuilder(MapBuilder*);

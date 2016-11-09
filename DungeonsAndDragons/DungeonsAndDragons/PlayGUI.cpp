@@ -526,10 +526,12 @@ void PlayGUI::openMapView()
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
+								play->levelUpCharacter();
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
 							currentMap = play->getCurrentMap();
+							play->levelUpCharacter();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -563,10 +565,12 @@ void PlayGUI::openMapView()
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
+								play->levelUpCharacter();
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
 							currentMap = play->getCurrentMap();
+							play->levelUpCharacter();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -601,10 +605,12 @@ void PlayGUI::openMapView()
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
+								play->levelUpCharacter();
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
 							currentMap = play->getCurrentMap();
+							play->levelUpCharacter();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -638,6 +644,7 @@ void PlayGUI::openMapView()
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
+								play->levelUpCharacter();
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -684,7 +691,6 @@ void PlayGUI::openMapView()
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
 							}
 						}
-
 					}
 				}
 

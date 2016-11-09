@@ -39,6 +39,13 @@ Map* Play::getCampaignMap(int index)
 	return campaignMaps[index];
 }
 
+void Play::levelUpCharacter()
+{
+	character->levelUp();
+	mbuilder->setPlayerLevel(character->getCurrentLevel());
+	saveCharacter(character->getCharacterName());
+}
+
 void Play::adaptMapToPlayer(Map* map)
 {
 	mbuilder->setMap(map); // set the current map for the map builder
@@ -192,11 +199,6 @@ bool Play::loadCharacter(string characterName) {
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
 	cout << character->getObjectType() << endl;
-	character->levelUp();
-	character->levelUp();
-
-	character->levelUp();
-
 	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign
@@ -218,7 +220,6 @@ void Play::createNewCharacter()
 }
 
 bool Play::saveCharacter(string characterName) {
-
 	ofstream ofs("Characters/" + characterName, std::ios::binary);
 	boost::archive::binary_oarchive ar(ofs);
 	ar.template register_type<MapObject>();
