@@ -891,3 +891,17 @@ void Character::displayEquipment() {
 	cout << " Helmet worn is : " << helmet << endl;
 	cout << endl;
 }
+
+//! Method that displays character's inventory pane
+void Character::displayBackpack() {
+	cout << "---------------------------" << endl;
+	cout << "Inventory Pane" << endl;
+	cout << "---------------------------" << endl;
+	vector<Item*> items = backpack->getItems();
+	for (unsigned int i = 0; i < items.size(); i++) {
+	cout << "[" << i << "]" << items[i]->getType() << ": " << items[i]->getName() << endl;
+	items[i]->displayEnhancements();
+	cout << endl;
+	}
+	cout << endl;
+}

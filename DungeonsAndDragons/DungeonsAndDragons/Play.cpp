@@ -6,6 +6,7 @@ Play::Play()
 {
 	setAvailableCampaigns();
 	setAvailableCharacters();
+	currentMap = 0;
 	MapBuilder* m = new ConcreteBuilderA();
 	mbuilder = m;
 }
@@ -36,6 +37,13 @@ int Play::getCampaignSize()
 Map* Play::getCampaignMap(int index)
 {
 	return campaignMaps[index];
+}
+
+void Play::levelUpCharacter()
+{
+	character->levelUp();
+	mbuilder->setPlayerLevel(character->getCurrentLevel());
+	saveCharacter(character->getCharacterName());
 }
 
 void Play::adaptMapToPlayer(Map* map)
@@ -191,11 +199,6 @@ bool Play::loadCharacter(string characterName) {
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
 	cout << character->getObjectType() << endl;
-	character->levelUp();
-	character->levelUp();
-
-	character->levelUp();
-
 	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign
@@ -217,7 +220,6 @@ void Play::createNewCharacter()
 }
 
 bool Play::saveCharacter(string characterName) {
-
 	ofstream ofs("Characters/" + characterName, std::ios::binary);
 	boost::archive::binary_oarchive ar(ofs);
 	ar.template register_type<MapObject>();
@@ -246,6 +248,7 @@ void Play::placeCharacterOnMap(Map* map)
 				map->setTile(j, i, character);
 		}
 	}
+	adaptMapToPlayer(map);
 }
 
 bool Play::moveCharacter(Map* map, char direction)
@@ -283,6 +286,16 @@ bool Play::moveCharacter(Map* map, char direction)
 		}
 	}
 	return false;
+}
+
+void Play::setCurrentMap(int index)
+{
+	currentMap = index;
+}
+
+int Play::getCurrentMap()
+{
+	return currentMap;
 }
 
 Play::~Play()

@@ -84,6 +84,7 @@ public:
 	void setWisdomScore(int);
 	void levelUp();
 	void displayEquipment();
+	void displayBackpack();
 	bool validateAbilityModifiers();
 	void setArmor(string);
 	void setShield(string);
