@@ -510,6 +510,7 @@ void PlayGUI::openMapView()
 							{
 								play->levelUpCharacter();
 								play->setCurrentMap(0);
+								cout << "Completed the campaign" << endl;
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -550,6 +551,7 @@ void PlayGUI::openMapView()
 							{
 								play->levelUpCharacter();
 								play->setCurrentMap(0);
+								cout << "Completed the campaign" << endl;
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -591,6 +593,7 @@ void PlayGUI::openMapView()
 							{
 								play->levelUpCharacter();
 								play->setCurrentMap(0);
+								cout << "Completed the campaign" << endl;
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -631,6 +634,7 @@ void PlayGUI::openMapView()
 							{
 								play->levelUpCharacter();
 								play->setCurrentMap(0);
+								cout << "Completed the campaign" << endl;
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
