@@ -208,18 +208,21 @@ void PlayGUI::openLoadCharacterWindow()
 				if (buttons.at(i).contains(mousePosition) && !clicked.at(i))
 					texts.at(i).setFillColor(hoverColor);
 
-				if (!clicked.at(i))
-					texts.at(i).setFillColor(normalColor);		
-			}
+				else
+				{
+					if (!clicked.at(i))
+						texts.at(i).setFillColor(normalColor);
 
-			if (!nextButton.contains(mousePosition))
-				nextText.setFillColor(normalColor);
+					if (!nextButton.contains(mousePosition))
+						nextText.setFillColor(normalColor);
 
-			if (!backButton.contains(mousePosition))
-				backText.setFillColor(normalColor);
+					if (!backButton.contains(mousePosition))
+						backText.setFillColor(normalColor);
 
-			if (!newCharacterClicked)
-				newCharacterText.setFillColor(normalColor);
+					if (!newCharacterClicked)
+						newCharacterText.setFillColor(normalColor);
+				}				
+			}	
 
 			if (nextButton.contains(mousePosition))
 				nextText.setFillColor(hoverColor);
@@ -404,17 +407,14 @@ void PlayGUI::openMapView()
 {
 	vector<vector<sf::Sprite>> maps;
 	int currentMap = play->getCurrentMap();
-	sf::Text nextText;
 	sf::Text backText;
 	sf::Text menuText;
-	sf::FloatRect nextButton;
 	sf::FloatRect backButton;
 	sf::FloatRect menuButton;
 	sf::Font textFont;
 	sf::Color normalColor = sf::Color::White;
 	sf::Color hoverColor = sf::Color::Yellow;
 	sf::Color clickedColor = sf::Color::Yellow;
-	bool nextClicked = false;
 	bool backClicked = false;
 	bool menuClicked = false;
 
@@ -424,12 +424,7 @@ void PlayGUI::openMapView()
 		// error...
 	}
 
-	nextText.setString("Next");
-	nextText.setFont(textFont);
-	nextText.setStyle(sf::Text::Italic);
-	nextText.setCharacterSize(15);
-
-	backText.setString("Back");
+	backText.setString("Modify Equipment");
 	backText.setFont(textFont);
 	backText.setStyle(sf::Text::Italic);
 	backText.setCharacterSize(15);
@@ -439,11 +434,9 @@ void PlayGUI::openMapView()
 	menuText.setStyle(sf::Text::Italic);
 	menuText.setCharacterSize(15);
 
-	nextText.setPosition(sf::Vector2f(500, GameState::WINDOW_SCALE - 100));
 	backText.setPosition(sf::Vector2f(300, GameState::WINDOW_SCALE - 100));
 	menuText.setPosition(sf::Vector2f(700, 300));
 
-	nextButton = nextText.getGlobalBounds();
 	backButton = backText.getGlobalBounds();
 	menuButton = menuText.getGlobalBounds();
 
@@ -699,35 +692,19 @@ void PlayGUI::openMapView()
 					}
 				}
 
-				// hit test
-				if (nextButton.contains(mousePosition))
-				{
-					if (currentMap < maps.size() - 1)
-					{
-						currentMap++;
-						//play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-					}
-				}
-
 				if (backButton.contains(mousePosition))
 				{
-					if (currentMap > 0)
-					{
-						currentMap--;
-						//play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-					}
+					play->modifyEquipment();
 				}
 
 				if (menuButton.contains(mousePosition))
 				{
+					play->setCurrentMap(0);
 					state.setLaunchState(LaunchState::MENU);
 					return;
 				}
 			}
 
-			if (nextButton.contains(mousePosition) && !nextClicked)
-				nextText.setFillColor(hoverColor);
-			else
 				if (backButton.contains(mousePosition) && !backClicked)
 					backText.setFillColor(hoverColor);
 				else
@@ -735,9 +712,6 @@ void PlayGUI::openMapView()
 						menuText.setFillColor(hoverColor);
 					else
 					{
-						if (!nextClicked)
-							nextText.setFillColor(normalColor);
-
 						if (!backClicked)
 							backText.setFillColor(normalColor);
 
@@ -749,7 +723,6 @@ void PlayGUI::openMapView()
 		window->clear();
 		for (int i = 0; i < maps[currentMap].size(); i++)
 			window->draw(maps[currentMap].at(i));
-		window->draw(nextText);
 		window->draw(backText);
 		window->draw(menuText);
 		window->display();

@@ -342,6 +342,50 @@ int Play::getCurrentMap()
 	return currentMap;
 }
 
+void Play::modifyEquipment()
+{
+	int choice;
+	int itemChoice;
+	int size = character->getBackpack()->getItems().size();
+	bool isValid = false;
+	do {
+		cout << "Press 1 to equip items, or press 2 to unequip your current items. Enter -1 to exit" << endl;
+		cin >> choice;
+		if (choice == 1 || choice == 2)
+			isValid = true;
+		if (choice == -1)
+			return;
+	} while (isValid == false);
+
+	if (choice == 1)
+	{
+		do {
+			character->displayBackpack();
+			cout << "Which index item do you want to equip? Enter -1 to exit" << endl;
+			cin >> itemChoice;
+			if (itemChoice == -1)
+				return;
+		} while (itemChoice > size || itemChoice < 0);
+		character->equipItem(itemChoice);
+		character->displayBackpack();
+		character->displayEquipment();
+	}
+	else
+	if (choice == 2)
+	{
+		do {
+			character->getEquippedItems()->displayItems();
+			cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
+			cin >> itemChoice;
+			if (itemChoice == -1)
+				return;
+		} while (itemChoice > character->getEquippedItems()->getItems().size() || itemChoice < 0);
+		character->unequipItem(itemChoice);
+		character->displayBackpack();
+		character->displayEquipment();
+	}
+}
+
 Play::~Play()
 {
 	delete campaign;
