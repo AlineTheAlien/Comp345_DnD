@@ -160,13 +160,13 @@
       <Filter>Header Files\Dice</Filter>
     </ClInclude>
     <ClInclude Include="ConcreteBuilderA.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="ConcreteBuilderB.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="MapBuilder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,11 +263,11 @@
     <ClCompile Include="Play.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="ConcreteBuilderB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ConcreteBuilderA.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderB.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
