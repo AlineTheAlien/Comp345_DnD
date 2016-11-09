@@ -22,6 +22,7 @@ private:
 	vector<string> availableCampaigns;
 	vector<string> availableCharacters;
 	MapBuilder* mbuilder;
+	int currentMap;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
@@ -40,6 +41,8 @@ public:
 	void placeCharacterOnMap(Map* map);
 	bool moveCharacter(Map* map, char direction);
 	void adaptMapToPlayer(Map* map);
+	void setCurrentMap(int);
+	int getCurrentMap();
 	void setMapBuilder(MapBuilder*);
 	~Play();
 };

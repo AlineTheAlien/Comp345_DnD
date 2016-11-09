@@ -6,6 +6,7 @@ Play::Play()
 {
 	setAvailableCampaigns();
 	setAvailableCharacters();
+	currentMap = 0;
 	MapBuilder* m = new ConcreteBuilderA();
 	mbuilder = m;
 }
@@ -246,6 +247,7 @@ void Play::placeCharacterOnMap(Map* map)
 				map->setTile(j, i, character);
 		}
 	}
+	adaptMapToPlayer(map);
 }
 
 bool Play::moveCharacter(Map* map, char direction)
@@ -283,6 +285,16 @@ bool Play::moveCharacter(Map* map, char direction)
 		}
 	}
 	return false;
+}
+
+void Play::setCurrentMap(int index)
+{
+	currentMap = index;
+}
+
+int Play::getCurrentMap()
+{
+	return currentMap;
 }
 
 Play::~Play()
