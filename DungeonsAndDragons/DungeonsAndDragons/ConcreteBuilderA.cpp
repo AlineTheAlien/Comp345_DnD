@@ -9,6 +9,7 @@
 void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* character) {
 	// Get all attributes of the enemy
 	int level, currentHP, totalHP, str, dex, con, intel, wis, cha;
+	int strModif, dexModif, conModif, intelModif, wisModif, chaModif;
 
 	level = static_cast<Character*>(character)->getCurrentLevel();
 	currentHP = static_cast<Character*>(character)->getHitPoints();
@@ -19,6 +20,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	intel = static_cast<Character*>(character)->getIntelligenceScore();
 	wis = static_cast<Character*>(character)->getWisdomScore();
 	cha = static_cast<Character*>(character)->getCharismaScore();
+
 
 	// Every time a character levels up, we assume the character gets two ability scores to be added any of to the current ability scores
 	int levelDifference = abs(playerLevel - level);
@@ -80,6 +82,18 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	static_cast<Character*>(character)->setIntelligenceScore(abilityScores[3]);
 	static_cast<Character*>(character)->setWisdomScore(abilityScores[4]);
 	static_cast<Character*>(character)->setCharismaScore(abilityScores[5]);
+	strModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[0]);
+	dexModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[1]);
+	conModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[2]);
+	intelModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[3]);
+	wisModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[4]);
+	chaModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[5]);
+	static_cast<Character*>(character)->setStrengthModifier(strModif);
+	static_cast<Character*>(character)->setDexterityModifier(dexModif);
+	static_cast<Character*>(character)->setConstitutionModifier(conModif);
+	static_cast<Character*>(character)->setIntelligenceModifier(intelModif);
+	static_cast<Character*>(character)->setWisdomModifier(wisModif);
+	static_cast<Character*>(character)->setCharismaModifier(chaModif);
 }
 
 void ConcreteBuilderA::buildContainer(int j, int i) {

@@ -82,6 +82,12 @@ public:
 	void setCharismaScore(int);
 	void setIntelligenceScore(int);
 	void setWisdomScore(int);
+	void setStrengthModifier(int);
+	void setDexterityModifier(int);
+	void setConstitutionModifier(int);
+	void setCharismaModifier(int);
+	void setIntelligenceModifier(int);
+	void setWisdomModifier(int);
 	void levelUp();
 	void displayEquipment();
 	void displayBackpack();
