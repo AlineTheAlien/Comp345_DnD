@@ -19,7 +19,8 @@ bool Dice::isValid(string test)
 
 int Dice::roll(string diceString)
 {
-	rollResult = 0;
+	Dice myDice;
+	myDice.rollResult = 0;
 	//validate input string with previous function
 	if (isValid(diceString)) {
 		vector<int> arr;
@@ -37,14 +38,14 @@ int Dice::roll(string diceString)
 			//seed the random number generator
 			//srand(static_cast<unsigned int>(time(0)));
 			//generate random number between 1 and x, holding the second position in the vector 
-			rollResult += (rand() % arr[1]) + 1;
+			myDice.rollResult += (rand() % arr[1]) + 1;
 		}
 
 		//if z is specified
 		if (arr.size() == 3) {
-			rollResult += rollResult + arr[2];
+			myDice.rollResult += myDice.rollResult + arr[2];
 		}
-		return rollResult;
+		return myDice.rollResult;
 	}
 
 	else
