@@ -95,6 +95,7 @@ public:
 	void equipItem(int);
 	void unequipItem(int);
 	int levelHitPoints();
+	void chooseScoresOnLevelUp();
 	string getCharacterName();
 	void setCharacterName(string);
 	ItemContainer* getEquippedItems();

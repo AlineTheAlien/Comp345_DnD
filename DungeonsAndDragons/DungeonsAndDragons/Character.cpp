@@ -563,12 +563,128 @@ void Character::setWisdomScore(int wis) {
 	Notify();
 }
 
+void Character::chooseScoresOnLevelUp() {
+	int chooseLevelOption = 1;
+	int chooseAbility = 1;
+	int ctr = 1;
+	bool validLevelOption = false;
+	bool validAbility = false;
+
+	cout << "\n Congratulations! Your character gained a level!" << endl;
+	//Sleep(3000);
+	cout << "\n You are now allowed to modify your ability scores." << endl;
+	cout << "\n You can either raise one attribute by 2 points, or raise 2 attributes by one point each." << endl;
+	cout << "\n Please enter 1 for choice 1, or 2 for choice 2. Enter anything else to exit." << endl;
+	//Sleep(400);
+	do {
+		cout << "\n 1- I want to raise one attribute by 2 points!" << endl;
+		cout << "\n 2- I want to raise two attributes by 1 point each!" << endl;
+		cin >> chooseLevelOption;
+		if (chooseLevelOption == 1 || chooseLevelOption == 2) {
+			validLevelOption = true;
+		}
+	} while (validLevelOption == false);
+
+	if (chooseLevelOption == 1) {
+		do {
+			cout << "\n Which attribute score would you like to raise by two points? (Press any other key to exit)\n" << endl;
+			Sleep(400);
+			cout << " 1 - Strength" << endl;
+			cout << " 2 - Dexterity" << endl;
+			cout << " 3 - Constitution" << endl;
+			cout << " 4 - Intelligence" << endl;
+			cout << " 5 - Wisdom" << endl;
+			cout << " 6 - Charisma" << endl;
+
+			cin >> chooseAbility;
+
+			if (chooseAbility >= 1 && chooseAbility <= 5) {
+				validAbility = true;
+			}
+		} while (validAbility == false);
+
+		if (chooseAbility == 1) {
+			abilityScores[0] = abilityScores[0] + 2;
+		}
+		else if (chooseAbility == 2) {
+			abilityScores[1] = abilityScores[1] + 2;
+		}
+		else if (chooseAbility == 3) {
+			abilityScores[2] = abilityScores[2] + 2;
+		}
+		else if (chooseAbility == 4) {
+			abilityScores[3] = abilityScores[3] + 2;
+		}
+		else if (chooseAbility == 5) {
+			abilityScores[4] = abilityScores[4] + 2;
+		}
+		else if (chooseAbility == 6) {
+			abilityScores[5] = abilityScores[5] + 2;
+		}
+		else {
+			cout << "error" << endl;
+		}
+
+	}
+	else if (chooseLevelOption == 2) {
+		//Sleep(400);
+		for (int i = 0; i < 2; i++) {
+
+			if (ctr == 1) {
+				cout << "\n What is the first attribute score you would like to raise by 1 point? (Press any other key to exit)\n" << endl;
+			}
+			else if (ctr == 2) {
+				cout << "\n What is the second attribute score you would like to raise by 1 point? (Press any other key to exit)\n" << endl;
+			}
+			else {
+				cout << "error" << endl;
+			}
+			cout << " 1 - Strength" << endl;
+			cout << " 2 - Dexterity" << endl;
+			cout << " 3 - Constitution" << endl;
+			cout << " 4 - Intelligence" << endl;
+			cout << " 5 - Wisdom" << endl;
+			cout << " 6 - Charisma" << endl;
+
+			cin >> chooseAbility;
+
+			if (chooseAbility == 1) {
+				abilityScores[0] = abilityScores[0] + 1;
+			}
+			else if (chooseAbility == 2) {
+				abilityScores[1] = abilityScores[1] + 1;
+			}
+			else if (chooseAbility == 3) {
+				abilityScores[2] = abilityScores[2] + 1;
+			}
+			else if (chooseAbility == 4) {
+				abilityScores[3] = abilityScores[3] + 1;
+			}
+			else if (chooseAbility == 5) {
+				abilityScores[4] = abilityScores[4] + 1;
+			}
+			else if (chooseAbility == 6) {
+				abilityScores[5] = abilityScores[5] + 1;
+			}
+			ctr++;
+		}
+		cout << "\n Your ability scores have now been modified. :)\n" << endl;
+	}
+}
+
 //! Method that increments the level by one to show that the character has leveled up
 void Character::levelUp() {
 	currentLevel++;
 
 	maxHitPoints = maxHitPoints + levelHitPoints();
 	currentHitPoints = maxHitPoints; //For now, HP refills back to full on level up
+
+	chooseScoresOnLevelUp(); //Ability scores to modify are chosen by the user
+
+	for (int i = 0; i <= 5; i++ ) {
+		abilityModifiers[i] = generateAbilityModifier(abilityScores[i]);
+		//modify new ability modifiers
+	}
 
 	Notify(); //Notify observers that level has been increased
 }

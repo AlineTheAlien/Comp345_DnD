@@ -33,9 +33,14 @@ int main()
 {
 	srand(time(NULL));
 
-	//Character* player = new Character();
+	//Character* player = new Character('P', 10, 10, 10, 10, 10, 10);
 	//CharacterObserver *charobv = new CharacterObserver(player);
 
+	//player->displayCharacterInfo();
+	//player->displayEquipment();
+
+	//player->levelUp();
+	//
 	//player->displayCharacterInfo();
 	//player->displayEquipment();
 
