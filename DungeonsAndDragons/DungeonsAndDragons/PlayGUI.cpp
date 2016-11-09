@@ -525,7 +525,10 @@ void PlayGUI::openMapView()
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
-								exit(0);
+							{
+								state.setLaunchState(LaunchState::MENU);
+								return;
+							}
 							currentMap = play->getCurrentMap();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -559,7 +562,10 @@ void PlayGUI::openMapView()
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
-								exit(0);
+							{
+								state.setLaunchState(LaunchState::MENU);
+								return;
+							}
 							currentMap = play->getCurrentMap();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -594,7 +600,10 @@ void PlayGUI::openMapView()
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
-								exit(0);
+							{
+								state.setLaunchState(LaunchState::MENU);
+								return;
+							}
 							currentMap = play->getCurrentMap();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -628,7 +637,10 @@ void PlayGUI::openMapView()
 						{
 							play->setCurrentMap(play->getCurrentMap() + 1);
 							if (play->getCurrentMap() >= play->getCampaignSize())
-								exit(0);
+							{
+								state.setLaunchState(LaunchState::MENU);
+								return;
+							}
 							currentMap = play->getCurrentMap();
 							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
