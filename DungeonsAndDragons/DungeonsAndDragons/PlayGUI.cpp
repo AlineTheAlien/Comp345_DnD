@@ -516,6 +516,7 @@ void PlayGUI::openMapView()
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
 								play->levelUpCharacter();
+								play->setCurrentMap(0);
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -555,6 +556,7 @@ void PlayGUI::openMapView()
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
 								play->levelUpCharacter();
+								play->setCurrentMap(0);
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -595,6 +597,7 @@ void PlayGUI::openMapView()
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
 								play->levelUpCharacter();
+								play->setCurrentMap(0);
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
@@ -634,6 +637,7 @@ void PlayGUI::openMapView()
 							if (play->getCurrentMap() >= play->getCampaignSize())
 							{
 								play->levelUpCharacter();
+								play->setCurrentMap(0);
 								state.setLaunchState(LaunchState::MENU);
 								return;
 							}
