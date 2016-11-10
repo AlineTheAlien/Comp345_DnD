@@ -1,0 +1,29 @@
+\hypertarget{_dice_8h}{}\section{Dice.\+h File Reference}
+\label{_dice_8h}\index{Dice.\+h@{Dice.\+h}}
+
+
+Header file for the \hyperlink{class_dice}{Dice} class.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tchar.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_dice}{Dice}
+\begin{DoxyCompactList}\small\item\em class that implements the rolling of \hyperlink{class_dice}{Dice} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for the \hyperlink{class_dice}{Dice} class. 
+
+1) The rules of using the \hyperlink{class_dice}{Dice} in the game are\+: The player first needs to choose the type of dice, the number of times he wants to roll it and his boost. 2) In my design, the player can enter a string with spaces and it will still be accepted. First off, the player enter the dice string in the form of \char`\"{}xdy+z\char`\"{} following the game rules defined. Next the program has a function is\+Valid that takes the entered string and matches a regex pattern that follows the desired string format. This is done after parsing the stringt o remove any whitespace. The roll function, which accepts the string \char`\"{}xdy+z\char`\"{} uses the is\+Valid function firstly to validate the string, if invalid -\/1 is returned. If the string is valid, then the digits x, y, z are stored in a vector at there distinctive position following their order in th string. The roll method then generates a random number for each dice roll (value x) and sums them all together and returns the total value summedd with the oprional z. 3) No libraries were used. 

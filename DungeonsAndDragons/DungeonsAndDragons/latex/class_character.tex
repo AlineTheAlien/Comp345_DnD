@@ -1,0 +1,728 @@
+\hypertarget{class_character}{}\section{Character Class Reference}
+\label{class_character}\index{Character@{Character}}
+
+
+Class that implements a character.  
+
+
+
+
+{\ttfamily \#include $<$Character.\+h$>$}
+
+Inheritance diagram for Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_character}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_character_adc27bdd255876169bad2ed0bae0cffb5}{}\label{class_character_adc27bdd255876169bad2ed0bae0cffb5} 
+\hyperlink{class_character_adc27bdd255876169bad2ed0bae0cffb5}{Character} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for a fighter character. \end{DoxyCompactList}\item 
+\hyperlink{class_character_aad0274b7a8cbb4fa8e0dddd0622d8870}{Character} (char, int, int, int, int, int, int)
+\item 
+\hypertarget{class_character_a9e9be564d05ded80962b2045aa70b3fc}{}\label{class_character_a9e9be564d05ded80962b2045aa70b3fc} 
+\hyperlink{class_character_a9e9be564d05ded80962b2045aa70b3fc}{$\sim$\+Character} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_character_adae2bb0e0bb6b8d010be6d1ac3b1fd5f}{validate\+New\+Character} ()
+\item 
+void \hyperlink{class_character_a43566a6c7af77bde11b8f4c5e86c936f}{get\+Damaged} (int)
+\item 
+int \hyperlink{class_character_ac28870a30c9b451f55c3e27adaabfbfa}{get\+Hit\+Points} ()
+\item 
+int \hyperlink{class_character_a2c14caedf6a4a354589c14c7a2f53b0e}{get\+Max\+Hit\+Points} ()
+\item 
+int \hyperlink{class_character_a9710bee1a9f7c1e474abff5dd55adc8d}{roll\+Six\+Sided\+Die} ()
+\item 
+int \hyperlink{class_character_af3700e847620a19ada153eb10e600c22}{generate\+Ability\+Modifier} (int)
+\item 
+\hypertarget{class_character_a11166d1faa3af99548fa9e8dc2979eaf}{}\label{class_character_a11166d1faa3af99548fa9e8dc2979eaf} 
+void \hyperlink{class_character_a11166d1faa3af99548fa9e8dc2979eaf}{calculate\+Ability\+Scores} (int\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Implementation of ability score calculator. \end{DoxyCompactList}\item 
+void \hyperlink{class_character_a233f495f8092c80cf1951fd075e77ca7}{assign\+Ability\+Modifiers} (int\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{class_character_a6ab4e58439f6c394dc79f6a23440ef70}{roll\+Ten\+Sided\+Die} ()
+\item 
+\hypertarget{class_character_a0f993af09d2137001b12ab7b7415a55b}{}\label{class_character_a0f993af09d2137001b12ab7b7415a55b} 
+void \hyperlink{class_character_a0f993af09d2137001b12ab7b7415a55b}{display\+Character\+Info} ()
+\begin{DoxyCompactList}\small\item\em Method to display character information. \end{DoxyCompactList}\item 
+int \hyperlink{class_character_aaaa0856b0bdcbc38c16ba5117df34ee8}{get\+Strength\+Score} ()
+\item 
+int \hyperlink{class_character_ac83cb6a4ea280a1e99418af81c4bae6c}{get\+Dexterity\+Score} ()
+\item 
+int \hyperlink{class_character_abbcc6a78fba81fa02add688b94c06376}{get\+Constitution\+Score} ()
+\item 
+int \hyperlink{class_character_a359c787d436784878e1f8650ddae3c35}{get\+Charisma\+Score} ()
+\item 
+int \hyperlink{class_character_a515aa3b9303281674dc82ad7d59e9337}{get\+Intelligence\+Score} ()
+\item 
+int \hyperlink{class_character_a07a2c6534ea013efc290aab432c11011}{get\+Wisdom\+Score} ()
+\item 
+int \hyperlink{class_character_aa0193d35d813ff170e5e3fbdcf259b8c}{get\+Strength\+Modifier} ()
+\item 
+int \hyperlink{class_character_ab4732b634d516b397142462b33e05782}{get\+Dexterity\+Modifier} ()
+\item 
+int \hyperlink{class_character_a61dd2cf1181a46ddecfdc8dede6fa732}{get\+Constitution\+Modifier} ()
+\item 
+int \hyperlink{class_character_a8b0adc0c65045b78e810fe436c636f4c}{get\+Charisma\+Modifier} ()
+\item 
+int \hyperlink{class_character_a562aa6723aba380cbddcf7467b921afb}{get\+Intelligence\+Modifier} ()
+\item 
+int \hyperlink{class_character_a860985777ed1f3f4bb5e4917f052afbd}{get\+Wisdom\+Modifier} ()
+\item 
+int \hyperlink{class_character_a9cf4ab6c7c066d38566773f946b64442}{get\+Current\+Level} ()
+\item 
+int \hyperlink{class_character_a79ce6ccb3e7d78ea75905d8d3f2ba4e2}{get\+Current\+Experience\+Points} ()
+\item 
+int \hyperlink{class_character_a10f27e812da8b25d4f44dbf6f3533fb2}{get\+Armor\+Class} ()
+\item 
+int \hyperlink{class_character_a94cb25ccbde6ccbc6aa6b3cca01dfebc}{get\+Attack\+Bonus} ()
+\item 
+int \hyperlink{class_character_a20ac6eab8a1df8ce849ad1015f656f96}{get\+Damage\+Bonus} ()
+\item 
+string \hyperlink{class_character_a3450bf341e820b6c14f3c3a2ebd7a3c3}{get\+Worn\+Item\+Name} (string)
+\item 
+void \hyperlink{class_character_a470a76c1062d97e40ce97997a4fdc62a}{set\+Level} (int)
+\item 
+void \hyperlink{class_character_a5a60696b6a658e78a08b3c098e1446d6}{set\+Current\+Hit\+Points} (int)
+\item 
+void \hyperlink{class_character_af277a2f17f94a7880af3204a4b824e06}{set\+Total\+Hit\+Points} (int)
+\item 
+void \hyperlink{class_character_a62ec21599695d548cada86de053dc51a}{set\+Strength\+Score} (int)
+\item 
+void \hyperlink{class_character_a6714e60888cf852dd48d45919c0e29c6}{set\+Dexterity\+Score} (int)
+\item 
+void \hyperlink{class_character_a959e82d760840d33ab95a264c549a8c6}{set\+Constitution\+Score} (int)
+\item 
+void \hyperlink{class_character_a7dff5255c010da8590f493078ab05db2}{set\+Charisma\+Score} (int)
+\item 
+void \hyperlink{class_character_a34f038f813b6b1522f41ba04f4620628}{set\+Intelligence\+Score} (int)
+\item 
+void \hyperlink{class_character_a9940a14b5050a9962ec6a042363a90d6}{set\+Wisdom\+Score} (int)
+\item 
+void \hyperlink{class_character_a543005270d3aa62d9aa0cb35aeac58b3}{set\+Strength\+Modifier} (int)
+\item 
+void \hyperlink{class_character_a667cb495021fa02cf0f0abebade3e3aa}{set\+Dexterity\+Modifier} (int)
+\item 
+void \hyperlink{class_character_ac550c6455f74ecbac744523fa82148c3}{set\+Constitution\+Modifier} (int)
+\item 
+void \hyperlink{class_character_a28ba83aeb0fae1450f69193001e433ec}{set\+Charisma\+Modifier} (int)
+\item 
+void \hyperlink{class_character_a554260d3ec37497bbdc7f1a22ddd7c78}{set\+Intelligence\+Modifier} (int)
+\item 
+void \hyperlink{class_character_af3e55f3f6018cf490471993ebcd95110}{set\+Wisdom\+Modifier} (int)
+\item 
+\hypertarget{class_character_aaaffb44b62eb70df0e545700c6011210}{}\label{class_character_aaaffb44b62eb70df0e545700c6011210} 
+void \hyperlink{class_character_aaaffb44b62eb70df0e545700c6011210}{level\+Up} ()
+\begin{DoxyCompactList}\small\item\em Method that increments the level by one to show that the character has leveled up. \end{DoxyCompactList}\item 
+\hypertarget{class_character_a39139f003d8a88a27c8f91b0c0744834}{}\label{class_character_a39139f003d8a88a27c8f91b0c0744834} 
+void \hyperlink{class_character_a39139f003d8a88a27c8f91b0c0744834}{display\+Equipment} ()
+\begin{DoxyCompactList}\small\item\em Method that displays character\textquotesingle{}s current equipment. \end{DoxyCompactList}\item 
+\hypertarget{class_character_a70de0e844848ee72cc7bb1c8dceef79c}{}\label{class_character_a70de0e844848ee72cc7bb1c8dceef79c} 
+void \hyperlink{class_character_a70de0e844848ee72cc7bb1c8dceef79c}{display\+Backpack} ()
+\begin{DoxyCompactList}\small\item\em Method that displays character\textquotesingle{}s inventory pane. \end{DoxyCompactList}\item 
+bool \hyperlink{class_character_ae4953a40791d81dc7cab574aaeca7569}{validate\+Ability\+Modifiers} ()
+\item 
+void \hyperlink{class_character_af8a31bf573e0f2dc03e904165997bb21}{set\+Armor} (string)
+\item 
+void \hyperlink{class_character_af05444fdf239c036bf7cad6c5591419b}{set\+Shield} (string)
+\item 
+void \hyperlink{class_character_aaeee9a1f2678902c7749065a1bfabac9}{set\+Weapon} (string)
+\item 
+void \hyperlink{class_character_a611fea965a72947c1b53b79ee095f95e}{set\+Boots} (string)
+\item 
+void \hyperlink{class_character_a68653da50efcfeefca60d163bc30b419}{set\+Ring} (string)
+\item 
+void \hyperlink{class_character_a2e88779e8d7d6b1e9237c003b8b13d03}{set\+Helmet} (string)
+\item 
+\hypertarget{class_character_a7eba32ca277221f8804529722e9d939c}{}\label{class_character_a7eba32ca277221f8804529722e9d939c} 
+void {\bfseries set\+Type} (char)
+\item 
+void \hyperlink{class_character_a2bbde472407d0c398cb602a45f5eec30}{equip\+Item} (int)
+\item 
+void \hyperlink{class_character_a9ee4f3f4e98b8babaa4d8e49ea44b99f}{unequip\+Item} (int)
+\item 
+int \hyperlink{class_character_ad47ab6e5a2671f770b5a580cb60baee7}{level\+Hit\+Points} ()
+\item 
+\hypertarget{class_character_a3a5ce729d6887d2c781cb5f246d122cb}{}\label{class_character_a3a5ce729d6887d2c781cb5f246d122cb} 
+void {\bfseries choose\+Scores\+On\+Level\+Up} ()
+\item 
+\hypertarget{class_character_af23f19ad2075ea77bcd2f4e478cf0326}{}\label{class_character_af23f19ad2075ea77bcd2f4e478cf0326} 
+string {\bfseries get\+Character\+Name} ()
+\item 
+\hypertarget{class_character_ae4c7d9343f6d25892a815e9301c0083d}{}\label{class_character_ae4c7d9343f6d25892a815e9301c0083d} 
+void {\bfseries set\+Character\+Name} (string)
+\item 
+\hyperlink{class_item_container}{Item\+Container} $\ast$ \hyperlink{class_character_ad54a2ad63aa059d162cc67dbd0556f57}{get\+Equipped\+Items} ()
+\item 
+\hyperlink{class_item_container}{Item\+Container} $\ast$ \hyperlink{class_character_a92bf4b3daff50c95130f5727fd39a242}{get\+Backpack} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_character_ac98d07dd8f7b70e16ccb9a01abf56b9c}{}\label{class_character_ac98d07dd8f7b70e16ccb9a01abf56b9c} 
+class {\bfseries boost\+::serialization\+::access}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class that implements a character. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_character_aad0274b7a8cbb4fa8e0dddd0622d8870}{}\label{class_character_aad0274b7a8cbb4fa8e0dddd0622d8870} 
+\index{Character@{Character}!Character@{Character}}
+\index{Character@{Character}!Character@{Character}}
+\subsubsection{\texorpdfstring{Character()}{Character()}}
+{\footnotesize\ttfamily Character\+::\+Character (\begin{DoxyParamCaption}\item[{char}]{type,  }\item[{int}]{str,  }\item[{int}]{dex,  }\item[{int}]{con,  }\item[{int}]{intel,  }\item[{int}]{wis,  }\item[{int}]{cha }\end{DoxyParamCaption})}
+
+Constructor\+: Passes values to each ability score 
+\begin{DoxyParams}{Parameters}
+{\em str} & strength score, dex\+: dexterity score, con\+: constitution score, intel\+: intelligence score, wis\+: wisdom score, cha\+: charisma score \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_character_a233f495f8092c80cf1951fd075e77ca7}{}\label{class_character_a233f495f8092c80cf1951fd075e77ca7} 
+\index{Character@{Character}!assign\+Ability\+Modifiers@{assign\+Ability\+Modifiers}}
+\index{assign\+Ability\+Modifiers@{assign\+Ability\+Modifiers}!Character@{Character}}
+\subsubsection{\texorpdfstring{assign\+Ability\+Modifiers()}{assignAbilityModifiers()}}
+{\footnotesize\ttfamily void Character\+::assign\+Ability\+Modifiers (\begin{DoxyParamCaption}\item[{int}]{holder\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Method to assign ability modifiers to the modifiers array 
+\begin{DoxyParams}{Parameters}
+{\em holder} & array that will be passed in this function \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a2bbde472407d0c398cb602a45f5eec30}{}\label{class_character_a2bbde472407d0c398cb602a45f5eec30} 
+\index{Character@{Character}!equip\+Item@{equip\+Item}}
+\index{equip\+Item@{equip\+Item}!Character@{Character}}
+\subsubsection{\texorpdfstring{equip\+Item()}{equipItem()}}
+{\footnotesize\ttfamily void Character\+::equip\+Item (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Method to equip an item on the character from the backpack 
+\begin{DoxyParams}{Parameters}
+{\em } & The index position of the item to wear inside the vector representing a backpack \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_af3700e847620a19ada153eb10e600c22}{}\label{class_character_af3700e847620a19ada153eb10e600c22} 
+\index{Character@{Character}!generate\+Ability\+Modifier@{generate\+Ability\+Modifier}}
+\index{generate\+Ability\+Modifier@{generate\+Ability\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{generate\+Ability\+Modifier()}{generateAbilityModifier()}}
+{\footnotesize\ttfamily int Character\+::generate\+Ability\+Modifier (\begin{DoxyParamCaption}\item[{int}]{score }\end{DoxyParamCaption})}
+
+Implementation for an ability modifier calculator 
+\begin{DoxyParams}{Parameters}
+{\em score} & ability score for the certain attribute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value, the value of the corresponding ability modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_a10f27e812da8b25d4f44dbf6f3533fb2}{}\label{class_character_a10f27e812da8b25d4f44dbf6f3533fb2} 
+\index{Character@{Character}!get\+Armor\+Class@{get\+Armor\+Class}}
+\index{get\+Armor\+Class@{get\+Armor\+Class}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Armor\+Class()}{getArmorClass()}}
+{\footnotesize\ttfamily int Character\+::get\+Armor\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for character\textquotesingle{}s armor class \begin{DoxyReturn}{Returns}
+int value, the value of the character\textquotesingle{}s armor class 
+\end{DoxyReturn}
+\hypertarget{class_character_a94cb25ccbde6ccbc6aa6b3cca01dfebc}{}\label{class_character_a94cb25ccbde6ccbc6aa6b3cca01dfebc} 
+\index{Character@{Character}!get\+Attack\+Bonus@{get\+Attack\+Bonus}}
+\index{get\+Attack\+Bonus@{get\+Attack\+Bonus}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Attack\+Bonus()}{getAttackBonus()}}
+{\footnotesize\ttfamily int Character\+::get\+Attack\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for attack bonus \begin{DoxyReturn}{Returns}
+int value\+: the value of the character\textquotesingle{}s attack bonus 
+\end{DoxyReturn}
+\hypertarget{class_character_a92bf4b3daff50c95130f5727fd39a242}{}\label{class_character_a92bf4b3daff50c95130f5727fd39a242} 
+\index{Character@{Character}!get\+Backpack@{get\+Backpack}}
+\index{get\+Backpack@{get\+Backpack}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Backpack()}{getBackpack()}}
+{\footnotesize\ttfamily \hyperlink{class_item_container}{Item\+Container} $\ast$ Character\+::get\+Backpack (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get all items inside the backpack \begin{DoxyReturn}{Returns}
+A pointer to an item container representing the backpack 
+\end{DoxyReturn}
+\hypertarget{class_character_a8b0adc0c65045b78e810fe436c636f4c}{}\label{class_character_a8b0adc0c65045b78e810fe436c636f4c} 
+\index{Character@{Character}!get\+Charisma\+Modifier@{get\+Charisma\+Modifier}}
+\index{get\+Charisma\+Modifier@{get\+Charisma\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Charisma\+Modifier()}{getCharismaModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Charisma\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for charisma score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the charisma modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_a359c787d436784878e1f8650ddae3c35}{}\label{class_character_a359c787d436784878e1f8650ddae3c35} 
+\index{Character@{Character}!get\+Charisma\+Score@{get\+Charisma\+Score}}
+\index{get\+Charisma\+Score@{get\+Charisma\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Charisma\+Score()}{getCharismaScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Charisma\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for charisma score attribute \begin{DoxyReturn}{Returns}
+int value\+: the value of the charisma ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_a61dd2cf1181a46ddecfdc8dede6fa732}{}\label{class_character_a61dd2cf1181a46ddecfdc8dede6fa732} 
+\index{Character@{Character}!get\+Constitution\+Modifier@{get\+Constitution\+Modifier}}
+\index{get\+Constitution\+Modifier@{get\+Constitution\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Constitution\+Modifier()}{getConstitutionModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Constitution\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for constitution score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the constitution modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_abbcc6a78fba81fa02add688b94c06376}{}\label{class_character_abbcc6a78fba81fa02add688b94c06376} 
+\index{Character@{Character}!get\+Constitution\+Score@{get\+Constitution\+Score}}
+\index{get\+Constitution\+Score@{get\+Constitution\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Constitution\+Score()}{getConstitutionScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Constitution\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for constitution score attribute \begin{DoxyReturn}{Returns}
+int value, the value of the constitution ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_a79ce6ccb3e7d78ea75905d8d3f2ba4e2}{}\label{class_character_a79ce6ccb3e7d78ea75905d8d3f2ba4e2} 
+\index{Character@{Character}!get\+Current\+Experience\+Points@{get\+Current\+Experience\+Points}}
+\index{get\+Current\+Experience\+Points@{get\+Current\+Experience\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Current\+Experience\+Points()}{getCurrentExperiencePoints()}}
+{\footnotesize\ttfamily int Character\+::get\+Current\+Experience\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for experience points \begin{DoxyReturn}{Returns}
+int value, the value of character\textquotesingle{}s current experience points 
+\end{DoxyReturn}
+\hypertarget{class_character_a9cf4ab6c7c066d38566773f946b64442}{}\label{class_character_a9cf4ab6c7c066d38566773f946b64442} 
+\index{Character@{Character}!get\+Current\+Level@{get\+Current\+Level}}
+\index{get\+Current\+Level@{get\+Current\+Level}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Current\+Level()}{getCurrentLevel()}}
+{\footnotesize\ttfamily int Character\+::get\+Current\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for character\textquotesingle{}s current level \begin{DoxyReturn}{Returns}
+int value, the value of the character\textquotesingle{}s level 
+\end{DoxyReturn}
+\hypertarget{class_character_a20ac6eab8a1df8ce849ad1015f656f96}{}\label{class_character_a20ac6eab8a1df8ce849ad1015f656f96} 
+\index{Character@{Character}!get\+Damage\+Bonus@{get\+Damage\+Bonus}}
+\index{get\+Damage\+Bonus@{get\+Damage\+Bonus}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Damage\+Bonus()}{getDamageBonus()}}
+{\footnotesize\ttfamily int Character\+::get\+Damage\+Bonus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for damage bonus \begin{DoxyReturn}{Returns}
+int value, the value of the character\textquotesingle{}s damage bonus 
+\end{DoxyReturn}
+\hypertarget{class_character_a43566a6c7af77bde11b8f4c5e86c936f}{}\label{class_character_a43566a6c7af77bde11b8f4c5e86c936f} 
+\index{Character@{Character}!get\+Damaged@{get\+Damaged}}
+\index{get\+Damaged@{get\+Damaged}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Damaged()}{getDamaged()}}
+{\footnotesize\ttfamily void Character\+::get\+Damaged (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})}
+
+Method to get the damage received by the character Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em damage} & damage sustained by the character \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_ab4732b634d516b397142462b33e05782}{}\label{class_character_ab4732b634d516b397142462b33e05782} 
+\index{Character@{Character}!get\+Dexterity\+Modifier@{get\+Dexterity\+Modifier}}
+\index{get\+Dexterity\+Modifier@{get\+Dexterity\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Dexterity\+Modifier()}{getDexterityModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Dexterity\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for dexterity score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the dexterity modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_ac83cb6a4ea280a1e99418af81c4bae6c}{}\label{class_character_ac83cb6a4ea280a1e99418af81c4bae6c} 
+\index{Character@{Character}!get\+Dexterity\+Score@{get\+Dexterity\+Score}}
+\index{get\+Dexterity\+Score@{get\+Dexterity\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Dexterity\+Score()}{getDexterityScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Dexterity\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for dexterity score attribute \begin{DoxyReturn}{Returns}
+int value, the value of the dexterity ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_ad54a2ad63aa059d162cc67dbd0556f57}{}\label{class_character_ad54a2ad63aa059d162cc67dbd0556f57} 
+\index{Character@{Character}!get\+Equipped\+Items@{get\+Equipped\+Items}}
+\index{get\+Equipped\+Items@{get\+Equipped\+Items}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Equipped\+Items()}{getEquippedItems()}}
+{\footnotesize\ttfamily \hyperlink{class_item_container}{Item\+Container} $\ast$ Character\+::get\+Equipped\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get all equipped items \begin{DoxyReturn}{Returns}
+A pointer to an item container representing equipped items 
+\end{DoxyReturn}
+\hypertarget{class_character_ac28870a30c9b451f55c3e27adaabfbfa}{}\label{class_character_ac28870a30c9b451f55c3e27adaabfbfa} 
+\index{Character@{Character}!get\+Hit\+Points@{get\+Hit\+Points}}
+\index{get\+Hit\+Points@{get\+Hit\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Hit\+Points()}{getHitPoints()}}
+{\footnotesize\ttfamily int Character\+::get\+Hit\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get the current hit points \begin{DoxyReturn}{Returns}
+int, value of current\+Hit\+Points 
+\end{DoxyReturn}
+\hypertarget{class_character_a562aa6723aba380cbddcf7467b921afb}{}\label{class_character_a562aa6723aba380cbddcf7467b921afb} 
+\index{Character@{Character}!get\+Intelligence\+Modifier@{get\+Intelligence\+Modifier}}
+\index{get\+Intelligence\+Modifier@{get\+Intelligence\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Intelligence\+Modifier()}{getIntelligenceModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Intelligence\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for intelligence score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the intelligence modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_a515aa3b9303281674dc82ad7d59e9337}{}\label{class_character_a515aa3b9303281674dc82ad7d59e9337} 
+\index{Character@{Character}!get\+Intelligence\+Score@{get\+Intelligence\+Score}}
+\index{get\+Intelligence\+Score@{get\+Intelligence\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Intelligence\+Score()}{getIntelligenceScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Intelligence\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for intelligence score attribute \begin{DoxyReturn}{Returns}
+int value, the value of the intelligence ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_a2c14caedf6a4a354589c14c7a2f53b0e}{}\label{class_character_a2c14caedf6a4a354589c14c7a2f53b0e} 
+\index{Character@{Character}!get\+Max\+Hit\+Points@{get\+Max\+Hit\+Points}}
+\index{get\+Max\+Hit\+Points@{get\+Max\+Hit\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Max\+Hit\+Points()}{getMaxHitPoints()}}
+{\footnotesize\ttfamily int Character\+::get\+Max\+Hit\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get the maximum hit points \begin{DoxyReturn}{Returns}
+int, value of max\+Hit\+Points 
+\end{DoxyReturn}
+\hypertarget{class_character_aa0193d35d813ff170e5e3fbdcf259b8c}{}\label{class_character_aa0193d35d813ff170e5e3fbdcf259b8c} 
+\index{Character@{Character}!get\+Strength\+Modifier@{get\+Strength\+Modifier}}
+\index{get\+Strength\+Modifier@{get\+Strength\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Strength\+Modifier()}{getStrengthModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Strength\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for strength score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the strength modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_aaaa0856b0bdcbc38c16ba5117df34ee8}{}\label{class_character_aaaa0856b0bdcbc38c16ba5117df34ee8} 
+\index{Character@{Character}!get\+Strength\+Score@{get\+Strength\+Score}}
+\index{get\+Strength\+Score@{get\+Strength\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Strength\+Score()}{getStrengthScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Strength\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for strength score attribute \begin{DoxyReturn}{Returns}
+int value, the value of the strength ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_a860985777ed1f3f4bb5e4917f052afbd}{}\label{class_character_a860985777ed1f3f4bb5e4917f052afbd} 
+\index{Character@{Character}!get\+Wisdom\+Modifier@{get\+Wisdom\+Modifier}}
+\index{get\+Wisdom\+Modifier@{get\+Wisdom\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Wisdom\+Modifier()}{getWisdomModifier()}}
+{\footnotesize\ttfamily int Character\+::get\+Wisdom\+Modifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for wisdom score modifier \begin{DoxyReturn}{Returns}
+int value, the value of the wisdom modifier 
+\end{DoxyReturn}
+\hypertarget{class_character_a07a2c6534ea013efc290aab432c11011}{}\label{class_character_a07a2c6534ea013efc290aab432c11011} 
+\index{Character@{Character}!get\+Wisdom\+Score@{get\+Wisdom\+Score}}
+\index{get\+Wisdom\+Score@{get\+Wisdom\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Wisdom\+Score()}{getWisdomScore()}}
+{\footnotesize\ttfamily int Character\+::get\+Wisdom\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Accessor method for wisdom score attribute \begin{DoxyReturn}{Returns}
+int value, the value of the wisdom ability score 
+\end{DoxyReturn}
+\hypertarget{class_character_a3450bf341e820b6c14f3c3a2ebd7a3c3}{}\label{class_character_a3450bf341e820b6c14f3c3a2ebd7a3c3} 
+\index{Character@{Character}!get\+Worn\+Item\+Name@{get\+Worn\+Item\+Name}}
+\index{get\+Worn\+Item\+Name@{get\+Worn\+Item\+Name}!Character@{Character}}
+\subsubsection{\texorpdfstring{get\+Worn\+Item\+Name()}{getWornItemName()}}
+{\footnotesize\ttfamily string Character\+::get\+Worn\+Item\+Name (\begin{DoxyParamCaption}\item[{string}]{type }\end{DoxyParamCaption})}
+
+Method to display the name of a specified type of equipped item 
+\begin{DoxyParams}{Parameters}
+{\em } & The type of the equipment as a string value return The name of the item as a string value \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_ad47ab6e5a2671f770b5a580cb60baee7}{}\label{class_character_ad47ab6e5a2671f770b5a580cb60baee7} 
+\index{Character@{Character}!level\+Hit\+Points@{level\+Hit\+Points}}
+\index{level\+Hit\+Points@{level\+Hit\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{level\+Hit\+Points()}{levelHitPoints()}}
+{\footnotesize\ttfamily int Character\+::level\+Hit\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method that calculates amount that HP will increase after character levels up \begin{DoxyReturn}{Returns}
+int value, the value added to max hit points after gaining a level 
+\end{DoxyReturn}
+\hypertarget{class_character_a9710bee1a9f7c1e474abff5dd55adc8d}{}\label{class_character_a9710bee1a9f7c1e474abff5dd55adc8d} 
+\index{Character@{Character}!roll\+Six\+Sided\+Die@{roll\+Six\+Sided\+Die}}
+\index{roll\+Six\+Sided\+Die@{roll\+Six\+Sided\+Die}!Character@{Character}}
+\subsubsection{\texorpdfstring{roll\+Six\+Sided\+Die()}{rollSixSidedDie()}}
+{\footnotesize\ttfamily int Character\+::roll\+Six\+Sided\+Die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Randomizer function that simulates a dice roll of values between 1 and 6 \begin{DoxyReturn}{Returns}
+int value, the value of the random dice roll between 1 and 6 
+\end{DoxyReturn}
+\hypertarget{class_character_a6ab4e58439f6c394dc79f6a23440ef70}{}\label{class_character_a6ab4e58439f6c394dc79f6a23440ef70} 
+\index{Character@{Character}!roll\+Ten\+Sided\+Die@{roll\+Ten\+Sided\+Die}}
+\index{roll\+Ten\+Sided\+Die@{roll\+Ten\+Sided\+Die}!Character@{Character}}
+\subsubsection{\texorpdfstring{roll\+Ten\+Sided\+Die()}{rollTenSidedDie()}}
+{\footnotesize\ttfamily int Character\+::roll\+Ten\+Sided\+Die (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Randomizer function that simulates a dice roll of values between 1 and 10 \begin{DoxyReturn}{Returns}
+int value, the value of the random dice roll between 1 and 10 
+\end{DoxyReturn}
+\hypertarget{class_character_af8a31bf573e0f2dc03e904165997bb21}{}\label{class_character_af8a31bf573e0f2dc03e904165997bb21} 
+\index{Character@{Character}!set\+Armor@{set\+Armor}}
+\index{set\+Armor@{set\+Armor}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Armor()}{setArmor()}}
+{\footnotesize\ttfamily void Character\+::set\+Armor (\begin{DoxyParamCaption}\item[{string}]{a }\end{DoxyParamCaption})}
+
+Mutator method for held armor attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em a} & string name of the armor equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a611fea965a72947c1b53b79ee095f95e}{}\label{class_character_a611fea965a72947c1b53b79ee095f95e} 
+\index{Character@{Character}!set\+Boots@{set\+Boots}}
+\index{set\+Boots@{set\+Boots}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Boots()}{setBoots()}}
+{\footnotesize\ttfamily void Character\+::set\+Boots (\begin{DoxyParamCaption}\item[{string}]{b }\end{DoxyParamCaption})}
+
+Mutator method for held boots attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em b} & string name of the boots equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a28ba83aeb0fae1450f69193001e433ec}{}\label{class_character_a28ba83aeb0fae1450f69193001e433ec} 
+\index{Character@{Character}!set\+Charisma\+Modifier@{set\+Charisma\+Modifier}}
+\index{set\+Charisma\+Modifier@{set\+Charisma\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Charisma\+Modifier()}{setCharismaModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Charisma\+Modifier (\begin{DoxyParamCaption}\item[{int}]{cha }\end{DoxyParamCaption})}
+
+Mutator method for charisma modifier 
+\begin{DoxyParams}{Parameters}
+{\em cha} & \+: new charisma modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a7dff5255c010da8590f493078ab05db2}{}\label{class_character_a7dff5255c010da8590f493078ab05db2} 
+\index{Character@{Character}!set\+Charisma\+Score@{set\+Charisma\+Score}}
+\index{set\+Charisma\+Score@{set\+Charisma\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Charisma\+Score()}{setCharismaScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Charisma\+Score (\begin{DoxyParamCaption}\item[{int}]{cha }\end{DoxyParamCaption})}
+
+Mutator method for charisma ability score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em cha} & new charisma score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_ac550c6455f74ecbac744523fa82148c3}{}\label{class_character_ac550c6455f74ecbac744523fa82148c3} 
+\index{Character@{Character}!set\+Constitution\+Modifier@{set\+Constitution\+Modifier}}
+\index{set\+Constitution\+Modifier@{set\+Constitution\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Constitution\+Modifier()}{setConstitutionModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Constitution\+Modifier (\begin{DoxyParamCaption}\item[{int}]{con }\end{DoxyParamCaption})}
+
+Mutator method for constitution modifier 
+\begin{DoxyParams}{Parameters}
+{\em con} & \+: new constitution modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a959e82d760840d33ab95a264c549a8c6}{}\label{class_character_a959e82d760840d33ab95a264c549a8c6} 
+\index{Character@{Character}!set\+Constitution\+Score@{set\+Constitution\+Score}}
+\index{set\+Constitution\+Score@{set\+Constitution\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Constitution\+Score()}{setConstitutionScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Constitution\+Score (\begin{DoxyParamCaption}\item[{int}]{con }\end{DoxyParamCaption})}
+
+Mutator method for constitution ability score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em con} & new constitution score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a5a60696b6a658e78a08b3c098e1446d6}{}\label{class_character_a5a60696b6a658e78a08b3c098e1446d6} 
+\index{Character@{Character}!set\+Current\+Hit\+Points@{set\+Current\+Hit\+Points}}
+\index{set\+Current\+Hit\+Points@{set\+Current\+Hit\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Current\+Hit\+Points()}{setCurrentHitPoints()}}
+{\footnotesize\ttfamily void Character\+::set\+Current\+Hit\+Points (\begin{DoxyParamCaption}\item[{int}]{current\+HP }\end{DoxyParamCaption})}
+
+Method to set the current hit points of the character 
+\begin{DoxyParams}{Parameters}
+{\em level} & \+: current hit points to set to the character \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a667cb495021fa02cf0f0abebade3e3aa}{}\label{class_character_a667cb495021fa02cf0f0abebade3e3aa} 
+\index{Character@{Character}!set\+Dexterity\+Modifier@{set\+Dexterity\+Modifier}}
+\index{set\+Dexterity\+Modifier@{set\+Dexterity\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Dexterity\+Modifier()}{setDexterityModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Dexterity\+Modifier (\begin{DoxyParamCaption}\item[{int}]{dex }\end{DoxyParamCaption})}
+
+Mutator method for dexterity modifier 
+\begin{DoxyParams}{Parameters}
+{\em dex} & \+: new dexterity modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a6714e60888cf852dd48d45919c0e29c6}{}\label{class_character_a6714e60888cf852dd48d45919c0e29c6} 
+\index{Character@{Character}!set\+Dexterity\+Score@{set\+Dexterity\+Score}}
+\index{set\+Dexterity\+Score@{set\+Dexterity\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Dexterity\+Score()}{setDexterityScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Dexterity\+Score (\begin{DoxyParamCaption}\item[{int}]{dex }\end{DoxyParamCaption})}
+
+Mutator method for dexterity ability score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em dex} & new dexterity score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a2e88779e8d7d6b1e9237c003b8b13d03}{}\label{class_character_a2e88779e8d7d6b1e9237c003b8b13d03} 
+\index{Character@{Character}!set\+Helmet@{set\+Helmet}}
+\index{set\+Helmet@{set\+Helmet}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Helmet()}{setHelmet()}}
+{\footnotesize\ttfamily void Character\+::set\+Helmet (\begin{DoxyParamCaption}\item[{string}]{h }\end{DoxyParamCaption})}
+
+Mutator method for held helmet attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em h} & string name of the helmet equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a554260d3ec37497bbdc7f1a22ddd7c78}{}\label{class_character_a554260d3ec37497bbdc7f1a22ddd7c78} 
+\index{Character@{Character}!set\+Intelligence\+Modifier@{set\+Intelligence\+Modifier}}
+\index{set\+Intelligence\+Modifier@{set\+Intelligence\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Intelligence\+Modifier()}{setIntelligenceModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Intelligence\+Modifier (\begin{DoxyParamCaption}\item[{int}]{intel }\end{DoxyParamCaption})}
+
+Mutator method for intelligence modifier 
+\begin{DoxyParams}{Parameters}
+{\em intel} & \+: new intelligence modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a34f038f813b6b1522f41ba04f4620628}{}\label{class_character_a34f038f813b6b1522f41ba04f4620628} 
+\index{Character@{Character}!set\+Intelligence\+Score@{set\+Intelligence\+Score}}
+\index{set\+Intelligence\+Score@{set\+Intelligence\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Intelligence\+Score()}{setIntelligenceScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Intelligence\+Score (\begin{DoxyParamCaption}\item[{int}]{intel }\end{DoxyParamCaption})}
+
+Mutator method for intelligence ablity score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em intel} & new intelligence score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a470a76c1062d97e40ce97997a4fdc62a}{}\label{class_character_a470a76c1062d97e40ce97997a4fdc62a} 
+\index{Character@{Character}!set\+Level@{set\+Level}}
+\index{set\+Level@{set\+Level}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Level()}{setLevel()}}
+{\footnotesize\ttfamily void Character\+::set\+Level (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})}
+
+Method to set the level of the character 
+\begin{DoxyParams}{Parameters}
+{\em level} & \+: level to set to the character \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a68653da50efcfeefca60d163bc30b419}{}\label{class_character_a68653da50efcfeefca60d163bc30b419} 
+\index{Character@{Character}!set\+Ring@{set\+Ring}}
+\index{set\+Ring@{set\+Ring}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Ring()}{setRing()}}
+{\footnotesize\ttfamily void Character\+::set\+Ring (\begin{DoxyParamCaption}\item[{string}]{r }\end{DoxyParamCaption})}
+
+Mutator method for held ring attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em r} & string name of the ring equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_af05444fdf239c036bf7cad6c5591419b}{}\label{class_character_af05444fdf239c036bf7cad6c5591419b} 
+\index{Character@{Character}!set\+Shield@{set\+Shield}}
+\index{set\+Shield@{set\+Shield}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Shield()}{setShield()}}
+{\footnotesize\ttfamily void Character\+::set\+Shield (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})}
+
+Mutator method for held shield attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em s} & string name of the shield equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a543005270d3aa62d9aa0cb35aeac58b3}{}\label{class_character_a543005270d3aa62d9aa0cb35aeac58b3} 
+\index{Character@{Character}!set\+Strength\+Modifier@{set\+Strength\+Modifier}}
+\index{set\+Strength\+Modifier@{set\+Strength\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Strength\+Modifier()}{setStrengthModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Strength\+Modifier (\begin{DoxyParamCaption}\item[{int}]{str }\end{DoxyParamCaption})}
+
+Mutator method for strength modifier 
+\begin{DoxyParams}{Parameters}
+{\em str} & \+: new strength modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a62ec21599695d548cada86de053dc51a}{}\label{class_character_a62ec21599695d548cada86de053dc51a} 
+\index{Character@{Character}!set\+Strength\+Score@{set\+Strength\+Score}}
+\index{set\+Strength\+Score@{set\+Strength\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Strength\+Score()}{setStrengthScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Strength\+Score (\begin{DoxyParamCaption}\item[{int}]{str }\end{DoxyParamCaption})}
+
+Mutator method for strength ability score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em str} & new strength score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_af277a2f17f94a7880af3204a4b824e06}{}\label{class_character_af277a2f17f94a7880af3204a4b824e06} 
+\index{Character@{Character}!set\+Total\+Hit\+Points@{set\+Total\+Hit\+Points}}
+\index{set\+Total\+Hit\+Points@{set\+Total\+Hit\+Points}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Total\+Hit\+Points()}{setTotalHitPoints()}}
+{\footnotesize\ttfamily void Character\+::set\+Total\+Hit\+Points (\begin{DoxyParamCaption}\item[{int}]{total\+HP }\end{DoxyParamCaption})}
+
+Method to set the total hit points of the character 
+\begin{DoxyParams}{Parameters}
+{\em level} & \+: total hit points to set to the character \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_aaeee9a1f2678902c7749065a1bfabac9}{}\label{class_character_aaeee9a1f2678902c7749065a1bfabac9} 
+\index{Character@{Character}!set\+Weapon@{set\+Weapon}}
+\index{set\+Weapon@{set\+Weapon}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Weapon()}{setWeapon()}}
+{\footnotesize\ttfamily void Character\+::set\+Weapon (\begin{DoxyParamCaption}\item[{string}]{w }\end{DoxyParamCaption})}
+
+Mutator method for held weapon attribute, note that this will be modified when items will be implemented Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em w} & string name of the weapon equipped \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_af3e55f3f6018cf490471993ebcd95110}{}\label{class_character_af3e55f3f6018cf490471993ebcd95110} 
+\index{Character@{Character}!set\+Wisdom\+Modifier@{set\+Wisdom\+Modifier}}
+\index{set\+Wisdom\+Modifier@{set\+Wisdom\+Modifier}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Wisdom\+Modifier()}{setWisdomModifier()}}
+{\footnotesize\ttfamily void Character\+::set\+Wisdom\+Modifier (\begin{DoxyParamCaption}\item[{int}]{wis }\end{DoxyParamCaption})}
+
+Mutator method for wisdom modifier 
+\begin{DoxyParams}{Parameters}
+{\em wis} & \+: new wisdom modifier score \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a9940a14b5050a9962ec6a042363a90d6}{}\label{class_character_a9940a14b5050a9962ec6a042363a90d6} 
+\index{Character@{Character}!set\+Wisdom\+Score@{set\+Wisdom\+Score}}
+\index{set\+Wisdom\+Score@{set\+Wisdom\+Score}!Character@{Character}}
+\subsubsection{\texorpdfstring{set\+Wisdom\+Score()}{setWisdomScore()}}
+{\footnotesize\ttfamily void Character\+::set\+Wisdom\+Score (\begin{DoxyParamCaption}\item[{int}]{wis }\end{DoxyParamCaption})}
+
+Mutator method for wisdom ability score Notify message is sent in this function in order to trigger an update of the view 
+\begin{DoxyParams}{Parameters}
+{\em wis} & new wisdom score to modify previous value to it \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_a9ee4f3f4e98b8babaa4d8e49ea44b99f}{}\label{class_character_a9ee4f3f4e98b8babaa4d8e49ea44b99f} 
+\index{Character@{Character}!unequip\+Item@{unequip\+Item}}
+\index{unequip\+Item@{unequip\+Item}!Character@{Character}}
+\subsubsection{\texorpdfstring{unequip\+Item()}{unequipItem()}}
+{\footnotesize\ttfamily void Character\+::unequip\+Item (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Method to unequip an item and put it into the backpack 
+\begin{DoxyParams}{Parameters}
+{\em } & The index position of the item to be equipped inside the vector representing a list of equipped items \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_character_ae4953a40791d81dc7cab574aaeca7569}{}\label{class_character_ae4953a40791d81dc7cab574aaeca7569} 
+\index{Character@{Character}!validate\+Ability\+Modifiers@{validate\+Ability\+Modifiers}}
+\index{validate\+Ability\+Modifiers@{validate\+Ability\+Modifiers}!Character@{Character}}
+\subsubsection{\texorpdfstring{validate\+Ability\+Modifiers()}{validateAbilityModifiers()}}
+{\footnotesize\ttfamily bool Character\+::validate\+Ability\+Modifiers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to validate a newly created character\textquotesingle{}s ability modifiers \begin{DoxyReturn}{Returns}
+bool value, true if the character is valid (modifiers should be in the -\/4 to +4 range for a new character), false if invalid. 
+\end{DoxyReturn}
+\hypertarget{class_character_adae2bb0e0bb6b8d010be6d1ac3b1fd5f}{}\label{class_character_adae2bb0e0bb6b8d010be6d1ac3b1fd5f} 
+\index{Character@{Character}!validate\+New\+Character@{validate\+New\+Character}}
+\index{validate\+New\+Character@{validate\+New\+Character}!Character@{Character}}
+\subsubsection{\texorpdfstring{validate\+New\+Character()}{validateNewCharacter()}}
+{\footnotesize\ttfamily bool Character\+::validate\+New\+Character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to validate a newly created \hyperlink{class_character}{Character} \begin{DoxyReturn}{Returns}
+bool value, true ff the character is valid (stats should be in the 3-\/18 range for a new character), false if invalid. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_character_8h}{Character.\+h}\item 
+\hyperlink{_character_8cpp}{Character.\+cpp}\end{DoxyCompactItemize}

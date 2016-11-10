@@ -1,0 +1,156 @@
+\hypertarget{class_item}{}\section{Item Class Reference}
+\label{class_item}\index{Item@{Item}}
+
+
+Class for the implementation of items wearable by a character.  
+
+
+
+
+{\ttfamily \#include $<$Item.\+h$>$}
+
+Inheritance diagram for Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_item}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a297720c02984eab37332ae795d22189d}{}\label{class_item_a297720c02984eab37332ae795d22189d} 
+\hyperlink{class_item_a297720c02984eab37332ae795d22189d}{Item} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_item_aa758d9160941f18ca7be38bc3835d5b9}{Item} (string type, string name, vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ enhancements)
+\item 
+string \hyperlink{class_item_a2aea1cc560205b01eaf5250c21f4fc71}{get\+Type} ()
+\item 
+string \hyperlink{class_item_a63d7f2148b699e539aae354b01559811}{get\+Name} ()
+\item 
+vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ \hyperlink{class_item_abf06eb8a8f73633c4c7c922073a754b8}{get\+Enhancements} ()
+\item 
+void \hyperlink{class_item_a5827bb049b61a0a95e448607d1247914}{add\+Enhancement} (\hyperlink{class_enhancement}{Enhancement} e)
+\item 
+void \hyperlink{class_item_a31da3e0fed93e6bcf2402e2c65259c2e}{set\+Enhancement\+Bonus} (int, int)
+\item 
+\hypertarget{class_item_a7be8022e6fe1a00d0fae058161d94977}{}\label{class_item_a7be8022e6fe1a00d0fae058161d94977} 
+void \hyperlink{class_item_a7be8022e6fe1a00d0fae058161d94977}{display\+Enhancements} ()
+\begin{DoxyCompactList}\small\item\em Method to display all the enhancements in the vector along with their respective bonus values. \end{DoxyCompactList}\item 
+virtual bool \hyperlink{class_item_a6603371b60aaded48f697975c81fc25b}{validate\+Item} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_item_a5fddc3cf5f552ab8f5cceacaba430474}{}\label{class_item_a5fddc3cf5f552ab8f5cceacaba430474} 
+string {\bfseries type}
+\item 
+\hypertarget{class_item_a406cde7962a6b42a66b4a53c9a26db2c}{}\label{class_item_a406cde7962a6b42a66b4a53c9a26db2c} 
+string {\bfseries name}
+\item 
+\hypertarget{class_item_a0bc10f489737df2323ef72b2b225d504}{}\label{class_item_a0bc10f489737df2323ef72b2b225d504} 
+vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ {\bfseries enhancements}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_item_ac98d07dd8f7b70e16ccb9a01abf56b9c}{boost\+::serialization\+::access}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for the implementation of items wearable by a character. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_item_aa758d9160941f18ca7be38bc3835d5b9}{}\label{class_item_aa758d9160941f18ca7be38bc3835d5b9} 
+\index{Item@{Item}!Item@{Item}}
+\index{Item@{Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{Item()}{Item()}}
+{\footnotesize\ttfamily Item\+::\+Item (\begin{DoxyParamCaption}\item[{string}]{type,  }\item[{string}]{name,  }\item[{vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$}]{enhancements }\end{DoxyParamCaption})}
+
+Constructor that receives an item type as a string and a vector containing the enhancements 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: String representing the type of item \\
+\hline
+{\em enhancements} & \+: Vector containing all the enhancements \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_item_a5827bb049b61a0a95e448607d1247914}{}\label{class_item_a5827bb049b61a0a95e448607d1247914} 
+\index{Item@{Item}!add\+Enhancement@{add\+Enhancement}}
+\index{add\+Enhancement@{add\+Enhancement}!Item@{Item}}
+\subsubsection{\texorpdfstring{add\+Enhancement()}{addEnhancement()}}
+{\footnotesize\ttfamily void Item\+::add\+Enhancement (\begin{DoxyParamCaption}\item[{\hyperlink{class_enhancement}{Enhancement}}]{e }\end{DoxyParamCaption})}
+
+Method to add an enhancement to the vector enhancements 
+\begin{DoxyParams}{Parameters}
+{\em e} & \+: \hyperlink{class_enhancement}{Enhancement} object \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_item_abf06eb8a8f73633c4c7c922073a754b8}{}\label{class_item_abf06eb8a8f73633c4c7c922073a754b8} 
+\index{Item@{Item}!get\+Enhancements@{get\+Enhancements}}
+\index{get\+Enhancements@{get\+Enhancements}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Enhancements()}{getEnhancements()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ Item\+::get\+Enhancements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get the enhancements of the item \begin{DoxyReturn}{Returns}
+Vector containing a list of stats that the item enhances 
+\end{DoxyReturn}
+\hypertarget{class_item_a63d7f2148b699e539aae354b01559811}{}\label{class_item_a63d7f2148b699e539aae354b01559811} 
+\index{Item@{Item}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Name()}{getName()}}
+{\footnotesize\ttfamily string Item\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get the name of the item \begin{DoxyReturn}{Returns}
+Name of the item 
+\end{DoxyReturn}
+\hypertarget{class_item_a2aea1cc560205b01eaf5250c21f4fc71}{}\label{class_item_a2aea1cc560205b01eaf5250c21f4fc71} 
+\index{Item@{Item}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Item@{Item}}
+\subsubsection{\texorpdfstring{get\+Type()}{getType()}}
+{\footnotesize\ttfamily string Item\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to get the type of the item \begin{DoxyReturn}{Returns}
+Type of the item 
+\end{DoxyReturn}
+\hypertarget{class_item_a31da3e0fed93e6bcf2402e2c65259c2e}{}\label{class_item_a31da3e0fed93e6bcf2402e2c65259c2e} 
+\index{Item@{Item}!set\+Enhancement\+Bonus@{set\+Enhancement\+Bonus}}
+\index{set\+Enhancement\+Bonus@{set\+Enhancement\+Bonus}!Item@{Item}}
+\subsubsection{\texorpdfstring{set\+Enhancement\+Bonus()}{setEnhancementBonus()}}
+{\footnotesize\ttfamily void Item\+::set\+Enhancement\+Bonus (\begin{DoxyParamCaption}\item[{int}]{index,  }\item[{int}]{bonus }\end{DoxyParamCaption})}
+
+Method to set the enhancement bonus of an enhancement 
+\begin{DoxyParams}{Parameters}
+{\em index} & \+: Index of the enhancement inside the vector \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_item_a6603371b60aaded48f697975c81fc25b}{}\label{class_item_a6603371b60aaded48f697975c81fc25b} 
+\index{Item@{Item}!validate\+Item@{validate\+Item}}
+\index{validate\+Item@{validate\+Item}!Item@{Item}}
+\subsubsection{\texorpdfstring{validate\+Item()}{validateItem()}}
+{\footnotesize\ttfamily bool Item\+::validate\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Method to validate an item, e.\+g. verify that an item of a certain type only enhances a character statistic valid for this item type This method is overridden in the implementation of the subclasses for checking against the specific types of valid enhancement types. In the base class, it will only check that the bonus values are within \mbox{[}1..5\mbox{]}. \begin{DoxyReturn}{Returns}
+True if the enhancement list is valid according to the rules, false if not 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_ring_a9170e11e83f0a5b8443e9267e5bd6c8a}{Ring}, \hyperlink{class_belt_ab374477dd9d966e6e6b81b3699afd939}{Belt}, \hyperlink{class_boots_aac6123a5f117993f276eb5f2f343eeb0}{Boots}, \hyperlink{class_helmet_aa840a7be0b69b5b3d60398c22d00537f}{Helmet}, \hyperlink{class_shield_af28f146ed96720bd007a62a5871cd206}{Shield}, \hyperlink{class_weapon_afa7ce016c3cba686399cbe57628f8c70}{Weapon}, and \hyperlink{class_armor_a97b69f2691b172bd79e256a487a7f204}{Armor}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_item_ac98d07dd8f7b70e16ccb9a01abf56b9c}{}\label{class_item_ac98d07dd8f7b70e16ccb9a01abf56b9c} 
+\index{Item@{Item}!boost\+::serialization\+::access@{boost\+::serialization\+::access}}
+\index{boost\+::serialization\+::access@{boost\+::serialization\+::access}!Item@{Item}}
+\subsubsection{\texorpdfstring{boost\+::serialization\+::access}{boost::serialization::access}}
+{\footnotesize\ttfamily friend class boost\+::serialization\+::access\hspace{0.3cm}{\ttfamily [friend]}}
+
+Serialization When the class Archive corresponds to an output archive, the \& operator is defined similar to $<$$<$. Likewise, when the class Archive is a type of input archive the \& operator is defined similar to $>$$>$. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_item_8h}{Item.\+h}\item 
+\hyperlink{_item_8cpp}{Item.\+cpp}\end{DoxyCompactItemize}

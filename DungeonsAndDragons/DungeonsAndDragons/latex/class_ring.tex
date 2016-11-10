@@ -1,0 +1,98 @@
+\hypertarget{class_ring}{}\section{Ring Class Reference}
+\label{class_ring}\index{Ring@{Ring}}
+
+
+Class for the implementation of a ring.  
+
+
+
+
+{\ttfamily \#include $<$Ring.\+h$>$}
+
+Inheritance diagram for Ring\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ring}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ring_afc47f40ab072db783126111b70693e49}{}\label{class_ring_afc47f40ab072db783126111b70693e49} 
+\hyperlink{class_ring_afc47f40ab072db783126111b70693e49}{Ring} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_ring_a029cccc4d2563fb2f9e85ab60d7e37d3}{Ring} (string name, int armor\+Class, int strength, int constitution, int wisdom, int charisma)
+\item 
+\hyperlink{class_ring_ae0295e0b34deab9238405440e62e1fb0}{Ring} (string name, vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ enhancements)
+\item 
+bool \hyperlink{class_ring_a9170e11e83f0a5b8443e9267e5bd6c8a}{validate\+Item} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ring_ac98d07dd8f7b70e16ccb9a01abf56b9c}{}\label{class_ring_ac98d07dd8f7b70e16ccb9a01abf56b9c} 
+class \hyperlink{class_ring_ac98d07dd8f7b70e16ccb9a01abf56b9c}{boost\+::serialization\+::access}
+\begin{DoxyCompactList}\small\item\em serialization \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class for the implementation of a ring. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ring_a029cccc4d2563fb2f9e85ab60d7e37d3}{}\label{class_ring_a029cccc4d2563fb2f9e85ab60d7e37d3} 
+\index{Ring@{Ring}!Ring@{Ring}}
+\index{Ring@{Ring}!Ring@{Ring}}
+\subsubsection{\texorpdfstring{Ring()}{Ring()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{int}]{armor\+Class\+Bonus,  }\item[{int}]{strength\+Bonus,  }\item[{int}]{constitution\+Bonus,  }\item[{int}]{wisdom\+Bonus,  }\item[{int}]{charisma\+Bonus }\end{DoxyParamCaption})}
+
+Constructor that calls an \hyperlink{class_item}{Item} constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & \+: Name of ring item \\
+\hline
+{\em armor\+Class\+Bonus} & \+: Integer representing the enhancement bonus for the stats \hyperlink{class_armor}{Armor} Class \\
+\hline
+{\em strength\+Bonus} & \+: Integer representing the enhancement bonus for the stats Strength \\
+\hline
+{\em constitution\+Bonus} & \+: Integer representing the enhancement bonus for the stats Constitution \\
+\hline
+{\em wisdom\+Bonus} & \+: Integer representing the enhancement bonus for the stats Wisdom \\
+\hline
+{\em charisma\+Bonus} & \+: Integer representing the enhancement bonus for the stats Charisma \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_ring_ae0295e0b34deab9238405440e62e1fb0}{}\label{class_ring_ae0295e0b34deab9238405440e62e1fb0} 
+\index{Ring@{Ring}!Ring@{Ring}}
+\index{Ring@{Ring}!Ring@{Ring}}
+\subsubsection{\texorpdfstring{Ring()}{Ring()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Ring\+::\+Ring (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$}]{enhancements }\end{DoxyParamCaption})}
+
+Constructor taking a vector of enhancements as parameter 
+\begin{DoxyParams}{Parameters}
+{\em name} & \+: Name of items \\
+\hline
+{\em enhancements} & \+: Vector of enhancements \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ring_a9170e11e83f0a5b8443e9267e5bd6c8a}{}\label{class_ring_a9170e11e83f0a5b8443e9267e5bd6c8a} 
+\index{Ring@{Ring}!validate\+Item@{validate\+Item}}
+\index{validate\+Item@{validate\+Item}!Ring@{Ring}}
+\subsubsection{\texorpdfstring{validate\+Item()}{validateItem()}}
+{\footnotesize\ttfamily bool Ring\+::validate\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Overrided method to validate that the armor only enhances \textquotesingle{}A\+R\+M\+OR C\+L\+A\+SS\textquotesingle{}, \textquotesingle{}S\+T\+R\+E\+N\+G\+TH\textquotesingle{}, \textquotesingle{}C\+O\+N\+S\+T\+I\+T\+U\+T\+I\+ON\textquotesingle{}, \textquotesingle{}W\+I\+S\+D\+OM\textquotesingle{} and \textquotesingle{}C\+H\+A\+R\+I\+S\+MA\textquotesingle{} and verify that the bonus values are within \mbox{[}1..5\mbox{]} \begin{DoxyReturn}{Returns}
+True if the enhancement list is valid according to the rules, false if not 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_item_a6603371b60aaded48f697975c81fc25b}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_ring_8h}{Ring.\+h}\item 
+\hyperlink{_ring_8cpp}{Ring.\+cpp}\end{DoxyCompactItemize}

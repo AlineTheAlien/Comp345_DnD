@@ -1,0 +1,58 @@
+\hypertarget{_character_8h}{}\section{Character.\+h File Reference}
+\label{_character_8h}\index{Character.\+h@{Character.\+h}}
+
+
+Header file for the \hyperlink{class_character}{Character} class.  
+
+
+{\ttfamily \#include \char`\"{}Subject.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Map\+Object.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Item\+Container.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$boost/serialization/vector.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/serialization/string.\+hpp$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_character}{Character}
+\begin{DoxyCompactList}\small\item\em Class that implements a character. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header file for the \hyperlink{class_character}{Character} class. 
+
+Game rules explained\+:
+\begin{DoxyItemize}
+\item To calculate character\textquotesingle{}s ability scores, 4 six-\/sided dice are rolled, where the highest 3 are kept and summed.
+\item This is repeated 5 more times to have a total of 6 scores. They are distributed in the character\textquotesingle{}s ability scores based on the priorities for fighter class.
+\item The priority is\+: Strength, Dexterity, Constitution, Charisma, Intelligence and Wisdom.
+\item Then, to calculate the ability modifiers, we add 10 to the ability scores, divide by 2, and round down.
+\item Initial hit points are found by having 10 summed with the character\textquotesingle{}s calculated constitution modifier.
+\item At later levels, hit points are found by adding a d10 dice roll and the character\textquotesingle{}s constitution modifier to the previous hp.
+\item \hyperlink{class_armor}{Armor} class depends on the type of armor worn, but for the constructor it is 11 + dexterity modifier.
+\item Attack bonus depends on level, but for the constructor, attack bonus is just strength + dexterity modifiers.
+\item Damage bonus is also dependant on level, but initially is is simply the strength modifier.
+\end{DoxyItemize}
+
+Design of assignment\+:
+\begin{DoxyItemize}
+\item The design of this program is that it is constituted of a \hyperlink{class_character}{Character} header file.
+\item It also has the \hyperlink{class_character}{Character} cpp file which is the class definition of the \hyperlink{class_character}{Character} class.
+\item \hyperlink{class_character}{Character} objects will be initialized by default to be of the fighter class, for the sake of the project.
+\item There are also 2 test files, the Character\+Test header, and the corresponding Character\+Test cpp file.
+\item They are the unit tests which validate major test cases of the functionalities of the program using C\+P\+P\+Unit framework.
+\item Finally, there is the main function which runs either the test cases, or the driver to demonstrate the program.
+\item (By default I have commented out the unit tests \hyperlink{_driver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main()} function, simply uncomment them and comment the driver to view the unit tests).
+\item \hyperlink{class_character}{Character} and \hyperlink{class_subject}{Subject} classes have been added for assignment 2, which are the abstract classes that make up the observer design pattern.
+\item As \hyperlink{class_character}{Character} is the subject for this assignment, it inherits from the \hyperlink{class_subject}{Subject} class, while \hyperlink{class_character_observer}{Character\+Observer}, the observer class created, inherits from \hyperlink{class_observer}{Observer} class.
+\end{DoxyItemize}
+
+Libraries used\+:
+\begin{DoxyItemize}
+\item I have used many libraries to boost the performance and functionality of the program.
+\item The iostream library is used to allow output to the console for viewing purposes.
+\item The ctime and windows.\+h libraries were used to access the machine real time for the randomizer functions optimization.
+\item math.\+h was used for the simple mathematics functions to avoid unecessary coding, such as the floor() function to round down a double.
+\item string was included because objects of type string were used in the program to display the equipped items of the character.
+\item And finally, for the driver, some C\+P\+P\+Unit libraries were included to perform and run the test cases 
+\end{DoxyItemize}
