@@ -182,6 +182,7 @@ void PlayGUI::openLoadCharacterWindow()
 						{
 							if (play->loadCharacter(play->getAvailableCharacters(i)))
 							{
+								play->setAvailableCampaigns();
 								state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 								return;
 							}
@@ -190,6 +191,7 @@ void PlayGUI::openLoadCharacterWindow()
 					if (newCharacterClicked)
 					{
 						play->createNewCharacter();
+						play->setAvailableCampaigns();
 						state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 						return;
 					}
