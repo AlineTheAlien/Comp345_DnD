@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for PlayGUI class
+
 #include "stdafx.h"
 #include "PlayGUI.h"
 

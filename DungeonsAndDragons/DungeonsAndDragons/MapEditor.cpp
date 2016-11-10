@@ -1,7 +1,8 @@
+//! @file 
+//! @brief Implementation file for MapEditor class
+
 #include "stdafx.h"
 #include "MapEditor.h"
-
-
 
 //! Default constructor for the MapEditor class
 MapEditor::MapEditor()

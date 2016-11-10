@@ -1,5 +1,5 @@
 //! @file 
-//! @brief Cpp file for Observer class
+//! @brief Implementation file for Observer class
 
 #include "stdafx.h"
 #include "Observer.h"

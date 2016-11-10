@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for the Play class  
+//!
 #include "stdafx.h"
 #include "Play.h"
 
@@ -107,7 +110,6 @@ void Play::setAvailableCampaigns()
 	cout << "Available campaigns : ";
 	for (; i != boost::filesystem::directory_iterator(); i++)
 	{
-		//cout << i->path().filename().string() << endl;
 		availableCampaigns.push_back(i->path().filename().string());
 		cout << i->path().filename().string() << ", ";
 	}
@@ -168,7 +170,6 @@ void Play::setAvailableCharacters()
 	cout << "Available characters : ";
 	for (; i != boost::filesystem::directory_iterator(); i++)
 	{
-		//cout << i->path().filename().string() << endl;
 		availableCharacters.push_back(i->path().filename().string());
 		cout << i->path().filename().string() << ", ";
 	}

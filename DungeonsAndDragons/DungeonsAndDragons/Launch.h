@@ -1,3 +1,5 @@
+//! @file 
+//! @brief Cpp file for Launch class
 #pragma once
 #include "EditorGUI.h"
 #include "PlayGUI.h"

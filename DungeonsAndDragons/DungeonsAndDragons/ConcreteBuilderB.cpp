@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for the ConcreteBuilderB class  
+//!
 #pragma once
 
 #include "ConcreteBuilderB.h"

@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for the Launch class  
+//!
 #include "stdafx.h"
 #include "Launch.h"
 

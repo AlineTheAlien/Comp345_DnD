@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for UserDrivenEditor class
+
 #include "stdafx.h"
 #include "UserDrivenEditor.h"
 #include <iostream>

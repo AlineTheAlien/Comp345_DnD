@@ -24,6 +24,7 @@ public:
 	// 'WISDOM' and 'CHARISMA' and verify that the bonus values are within [1..5]
 	bool validateItem();
 private:
+	//! serialization
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)

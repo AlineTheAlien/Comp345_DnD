@@ -15,6 +15,8 @@ MapObject::MapObject(char type) {
 	this->objectType = type;
 }
 
+//! set the type of an object
+//! @param type : Type of the object on the map as a char value
 void MapObject::setObjectType(char type)
 {
 	objectType = type;

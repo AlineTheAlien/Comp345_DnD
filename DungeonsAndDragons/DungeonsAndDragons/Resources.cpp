@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for Resources class
+
 #include "stdafx.h"
 #include "Resources.h"
 

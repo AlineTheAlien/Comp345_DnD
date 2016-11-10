@@ -1,3 +1,5 @@
+//! @file 
+//! @brief Header file for Concrete Map Observer class  
 #pragma once
 #include <iostream>
 #include <string>
@@ -5,6 +7,7 @@
 #include "MapPlay.h"
 using namespace std;
 
+//! Class that inherits from Observer 
 class ConsoleView : public Observer {
 public:
 	ConsoleView();

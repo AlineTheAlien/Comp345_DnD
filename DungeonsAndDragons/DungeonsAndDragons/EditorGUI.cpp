@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for EditorGUI class
+
 #include "stdafx.h"
 #include "EditorGUI.h"
 

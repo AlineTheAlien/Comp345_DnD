@@ -7,7 +7,7 @@
 #include <iostream>
 
 using namespace std;
-// Default constructor
+/// Default constructor
 Enhancement::Enhancement()
 {
 	type = "";

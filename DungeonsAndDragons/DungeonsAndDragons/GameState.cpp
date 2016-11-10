@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Header file for GameState class
+
 #include "stdafx.h"
 #include "GameState.h"
 

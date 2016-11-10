@@ -391,39 +391,30 @@ void Character::equipItem(int index) {
 
 		if (enhanceType == "STRENGTH") {
 			abilityScores[0] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "DEXTERITY") {
 			abilityScores[1] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "CONSTITUTION") {
 			abilityScores[2] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "CHARISMA") {
 			abilityScores[3] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "INTELLIGENCE") {
 			abilityScores[4] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "WISDOM") {
 			abilityScores[5] += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "ARMOR CLASS") {
 			armorClass += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "ATTACK BONUS") {
 			attackBonus += enhanceBonus;
-			//Notify();
 		}
 		else if (enhanceType == "DAMAGE BONUS") {
 			damageBonus += enhanceBonus;
-			//Notify();
 		}
 	}
 	Notify();
@@ -715,8 +706,6 @@ int Character::rollTenSidedDie() {
 //! Implementation of ability score calculator
 void Character::calculateAbilityScores(int holder[]) {
 
-	//Dice myDice = Dice();
-
 	for (int i = 0; i < 6; i++) {
 
 		int diceRollHolder[4];
@@ -731,7 +720,6 @@ void Character::calculateAbilityScores(int holder[]) {
 		//This loop is the action of rolling dice 4 times, where the array diceRollHolder
 		//points to the values of the dice rolls
 		for (int j = 0; j < 4; j++) {
-			//int r = rollSixSidedDie();
 			int r = Dice::roll("1d6");
 			//Sleep(258); for debugging purposes
 			diceRollHolder[j] = r;
@@ -801,31 +789,25 @@ void Character::assignAbilityModifiers(int holder[]) {
 //! Method that calculates amount that HP will increase after character levels up
 //! @return int value, the value added to max hit points after gaining a level
 int Character::levelHitPoints() {
-	//Dice myDice = Dice();
 	int x = getConstitutionModifier();
-	//int y = rollTenSidedDie();
 	int y = Dice::roll("1d10");
 	if (x == -4) {
 		while (y <= 4) { //to avoid the HP staying the same or decreasing on level-up
-			//y = rollTenSidedDie();
 			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -3) {
 		while (y <= 3) { //to avoid the HP staying the same or decreasing on level-up
-			//y = rollTenSidedDie();
 			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -2) {
 		while (y <= 2) { //to avoid the HP staying the same or decreasing on level-up
-			//y = rollTenSidedDie();
 			y = Dice::roll("1d10");
 		}
 	}
 	else if (x == -1) {
 		while (y <= 1) { //to avoid the HP staying the same or decreasing on level-up
-			//y = rollTenSidedDie();
 			y = Dice::roll("1d10");
 		}
 	}
@@ -862,19 +844,6 @@ void Character::displayCharacterInfo() {
 
 //! Method that displays character's current equipment
 void Character::displayEquipment() {
-	/*
-	cout << "---------------------------" << endl;
-	cout << "Currently equipped" << endl;
-	cout << "---------------------------" << endl;
-	vector<Item*> items = equipped->getItems();
-	for (unsigned int i = 0; i < items.size(); i++) {
-		cout << "[" << i << "]" << items[i]->getType() << ": " << items[i]->getName() << endl;
-		items[i]->displayEnhancements();
-		cout << endl;
-	}
-	cout << endl;
-	*/
-
 	string armor = this->getWornItemName("ARMOR");
 	string shield = this->getWornItemName("SHIELD");
 	string weapon = this->getWornItemName("WEAPON");

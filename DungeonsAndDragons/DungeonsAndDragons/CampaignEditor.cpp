@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for CampaignEditor class
+
 #include "stdafx.h"
 #include "CampaignEditor.h"
 
