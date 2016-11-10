@@ -158,7 +158,7 @@ void ItemContainer::displayItems()
 }
 
 ItemContainer::~ItemContainer() {
-	for (int i = 0; i < items.size(); i++) {
-		delete items[i];
-	}
+	//for (int i = 0; i < items.size(); i++) {
+	//	delete items[i];
+	//}
 }

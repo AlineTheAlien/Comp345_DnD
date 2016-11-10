@@ -36,21 +36,7 @@ class Enhancement
 private:
 	string type;
 	int bonus;
-
-public:
-	// Default constructor
-	Enhancement();
-	// Constructor
-	Enhancement(string type, int bonus);
-	// Method to get the enhancement type of the item
-	string getType();
-	// Method to get the bonus of the enhancement
-	int getBonus();
-
 	// Serialization
-	// When the class Archive corresponds to an output archive, the
-	// & operator is defined similar to <<. Likewise, when the class Archive
-	// is a type of input archive the & operator is defined similar to >>.
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
@@ -58,6 +44,19 @@ public:
 		ar & type;
 		ar & bonus;
 	}
+
+public:
+	// Default constructor
+	Enhancement();
+	// Constructor
+	Enhancement(string, int);
+	// Method to get the enhancement type of the item
+	string getType();
+	// Method to get the bonus of the enhancement
+	int getBonus();
+	// Method to set the bonus of the enhancement
+	void setBonus(int);
+
 };
 
 #endif

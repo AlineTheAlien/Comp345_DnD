@@ -27,7 +27,6 @@ Enhancement::Enhancement(string type, int bonus)
 	else
 	{
 		cout << "Enhancement bonus can only be between 1 and 5 inclusive." << endl;
-		cout << "(For demo purpose, no error occurs when instantiating an invalid item)" << endl;
 	}
 }
 
@@ -43,4 +42,10 @@ string Enhancement::getType()
 int Enhancement::getBonus()
 {
 	return bonus;
+}
+
+//! Method to get the bonus of the enhancement
+//! @param bonus : Enhancement bonus to set the enhancement
+void Enhancement::setBonus(int bonus) {
+	this->bonus = bonus;
 }

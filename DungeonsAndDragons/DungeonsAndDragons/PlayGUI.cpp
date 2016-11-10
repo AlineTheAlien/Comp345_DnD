@@ -164,7 +164,7 @@ void PlayGUI::openLoadCharacterWindow()
 								clicked.at(j) = false;
 								newCharacterClicked = false;
 							}
-					}			
+					}
 				}
 
 				if (newCharacterButton.contains(mousePosition))
@@ -180,8 +180,9 @@ void PlayGUI::openLoadCharacterWindow()
 					for (int i = 0; i < clicked.size(); i++)
 						if (clicked.at(i))
 						{
-							if(play->loadCharacter(play->getAvailableCharacters(i)))
+							if (play->loadCharacter(play->getAvailableCharacters(i)))
 							{
+								play->setAvailableCampaigns();
 								state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 								return;
 							}
@@ -190,6 +191,7 @@ void PlayGUI::openLoadCharacterWindow()
 					if (newCharacterClicked)
 					{
 						play->createNewCharacter();
+						play->setAvailableCampaigns();
 						state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 						return;
 					}
@@ -221,8 +223,8 @@ void PlayGUI::openLoadCharacterWindow()
 
 					if (!newCharacterClicked)
 						newCharacterText.setFillColor(normalColor);
-				}				
-			}	
+				}
+			}
 
 			if (nextButton.contains(mousePosition))
 				nextText.setFillColor(hoverColor);
@@ -498,34 +500,34 @@ void PlayGUI::openMapView()
 
 			// transform the mouse position from window coordinates to world coordinates
 			sf::Vector2f mousePosition = static_cast<sf::Vector2f>(sf::Mouse::getPosition(*window));
-				// Event driven input handling
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			// Event driven input handling
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				if (currentPositionX > 0)
 				{
-					if (currentPositionX > 0)
-					{					
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
+					if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
+					{
+						play->setCurrentMap(play->getCurrentMap() + 1);
+						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
-							play->setCurrentMap(play->getCurrentMap() + 1);
-							if (play->getCurrentMap() >= play->getCampaignSize())
-							{
-								play->levelUpCharacter();
-								play->setCurrentMap(0);
-								cout << "Completed the campaign" << endl;
-								state.setLaunchState(LaunchState::MENU);
-								return;
-							}
-							currentMap = play->getCurrentMap();
 							play->levelUpCharacter();
-							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
-								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
-									if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
-									{
-										currentPositionX = j;
-										currentPositionY = i;
-									}
+							play->setCurrentMap(0);
+							cout << "Completed the campaign" << endl;
+							state.setLaunchState(LaunchState::MENU);
+							return;
 						}
-						else
+						currentMap = play->getCurrentMap();
+						play->levelUpCharacter();
+						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
+							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
+								if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
+								{
+									currentPositionX = j;
+									currentPositionY = i;
+								}
+					}
+					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
@@ -536,37 +538,37 @@ void PlayGUI::openMapView()
 								currentPositionX--;
 							}
 						}
-					}					
 				}
+			}
 
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			{
+				if (currentPositionX < play->getCampaignMap(currentMap)->getMapX() - 1)
 				{
-					if (currentPositionX < play->getCampaignMap(currentMap)->getMapX() - 1)
-					{		
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
+					if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
+					{
+						play->setCurrentMap(play->getCurrentMap() + 1);
+						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
-							play->setCurrentMap(play->getCurrentMap() + 1);
-							if (play->getCurrentMap() >= play->getCampaignSize())
-							{
-								play->levelUpCharacter();
-								play->setCurrentMap(0);
-								cout << "Completed the campaign" << endl;
-								state.setLaunchState(LaunchState::MENU);
-								return;
-							}
-							currentMap = play->getCurrentMap();
 							play->levelUpCharacter();
-							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
-								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
-									if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
-									{
-										currentPositionX = j;
-										currentPositionY = i;
-									}
+							play->setCurrentMap(0);
+							cout << "Completed the campaign" << endl;
+							state.setLaunchState(LaunchState::MENU);
+							return;
 						}
-						else
+						currentMap = play->getCurrentMap();
+						play->levelUpCharacter();
+						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
+							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
+								if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
+								{
+									currentPositionX = j;
+									currentPositionY = i;
+								}
+					}
+					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
@@ -577,38 +579,38 @@ void PlayGUI::openMapView()
 								currentPositionX++;
 							}
 						}
-					}				
 				}
+			}
 
 
 
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && event.KeyReleased)
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && event.KeyReleased)
+			{
+				if (currentPositionY > 0)
 				{
-					if (currentPositionY > 0)
+					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
 					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
+						play->setCurrentMap(play->getCurrentMap() + 1);
+						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
-							play->setCurrentMap(play->getCurrentMap() + 1);
-							if (play->getCurrentMap() >= play->getCampaignSize())
-							{
-								play->levelUpCharacter();
-								play->setCurrentMap(0);
-								cout << "Completed the campaign" << endl;
-								state.setLaunchState(LaunchState::MENU);
-								return;
-							}
-							currentMap = play->getCurrentMap();
 							play->levelUpCharacter();
-							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
-								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
-									if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
-									{
-										currentPositionX = j;
-										currentPositionY = i;
-									}
+							play->setCurrentMap(0);
+							cout << "Completed the campaign" << endl;
+							state.setLaunchState(LaunchState::MENU);
+							return;
 						}
-						else
+						currentMap = play->getCurrentMap();
+						play->levelUpCharacter();
+						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
+							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
+								if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
+								{
+									currentPositionX = j;
+									currentPositionY = i;
+								}
+					}
+					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
@@ -618,37 +620,37 @@ void PlayGUI::openMapView()
 								maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionY--;
 							}
-						}													
-					}				
-				}
-
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && event.KeyReleased)
-				{
-					if (currentPositionY < play->getCampaignMap(currentMap)->getMapY() - 1)
-					{
-						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
-						{
-							play->setCurrentMap(play->getCurrentMap() + 1);
-							if (play->getCurrentMap() >= play->getCampaignSize())
-							{
-								play->levelUpCharacter();
-								play->setCurrentMap(0);
-								cout << "Completed the campaign" << endl;
-								state.setLaunchState(LaunchState::MENU);
-								return;
-							}
-							currentMap = play->getCurrentMap();
-							play->placeCharacterOnMap(play->getCampaignMap(currentMap));
-							for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
-								for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
-									if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
-									{
-										currentPositionX = j;
-										currentPositionY = i;
-									}
 						}
-						else
+				}
+			}
+
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && event.KeyReleased)
+			{
+				if (currentPositionY < play->getCampaignMap(currentMap)->getMapY() - 1)
+				{
+					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
+					{
+						play->setCurrentMap(play->getCurrentMap() + 1);
+						if (play->getCurrentMap() >= play->getCampaignSize())
+						{
+							play->levelUpCharacter();
+							play->setCurrentMap(0);
+							cout << "Completed the campaign" << endl;
+							state.setLaunchState(LaunchState::MENU);
+							return;
+						}
+						currentMap = play->getCurrentMap();
+						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
+						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
+							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
+								if (play->getCampaignMap(currentMap)->getTile(j, i) == 'P')
+								{
+									currentPositionX = j;
+									currentPositionY = i;
+								}
+					}
+					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) != 'W')
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
@@ -659,12 +661,12 @@ void PlayGUI::openMapView()
 								currentPositionY++;
 							}
 						}
-					}						
 				}
-		
+			}
+
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && event.MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
 			{
-				for (int i = 0; i <  play->getCampaignMap(currentMap)->getMapY(); i++)
+				for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 				{
 					for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
 					{
@@ -709,19 +711,19 @@ void PlayGUI::openMapView()
 				}
 			}
 
-				if (backButton.contains(mousePosition) && !backClicked)
-					backText.setFillColor(hoverColor);
+			if (backButton.contains(mousePosition) && !backClicked)
+				backText.setFillColor(hoverColor);
+			else
+				if (menuButton.contains(mousePosition) && !menuClicked)
+					menuText.setFillColor(hoverColor);
 				else
-					if (menuButton.contains(mousePosition) && !menuClicked)
-						menuText.setFillColor(hoverColor);
-					else
-					{
-						if (!backClicked)
-							backText.setFillColor(normalColor);
+				{
+					if (!backClicked)
+						backText.setFillColor(normalColor);
 
-						if (!menuClicked)
-							menuText.setFillColor(normalColor);
-					}
+					if (!menuClicked)
+						menuText.setFillColor(normalColor);
+				}
 		}
 
 		window->clear();

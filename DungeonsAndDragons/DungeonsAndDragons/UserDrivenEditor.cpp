@@ -7,6 +7,7 @@ using namespace std;
 UserDrivenEditor::UserDrivenEditor()
 {
 
+
 }
 
 ItemContainer* UserDrivenEditor::createChest()
