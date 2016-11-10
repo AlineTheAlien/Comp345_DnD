@@ -4,20 +4,20 @@
 
 /**!
 1) Game rules:
-	- An item may enhance the following character's characteristics: 'STRENGTH', 'DEXTERITY'
-	'CONSTITUTION', 'INTELLIGENCE', 'WISDOM', 'CHARISMA', 'ARMOR CLASS', 'ATTACK BONUS' and 'DAMAGE BONUS'.
-	- The type of the enhancement as well as the bonus value should be obtainable in order to apply it to
-	the character's statistics.
+- An item may enhance the following character's characteristics: 'STRENGTH', 'DEXTERITY'
+'CONSTITUTION', 'INTELLIGENCE', 'WISDOM', 'CHARISMA', 'ARMOR CLASS', 'ATTACK BONUS' and 'DAMAGE BONUS'.
+- The type of the enhancement as well as the bonus value should be obtainable in order to apply it to
+the character's statistics.
 2) Design:
-	- An Enhancement object represents one character statistic that an item can influence, along with the
-	bonus value, ranging from +1 to +5.
-	- Each Enhancement object can be added to an item, by adding it to the item's list of enhancements (a vector)
-	via a method inside the Item class.
-	- The class contains methods to access the stats type and the bonus value of an Enhancement object.
+- An Enhancement object represents one character statistic that an item can influence, along with the
+bonus value, ranging from +1 to +5.
+- Each Enhancement object can be added to an item, by adding it to the item's list of enhancements (a vector)
+via a method inside the Item class.
+- The class contains methods to access the stats type and the bonus value of an Enhancement object.
 3) Libraries:
-	- Only standard libraries were used.
-	- String was included to use string data types
-	- In the .cpp file, iostream was included to output strings to the stream. Enhancements and their bonus can be easily displayed to the stream.
+- Only standard libraries were used.
+- String was included to use string data types
+- In the .cpp file, iostream was included to output strings to the stream. Enhancements and their bonus can be easily displayed to the stream.
 **/
 
 #ifndef ENHANCEMENT_H
@@ -46,37 +46,17 @@ private:
 	}
 
 public:
-	//! Default constructor
+	// Default constructor
 	Enhancement();
-<<<<<<< HEAD
-	//! Constructor
-	Enhancement(string type, int bonus);
-	//! Method to get the enhancement type of the item
-=======
 	// Constructor
 	Enhancement(string, int);
 	// Method to get the enhancement type of the item
->>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
 	string getType();
-	//! Method to get the bonus of the enhancement
+	// Method to get the bonus of the enhancement
 	int getBonus();
 	// Method to set the bonus of the enhancement
 	void setBonus(int);
 
-<<<<<<< HEAD
-	//! Serialization
-	//! When the class Archive corresponds to an output archive, the
-	//! & operator is defined similar to <<. Likewise, when the class Archive
-	//! is a type of input archive the & operator is defined similar to >>.
-	friend class boost::serialization::access;
-	template<class Archive>
-	void serialize(Archive & ar, const unsigned int version)
-	{
-		ar & type;
-		ar & bonus;
-	}
-=======
->>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
 };
 
 #endif

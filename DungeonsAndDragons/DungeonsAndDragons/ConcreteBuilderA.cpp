@@ -1,6 +1,3 @@
-//! @file 
-//! @brief Implementation file for the ConcreteBuilderA class  
-//!
 #pragma once
 
 #include "ConcreteBuilderA.h"
@@ -9,51 +6,41 @@
 #include <iostream>
 #include <string>
 
-//! non default constructor
 void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* character) {
-	//! Get all attributes of the enemy
+	// Get all attributes of the enemy
 	int level, currentHP, totalHP, str, dex, con, intel, wis, cha;
 	int strModif, dexModif, conModif, intelModif, wisModif, chaModif;
 
 	level = static_cast<Character*>(character)->getCurrentLevel();
 	currentHP = static_cast<Character*>(character)->getHitPoints();
 	totalHP = static_cast<Character*>(character)->getMaxHitPoints();
-	str= static_cast<Character*>(character)->getStrengthScore();
+	str = static_cast<Character*>(character)->getStrengthScore();
 	dex = static_cast<Character*>(character)->getDexterityScore();
 	con = static_cast<Character*>(character)->getConstitutionScore();
 	intel = static_cast<Character*>(character)->getIntelligenceScore();
 	wis = static_cast<Character*>(character)->getWisdomScore();
 	cha = static_cast<Character*>(character)->getCharismaScore();
 
-<<<<<<< HEAD
-	//! Every time a character levels up, we assume the character gets two ability scores to be added any of to the current ability scores
-=======
 
 	// Every time a character levels up, we assume the character gets two ability scores to be added any of to the current ability scores
->>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
 	int levelDifference = abs(playerLevel - level);
 	int bonus = levelDifference * 2;
 	int abilityScores[6] = { str, dex, con, intel, wis, cha };
 
-	//! Since the character is a fighter, a d10 hit dice was used
-	//! to get a number that will be added or removed to the total and current hit points
+	// Since the character is a fighter, a d10 hit dice was used
+	// to get a number that will be added or removed to the total and current hit points
 	int sum = 0;
 	string dice = to_string(playerLevel) + "d10";
 	sum = Dice::roll(dice);
 
-	//! After getting the ability scores bonus that must be assigned, randomly assign to one of the abilities.
-	//! If the player level is higher than the current enemy level, it will increase some ability scores.
-	//! If the player level is lower than the current enemy level, it will decrease some ability scores.
+	// After getting the ability scores bonus that must be assigned, randomly assign to one of the abilities.
+	// If the player level is higher than the current enemy level, it will increase some ability scores.
+	// If the player level is lower than the current enemy level, it will decrease some ability scores.
 	int randIndex;
 	if (playerLevel > level) {
 		while (bonus != 0) {
-<<<<<<< HEAD
-			randIndex = rand() % 6;
-			//! Max scores for an ability is 30, if it reaches 30, it won't do anything
-=======
 			randIndex = rand() % 6; // There are six ability scores inside the array, randomly get an index
-			// Max scores for an ability is 30, if it reaches 30, it won't do anything
->>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
+									// Max scores for an ability is 30, if it reaches 30, it won't do anything
 			if (abilityScores[randIndex] != 30) {
 				abilityScores[randIndex] += 1;
 				bonus--;
@@ -70,10 +57,10 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 		}
 	}
 
-	//! Calculate the difference between old and new constitution scores to figure out how many points must be added or removed from the hit points
+	// Calculate the difference between old and new constitution scores to figure out how many points must be added or removed from the hit points
 	int differenceInConstitution = abs(abilityScores[2] - con);
 
-	//! Adjust the current and total hit points to the player's level
+	// Adjust the current and total hit points to the player's level
 	if (playerLevel > level) {
 		currentHP += (differenceInConstitution + sum);
 		totalHP += (differenceInConstitution + sum);
@@ -82,7 +69,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 		currentHP -= (differenceInConstitution + sum);
 		totalHP -= (differenceInConstitution + sum);
 	}
-	//! Set all the attributes of the character
+	// Set all the attributes of the character
 	character->setObjectType('E');
 	static_cast<Character*>(character)->setLevel(playerLevel);
 	static_cast<Character*>(character)->setCurrentHitPoints(currentHP);
