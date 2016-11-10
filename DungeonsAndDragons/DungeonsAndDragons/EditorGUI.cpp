@@ -64,6 +64,9 @@ void EditorGUI::Update()
 				currentState = "MAP_VIEW";
 		}
 
+		if (state.getLaunchState() == LaunchState::MENU)
+			return;
+
 		cout << "The edtior has changed state to : " << currentEditorState << " : " << currentState << endl;
 
 		Display();
@@ -117,10 +120,12 @@ void EditorGUI::openEditorWindow()
 	sf::FloatRect mapEditorButton;
 	sf::FloatRect campaignEditorButton;
 	sf::FloatRect nextButton;
+	sf::FloatRect backButton;
 
 	sf::Text mapEditorText;
 	sf::Text campaignEditorText;
 	sf::Text nextText;
+	sf::Text backText;
 
 	sf::Font textFont;
 	sf::Color normalColor = sf::Color::White;
@@ -129,6 +134,7 @@ void EditorGUI::openEditorWindow()
 	bool mapEditorClicked = false;
 	bool campaignEditorClicked = false;
 	bool nextClicked = false;
+	bool backClicked = false;
 
 	if (!textFont.loadFromFile("Fonts/OldSchool.ttf"))
 	{
@@ -151,14 +157,21 @@ void EditorGUI::openEditorWindow()
 	nextText.setStyle(sf::Text::Italic);
 	nextText.setCharacterSize(15);
 
+	backText.setString("Back");
+	backText.setFont(textFont);
+	backText.setStyle(sf::Text::Italic);
+	backText.setCharacterSize(15);
+
 	mapEditorText.setPosition(sf::Vector2f(300, 200));
 	campaignEditorText.setPosition(sf::Vector2f(260, 400));
 	nextText.setPosition(sf::Vector2f(WINDOW_SCALE - 150, WINDOW_SCALE - 100));
+	backText.setPosition(sf::Vector2f(150, WINDOW_SCALE - 100));
+
 
 	mapEditorButton = mapEditorText.getGlobalBounds();
 	campaignEditorButton = campaignEditorText.getGlobalBounds();
 	nextButton = nextText.getGlobalBounds();
-
+	backButton = backText.getGlobalBounds();
 
 	window->setKeyRepeatEnabled(false);
 	window->setFramerateLimit(60);
@@ -198,6 +211,12 @@ void EditorGUI::openEditorWindow()
 					campaignEditorClicked = true;
 				}
 
+				if (backButton.contains(mousePosition))
+				{
+					state.setLaunchState(LaunchState::MENU);
+					return;
+				}
+
 				if (nextButton.contains(mousePosition))
 				{
 					if (mapEditorClicked)
@@ -222,6 +241,9 @@ void EditorGUI::openEditorWindow()
 					if (nextButton.contains(mousePosition) && !nextClicked)
 						nextText.setFillColor(hoverColor);
 					else
+						if (backButton.contains(mousePosition) && !backClicked)
+							backText.setFillColor(hoverColor);
+					else
 					{
 						if (!campaignEditorClicked)
 							campaignEditorText.setFillColor(normalColor);
@@ -231,10 +253,14 @@ void EditorGUI::openEditorWindow()
 
 						if (!nextClicked)
 							nextText.setFillColor(normalColor);
+
+						if (!backClicked)
+							backText.setFillColor(normalColor);
 					}
 		}
 
 		window->clear();
+		window->draw(backText);
 		window->draw(mapEditorText);
 		window->draw(campaignEditorText);
 		window->draw(nextText);
@@ -1714,6 +1740,18 @@ void EditorGUI::openCampaignView()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && event.MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
 			{
+
+				for (int i = 0; i < campaignEditor->getCampaignMap(currentMap)->getMapY(); i++)
+				{
+					for (int j = 0; j < campaignEditor->getCampaignMap(currentMap)->getMapX(); j++)
+					{
+						if (campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'C')
+						{
+							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
+								static_cast<ItemContainer*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->displayItems();
+						}
+					}
+				}
 
 				// hit test
 				if (nextButton.contains(mousePosition))

@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Items">
+      <UniqueIdentifier>{e1d2cc1e-c970-4f44-a3c6-94cfb1f71c59}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Editors">
       <UniqueIdentifier>{8213c4f0-8716-4aad-a85c-ec5e6adb55f8}</UniqueIdentifier>
     </Filter>
@@ -57,9 +60,6 @@
     </Filter>
     <Filter Include="Source Files\View">
       <UniqueIdentifier>{b1033f84-b4e5-44aa-8af9-755dbea24fb8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Items">
-      <UniqueIdentifier>{e1d2cc1e-c970-4f44-a3c6-94cfb1f71c59}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -159,14 +159,14 @@
     <ClInclude Include="Dice.h">
       <Filter>Header Files\Dice</Filter>
     </ClInclude>
-    <ClInclude Include="ConcreteBuilderA.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MapBuilder.h">
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="ConcreteBuilderB.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
-    <ClInclude Include="MapBuilder.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ConcreteBuilderA.h">
+      <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -263,11 +263,11 @@
     <ClCompile Include="Play.cpp">
       <Filter>Source Files\View</Filter>
     </ClCompile>
-    <ClCompile Include="ConcreteBuilderB.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ConcreteBuilderA.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcreteBuilderB.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
