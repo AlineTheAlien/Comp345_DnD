@@ -156,3 +156,9 @@ void ItemContainer::displayItems()
 		cout << endl;
 	}
 }
+
+ItemContainer::~ItemContainer() {
+	//for (int i = 0; i < items.size(); i++) {
+	//	delete items[i];
+	//}
+}

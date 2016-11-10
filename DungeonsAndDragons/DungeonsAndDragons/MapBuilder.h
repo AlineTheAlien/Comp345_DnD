@@ -4,11 +4,14 @@
 #include "Map.h"
 #include "MapObject.h"
 #include "Dice.h"
+#include "Item.h"
+#include "Enhancement.h"
+
 //! Class for the implementation of a MapBuilder
 class MapBuilder {
 public:
 	virtual void buildCharacter(char, int, int, MapObject*) = 0;
-	virtual void buildContainer(int, int) = 0;
+	virtual void buildContainer(int, int, vector<Item*>&) = 0;
 
 	//! Method to get map
 	//! return A pointer to a map

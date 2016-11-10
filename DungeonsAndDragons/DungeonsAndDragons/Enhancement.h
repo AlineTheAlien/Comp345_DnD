@@ -36,17 +36,34 @@ class Enhancement
 private:
 	string type;
 	int bonus;
+	// Serialization
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version)
+	{
+		ar & type;
+		ar & bonus;
+	}
 
 public:
 	//! Default constructor
 	Enhancement();
+<<<<<<< HEAD
 	//! Constructor
 	Enhancement(string type, int bonus);
 	//! Method to get the enhancement type of the item
+=======
+	// Constructor
+	Enhancement(string, int);
+	// Method to get the enhancement type of the item
+>>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
 	string getType();
 	//! Method to get the bonus of the enhancement
 	int getBonus();
+	// Method to set the bonus of the enhancement
+	void setBonus(int);
 
+<<<<<<< HEAD
 	//! Serialization
 	//! When the class Archive corresponds to an output archive, the
 	//! & operator is defined similar to <<. Likewise, when the class Archive
@@ -58,6 +75,8 @@ public:
 		ar & type;
 		ar & bonus;
 	}
+=======
+>>>>>>> 0b8bdbe5eb1cfd9e561c57c2324507be194c199a
 };
 
 #endif

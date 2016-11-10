@@ -59,9 +59,13 @@ void Play::adaptMapToPlayer(Map* map)
 			if (map->getTile(j, i) == 'E') {
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
-				MapObject* enemy = new Character('E', 5, 5, 5, 5, 5 ,5);
-				map->setTile(j, i, enemy);
+				MapObject* enemy = new Character('E', 12, 12, 12, 12, 12 ,12);
 				mbuilder->buildCharacter('E', j, i, enemy);
+			}
+			if (map->getTile(j, i) == 'C') {
+				MapObject* chest = map->getObjectTile(j, i);
+				vector<Item*> items = static_cast<ItemContainer*>(chest)->getItems(); // store a copy of items
+				mbuilder->buildContainer(j, i, items);
 			}
 		}
 	}
@@ -261,11 +265,16 @@ bool Play::moveCharacter(Map* map, char direction)
 			if (map->getTile(j, i) == 'P')
 			{
 				if (direction == 'L' && j > 0)
-				{
+				{	
 					if (map->getTile(j - 1, i) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), x);
+							x--;
+						}
 						character->displayBackpack();
 					}
 					map->movePlayer(j - 1, i, character);
@@ -276,8 +285,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j + 1, i) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j + 1, i, character);
 					return true;
@@ -287,8 +302,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j, i - 1) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j, i - 1, character);
 					return true;
@@ -298,8 +319,14 @@ bool Play::moveCharacter(Map* map, char direction)
 				{
 					if (map->getTile(j, i + 1) == 'C')
 					{
-						for (int k = 0; k < static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size(); k++)
-							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), k);
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
 					}
 					map->movePlayer(j, i + 1, character);
 					return true;
@@ -318,6 +345,50 @@ void Play::setCurrentMap(int index)
 int Play::getCurrentMap()
 {
 	return currentMap;
+}
+
+void Play::modifyEquipment()
+{
+	int choice;
+	int itemChoice;
+	int size = character->getBackpack()->getItems().size();
+	bool isValid = false;
+	do {
+		cout << "Press 1 to equip items, or press 2 to unequip your current items. Enter -1 to exit" << endl;
+		cin >> choice;
+		if (choice == 1 || choice == 2)
+			isValid = true;
+		if (choice == -1)
+			return;
+	} while (isValid == false);
+
+	if (choice == 1)
+	{
+		do {
+			character->displayBackpack();
+			cout << "Which index item do you want to equip? Enter -1 to exit" << endl;
+			cin >> itemChoice;
+			if (itemChoice == -1)
+				return;
+		} while (itemChoice > size || itemChoice < 0);
+		character->equipItem(itemChoice);
+		character->displayBackpack();
+		character->displayEquipment();
+	}
+	else
+	if (choice == 2)
+	{
+		do {
+			character->getEquippedItems()->displayItems();
+			cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
+			cin >> itemChoice;
+			if (itemChoice == -1)
+				return;
+		} while (itemChoice > character->getEquippedItems()->getItems().size() || itemChoice < 0);
+		character->unequipItem(itemChoice);
+		character->displayBackpack();
+		character->displayEquipment();
+	}
 }
 
 Play::~Play()

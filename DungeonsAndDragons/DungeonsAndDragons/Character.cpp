@@ -512,7 +512,7 @@ void Character::setTotalHitPoints(int totalHP) {
 //! @param str: new strength score to modify previous value to it
 void Character::setStrengthScore(int str) {
 	abilityScores[0] = str;
-	Notify();
+	//Notify();
 }
 
 //! Mutator method for dexterity ability score
@@ -520,7 +520,7 @@ void Character::setStrengthScore(int str) {
 //! @param dex: new dexterity score to modify previous value to it
 void Character::setDexterityScore(int dex) {
 	abilityScores[1] = dex;
-	Notify();
+	//Notify();
 }
 
 //! Mutator method for constitution ability score
@@ -528,7 +528,7 @@ void Character::setDexterityScore(int dex) {
 //! @param con: new constitution score to modify previous value to it
 void Character::setConstitutionScore(int con) {
 	abilityScores[2] = con;
-	Notify();
+	//Notify();
 }
 
 //! Mutator method for charisma ability score
@@ -536,7 +536,7 @@ void Character::setConstitutionScore(int con) {
 //! @param cha: new charisma score to modify previous value to it
 void Character::setCharismaScore(int cha) {
 	abilityScores[3] = cha;
-	Notify();
+	//Notify();
 }
 
 //! Mutator method for intelligence ablity score
@@ -544,7 +544,7 @@ void Character::setCharismaScore(int cha) {
 //! @param intel: new intelligence score to modify previous value to it
 void Character::setIntelligenceScore(int intel) {
 	abilityScores[4] = intel;
-	Notify();
+	//Notify();
 }
 
 //! Mutator method for wisdom ability score
@@ -552,7 +552,43 @@ void Character::setIntelligenceScore(int intel) {
 //! @param wis: new wisdom score to modify previous value to it
 void Character::setWisdomScore(int wis) {
 	abilityScores[5] = wis;
-	Notify();
+	//Notify();
+}
+
+//! Mutator method for strength modifier
+//! @param str : new strength modifier score 
+void Character::setStrengthModifier(int str) {
+	abilityModifiers[0] = str;
+}
+
+//! Mutator method for dexterity modifier
+//! @param dex : new dexterity modifier score 
+void Character::setDexterityModifier(int dex) {
+	abilityModifiers[1] = dex;
+}
+
+//! Mutator method for constitution modifier
+//! @param con : new constitution modifier score 
+void Character::setConstitutionModifier(int con) {
+	abilityModifiers[2] = con;
+}
+
+//! Mutator method for charisma modifier
+//! @param cha : new charisma modifier score 
+void Character::setCharismaModifier(int cha) {
+	abilityModifiers[3] = cha;
+}
+
+//! Mutator method for intelligence modifier
+//! @param intel : new intelligence modifier score 
+void Character::setIntelligenceModifier(int intel) {
+	abilityModifiers[4] = intel;
+}
+
+//! Mutator method for wisdom modifier
+//! @param wis : new wisdom modifier score 
+void Character::setWisdomModifier(int wis) {
+	abilityModifiers[5] = wis;
 }
 
 void Character::chooseScoresOnLevelUp() {
