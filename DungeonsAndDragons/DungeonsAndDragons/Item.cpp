@@ -62,16 +62,25 @@ void Item::addEnhancement(Enhancement e)
 	enhancements.push_back(e);
 }
 
+//! Method to set the enhancement bonus of an enhancement
+//! @param index : Index of the enhancement inside the vector
+void Item::setEnhancementBonus(int index, int bonus) {
+	enhancements[index].setBonus(bonus);
+}
+
 //! Method to display all the enhancements in the vector along with their respective bonus values
 void Item::displayEnhancements()
 {
 	if (enhancements.size() == 0)
 		cout << "Enhancements:\tNo enhancements." << endl;
 	else {
-		cout << "Enhancements:" << endl;
+		
 		for (unsigned int i = 0; i < enhancements.size(); i++)
 		{
-			cout << "\t" << enhancements[i].getType() << " + " << enhancements[i].getBonus() << endl;
+			if (enhancements[i].getBonus() != 0) {
+				cout << "Enhancements:" << endl;
+				cout << "\t" << enhancements[i].getType() << " + " << enhancements[i].getBonus() << endl;
+			}
 		}
 	}
 }

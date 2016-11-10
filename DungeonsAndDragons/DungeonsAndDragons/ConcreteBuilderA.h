@@ -4,5 +4,5 @@
 class ConcreteBuilderA : public MapBuilder {
 public:
 	void buildCharacter(char, int, int, MapObject*);
-	void buildContainer(int, int);
+	void buildContainer(int, int, vector<Item*>&);
 };
