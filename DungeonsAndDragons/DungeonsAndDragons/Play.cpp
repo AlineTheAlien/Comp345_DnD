@@ -56,9 +56,13 @@ void Play::adaptMapToPlayer(Map* map)
 			if (map->getTile(j, i) == 'E') {
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
-				MapObject* enemy = new Character('E', 5, 5, 5, 5, 5 ,5);
-				map->setTile(j, i, enemy);
+				MapObject* enemy = new Character('E', 12, 12, 12, 12, 12 ,12);
 				mbuilder->buildCharacter('E', j, i, enemy);
+			}
+			if (map->getTile(j, i) == 'C') {
+				MapObject* chest = map->getObjectTile(j, i);
+				vector<Item*> items = static_cast<ItemContainer*>(chest)->getItems(); // store a copy of items
+				mbuilder->buildContainer(j, i, items);
 			}
 		}
 	}

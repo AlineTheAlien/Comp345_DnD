@@ -47,6 +47,7 @@ public:
 	string getName();
 	vector<Enhancement> getEnhancements();
 	void addEnhancement(Enhancement e);
+	void setEnhancementBonus(int, int);
 	void displayEnhancements();
 	virtual bool validateItem();
 
