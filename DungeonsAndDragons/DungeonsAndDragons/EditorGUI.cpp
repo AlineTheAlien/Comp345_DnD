@@ -1741,6 +1741,18 @@ void EditorGUI::openCampaignView()
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && event.MouseButtonReleased && event.mouseButton.button == sf::Mouse::Left)
 			{
 
+				for (int i = 0; i < campaignEditor->getCampaignMap(currentMap)->getMapY(); i++)
+				{
+					for (int j = 0; j < campaignEditor->getCampaignMap(currentMap)->getMapX(); j++)
+					{
+						if (campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'C')
+						{
+							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
+								static_cast<ItemContainer*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->displayItems();
+						}
+					}
+				}
+
 				// hit test
 				if (nextButton.contains(mousePosition))
 				{
