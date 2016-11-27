@@ -154,7 +154,7 @@ void Map::setTile(int x, int y, MapObject* object)
 		}
 
 		if (object->getObjectType() != EMPTY && object->getObjectType() != ENEMY && object->getObjectType() != DOOR &&
-			object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST)
+			object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST && object->getObjectType() != FRIEND)
 		{
 			cout << "Invalid object input for setTile, an empty object was placed" << endl;
 			return;

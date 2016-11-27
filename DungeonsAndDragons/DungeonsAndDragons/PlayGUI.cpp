@@ -466,6 +466,8 @@ void PlayGUI::openMapView()
 					mapTiles.back().setTexture(textures.getWallTexture());
 				if (currentTile == 'E')
 					mapTiles.back().setTexture(textures.getEnemyTexture());
+				if (currentTile == 'F')
+					mapTiles.back().setTexture(textures.getFriendlyTexture());
 				mapTiles.back().setPosition(k * mapTiles.back().getLocalBounds().width, j * mapTiles.back().getLocalBounds().height);
 				//mapTiles.back().setOrigin(mapTiles.back().getLocalBounds().width / 2, mapTiles.back().getLocalBounds().height / 2);
 				cout << currentTile << " ";

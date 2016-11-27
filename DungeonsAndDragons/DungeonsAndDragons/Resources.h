@@ -23,6 +23,8 @@ private:
 	sf::Texture playerTexture;
 	//!Enemy texture
 	sf::Texture enemyTexture;
+	//!Friendly texture
+	sf::Texture friendlyTexture;
 public:
 	Resources();
 	const sf::Texture& getPlayerTexture();
@@ -31,6 +33,7 @@ public:
 	const sf::Texture& getGroundTexture();
 	const sf::Texture& getDoorTexture();
 	const sf::Texture& getEnemyTexture();
+	const sf::Texture& getFriendlyTexture();
 	~Resources();
 };
 
