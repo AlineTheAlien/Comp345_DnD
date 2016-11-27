@@ -648,6 +648,11 @@ void Character::chooseScoresOnLevelUp() {
 
 //! Method that increments the level by one to show that the character has leveled up
 void Character::levelUp() {
+
+	if (currentLevel % 5 == 0) {
+		numberofAttacks++; //number of attacks/round increases every 5 levels 
+	}
+
 	currentLevel++;
 
 	maxHitPoints = maxHitPoints + levelHitPoints();
@@ -659,6 +664,24 @@ void Character::levelUp() {
 		abilityModifiers[i] = generateAbilityModifier(abilityScores[i]);
 		//modify new ability modifiers
 	}
+
+	attackBonus++; //attack bonus goes up by one
+
+	Notify(); //Notify observers that level has been increased
+}
+
+void Character::userChoiceLevelUp() {
+
+	if (currentLevel % 5 == 0) {
+		numberofAttacks++; //number of attacks/round increases every 5 levels 
+	}
+
+	currentLevel++;
+
+	maxHitPoints = maxHitPoints + levelHitPoints();
+	currentHitPoints = maxHitPoints; //For now, HP refills back to full on level up
+
+	attackBonus++; //attack bonus goes up by one
 
 	Notify(); //Notify observers that level has been increased
 }
@@ -821,6 +844,7 @@ void Character::displayCharacterInfo() {
 	cout << "\n Your character's current current Armor Class is: " << getArmorClass() << endl;
 	cout << " Your character's current current Attack Bonus is: " << getAttackBonus() << endl;
 	cout << " Your character's current current Damage Bonus is: " << getDamageBonus() << endl;
+	cout << "\nCurrent Number of Attacks/round is:  " << getNumberOfAttacks() << endl;
 	cout << endl;
 }
 

@@ -300,47 +300,47 @@ Character* UserDrivenEditor::createCharacter() {
 
 		} while (characterchoice < 0 || characterchoice > 2);
 
-			switch (characterchoice) {
-			case 0: {
-				CharacterBuilder* bullyBuilder = new BullyBuilder;
-				director.setCharacterBuilder(bullyBuilder);
-				director.constructCharacter();
-				delete fighter;
-				fighter = NULL;
-				fighter = director.getCharacter();
-				break;
-			}
-			case 1: {
-				CharacterBuilder* nimbleBuilder = new NimbleBuilder;
-				director.setCharacterBuilder(nimbleBuilder);
-				director.constructCharacter();
-				delete fighter;
-				fighter = NULL;
-				fighter = director.getCharacter();
-				break;
-			}
-			case 2: {
-				CharacterBuilder* tankBuilder = new TankBuilder;
-				director.setCharacterBuilder(tankBuilder);
-				director.constructCharacter();
-				delete fighter;
-				fighter = NULL;
-				fighter = director.getCharacter();
-				break;
-			}
-			default: {
-				delete fighter;
-				fighter = NULL;
-				fighter = new Character;
-			}
+		switch (characterchoice) {
+		case 0: {
+			CharacterBuilder* bullyBuilder = new BullyBuilder;
+			director.setCharacterBuilder(bullyBuilder);
+			director.constructCharacter();
+			delete fighter;
+			fighter = NULL;
+			fighter = director.getCharacter();
+			break;
+		}
+		case 1: {
+			CharacterBuilder* nimbleBuilder = new NimbleBuilder;
+			director.setCharacterBuilder(nimbleBuilder);
+			director.constructCharacter();
+			delete fighter;
+			fighter = NULL;
+			fighter = director.getCharacter();
+			break;
+		}
+		case 2: {
+			CharacterBuilder* tankBuilder = new TankBuilder;
+			director.setCharacterBuilder(tankBuilder);
+			director.constructCharacter();
+			delete fighter;
+			fighter = NULL;
+			fighter = director.getCharacter();
+			break;
+		}
+		default: {
+			delete fighter;
+			fighter = NULL;
+			fighter = new Character;
+		}
+		}
 
-			cout << "\nWhat is the level of your character? Enter 0 to start from the lowest level." << endl;
+		cout << "\nWhat is the level of your character? Enter 0 to start from the lowest level." << endl;
 
-			cin >> levelchoice;
+		cin >> levelchoice;
 
-			for (int i = 0; i < levelchoice; i++) {
-				fighter->levelUp();
-			}
+		for (int i = 0; i < levelchoice; i++) {
+			fighter->userChoiceLevelUp();
 		}
 
 		while (valid == false) {

@@ -103,6 +103,7 @@ public:
 	void unequipItem(int);
 	int levelHitPoints();
 	void chooseScoresOnLevelUp();
+	void userChoiceLevelUp();
 	string getCharacterName();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();

@@ -52,6 +52,7 @@ void CharacterObserver::display() {
 	int armorclass = _subject->getArmorClass();
 	int attackbonus = _subject->getAttackBonus();
 	int damagebonus = _subject->getDamageBonus();
+	int numofattacks = _subject->getNumberOfAttacks();
 
 	string characterName = _subject->getCharacterName();
 	string armor = _subject->getWornItemName("ARMOR");
@@ -84,6 +85,7 @@ void CharacterObserver::display() {
 	cout << "\n Your character's current current current Armor Class is: " << armorclass << endl;
 	cout << " Your character's current current current Attack Bonus is: " << attackbonus << endl;
 	cout << " Your character's current current current Damage Bonus is: " << damagebonus << endl;
+	cout << "\nCurrent Number of Attacks/round is:  " << numofattacks << endl;
 
 	cout << "\n\n Displaying your character's current equipped items..." << endl;
 	cout << "\n Armor worn is : " << armor << endl;
