@@ -30,7 +30,7 @@ Character::Character()
 	currentLevel = 0;
 	currentHitPoints = 0;
 	maxHitPoints = 0;
-	numberofAttacks = 0;
+	numberofAttacks = 1;
 	armorClass = 0;
 	attackBonus = 0;
 	damageBonus = 0;
@@ -93,7 +93,7 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 	damageBonus = abilityModifiers[0];
 
 	//NumOfAttacks increases by 1 every 5 levels
-	numberofAttacks = 0; 
+	numberofAttacks = 1; 
 
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
@@ -649,7 +649,7 @@ void Character::chooseScoresOnLevelUp() {
 //! Method that increments the level by one to show that the character has leveled up
 void Character::levelUp() {
 
-	if (currentLevel % 5 == 0) {
+	if (currentLevel != 0 && currentLevel % 5 == 0) {
 		numberofAttacks++; //number of attacks/round increases every 5 levels 
 	}
 
