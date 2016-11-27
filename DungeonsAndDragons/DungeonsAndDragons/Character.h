@@ -128,20 +128,10 @@ private:
 	{
 		ar & boost::serialization::base_object<MapObject>(*this);
 		ar & abilityScores;
-		ar & abilityModifiers;
-		ar & abilityHolder;
-		ar & modifierHolder;
-		ar & currentHitPoints;
-		ar & maxHitPoints;
-		ar & currentLevel;
-		ar & armorClass;
-		ar & attackBonus;
-		ar & damageBonus;
 		ar & objectType;
 		ar & equipped;
 		ar & backpack;
 		ar & characterName;
-		ar & numberofAttacks;
 	}
 };
 
