@@ -70,6 +70,9 @@ public:
 	const char EMPTY = 'X';
 	//! constant character that represents the player on the map
 	const char PLAYER = 'P';
+	//! constant character that represents a friend npc on the map
+	const char FRIEND = 'F';
+
 	Map();
 	Map(int x, int y);
 	~Map();
