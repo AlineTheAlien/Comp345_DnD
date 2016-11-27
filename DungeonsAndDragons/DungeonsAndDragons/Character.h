@@ -50,10 +50,10 @@ public:
 	int getHitPoints();
 	int getMaxHitPoints();
 	int rollSixSidedDie();
+	int rollTenSidedDie();
 	int generateAbilityModifier(int);
 	void calculateAbilityScores(int[]);
 	void assignAbilityModifiers(int[]);
-	int rollTenSidedDie();
 	void displayCharacterInfo();
 	int getStrengthScore();
 	int getDexterityScore();
@@ -68,7 +68,6 @@ public:
 	int getIntelligenceModifier();
 	int getWisdomModifier();
 	int getCurrentLevel();
-	int getCurrentExperiencePoints();
 	int getArmorClass();
 	int getAttackBonus();
 	int getDamageBonus();
@@ -88,23 +87,23 @@ public:
 	void setCharismaModifier(int);
 	void setIntelligenceModifier(int);
 	void setWisdomModifier(int);
+	int getNumberOfAttacks();
+	void setArmorClass(int);
+	void setAttackBonus(int);
+	void setDamageBonus(int);
+	void setNumberOfAttacks(int);
+	void setMaxHitPoints(int);
 	void levelUp();
 	void displayEquipment();
 	void displayBackpack();
 	bool validateAbilityModifiers();
-	void setArmor(string);
-	void setShield(string);
-	void setWeapon(string);
-	void setBoots(string);
-	void setRing(string);
-	void setHelmet(string);
 	void setType(char);
+	void setCharacterName(string);
 	void equipItem(int);
 	void unequipItem(int);
 	int levelHitPoints();
 	void chooseScoresOnLevelUp();
 	string getCharacterName();
-	void setCharacterName(string);
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
 private:
@@ -115,17 +114,10 @@ private:
 	int currentHitPoints;
 	int maxHitPoints;
 	int currentLevel;
-	long currentExperiencePoints;
 	int armorClass;
 	int attackBonus;
 	int damageBonus;
-	string myArmor;
-	string myShield;
-	string myWeapon;
-	string myBoots;
-	string myRing;
-	string myHelmet;
-	string myBelt;
+	int numberofAttacks;
 	string characterName = "";
 	ItemContainer* equipped;
 	ItemContainer* backpack;
@@ -141,7 +133,6 @@ private:
 		ar & currentHitPoints;
 		ar & maxHitPoints;
 		ar & currentLevel;
-		ar & currentExperiencePoints;
 		ar & armorClass;
 		ar & attackBonus;
 		ar & damageBonus;
@@ -149,6 +140,7 @@ private:
 		ar & equipped;
 		ar & backpack;
 		ar & characterName;
+		ar & numberofAttacks;
 	}
 };
 

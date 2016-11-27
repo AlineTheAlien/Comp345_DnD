@@ -24,71 +24,33 @@ using std::string;
 //! Default constructor for a fighter character
 Character::Character()
 {
+
 	objectType = 'P';
 
-	int abilityHolder[6];
-	int modifierHolder[6];
-
-	//Initialize level and experience points to 0
 	currentLevel = 0;
-	currentExperiencePoints = 0;
+	currentHitPoints = 0;
+	maxHitPoints = 0;
+	numberofAttacks = 0;
+	armorClass = 0;
+	attackBonus = 0;
+	damageBonus = 0;
 
-	calculateAbilityScores(abilityHolder);
+	abilityScores[0] = 0;
+	abilityScores[1] = 0;
+	abilityScores[2] = 0;
+	abilityScores[3] = 0;
+	abilityScores[4] = 0;
+	abilityScores[5] = 0;
 
-	//Sorts the ability scores in descending order
-	//Higher scores will be assigned to abilities with higher priority
-	sort(abilityHolder, abilityHolder + 6, greater<int>());
-
-	//Assign the totals to abilities based on priority
-	//As the game only has the fighter class, the highest score is strength
-	//Second highest should be dexterity, followed by constitution, charisma, intelligence, and wisdom
-	abilityScores[0] = abilityHolder[0]; //strength
-	abilityScores[1] = abilityHolder[1]; //dexterity
-	abilityScores[2] = abilityHolder[2]; //constitution
-	abilityScores[3] = abilityHolder[3]; //charisma
-	abilityScores[4] = abilityHolder[4]; //intelligence
-	abilityScores[5] = abilityHolder[5]; //wisdom
-
-	//Calculates ability modifiers based on the characters ability scores
-	assignAbilityModifiers(modifierHolder);
-
-	//Assigns the modifiers with the same priority as listed above
-	abilityModifiers[0] = modifierHolder[0]; //strength
-	abilityModifiers[1] = modifierHolder[1]; //dexterity
-	abilityModifiers[2] = modifierHolder[2]; //constitution
-	abilityModifiers[3] = modifierHolder[3]; //charisma
-	abilityModifiers[4] = modifierHolder[4]; //intelligence
-	abilityModifiers[5] = modifierHolder[5]; //wisdom
-
-	//set hit points as 10 summed with the character's calculated  constitution modifier
-	currentHitPoints = 10 + abilityModifiers[2];
-
-	//Initially, as character is not hit, the maximum HP is the same as the current HP
-	maxHitPoints = currentHitPoints;
-
-	//Depending on type of armor worn, armor class differs
-	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
-	armorClass = 11 + abilityModifiers[1];
-
-	//Attack bonus, is based on strength modifier, dexterity modifier, and level
-	//In the default constructor, level is 0 therefore attack bonus is just based on strength + dexterity modifiers
-	attackBonus = abilityModifiers[0] + abilityModifiers[1];
-
-	//Damage bonus, based on strength modifier
-	damageBonus = abilityModifiers[0];
-
-	//No equipped items because a new character does not have equipped items
-	myArmor = "None";
-	myShield = "None";
-	myWeapon = "None";
-	myBoots = "None";
-	myRing = "None";
-	myHelmet = "None";
-	myBelt = "None";
+	abilityModifiers[0] = 0;
+	abilityModifiers[1] = 0;
+	abilityModifiers[2] = 0;
+	abilityModifiers[3] = 0;
+	abilityModifiers[4] = 0;
+	abilityModifiers[5] = 0;
 
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
-
 }
 
 //! Constructor: Passes values to each ability score
@@ -99,7 +61,6 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 
 	objectType = type;
 	currentLevel = 0;
-	currentExperiencePoints = 0;
 
 	abilityScores[0] = str; //strength
 	abilityScores[1] = dex; //dexterity
@@ -131,6 +92,9 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 	//Damage bonus, based on strength modifier
 	damageBonus = abilityModifiers[0];
 
+	//NumOfAttacks increases by 1 every 5 levels
+	numberofAttacks = 0; 
+
 	equipped = new ItemContainer("EQUIPPED");
 	backpack = new ItemContainer("BACKPACK");
 }
@@ -160,7 +124,6 @@ bool Character::validateAbilityModifiers()
 			return false;
 	return true;
 }
-
 
 //! Accessor method for strength score attribute
 //! @return int value, the value of the strength ability score
@@ -252,13 +215,6 @@ int Character::getCurrentLevel()
 	return currentLevel;
 }
 
-//! Accessor method for experience points 
-//! @return int value, the value of character's current experience points
-int Character::getCurrentExperiencePoints()
-{
-	return currentExperiencePoints;
-}
-
 //! Accessor method for character's armor class 
 //! @return int value, the value of the character's armor class
 int Character::getArmorClass()
@@ -318,52 +274,42 @@ string Character::getWornItemName(string type) {
 	return "";
 }
 
-//! Mutator method for held armor attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param a: string name of the armor equipped
-void Character::setArmor(string a) {
-	myArmor = a;
-	Notify();
+
+//! Mutator method for maxHitPoints attribute
+//@param hp: value of hp to set maxHitPoints to
+void Character::setMaxHitPoints(int hp) {
+	maxHitPoints = hp;
 }
 
-//! Mutator method for held shield attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param s: string name of the shield equipped
-void Character::setShield(string s) {
-	myShield = s;
-	Notify();
+//! Mutator method for armorClass attribute
+//@param ac: value to set armorClass to
+void Character::setArmorClass(int ac) {
+	armorClass = ac;
 }
 
-//! Mutator method for held weapon attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param w: string name of the weapon equipped
-void Character::setWeapon(string w) {
-	myWeapon = w;
-	Notify();
+//! Mutator method for damageBonus attribute
+//@param db: value to set damageBonus to
+void Character::setDamageBonus(int db) {
+	damageBonus = db;
 }
 
-//! Mutator method for held boots attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param b: string name of the boots equipped
-void Character::setBoots(string b) {
-	myBoots = b;
-	Notify();
+//! Mutator method for attackBonus attribute
+//@param ab: value to set attackBonus to
+void Character::setAttackBonus(int ab) {
+	attackBonus = ab;
 }
 
-//! Mutator method for held ring attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param r: string name of the ring equipped
-void Character::setRing(string r) {
-	myRing = r;
-	Notify();
+//! Mutator method for numberOfAttacks attribute
+//@param na: value to set numberOfAttacks to
+void Character::setNumberOfAttacks(int na) {
+	numberofAttacks = na;
 }
 
-//! Mutator method for held helmet attribute, note that this will be modified when items will be implemented
-//! Notify message is sent in this function in order to trigger an update of the view
-//! @param h: string name of the helmet equipped
-void Character::setHelmet(string h) {
-	myHelmet = h;
-	Notify();
+//! Accessor method for numberOfAttacks attribute
+//! @return int value, the value of the numberOfAttacks attribute
+int Character::getNumberOfAttacks()
+{
+	return numberofAttacks;
 }
 
 void Character::setType(char c)

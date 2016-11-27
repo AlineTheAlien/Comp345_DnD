@@ -3,6 +3,11 @@
 
 #include "stdafx.h"
 #include "UserDrivenEditor.h"
+#include "Director.h"
+#include "BullyBuilder.h"
+#include "NimbleBuilder.h"
+#include "TankBuilder.h"
+#include "MonsterBuilder.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -270,8 +275,10 @@ Character* UserDrivenEditor::createCharacter() {
 	string charName;
 	bool valid = false;
 	int charCreate = 1;
+	Director director;
 	Character* fighter = new Character();
-	CharacterObserver *charobserver; 
+	CharacterObserver *charobserver;
+
 	do {
 		cout << "So you want to create a new character?" << endl;
 		cout << "Press 1 to enter ability scores manually, or press 2 to generate by rolling dice." << endl;
@@ -279,6 +286,63 @@ Character* UserDrivenEditor::createCharacter() {
 	} while (charCreate != 1 && charCreate != 2);
 
 	if (charCreate == 2) {
+
+		int characterchoice = 0;
+		int levelchoice = 0;
+
+		do {
+			cout << "Which type of fighter character would you like to create?" << endl;
+			cout << "[0] - Bully Fighter" << endl;
+			cout << "[1] - Nimble Fighter" << endl;
+			cout << "[2] - Tank Fighter" << endl;
+
+			cin >> characterchoice;
+
+		} while (characterchoice < 0 || characterchoice > 2);
+
+			switch (characterchoice) {
+			case 0: {
+				CharacterBuilder* bullyBuilder = new BullyBuilder;
+				director.setCharacterBuilder(bullyBuilder);
+				director.constructCharacter();
+				delete fighter;
+				fighter = NULL;
+				fighter = director.getCharacter();
+				break;
+			}
+			case 1: {
+				CharacterBuilder* nimbleBuilder = new NimbleBuilder;
+				director.setCharacterBuilder(nimbleBuilder);
+				director.constructCharacter();
+				delete fighter;
+				fighter = NULL;
+				fighter = director.getCharacter();
+				break;
+			}
+			case 2: {
+				CharacterBuilder* tankBuilder = new TankBuilder;
+				director.setCharacterBuilder(tankBuilder);
+				director.constructCharacter();
+				delete fighter;
+				fighter = NULL;
+				fighter = director.getCharacter();
+				break;
+			}
+			default: {
+				delete fighter;
+				fighter = NULL;
+				fighter = new Character;
+			}
+
+			cout << "\nWhat is the level of your character? Enter 0 to start from the lowest level." << endl;
+
+			cin >> levelchoice;
+
+			for (int i = 0; i < levelchoice; i++) {
+				fighter->levelUp();
+			}
+		}
+
 		while (valid == false) {
 			charobserver = new CharacterObserver(fighter);
 			valid = fighter->validateNewCharacter();
@@ -338,7 +402,7 @@ Character* UserDrivenEditor::createCharacter() {
 				cout << "Charisma Score must be at least 3, and at most 18." << endl;
 				cin >> cha;
 			}
-			delete fighter;
+			//delete fighter;
 			fighter = NULL;
 			fighter = new Character('P', str, dex, con, intel, wis, cha);
 			charobserver = new CharacterObserver(fighter);
