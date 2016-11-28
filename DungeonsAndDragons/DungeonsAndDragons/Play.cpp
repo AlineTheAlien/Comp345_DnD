@@ -13,7 +13,7 @@ Play::Play()
 	setAvailableCampaigns();
 	setAvailableCharacters();
 	currentMap = 0;
-	MapBuilder* m = new ConcreteBuilderA();
+	ContentBuilder* m = new ConcreteContentBuilder();
 	mbuilder = m;
 }
 

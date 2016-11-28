@@ -408,7 +408,7 @@ int main()
 //MapObject* enemy = new Character('E', 13, 13, 13, 13, 13, 13);
 //static_cast<Character*>(enemy)->displayCharacterInfo();
 //list.push_back(enemy);
-//MapBuilder* m = new ConcreteBuilderA();
+//ContentBuilder* m = new ConcreteContentBuilder();
 //m->setPlayerLevel(15);
 //m->buildCharacter('E', 0, 0, enemy);
 //static_cast<Character*>(enemy)->displayCharacterInfo();

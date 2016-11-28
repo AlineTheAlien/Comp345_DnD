@@ -23,7 +23,7 @@ private:
 	vector<Map*> campaignMaps;
 	vector<string> availableCampaigns;
 	vector<string> availableCharacters;
-	MapBuilder* mbuilder;
+	ContentBuilder* mbuilder;
 	int currentMap;
 public:
 	Play();
@@ -47,7 +47,7 @@ public:
 	void levelUpCharacter();
 	void setCurrentMap(int);
 	int getCurrentMap();
-	void setMapBuilder(MapBuilder*);
+	void setMapBuilder(ContentBuilder*);
 	~Play();
 };
 
