@@ -3,6 +3,8 @@
 //!
 #include "stdafx.h"
 #include "Play.h"
+#include "Director.h"
+#include "MonsterBuilder.h"
 
 
 Play::Play()
@@ -59,13 +61,29 @@ void Play::adaptMapToPlayer(Map* map){
 			if (map->getTile(j, i) == 'E') {
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
-				MapObject* enemy = new Character('E', 12, 12, 12, 12, 12 ,12);
+				Director director;
+				Character* enemy;
+				CharacterBuilder* monsterBuilder = new MonsterBuilder;
+				director.setCharacterBuilder(monsterBuilder);
+				director.constructCharacter();
+				enemy = director.getCharacter();
 				mbuilder->buildCharacter('E', j, i, enemy);
 			}
 			if (map->getTile(j, i) == 'C') {
 				MapObject* chest = map->getObjectTile(j, i);
 				vector<Item*> items = static_cast<ItemContainer*>(chest)->getItems(); // store a copy of items
 				mbuilder->buildContainer(j, i, items);
+			}
+			if (map->getTile(j, i) == 'F') {
+				delete map->getObjectTile(j, i);
+				map->setTile(j, i, NULL);
+				Director director;
+				Character* friendlyenemy;
+				CharacterBuilder* monsterBuilder = new MonsterBuilder;
+				director.setCharacterBuilder(monsterBuilder);
+				director.constructCharacter();
+				friendlyenemy = director.getCharacter();
+				mbuilder->buildCharacter('E', j, i, friendlyenemy);
 			}
 		}
 	}
