@@ -320,130 +320,18 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 	}
 }
 
-//! Method to detect if player is near an enemy or an NPC and to start executing strategies for combat
+//! Method that will make NPCs in the map to execute friendly strategy and move towards the player
 //! @param map : Pointer to a map object
 //! @param player : Poitner to a player object
-void Combat::detectOthers(Map* map, MapObject* player) {
-	// Get all enemies and friendly NPC on the map
-	vector<MapObject*> enemies = map->findAllEnemies();
+void Combat::activateNPC(Map* map, MapObject* player) {
+	// Get all friendly NPCs
 	vector<MapObject*> friends = map->findAllFriends();
-	vector<MapObject*> nearbyEnemies;
 	vector<MapObject*> nearbyFriends;
 
-	// For user input
-	int choice = 0;
-
-	bool done = false;
 	// To store x,y position of the player on the map
-	int x;
-	int y;
-	// Declare pointers that will be used to points to a nearby enemy or friend
-	MapObject* nearbyEnemy;
-	MapObject* nearbyFriend;
-	map->showMap();
+	int x = player->getMapX();
+	int y = player->getMapY();
 
-	x = player->getMapX();
-	y = player->getMapY();
-
-	// Verify if there are nearby enemies
-	for (int i = 0; i < enemies.size(); i++) {
-		// If enemy is near the player (within one grid) push it into the vector
-		if (map->verifyNearbyCharacter(enemies[i], x, y)) {
-			nearbyEnemies.push_back(enemies[i]);
-		}
-	}
-
-	// Verify if there are nearby friendly NPCs
-	for (int i = 0; i < friends.size(); i++) {
-		if (map->verifyNearbyCharacter(friends[i], x, y)) {
-			nearbyFriends.push_back(friends[i]);
-		}
-	}
-
-	do {
-		// Start combat mode if there is an enemy nearby
-		if (nearbyEnemies.size() > 0) {
-			// Player can select a target from enemies that are within 1 grid
-			cout << "Number of enemies nearby: " << nearbyEnemies.size() << "\nYou may select any enemy as a target. Enter the corresponding number from below.\n" << endl;
-			for (int i = 0; i < nearbyEnemies.size(); i++) {
-				cout << "[" << i << "]" << endl;
-				static_cast<Character*>(nearbyEnemies[i])->displayCharacterInfo();
-			}
-
-			cin >> choice;
-			cout << endl;
-			nearbyEnemy = nearbyEnemies[choice];
-			// Call a static method from Combat class
-			Combat::startCombat(map, player, nearbyEnemy);
-			// If player is dead, console will close.
-
-			// If player is still alive, it will check if there are other enemies from his current position
-			enemies.erase(enemies.begin() + choice);
-
-			// Empty the vectors
-			nearbyEnemies = vector<MapObject*>();
-			nearbyFriends = vector<MapObject*>();
-
-			// Get current position of the player
-			int x = player->getMapX();
-			int y = player->getMapY();
-			// Verify if there are nearby enemies at the new position
-			for (int i = 0; i < enemies.size(); i++) {
-				// If enemy is near the player (within one grid) push it into the vector
-				if (map->verifyNearbyCharacter(enemies[i], x, y)) {
-					nearbyEnemies.push_back(enemies[i]);
-				}
-			}
-			// Verify if there are nearby friendly NPCs at the new position
-			for (int i = 0; i < friends.size(); i++) {
-				if (map->verifyNearbyCharacter(friends[i], x, y)) {
-					nearbyFriends.push_back(friends[i]);
-				}
-			}
-		}
-	} while (nearbyEnemies.size() > 0); // Keep looping if there are nearby enemies at the current player position
-
-										// Check if there are nearby friends while walking
-	while (nearbyFriends.size() > 0) {
-		choice = 1;
-		cout << "Number of friendly NPC's nearby: " << nearbyFriends.size() << "\nYou may choose to: 1. Ignore them or 2. Attack one of them." << endl;
-		cin >> choice;
-		cout << endl;
-		// There may be more than one NPC within one grid. Player may select which one to interact with.
-		if (choice == 1) {
-			choice = 0;
-			cout << "Select a friendly NPC to ignore from below: \n" << endl;
-			for (int i = 0; i < nearbyFriends.size(); i++) {
-				cout << "[" << i << "]" << endl;
-				static_cast<Character*>(nearbyFriends[i])->displayCharacterInfo();
-			}
-			cin >> choice;
-			cout << endl;
-			friends.erase(friends.begin() + choice);
-			nearbyFriends.erase(nearbyFriends.begin() + choice);
-		}
-		// Select an NPC to attack
-		if (choice == 2) {
-			choice = 0;
-			cout << "Select a target from below: \n" << endl;
-			for (int i = 0; i < nearbyFriends.size(); i++) {
-				cout << "[" << i << "]" << endl;
-				static_cast<Character*>(nearbyFriends[i])->displayCharacterInfo();
-			}
-			cin >> choice;
-			cout << endl;
-
-			nearbyFriend = nearbyFriends[choice];
-			cout << "Friendly NPC became an enemy..." << endl;
-			static_cast<Character*>(nearbyFriend)->setStrategy(new AggressorStrategy());
-			Combat::startCombat(map, player, nearbyFriend);
-			// If player is dead, console will close.
-
-			// If player is still alive, it will check if there are other enemies from his current position
-			friends.erase(friends.begin() + choice);
-			nearbyFriends.erase(nearbyFriends.begin() + choice);
-		}
-	}
 	// When the player is free, friendly NPC walks towards player
 	for (int i = 0; i < friends.size(); i++) {
 		static_cast<Character*>(friends[i])->executeStrategy(map, friends[i], player);

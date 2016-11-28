@@ -16,6 +16,7 @@ private:
 	Launch* launch;
 	sf::RenderWindow *window;
 	GameState state;
+	bool combatOn;
 public:
 	PlayGUI();
 	PlayGUI(sf::RenderWindow &window);
