@@ -1,25 +1,25 @@
 #include "stdafx.h"
-#include "MonsterBuilder.h"
+#include "FriendlyBuilder.h"
 
 
-MonsterBuilder::MonsterBuilder()
+FriendlyBuilder::FriendlyBuilder()
 {
 }
 
 
-MonsterBuilder::~MonsterBuilder()
+FriendlyBuilder::~FriendlyBuilder()
 {
 }
 
-void MonsterBuilder::buildAbilityScores() {
-	//for the sake of this project, monsters are created with highest ability score
+void FriendlyBuilder::buildAbilityScores() {
+	//for the sake of this project, friendly NPCs are created with highest ability score
 	//being strength, followed by dexterity, constitution, charisma, intelligence, and wisdom.
 	int temp[6];
 	int modifiers[6];
 
-	mycharacter->setCharacterName("Monster");
+	mycharacter->setCharacterName("Friendly NPC");
 
-	mycharacter->setType('E'); //Enemy type character
+	mycharacter->setType('F'); //Enemy type character
 
 	mycharacter->calculateAbilityScores(temp);
 

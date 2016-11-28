@@ -131,6 +131,7 @@ private:
 		ar & objectType;
 		ar & equipped;
 		ar & backpack;
+		ar & currentLevel;
 		ar & characterName;
 	}
 };

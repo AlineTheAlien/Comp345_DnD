@@ -572,7 +572,7 @@ void Character::chooseScoresOnLevelUp() {
 
 			cin >> chooseAbility;
 
-			if (chooseAbility >= 1 && chooseAbility <= 5) {
+			if (chooseAbility >= 1 && chooseAbility <= 6) {
 				validAbility = true;
 			}
 		} while (validAbility == false);

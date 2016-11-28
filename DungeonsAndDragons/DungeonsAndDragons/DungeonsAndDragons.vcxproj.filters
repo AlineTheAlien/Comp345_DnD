@@ -186,6 +186,9 @@
     <ClInclude Include="TankBuilder.h">
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
+    <ClInclude Include="FriendlyBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -304,6 +307,9 @@
     </ClCompile>
     <ClCompile Include="TankBuilder.cpp">
       <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="FriendlyBuilder.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

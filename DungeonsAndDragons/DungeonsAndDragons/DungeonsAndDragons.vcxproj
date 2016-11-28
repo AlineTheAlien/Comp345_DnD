@@ -166,6 +166,7 @@
     <ClInclude Include="ConcreteBuilderB.h" />
     <ClInclude Include="ConsoleView.h" />
     <ClInclude Include="Director.h" />
+    <ClInclude Include="FriendlyBuilder.h" />
     <ClInclude Include="MapBuilder.h" />
     <ClInclude Include="MonsterBuilder.h" />
     <ClInclude Include="NimbleBuilder.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="ConcreteBuilderB.cpp" />
     <ClCompile Include="ConsoleView.cpp" />
     <ClCompile Include="Director.cpp" />
+    <ClCompile Include="FriendlyBuilder.cpp" />
     <ClCompile Include="MonsterBuilder.cpp" />
     <ClCompile Include="NimbleBuilder.cpp" />
     <ClCompile Include="TankBuilder.cpp" />

@@ -5,6 +5,7 @@
 #include "Play.h"
 #include "Director.h"
 #include "MonsterBuilder.h"
+#include "FriendlyBuilder.h"
 
 
 Play::Play()
@@ -79,8 +80,8 @@ void Play::adaptMapToPlayer(Map* map){
 				map->setTile(j, i, NULL);
 				Director director;
 				Character* friendlyenemy;
-				CharacterBuilder* monsterBuilder = new MonsterBuilder;
-				director.setCharacterBuilder(monsterBuilder);
+				CharacterBuilder* friendlybuilder = new FriendlyBuilder;
+				director.setCharacterBuilder(friendlybuilder);
 				director.constructCharacter();
 				friendlyenemy = director.getCharacter();
 				mbuilder->buildCharacter('F', j, i, friendlyenemy);
@@ -218,6 +219,8 @@ bool Play::loadCharacter(string characterName) {
 	ar.template register_type<Belt>();
 	//read class state from archive
 	ar >> character;
+
+	cout << character->getCurrentLevel() << endl;
 	
 	//from here on, we are setting all the attributes that we have not loaded
 	int modifiers[6];
