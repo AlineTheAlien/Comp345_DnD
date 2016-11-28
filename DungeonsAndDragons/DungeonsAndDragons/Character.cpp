@@ -69,6 +69,7 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 	else if (type == 'P') {
 		strategy = new HumanPlayerStrategy();
 	}
+
 	int modifierHolder[6];
 
 	objectType = type;
