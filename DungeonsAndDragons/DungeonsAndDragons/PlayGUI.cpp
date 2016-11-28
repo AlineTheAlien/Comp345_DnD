@@ -745,6 +745,15 @@ void PlayGUI::openMapView()
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
 							}
 						}
+
+						if (play->getCampaignMap(currentMap)->getTile(j, i) == 'F')
+						{
+							if (maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
+							{
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayCharacterInfo();
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
+							}
+						}
 					}
 				}
 

@@ -83,7 +83,7 @@ void Play::adaptMapToPlayer(Map* map){
 				director.setCharacterBuilder(monsterBuilder);
 				director.constructCharacter();
 				friendlyenemy = director.getCharacter();
-				mbuilder->buildCharacter('E', j, i, friendlyenemy);
+				mbuilder->buildCharacter('F', j, i, friendlyenemy);
 			}
 		}
 	}
