@@ -6,7 +6,10 @@
 #include "Director.h"
 #include "MonsterBuilder.h"
 #include "FriendlyBuilder.h"
-
+#include "HumanPlayerStrategy.h"
+#include "AggressorStrategy.h"
+#include "FriendlyStrategy.h"
+#include "Combat.h"
 
 Play::Play()
 {
@@ -52,9 +55,11 @@ void Play::levelUpCharacter()
 	saveCharacter(character->getCharacterName());
 }
 
+//! Method to adapt the map to a player
+//! @param map : Pointer to a map object
 void Play::adaptMapToPlayer(Map* map){
 	mbuilder->setPlayerLevel(character->getCurrentLevel());	
-	mbuilder->setMap(map); // set the current map for the map builder
+	mbuilder->setMap(map); // set the current map for the map content builder
 	for (int i = 0; i < map->getMapY(); i++)
 	{
 		for (int j = 0; j < map->getMapX(); j++)
@@ -68,12 +73,12 @@ void Play::adaptMapToPlayer(Map* map){
 				director.setCharacterBuilder(monsterBuilder);
 				director.constructCharacter();
 				enemy = director.getCharacter();
-				mbuilder->buildCharacter('E', j, i, enemy);
+				mbuilder->buildCharacter('E', j, i, enemy); // adapt to level
 			}
 			if (map->getTile(j, i) == 'C') {
 				MapObject* chest = map->getObjectTile(j, i);
 				vector<Item*> items = static_cast<ItemContainer*>(chest)->getItems(); // store a copy of items
-				mbuilder->buildContainer(j, i, items);
+				mbuilder->buildContainer(j, i, items); // adapt to level
 			}
 			if (map->getTile(j, i) == 'F') {
 				delete map->getObjectTile(j, i);
@@ -84,7 +89,7 @@ void Play::adaptMapToPlayer(Map* map){
 				director.setCharacterBuilder(friendlybuilder);
 				director.constructCharacter();
 				friendlyenemy = director.getCharacter();
-				mbuilder->buildCharacter('F', j, i, friendlyenemy);
+				mbuilder->buildCharacter('F', j, i, friendlyenemy); // adapt to level
 			}
 		}
 	}
@@ -168,6 +173,27 @@ bool Play::loadMaps()
 		ar.template register_type<Belt>();
 		//read class state from archive
 		ar >> campaignMaps[i];
+
+		Map* map = campaignMaps[i];
+		char type;
+		// Loop through the map and set strategy to all characters on the map
+		for (int i = 0; i < map->getMapY(); i++)
+		{
+			for (int j = 0; j < map->getMapX(); j++)
+			{
+				type = map->getTile(j, i);
+				if (type == 'F') {
+					character->setStrategy(new FriendlyStrategy());
+				}
+				else if (type == 'P') {
+					character->setStrategy(new HumanPlayerStrategy());
+				}
+				else if (type == 'E') {
+					character->setStrategy(new AggressorStrategy());
+				}
+			}
+		}
+
 		if (!campaignMaps[i]->validatePath())
 		{
 			cout << "A map in the campaign is invalid, failed to load campaign." << endl;
@@ -253,11 +279,17 @@ bool Play::loadCharacter(string characterName) {
 	//Damage bonus, based on strength modifier
 	character->setDamageBonus(character->getStrengthModifier());
 
-
 	character->displayCharacterInfo();
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
-	cout << character->getObjectType() << endl;
+	char type = character->getObjectType();
+	cout << type << endl;
+
+	// Set strategy to Human Player Strategy
+	if (type == 'P') {
+		character->setStrategy(new HumanPlayerStrategy());
+	}
+
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -331,6 +363,7 @@ bool Play::moveCharacter(Map* map, char direction)
 						character->displayBackpack();
 					}
 					map->movePlayer(j - 1, i, character);
+					Combat::detectOthers(map, character);
 					return true;
 				}
 				else
@@ -348,6 +381,7 @@ bool Play::moveCharacter(Map* map, char direction)
 						character->displayBackpack();
 					}
 					map->movePlayer(j + 1, i, character);
+					Combat::detectOthers(map, character);
 					return true;
 				}
 				else
@@ -365,6 +399,7 @@ bool Play::moveCharacter(Map* map, char direction)
 						character->displayBackpack();
 					}
 					map->movePlayer(j, i - 1, character);
+					Combat::detectOthers(map, character);
 					return true;
 				}
 				else
@@ -382,6 +417,7 @@ bool Play::moveCharacter(Map* map, char direction)
 						character->displayBackpack();
 					}
 					map->movePlayer(j, i + 1, character);
+					Combat::detectOthers(map, character);
 					return true;
 				}
 			}

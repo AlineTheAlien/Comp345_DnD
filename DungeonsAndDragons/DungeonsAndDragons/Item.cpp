@@ -74,11 +74,10 @@ void Item::displayEnhancements()
 	if (enhancements.size() == 0)
 		cout << "Enhancements:\tNo enhancements." << endl;
 	else {
-		
+		cout << "Enhancements:" << endl;
 		for (unsigned int i = 0; i < enhancements.size(); i++)
 		{
 			if (enhancements[i].getBonus() != 0) {
-				cout << "Enhancements:" << endl;
 				cout << "\t" << enhancements[i].getType() << " + " << enhancements[i].getBonus() << endl;
 			}
 		}

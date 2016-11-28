@@ -29,4 +29,5 @@ class Combat {
 public:
 	static void startCombat(Map*, MapObject*, MapObject*);
 	static void moveAlongPath(Map* map, MapObject* character, MapObject* target);
+	static void detectOthers(Map* map, MapObject* player);
 };

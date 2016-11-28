@@ -234,8 +234,8 @@ void Map::movePlayer(int x, int y, MapObject* object)
 				}
 			}
 		}
-		static_cast<Character*>(object)->setMapPosition(x, y);
 		map[x + y * mapX] = object;
+		static_cast<Character*>(object)->setMapPosition(x, y);
 	}
 }
 

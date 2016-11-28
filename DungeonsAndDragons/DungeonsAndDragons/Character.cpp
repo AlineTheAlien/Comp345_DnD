@@ -834,30 +834,81 @@ int Character::levelHitPoints() {
 
 //! Method to display character information
 void Character::displayCharacterInfo() {
+	if (objectType == 'P') {
+		cout << "\n\nDisplaying your character's current stats...\n" << endl;
+		cout << "\n\nYour character's name is: " << characterName << endl;
+		cout << " \nYour character's current Level is: " << currentLevel << endl;
+		cout << " Your character's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
 
-	cout << "\n\n Displaying your character's current stats...\n" << endl;
-	cout << "\n\n Your character's name is: " << characterName << endl;
-	cout << " \nYour character's current Level is: " << currentLevel << endl;
-	cout << " Your character's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
+		cout << " Your character's current Strength Score is: " << abilityScores[0] << endl;
+		cout << " Your character's current Dexterity Score is: " << abilityScores[1] << endl;
+		cout << " Your character's current Constitution Score is: " << abilityScores[2] << endl;
+		cout << " Your character's current Intelligence Score is: " << abilityScores[4] << endl;
+		cout << " Your character's current Wisdom Score is: " << abilityScores[5] << endl;
+		cout << " Your character's current Charisma Score is: " << abilityScores[3] << endl;
 
-	cout << " Your character's current Strength Score is: " << abilityScores[0] << endl;
-	cout << " Your character's current Dexterity Score is: " << abilityScores[1] << endl;
-	cout << " Your character's current Constitution Score is: " << abilityScores[2] << endl;
-	cout << " Your character's current Intelligence Score is: " << abilityScores[4] << endl;
-	cout << " Your character's current Wisdom Score is: " << abilityScores[5] << endl;
-	cout << " Your character's current Charisma Score is: " << abilityScores[3] << endl;
+		cout << "\nYour character's current Strength Modifier is: " << abilityModifiers[0] << endl;
+		cout << " Your character's current Dexterity Modifier is: " << abilityModifiers[1] << endl;
+		cout << " Your character's current Constitution Modifier is: " << abilityModifiers[2] << endl;
+		cout << " Your character's current Intelligence Modifier is: " << abilityModifiers[4] << endl;
+		cout << " Your character's current Wisdom Modifier is: " << abilityModifiers[5] << endl;
+		cout << " Your character's current Charisma Modifier is: " << abilityModifiers[3] << endl;
 
-	cout << "\n Your character's current Strength Modifier is: " << abilityModifiers[0] << endl;
-	cout << " Your character's current Dexterity Modifier is: " << abilityModifiers[1] << endl;
-	cout << " Your character's current Constitution Modifier is: " << abilityModifiers[2] << endl;
-	cout << " Your character's current Intelligence Modifier is: " << abilityModifiers[4] << endl;
-	cout << " Your character's current Wisdom Modifier is: " << abilityModifiers[5] << endl;
-	cout << " Your character's current Charisma Modifier is: " << abilityModifiers[3] << endl;
+		cout << "\nYour character's current current Armor Class is: " << getArmorClass() << endl;
+		cout << " Your character's current current Attack Bonus is: " << getAttackBonus() << endl;
+		cout << " Your character's current current Damage Bonus is: " << getDamageBonus() << endl;
+		cout << "\nCurrent Number of Attacks/round is:  " << getNumberOfAttacks() << endl;
+	}
+	else if (objectType == 'F') {
+		cout << "\n\nDisplaying NPC's current stats...\n" << endl;
+		cout << "\n\nNPC's name is: " << characterName << endl;
+		cout << " \nNPC's current Level is: " << currentLevel << endl;
+		cout << " NPC's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
 
-	cout << "\n Your character's current current Armor Class is: " << getArmorClass() << endl;
-	cout << " Your character's current current Attack Bonus is: " << getAttackBonus() << endl;
-	cout << " Your character's current current Damage Bonus is: " << getDamageBonus() << endl;
-	cout << "\nCurrent Number of Attacks/round is:  " << getNumberOfAttacks() << endl;
+		cout << " NPC's current Strength Score is: " << abilityScores[0] << endl;
+		cout << " NPC's current Dexterity Score is: " << abilityScores[1] << endl;
+		cout << " NPC's current Constitution Score is: " << abilityScores[2] << endl;
+		cout << " NPC's current Intelligence Score is: " << abilityScores[4] << endl;
+		cout << " NPC's current Wisdom Score is: " << abilityScores[5] << endl;
+		cout << " NPC's current Charisma Score is: " << abilityScores[3] << endl;
+
+		cout << "\nNPC's current Strength Modifier is: " << abilityModifiers[0] << endl;
+		cout << " NPC's current Dexterity Modifier is: " << abilityModifiers[1] << endl;
+		cout << " NPC's current Constitution Modifier is: " << abilityModifiers[2] << endl;
+		cout << " NPC's current Intelligence Modifier is: " << abilityModifiers[4] << endl;
+		cout << " NPC's current Wisdom Modifier is: " << abilityModifiers[5] << endl;
+		cout << " NPC's current Charisma Modifier is: " << abilityModifiers[3] << endl;
+
+		cout << "\nNPC's current current Armor Class is: " << getArmorClass() << endl;
+		cout << " NPC's current current Attack Bonus is: " << getAttackBonus() << endl;
+		cout << " NPC's current current Damage Bonus is: " << getDamageBonus() << endl;
+		cout << "\nCurrent Number of Attacks/round is:  " << getNumberOfAttacks() << endl;
+	}
+	else if (objectType == 'E') {
+		cout << "\n\nDisplaying Enemy's current stats...\n" << endl;
+		cout << "\n\nEnemy's name is: " << characterName << endl;
+		cout << " \nEnemy's current Level is: " << currentLevel << endl;
+		cout << " Enemy's current HP is: " << currentHitPoints << "/" << maxHitPoints << endl;
+
+		cout << " Enemy's current Strength Score is: " << abilityScores[0] << endl;
+		cout << " Enemy's current Dexterity Score is: " << abilityScores[1] << endl;
+		cout << " Enemy's current Constitution Score is: " << abilityScores[2] << endl;
+		cout << " Enemy's current Intelligence Score is: " << abilityScores[4] << endl;
+		cout << " Enemy's current Wisdom Score is: " << abilityScores[5] << endl;
+		cout << " Enemy's current Charisma Score is: " << abilityScores[3] << endl;
+
+		cout << "\nEnemy's current Strength Modifier is: " << abilityModifiers[0] << endl;
+		cout << " Enemy's current Dexterity Modifier is: " << abilityModifiers[1] << endl;
+		cout << " Enemy's current Constitution Modifier is: " << abilityModifiers[2] << endl;
+		cout << " Enemy's current Intelligence Modifier is: " << abilityModifiers[4] << endl;
+		cout << " Enemy's current Wisdom Modifier is: " << abilityModifiers[5] << endl;
+		cout << " Enemy's current Charisma Modifier is: " << abilityModifiers[3] << endl;
+
+		cout << "\nEnemy's current current Armor Class is: " << getArmorClass() << endl;
+		cout << " Enemy's current current Attack Bonus is: " << getAttackBonus() << endl;
+		cout << " Enemy's current current Damage Bonus is: " << getDamageBonus() << endl;
+		cout << "\nCurrent Number of Attacks/round is:  " << getNumberOfAttacks() << endl;
+	}
 	cout << endl;
 }
 
@@ -906,6 +957,7 @@ void Character::setStrategy(Strategy* strategy) {
 //! @param i : Position i of the player
 //! @param j : Position j of the player
 void Character::executeStrategy(Map* map, MapObject* firstCharacter, MapObject* secondCharacter) {
-	strategy->execute(map, firstCharacter, secondCharacter);
+	if (strategy != NULL)
+		strategy->execute(map, firstCharacter, secondCharacter);
 }
 
