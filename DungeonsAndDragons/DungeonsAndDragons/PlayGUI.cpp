@@ -412,38 +412,83 @@ void PlayGUI::openMapView()
 {
 	vector<vector<sf::Sprite>> maps;
 	int currentMap = play->getCurrentMap();
-	sf::Text backText;
+
+	sf::Text modifyText;
 	sf::Text menuText;
-	sf::FloatRect backButton;
+	sf::Text diceText;
+	sf::Text mapText;
+	sf::Text combatText;
+	sf::Text eventText;
+
+	sf::FloatRect modifyButton;
 	sf::FloatRect menuButton;
+	sf::FloatRect diceButton;
+	sf::FloatRect mapButton;
+	sf::FloatRect combatButton;
+	sf::FloatRect eventButton;
+
+
 	sf::Font textFont;
 	sf::Color normalColor = sf::Color::White;
 	sf::Color hoverColor = sf::Color::Yellow;
 	sf::Color clickedColor = sf::Color::Yellow;
-	bool backClicked = false;
-	bool menuClicked = false;
 
+	bool modifyClicked = false;
+	bool menuClicked = false;
+	bool diceClicked = false;
+	bool mapClicked = false;
+	bool combatClicked = false;
+	bool eventClicked = false;
 
 	if (!textFont.loadFromFile("Fonts/OldSchool.ttf"))
 	{
 		// error...
 	}
 
-	backText.setString("Modify Equipment");
-	backText.setFont(textFont);
-	backText.setStyle(sf::Text::Italic);
-	backText.setCharacterSize(15);
+	modifyText.setString("Modify Equipment");
+	modifyText.setFont(textFont);
+	modifyText.setStyle(sf::Text::Italic);
+	modifyText.setCharacterSize(15);
 
 	menuText.setString("Menu");
 	menuText.setFont(textFont);
 	menuText.setStyle(sf::Text::Italic);
 	menuText.setCharacterSize(15);
 
-	backText.setPosition(sf::Vector2f(300, GameState::WINDOW_SCALE - 100));
-	menuText.setPosition(sf::Vector2f(700, 300));
+	diceText.setString("Dice Info");
+	diceText.setFont(textFont);
+	diceText.setStyle(sf::Text::Italic);
+	diceText.setCharacterSize(15);
 
-	backButton = backText.getGlobalBounds();
+	mapText.setString("Map info");
+	mapText.setFont(textFont);
+	mapText.setStyle(sf::Text::Italic);
+	mapText.setCharacterSize(15);
+
+	combatText.setString("Combat info");
+	combatText.setFont(textFont);
+	combatText.setStyle(sf::Text::Italic);
+	combatText.setCharacterSize(15);
+
+	eventText.setString("Event info");
+	eventText.setFont(textFont);
+	eventText.setStyle(sf::Text::Italic);
+	eventText.setCharacterSize(15);
+
+
+	modifyText.setPosition(sf::Vector2f(300, GameState::WINDOW_SCALE - 100));
+	menuText.setPosition(sf::Vector2f(660, 300));
+	mapText.setPosition(sf::Vector2f(630, 50));
+	combatText.setPosition(sf::Vector2f(630, 100));
+	eventText.setPosition(sf::Vector2f(630, 150));
+	diceText.setPosition(sf::Vector2f(630, 200));
+
+	modifyButton = modifyText.getGlobalBounds();
 	menuButton = menuText.getGlobalBounds();
+	mapButton = mapText.getGlobalBounds();
+	combatButton = combatText.getGlobalBounds();
+	eventButton = eventText.getGlobalBounds();
+	diceButton = diceText.getGlobalBounds();
 
 	for (int i = 0; i < play->getCampaignSize(); i++)
 	{
@@ -703,7 +748,7 @@ void PlayGUI::openMapView()
 					}
 				}
 
-				if (backButton.contains(mousePosition))
+				if (modifyButton.contains(mousePosition))
 				{
 					play->modifyEquipment();
 				}
@@ -714,28 +759,118 @@ void PlayGUI::openMapView()
 					state.setLaunchState(LaunchState::MENU);
 					return;
 				}
+
+				if (mapButton.contains(mousePosition))
+				{
+					if (!mapClicked)
+					{
+						mapClicked = true;
+						cout << "Map info toggled" << endl;
+						//Add logic here after
+					}
+					else
+					{
+						mapClicked = false;
+						cout << "Map info toggled off" << endl;
+					}
+
+				}
+
+				if (eventButton.contains(mousePosition))
+				{
+					if (!eventClicked)
+					{
+						eventClicked = true;
+						cout << "Game events info toggled" << endl;
+						//Add logic here after
+					}
+					else
+					{
+						eventClicked = false;
+						cout << "Game events toggled off" << endl;
+					}			
+				}
+
+				if (combatButton.contains(mousePosition))
+				{
+					if (!combatClicked)
+					{
+						combatClicked = true;
+						cout << "Combat info toggled" << endl;
+						//Add logic here after
+					}
+					else
+					{
+						combatClicked = false;
+						cout << "Combat info toggled off" << endl;
+					}
+				
+				}
+
+				if (diceButton.contains(mousePosition))
+				{
+					if (!diceClicked)
+					{
+						diceClicked = true;
+						cout << "Dice info toggled on" << endl;
+						//Add logic here after
+					}
+					else
+					{
+						diceClicked = false;
+						cout << "Dice info toggled off" << endl;
+					}				
+				}
 			}
 
-			if (backButton.contains(mousePosition) && !backClicked)
-				backText.setFillColor(hoverColor);
+			if (modifyButton.contains(mousePosition) && !modifyClicked)
+				modifyText.setFillColor(hoverColor);
+			else
+			if (mapButton.contains(mousePosition) && !mapClicked)
+				mapText.setFillColor(hoverColor);
+			else
+			if (combatButton.contains(mousePosition) && !combatClicked)
+				combatText.setFillColor(hoverColor);
+			else
+			if (eventButton.contains(mousePosition) && !eventClicked)
+				eventText.setFillColor(hoverColor);
+			else
+			if (diceButton.contains(mousePosition) && !diceClicked)
+				diceText.setFillColor(hoverColor);
 			else
 				if (menuButton.contains(mousePosition) && !menuClicked)
 					menuText.setFillColor(hoverColor);
 				else
 				{
-					if (!backClicked)
-						backText.setFillColor(normalColor);
+					if (!modifyClicked)
+						modifyText.setFillColor(normalColor);
 
 					if (!menuClicked)
 						menuText.setFillColor(normalColor);
+
+					if (!diceClicked)
+						diceText.setFillColor(normalColor);
+
+					if (!combatClicked)
+						combatText.setFillColor(normalColor);
+
+					if (!mapClicked)
+						mapText.setFillColor(normalColor);
+
+					if (!eventClicked)
+						eventText.setFillColor(normalColor);
 				}
 		}
 
 		window->clear();
 		for (int i = 0; i < maps[currentMap].size(); i++)
 			window->draw(maps[currentMap].at(i));
-		window->draw(backText);
+		window->draw(modifyText);
 		window->draw(menuText);
+		window->draw(mapText);
+		window->draw(combatText);
+		window->draw(eventText);
+		window->draw(diceText);
 		window->display();
 	}
 }
