@@ -200,6 +200,39 @@ bool Play::loadCharacter(string characterName) {
 	ar.template register_type<Belt>();
 	//read class state from archive
 	ar >> character;
+	
+	//from here on, we are setting all the attributes that we have not loaded
+	int modifiers[6];
+
+	character->assignAbilityModifiers(modifiers);
+
+	sort(modifiers, modifiers + 6, greater<int>());
+
+	character->setDexterityModifier(modifiers[0]);
+	character->setConstitutionModifier(modifiers[1]);
+	character->setStrengthModifier(modifiers[2]);
+	character->setIntelligenceModifier(modifiers[3]);
+	character->setCharismaModifier(modifiers[4]);
+	character->setWisdomModifier(modifiers[5]);
+
+	//set hit points as 10 summed with the character's calculated  constitution modifier
+	character->setCurrentHitPoints(10 + character->getConstitutionModifier());
+
+	//Initially, as character is not hit, the maximum HP is the same as the current HP
+	character->setMaxHitPoints(character->getHitPoints());
+
+	//Depending on type of armor worn, armor class differs
+	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
+	character->setArmorClass(11 + character->getDexterityModifier());
+
+	//Attack bonus, is based on strength modifier, dexterity modifier, and level
+	//In the default constructor, level is 0 therefore attack bonus is just based on strength + dexterity modifiers
+	character->setAttackBonus(character->getStrengthModifier() + character->getDexterityModifier());
+
+	//Damage bonus, based on strength modifier
+	character->setDamageBonus(character->getStrengthModifier());
+
+
 	character->displayCharacterInfo();
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
