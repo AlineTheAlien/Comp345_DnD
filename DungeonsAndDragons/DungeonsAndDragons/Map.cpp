@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include <iostream>
 #include "Map.h"
+#include "Character.h"
 using std::cout;
 using std::cin;
 using std::endl;
@@ -183,10 +184,11 @@ void Map::setTile(int x, int y, MapObject* object)
 						delete map[i];
 						map[i] = NULL;
 					}
-						
+
 				}
 			}
 		map[x + y * mapX] = ptr;
+		ptr->setMapPosition(x, y);
 	}
 	else
 		map[x + y * mapX] = NULL;
@@ -205,6 +207,10 @@ char Map::getTile(int x, int y)
 		return 'X';
 }
 
+//! Implementation getObjectTile to retrieve a specific object on the map
+//! @param x : an integer value of the vertical index of the map's grid
+//! @param y : an integer value of the horizontal index of the map's grid
+//! @return : a char value of the specified tile on the map
 MapObject* Map::getObjectTile(int x, int y)
 {
 	return map[x + y * mapX];
@@ -228,10 +234,10 @@ void Map::movePlayer(int x, int y, MapObject* object)
 				}
 			}
 		}
+		static_cast<Character*>(object)->setMapPosition(x, y);
 		map[x + y * mapX] = object;
 	}
 }
-
 
 //! Implementation isOccupied to check if a tile has a wall
 //! @param x: an integer value of vertical index of the map's grid
@@ -245,7 +251,18 @@ bool Map::isOccupied(int x, int y)
 	else
 		return false;
 }
-
+//! Implementation availableTile to check if a tile is available. This is used for combat movements.
+//! @param x : an integer value of vertical index of the map's grid
+//! @param y : an integer value of horizontal index of the map's grid
+//! @return : a boolean true if the cell is occupied false otherwise
+bool Map::availableTile(int x, int y) {
+	if (map[x + y * mapX] != NULL) {
+		bool verify = (map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
+		return verify;
+	}
+	else
+		return false;
+}
 //! Implementation showMap to display the map on the console
 void Map::showMap()
 {
@@ -265,4 +282,165 @@ Map::~Map()
 	//for (int i = 0; i < map.size(); i++) {
 	//	delete map[i];
 	//}
+}
+
+//! Method to verify that a character is nearby
+//! @param character : The targeted character
+//! @param i : Position i of the player
+//! @param j : Position j of the player
+bool Map::verifyNearbyCharacter(MapObject* targetCharacter, int j, int i)
+{
+	bool check = false;
+	int iOtherCharacter;
+	int jOtherCharacter;
+
+	if (targetCharacter != NULL) {
+		iOtherCharacter = targetCharacter->getMapY();
+		jOtherCharacter = targetCharacter->getMapX();
+		// If other character at the top
+		if (i - 1 == iOtherCharacter && j == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the left
+		if (i == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the right
+		if (i == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the bottom
+		if (i + 1 == iOtherCharacter && j == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at top left
+		if (i - 1 == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at top right
+		if (i - 1 == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at bottom left
+		if (i + 1 == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at bottom right
+		if (i + 1 == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+	}
+	return check; // If other targeted character is not nearby, return false
+}
+
+//! Method to find all enemies on the map
+//! return a vector of pointers to MapObject objects
+vector<MapObject*> Map::findAllEnemies() {
+	vector<MapObject*> v = vector<MapObject*>();
+	for (int i = 0; i < mapY * mapX; i++)
+	{
+		if (map[i] != NULL) {
+			if (map[i]->getObjectType() == ENEMY)
+				v.push_back(map[i]);
+		}
+	}
+	return v;
+}
+
+//! Method to find all friendly NPCs on the map
+//! return a vector of pointers to MapObject objects
+vector<MapObject*> Map::findAllFriends() {
+	vector<MapObject*> v = vector<MapObject*>();
+	for (int i = 0; i < mapY * mapX; i++)
+	{
+		if (map[i] != NULL) {
+			if (map[i]->getObjectType() == FRIEND)
+				v.push_back(map[i]);
+		}
+	}
+	return v;
+}
+
+//! Method that allows player to move on the map via the console. Only used for combat mode.
+//! @param map : Pointer to a map
+//! @param player : Pointer to a player character
+void Map::move(Map* map, MapObject* player) {
+	int jNew;
+	int iNew;
+	int done = false;
+	int choice = 5; // for user input
+	int i = static_cast<Character*>(player)->getMapY();
+	int j = static_cast<Character*>(player)->getMapX();
+	while (!done) {
+		cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
+		map->showMap();
+		cin >> choice;
+		cout << endl;
+		MapObject* tile = NULL;
+
+		// Move left
+		if (choice == 1) {
+			if (j - 1 >= 0) {
+				iNew = i;
+				jNew = j - 1;
+				tile = map->getObjectTile(jNew, iNew);
+				done = true;
+			}
+			else
+			{
+				cout << "Cannot move there. You will be out of the map." << endl;
+			}
+		}
+		// Move right
+		if (choice == 2) {
+			if (j + 1 < map->getMapX()) {
+				iNew = i;
+				jNew = j + 1;
+				tile = map->getObjectTile(jNew, iNew);
+				done = true;
+			}
+			else
+			{
+				cout << "Cannot move there. You will be out of the map." << endl;
+			}
+		}
+		// Move up
+		if (choice == 3) {
+			if (i - 1 >= 0) {
+				iNew = i - 1;
+				jNew = j;
+				tile = map->getObjectTile(jNew, iNew);
+				done = true;
+			}
+			else
+			{
+				cout << "Cannot move there. You will be out of the map." << endl;
+			}
+		}
+		// Move down
+		if (choice == 4) {
+			if (i + 1 < map->getMapY()) {
+				iNew = i + 1;
+				jNew = j;
+				tile = map->getObjectTile(jNew, iNew);
+				done = true;
+			}
+			else
+			{
+				cout << "Cannot move there. You will be out of the map." << endl;
+			}
+		}
+		// If the position is not taken
+		if (done == true && tile == NULL) {
+			map->movePlayer(jNew, iNew, player);
+			map->showMap();
+		}
+		else if (tile != NULL) {
+			cout << "You cannot move to this position as it is occupied." << endl;
+		}
+		// For cppunit to get out of the loop...
+		if (choice == 5) {
+			done = true;
+		}
+	}
 }

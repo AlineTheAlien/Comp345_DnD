@@ -177,9 +177,6 @@
     <ClInclude Include="TankBuilder.h">
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
-    <ClInclude Include="FriendlyBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Strategy.h">
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
@@ -196,6 +193,12 @@
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="ContentBuilder.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendlyBuilder.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Combat.h">
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
   </ItemGroup>
@@ -324,6 +327,9 @@
       <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
     <ClCompile Include="ConcreteContentBuilder.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Combat.cpp">
       <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
   </ItemGroup>

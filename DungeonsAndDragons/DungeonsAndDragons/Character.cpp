@@ -6,6 +6,9 @@
 
 #include "stdafx.h" 
 #include "Character.h"
+#include "FriendlyStrategy.h"
+#include "AggressorStrategy.h"
+#include "HumanPlayerStrategy.h"
 #include "Dice.h"
 #include <stdlib.h>
 #include <cstdlib>
@@ -57,6 +60,15 @@ Character::Character()
 //! @param str: strength score, dex: dexterity score, con: constitution score, intel: intelligence score, wis: wisdom score, cha: charisma score
 Character::Character(char type, int str, int dex, int con, int intel, int wis, int cha) {
 
+	if (type == 'F') {
+		strategy = new FriendlyStrategy();
+	}
+	else if (type == 'E') {
+		strategy = new AggressorStrategy();
+	}
+	else if (type == 'P') {
+		strategy = new HumanPlayerStrategy();
+	}
 	int modifierHolder[6];
 
 	objectType = type;
@@ -882,3 +894,17 @@ void Character::displayBackpack() {
 	}
 	cout << endl;
 }
+
+//! Method to set the strategy of the character
+//! @param strategy : A concrete strategy object
+void Character::setStrategy(Strategy* strategy) {
+	this->strategy = strategy;
+}
+//! Method to execute the strategy of the character
+//! @param map : Map in which characters are placed in
+//! @param i : Position i of the player
+//! @param j : Position j of the player
+void Character::executeStrategy(Map* map, MapObject* firstCharacter, MapObject* secondCharacter) {
+	strategy->execute(map, firstCharacter, secondCharacter);
+}
+

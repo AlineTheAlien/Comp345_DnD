@@ -5,6 +5,7 @@
 #include "Character.h"
 #include "Combat.h"
 #include <iostream>
+#include "Dice.h"
 
 using namespace std;
 
@@ -25,12 +26,11 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 	bool availablePath = false;
 	bool nearby = nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
 	while (!done) {
-		// If player is not nearby, it will move towards it
+		// If player is not nearby, it will move towards it during combat mode only.
 		while (!nearby) {
-
 			while (numOfMoves > 0 || numOfAttack > 0) {
-				i = static_cast<Character*>(enemyCharacter)->getMapY();
-				j = static_cast<Character*>(enemyCharacter)->getMapX();
+				i = enemyCharacter->getMapY();
+				j = enemyCharacter->getMapX();
 				nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
 				if (nearby)
 					break;
@@ -49,10 +49,10 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			int attackRoll;
 			int damageRoll;
 			int targetArmorClass;
-			int targetHP = static_cast<Character*>(targetCharacter)->getHP(); // get current HPs from target
+			int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
 
 			// Attack roll
-			attackRoll = static_cast<Character*>(enemyCharacter)->roll20d();
+			attackRoll = Dice::roll("1d20");
 			// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 			if (attackRoll == 1) {
 				cout << "Rolled a " << attackRoll << "!" << endl;
@@ -63,30 +63,30 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				cout << "Rolled a " << attackRoll << "!" << endl;
 				cout << "Critical Hit!" << endl;
 				// Own implementation of the dice... Roll twice
-				damageRoll = static_cast<Character*>(enemyCharacter)->roll20d();
-				damageRoll += static_cast<Character*>(enemyCharacter)->roll20d() + static_cast<Character*>(enemyCharacter)->getDamageBonus();
+				damageRoll = Dice::roll("2d20");
+				damageRoll += static_cast<Character*>(enemyCharacter)->getDamageBonus();
 				cout << "Total damage roll: " << damageRoll << endl;
 				targetHP -= damageRoll;
 				if (targetHP <= 0) {
-					static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP);
+					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 					break;
 				}
 				cout << "Player's Current Hit Point: " << targetHP << endl;
-				static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP); // remove HPs from target
+				static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 			}
 			else {
 				attackRoll += static_cast<Character*>(enemyCharacter)->getAttackBonus();
 				targetArmorClass = static_cast<Character*>(targetCharacter)->getArmorClass();
 				if (attackRoll > targetArmorClass) {
-					damageRoll = static_cast<Character*>(enemyCharacter)->roll20d() + static_cast<Character*>(enemyCharacter)->getDamageBonus();
+					damageRoll = Dice::roll("1d20") + static_cast<Character*>(enemyCharacter)->getDamageBonus();
 					cout << "Total damage roll: " << damageRoll << endl;
 					targetHP -= damageRoll;
 					if (targetHP <= 0) {
-						static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP);
+						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 						break;
 					}
 					cout << "Player's Current Hit Point: " << targetHP << endl;
-					static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP); // remove HPs from target
+					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 				}
 				else
 				{

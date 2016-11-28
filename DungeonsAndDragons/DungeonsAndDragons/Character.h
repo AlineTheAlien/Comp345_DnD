@@ -38,6 +38,7 @@
 #include <string>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/string.hpp>
+#include "Strategy.h"
 //! Class that implements a character 
 class Character : public Subject, public MapObject
 {
@@ -107,6 +108,8 @@ public:
 	string getCharacterName();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
+	void setStrategy(Strategy*);
+	void executeStrategy(Map*, MapObject*, MapObject*);
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];
@@ -122,6 +125,7 @@ private:
 	string characterName = "";
 	ItemContainer* equipped;
 	ItemContainer* backpack;
+	Strategy* strategy;
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
@@ -133,6 +137,11 @@ private:
 		ar & backpack;
 		ar & currentLevel;
 		ar & characterName;
+		// Below weren't included, do we have to? - Ideawin
+		ar & armorClass;
+		ar & attackBonus;
+		ar & damageBonus;
+		ar & numberofAttacks;
 	}
 };
 

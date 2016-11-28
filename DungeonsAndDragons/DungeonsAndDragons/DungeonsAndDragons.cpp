@@ -21,8 +21,8 @@
 #include "MapObject.h"
 #include <string>
 #include "Launch.h"
-#include "MapBuilder.h"
-#include "ConcreteBuilderA.h"
+#include "ContentBuilder.h"
+#include "ConcreteContentBuilder.h"
 // include headers that implement a archive in simple text format
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>

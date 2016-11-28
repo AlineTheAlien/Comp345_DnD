@@ -4,7 +4,7 @@
 #include "HumanPlayerStrategy.h"
 #include "Character.h"
 #include <iostream>
-
+#include "Dice.h"
 using namespace std;
 //! Method to execute the Human Player strategy
 //! @param map : Pointer to a map
@@ -27,55 +27,20 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 		// Get position of player
 		int i = static_cast<Character*>(player)->getMapY();
 		int j = static_cast<Character*>(player)->getMapX();
+
 		cout << "What would you like to do?\n1- Move\n2- Attack\n3- Other (Free actions)\n4- Done" << endl;
 		cin >> choice;
 		cout << endl;
 		MapObject* taken = NULL;
+
 		if (choice == 1) {
 			if (numOfMoves > 0 || numOfAttack > 0) {
-				cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
-				map->showMap();
-				cin >> choice;
-				cout << endl;
-				// Move left
-				if (choice == 1) {
-					iNew = i;
-					jNew = j - 1;
-				}
-				// Move right
-				if (choice == 2) {
-					iNew = i;
-					jNew = j + 1;
-				}
-				// Move up
-				if (choice == 3) {
-					iNew = i - 1;
-					jNew = j;
-				}
-				// Move down
-				if (choice == 4) {
-					iNew = i + 1;
-					jNew = j;
-				}
-				taken = map->getTile(jNew, iNew);
-				// If the position is not taken
-				if (taken == NULL) {
-					map->setPlayer(jNew, iNew, player);
-					map->showMap();
-					numOfMoves--;
-					// If player does not want to attack and instead want to move, it cannot attack
-					if (numOfMoves <= 0 && numOfAttack > 0) {
-						numOfAttack--;
-					}
-				}
-				else
-					cout << "You cannot move to this position as it is occupied." << endl;
+				// ADD PLAYER MOVE HERE :O
 			}
 			else
 			{
 				cout << "You have reached the maximum number of moves. You may only perform free actions or complete the turn." << endl;
 			}
-			
 		}
 		else if (choice == 2) {
 			if (numOfAttack > 0) {
@@ -93,10 +58,10 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 					int attackRoll;
 					int damageRoll;
 					int targetArmorClass;
-					int targetHP = static_cast<Character*>(targetCharacter)->getHP(); // get current HPs from target
+					int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
 
 					// Attack roll
-					attackRoll = static_cast<Character*>(player)->roll20d();
+					attackRoll = Dice::roll("1d20");
 					// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 					if (attackRoll == 1) {
 						cout << "Rolled a " << attackRoll << "!" << endl;
@@ -107,32 +72,32 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 						cout << "Rolled a " << attackRoll << "!" << endl;
 						cout << "Critical Hit!" << endl;
 						// Own implementation of the dice... Roll twice
-						damageRoll = static_cast<Character*>(player)->roll20d();
-						damageRoll += static_cast<Character*>(player)->roll20d() + static_cast<Character*>(player)->getDamageBonus();
+						damageRoll = Dice::roll("2d20");
+						damageRoll += static_cast<Character*>(player)->getDamageBonus();
 						cout << "Total damage roll: " << damageRoll << endl;
 						targetHP -= damageRoll;
 						if (targetHP <= 0) {
-							static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP);
+							static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 							done = true;
 							break;
 						}
 						cout << "Enemy Current Hit Point: " << targetHP << endl;
-						static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP); // remove HPs from target
+						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 					}
 					else {
 						attackRoll += static_cast<Character*>(player)->getAttackBonus();
 						targetArmorClass = static_cast<Character*>(targetCharacter)->getArmorClass();
 						if (attackRoll > targetArmorClass) {
-							damageRoll = static_cast<Character*>(player)->roll20d() + static_cast<Character*>(player)->getDamageBonus();
+							damageRoll = Dice::roll("1d20") + static_cast<Character*>(player)->getDamageBonus();
 							cout << "Total damage roll: " << damageRoll << endl;
 							targetHP -= damageRoll;
 							if (targetHP <= 0) {
-								static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP);
+								static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 								done = true;
 								break;
 							}
 							cout << "Enemy Current Hit Point: " << targetHP << endl;
-							static_cast<Character*>(targetCharacter)->setCurrentHP(targetHP); // remove HPs from target
+							static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 						}
 						else
 						{

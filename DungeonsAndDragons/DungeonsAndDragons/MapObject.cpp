@@ -28,3 +28,23 @@ void MapObject::setObjectType(char type)
 char MapObject::getObjectType() {
 	return this->objectType;
 }
+
+//! Mutator method to set position of character
+//! @param x : Position x of character on a map
+//! @param y : Position y of character on a map
+void MapObject::setMapPosition(int x, int y) {
+	mapX = x;
+	mapY = y;
+}
+
+//! Accessor method to get X position of the character on a map
+//! @return an integer representing the X position
+int MapObject::getMapX() {
+	return mapX;
+}
+
+//! Accessor method to get X position of the character on a map
+//! @return an integer representing the Y position
+int MapObject::getMapY() {
+	return mapY;
+}
