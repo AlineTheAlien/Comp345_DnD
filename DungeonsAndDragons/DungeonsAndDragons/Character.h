@@ -133,6 +133,7 @@ private:
 		ar & backpack;
 		ar & currentLevel;
 		ar & characterName;
+		ar & maxHitPoints;
 	}
 };
 

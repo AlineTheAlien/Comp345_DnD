@@ -240,7 +240,7 @@ bool Play::loadCharacter(string characterName) {
 	character->setCurrentHitPoints(10 + character->getConstitutionModifier());
 
 	//Initially, as character is not hit, the maximum HP is the same as the current HP
-	character->setMaxHitPoints(character->getHitPoints());
+	character->setCurrentHitPoints(character->getMaxHitPoints());
 
 	//Depending on type of armor worn, armor class differs
 	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
@@ -252,7 +252,6 @@ bool Play::loadCharacter(string characterName) {
 
 	//Damage bonus, based on strength modifier
 	character->setDamageBonus(character->getStrengthModifier());
-
 
 	character->displayCharacterInfo();
 	character->displayEquipment();
