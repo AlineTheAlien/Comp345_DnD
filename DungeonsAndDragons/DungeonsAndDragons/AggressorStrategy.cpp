@@ -52,6 +52,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			int damageRoll;
 			int targetArmorClass;
 			int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
+			int maxTargetHP = static_cast<Character*>(targetCharacter)->getMaxHitPoints(); // get max HPs from target
 
 			
 			// Attack roll
@@ -74,7 +75,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 					break;
 				}
-				cout << "Player's Current Hit Point: " << targetHP << endl;
+				cout << "Player's Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
 				static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 			}
 			else {
@@ -88,7 +89,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 						break;
 					}
-					cout << "Player's Current Hit Point: " << targetHP << endl;
+					cout << "Player's Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
 					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 				}
 				else

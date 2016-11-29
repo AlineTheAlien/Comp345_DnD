@@ -57,6 +57,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 					int damageRoll;
 					int targetArmorClass;
 					int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
+					int maxTargetHP = static_cast<Character*>(targetCharacter)->getMaxHitPoints(); // get max HPs from target
 
 					// Attack roll
 					attackRoll = Dice::roll("1d20");
@@ -79,7 +80,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 							done = true;
 							break;
 						}
-						cout << "Enemy Current Hit Point: " << targetHP << endl;
+						cout << "Enemy Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
 						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 					}
 					else {
@@ -94,7 +95,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 								done = true;
 								break;
 							}
-							cout << "Enemy Current Hit Point: " << targetHP << endl;
+							cout << "Enemy Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
 							static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 						}
 						else
