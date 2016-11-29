@@ -311,8 +311,11 @@ void Play::placeCharacterOnMap(Map* map)
 	{
 		for (int j = 0; j < map->getMapX(); j++)
 		{
-			if (map->getTile(j, i) == 'P')
+			if (map->getTile(j, i) == 'P') {
 				map->setTile(j, i, character);
+				MapObject* player = map->getObjectTile(j, i);
+				static_cast<Character*>(player)->setStrategy(new HumanPlayerStrategy);
+			}
 		}
 	}
 	adaptMapToPlayer(map);
