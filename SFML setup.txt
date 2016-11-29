@@ -1,0 +1,30 @@
+http://www.sfml-dev.org/download/sfml/2.4.0/
+
+How to set-up SFML
+
+- Download latest SFML 32 bit Version for corresponding compiler (Visual Studio 2015) and unzip
+
+- Create new Visual C++ 32 bit Console Application project on Visual Studio
+
+Project Configuration:
+- Click on the Project tab and select Properties
+
+- Select C/C++ and the General tab
+
+- In "Additional Include Directories", add the path of the SFML library include folder
+  (Example : .../SFML 2.4/include/)
+
+- Select Linker and the General tab
+
+- In "Additional Library Directories", add the path of the SFML library lib folder
+  (Example : .../SFML 2.4/lib/)
+
+- Select Linker and the Input tab
+
+- In "Additional Dependencies, add the following : 
+   sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib; 
+
+- Copy the .dll files from the SFML library bin folder to the Visual Studio 2015 project folder
+   (Example : ...Visual Studio 2015/Projects/SMFL test/SFML test/)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
