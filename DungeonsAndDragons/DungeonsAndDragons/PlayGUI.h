@@ -29,7 +29,7 @@ public:
 	void Update();
 	void Display();
 	void Start();
-	void UpdateGUI();
+	//void UpdateGUI();
 	~PlayGUI();
 };
 
