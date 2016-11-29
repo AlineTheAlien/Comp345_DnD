@@ -137,11 +137,6 @@ private:
 		ar & backpack;
 		ar & currentLevel;
 		ar & characterName;
-		// Below weren't included, do we have to? - Ideawin
-		ar & armorClass;
-		ar & attackBonus;
-		ar & damageBonus;
-		ar & numberofAttacks;
 		ar & strategy;
 	}
 };
