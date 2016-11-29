@@ -563,8 +563,10 @@ void PlayGUI::openMapView()
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
 						subject->Detach(this);
-						subject = play->getCampaignMap(currentMap); // For observer pattern
-						subject->Attach(this);
+						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject = play->getCampaignMap(currentMap); // For Observer pattern
+							subject->Attach(this);
+						}
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
@@ -679,8 +681,10 @@ void PlayGUI::openMapView()
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
 						subject->Detach(this);
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
-						subject->Attach(this);
+						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject = play->getCampaignMap(currentMap); // For Observer pattern
+							subject->Attach(this);
+						}
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
@@ -798,8 +802,10 @@ void PlayGUI::openMapView()
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
 						subject->Detach(this);
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
-						subject->Attach(this);
+						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject = play->getCampaignMap(currentMap); // For Observer pattern
+							subject->Attach(this);
+						}
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
@@ -916,8 +922,10 @@ void PlayGUI::openMapView()
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
 						subject->Detach(this);
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
-						subject->Attach(this);
+						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject = play->getCampaignMap(currentMap); // For Observer pattern
+							subject->Attach(this);
+						}
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
