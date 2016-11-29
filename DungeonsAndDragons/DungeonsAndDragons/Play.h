@@ -38,6 +38,7 @@ public:
 	bool loadCharacter(string characterName);
 	int getAvailableCharactersSize();
 	int getCampaignSize();
+	bool playerIsAlive();
 	void startCombat(Map*, MapObject*, MapObject*);
 	string getAvailableCharacters(int index);
 	void createNewCharacter();

@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "PlayGUI.h"
-#include "Combat.h"
+
 
 PlayGUI::PlayGUI()
 {
@@ -410,11 +410,8 @@ void PlayGUI::openLoadCampaignWindow()
 
 void PlayGUI::openMapView()
 {
-	//vector<vector<sf::Sprite>> maps;
-	//int currentMap = play->getCurrentMap();
-	currentMap = play->getCurrentMap();
-	subject = play->getCampaignMap(currentMap);// For observer pattern
-	subject->Attach(this);
+	vector<vector<sf::Sprite>> maps;
+	int currentMap = play->getCurrentMap();
 
 	sf::Text modifyText;
 	sf::Text menuText;
@@ -561,18 +558,15 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap();
-						subject = play->getCampaignMap(currentMap); // For observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
-							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
+						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -583,80 +577,17 @@ void PlayGUI::openMapView()
 									currentPositionY = i;
 								}
 					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'E')
-					{
-						// If it's an enemy, you don't move and start combat mode
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* enemy = map->getObjectTile(j - 1, i);
-
-						Combat::startCombat(map, player, enemy);
-
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Player is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else
+					else
+						if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
 						{
-							cout << "Enemy is defeated." << endl;
-							int i = enemy->getMapY();
-							int j = enemy->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete enemy;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map,player);
+							if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
+							{
+								play->getCampaignMap(currentMap)->showMap();
+								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+								maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+								currentPositionX--;
+							}
 						}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'F')
-					{
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* npc = map->getObjectTile(j - 1, i);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
-						{
-							cout << "NPC is defeated." << endl;
-							int i = npc->getMapY();
-							int j = npc->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							delete npc;
-							map->movePlayer(j, i, player);
-							// Take all the fallen items
-							play->getCampaignMap(currentMap)->showMap();
-							Combat::activateNPC(map, player);
-						}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) != 'W')
-					{
-						if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
-						{
-							play->getCampaignMap(currentMap)->showMap();
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							currentPositionX--;
-							Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
-						}
-					}
 				}
 			}
 
@@ -668,18 +599,15 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap();
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
-							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
+						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -690,70 +618,6 @@ void PlayGUI::openMapView()
 									currentPositionY = i;
 								}
 					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'E')
-					{
-						// If it's an enemy, you don't move and start combat mode
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* enemy = map->getObjectTile(j + 1, i);
-						Combat::startCombat(map, player, enemy);
-
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else
-						{
-							cout << "Enemy is defeated." << endl;
-							int i = enemy->getMapY();
-							int j = enemy->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete enemy;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'F')
-					{
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* npc = map->getObjectTile(j + 1, i);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
-						{
-							cout << "NPC is defeated." << endl;
-							int i = npc->getMapY();
-							int j = npc->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete npc;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
-					}
 					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) != 'W')
 						{
@@ -763,7 +627,6 @@ void PlayGUI::openMapView()
 								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
 								maps[currentMap].at(currentPositionX + 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionX++;
-								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 							}
 						}
 				}
@@ -778,18 +641,15 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap();
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
-							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
+						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -800,70 +660,6 @@ void PlayGUI::openMapView()
 									currentPositionY = i;
 								}
 					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'E')
-					{
-						// If it's an enemy, you don't move and start combat mode
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* enemy = map->getObjectTile(j, i-1);
-						Combat::startCombat(map, player, enemy);
-
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else
-						{
-							cout << "Enemy is defeated." << endl;
-							int i = enemy->getMapY();
-							int j = enemy->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete enemy;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'F')
-					{
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* npc = map->getObjectTile(j, i - 1);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
-						{
-							cout << "NPC is defeated." << endl;
-							int i = npc->getMapY();
-							int j = npc->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete npc;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
-					}
 					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) != 'W')
 						{
@@ -873,7 +669,6 @@ void PlayGUI::openMapView()
 								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
 								maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionY--;
-								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 							}
 						}
 				}
@@ -887,18 +682,15 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap();
-						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
-							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
+						currentMap = play->getCurrentMap();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -907,71 +699,6 @@ void PlayGUI::openMapView()
 									currentPositionX = j;
 									currentPositionY = i;
 								}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'E')
-					{
-						// If it's an enemy, you don't move and start combat mode
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* enemy = map->getObjectTile(j, i + 1);
-						Combat::startCombat(map, player, enemy);
-
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else
-						{
-							cout << "Enemy is defeated." << endl;
-							int i = enemy->getMapY();
-							int j = enemy->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete enemy;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
-					}
-					else if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'F')
-					{
-						cout << "You encountered a friend!" << endl;
-						Map* map = play->getCampaignMap(currentMap);
-						int j = currentPositionX;
-						int i = currentPositionY;
-						MapObject* player = play->getCharacter();
-						MapObject* npc = map->getObjectTile(j, i + 1);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
-						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
-							cout << "Played is defeated." << endl;
-							state.setLaunchState(LaunchState::MENU);
-							return;
-						}
-						else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
-						{
-							cout << "NPC is defeated." << endl;
-							int i = npc->getMapY();
-							int j = npc->getMapX();
-							int iPlayer = player->getMapY();
-							int jPlayer = player->getMapX();
-							// Take all the fallen items
-							delete npc;
-							map->movePlayer(j, i, player);
-							play->getCampaignMap(currentMap)->showMap();
-							currentPositionX = j;
-							currentPositionY = i;
-							maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-							Combat::activateNPC(map, player);
-						}
 					}
 					else
 						if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) != 'W')
@@ -982,7 +709,6 @@ void PlayGUI::openMapView()
 								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
 								maps[currentMap].at(currentPositionX + (currentPositionY + 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionY++;
-								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 							}
 						}
 				}
@@ -1039,8 +765,6 @@ void PlayGUI::openMapView()
 				if (menuButton.contains(mousePosition))
 				{
 					play->setCurrentMap(0);
-					currentMap = play->getCurrentMap();
-					subject = play->getCampaignMap(currentMap); // For observer pattern
 					state.setLaunchState(LaunchState::MENU);
 					return;
 				}
@@ -1147,6 +871,13 @@ void PlayGUI::openMapView()
 								}
 		}
 
+		if (!play->playerIsAlive())
+		{
+			play->setCurrentMap(0);
+			state.setLaunchState(LaunchState::MENU);
+			return;
+		}
+
 		window->clear();
 		for (int i = 0; i < maps[currentMap].size(); i++)
 			window->draw(maps[currentMap].at(i));
@@ -1157,39 +888,6 @@ void PlayGUI::openMapView()
 		window->draw(eventText);
 		window->draw(diceText);
 		window->display();
-	}
-}
-
-void PlayGUI::UpdateGUI() {
-	if (subject != NULL) {
-		int type;
-		for (int i = 0; i < subject->getMapY(); i++)
-		{
-			for (int j = 0; j < subject->getMapX(); j++)
-			{
-				MapObject* object = subject->getObjectTile(j, i);
-				if (object == NULL) {
-					maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-				}
-				else
-				{
-					type = subject->getTile(j, i);
-					if (type == 'F') {
-						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getFriendlyTexture());
-					}
-					if (type == 'E') {
-						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getEnemyTexture());
-					}
-					if (type == 'P') {
-						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
-					}
-					if (type == 'C') {
-						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getTreasureTexture());
-					}
-				}
-				
-			}
-		}
 	}
 }
 
