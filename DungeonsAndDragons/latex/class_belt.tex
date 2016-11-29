@@ -1,0 +1,104 @@
+\hypertarget{class_belt}{}\section{Belt Class Reference}
+\label{class_belt}\index{Belt@{Belt}}
+
+
+Class for the implementation of a belt.  
+
+
+
+
+{\ttfamily \#include $<$Belt.\+h$>$}
+
+Inheritance diagram for Belt\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_belt}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_belt_a6dc40c21b5a62c71925df189511d7551}{}\label{class_belt_a6dc40c21b5a62c71925df189511d7551} 
+\hyperlink{class_belt_a6dc40c21b5a62c71925df189511d7551}{Belt} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_belt_ab54648057c8b264df3ffb71c4408a546}{Belt} (string name, int constitution, int strength)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_belt_aa29331f3e861aea90a39e5e723ccb562}{Belt} (string name, vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$ enhancements)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_belt_ab374477dd9d966e6e6b81b3699afd939}{validate\+Item} ()
+\begin{DoxyCompactList}\small\item\em Overrided method to validate that the armor only enhances \textquotesingle{}C\+O\+N\+S\+T\+I\+T\+U\+T\+I\+ON\textquotesingle{} and \textquotesingle{}S\+T\+R\+E\+N\+G\+TH\textquotesingle{} and verify that the bonus values are within \mbox{[}1..5\mbox{]}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_belt_ac98d07dd8f7b70e16ccb9a01abf56b9c}{}\label{class_belt_ac98d07dd8f7b70e16ccb9a01abf56b9c} 
+class \hyperlink{class_belt_ac98d07dd8f7b70e16ccb9a01abf56b9c}{boost\+::serialization\+::access}
+\begin{DoxyCompactList}\small\item\em serialization \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class for the implementation of a belt. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_belt_ab54648057c8b264df3ffb71c4408a546}{}\label{class_belt_ab54648057c8b264df3ffb71c4408a546} 
+\index{Belt@{Belt}!Belt@{Belt}}
+\index{Belt@{Belt}!Belt@{Belt}}
+\subsubsection{\texorpdfstring{Belt()}{Belt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Belt\+::\+Belt (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{int}]{constitution\+Bonus,  }\item[{int}]{strength\+Bonus }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor that calls an \hyperlink{class_item}{Item} constructor 
+\begin{DoxyParams}{Parameters}
+{\em name} & \+: Name of the belt item \\
+\hline
+{\em constitution\+Bonus} & \+: Integer representing the enhancement bonus for the stats Constitution \\
+\hline
+{\em strength\+Bonus} & \+: Integer representing the enhancement bonus for the stats Strength \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_belt_aa29331f3e861aea90a39e5e723ccb562}{}\label{class_belt_aa29331f3e861aea90a39e5e723ccb562} 
+\index{Belt@{Belt}!Belt@{Belt}}
+\index{Belt@{Belt}!Belt@{Belt}}
+\subsubsection{\texorpdfstring{Belt()}{Belt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Belt\+::\+Belt (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{vector$<$ \hyperlink{class_enhancement}{Enhancement} $>$}]{enhancements }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor taking a vector of enhancements as parameter It also calls an \hyperlink{class_item}{Item} constructor and pass a vector of enhancements as parameter. 
+\begin{DoxyParams}{Parameters}
+{\em name} & \+: Name of the belt item \\
+\hline
+{\em enhancements} & \+: Vector of enhancements \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_belt_ab374477dd9d966e6e6b81b3699afd939}{}\label{class_belt_ab374477dd9d966e6e6b81b3699afd939} 
+\index{Belt@{Belt}!validate\+Item@{validate\+Item}}
+\index{validate\+Item@{validate\+Item}!Belt@{Belt}}
+\subsubsection{\texorpdfstring{validate\+Item()}{validateItem()}}
+{\footnotesize\ttfamily bool Belt\+::validate\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Overrided method to validate that the armor only enhances \textquotesingle{}C\+O\+N\+S\+T\+I\+T\+U\+T\+I\+ON\textquotesingle{} and \textquotesingle{}S\+T\+R\+E\+N\+G\+TH\textquotesingle{} and verify that the bonus values are within \mbox{[}1..5\mbox{]}. 
+
+Overrided method to validate that the armor only enhances \textquotesingle{}C\+O\+N\+S\+T\+I\+T\+U\+T\+I\+ON\textquotesingle{} and \textquotesingle{}S\+T\+R\+E\+N\+G\+TH\textquotesingle{} and verify that the bonus values are within \mbox{[}1..5\mbox{]} \begin{DoxyReturn}{Returns}
+True if the enhancement list is valid according to the rules, false if not 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_item_a6603371b60aaded48f697975c81fc25b}{Item}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_belt_8h}{Belt.\+h}\item 
+\hyperlink{_belt_8cpp}{Belt.\+cpp}\end{DoxyCompactItemize}

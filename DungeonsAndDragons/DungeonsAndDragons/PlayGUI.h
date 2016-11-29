@@ -1,3 +1,5 @@
+//! @file 
+//! @brief Header file for PlayGUI class
 #pragma once
 #include "Play.h"
 #include <SFML/Graphics.hpp>
@@ -9,6 +11,7 @@ class PlayGUI
 {
 private:
 	Play* play;
+	//!GUI textures
 	Resources textures;
 	Launch* launch;
 	sf::RenderWindow *window;

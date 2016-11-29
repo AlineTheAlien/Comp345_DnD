@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for Dice class
+
 // Dice.cpp : Defines the entry point for the console application.
 //
 #include "stdafx.h"
@@ -6,6 +9,9 @@
 Dice::Dice() : rollResult(0)
 {}
 
+//! Checks if input string is syntatically valid
+/// @param test : a string test that needs to be validated
+/// @return true or false
 bool Dice::isValid(string test)
 {
 	//remove all whitespaces, meaning a string such as "3    d    6    +  1" can be accepted
@@ -17,6 +23,9 @@ bool Dice::isValid(string test)
 	return found;
 }
 
+//! Main funtion to roll the dice
+/// @param diceString : string input containing dice info
+/// @return result of the roll
 int Dice::roll(string diceString)
 {
 	Dice myDice;
@@ -25,7 +34,7 @@ int Dice::roll(string diceString)
 	if (isValid(diceString)) {
 		vector<int> arr;
 		const std::regex r("[0-9]+");
-		//i f valid, store all thedigits from the string into a vector of size max 3, containing the values x, y, and optionally, z.
+		//if valid, store all thedigits from the string into a vector of size max 3, containing the values x, y, and optionally, z.
 		for (std::sregex_iterator N(diceString.begin(), diceString.end(), r); N != std::sregex_iterator(); ++N)
 		{
 			std::stringstream SS(*N->begin());

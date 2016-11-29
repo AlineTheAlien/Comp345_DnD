@@ -1,0 +1,95 @@
+\hypertarget{class_map_object}{}\section{Map\+Object Class Reference}
+\label{class_map_object}\index{Map\+Object@{Map\+Object}}
+
+
+Class for the implementation of a superclass which consists of all objects that can be added onto the map.  
+
+
+
+
+{\ttfamily \#include $<$Map\+Object.\+h$>$}
+
+Inheritance diagram for Map\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_map_object_a568754515cc72ce0861d30c3040d26d2}{}\label{class_map_object_a568754515cc72ce0861d30c3040d26d2} 
+\hyperlink{class_map_object_a568754515cc72ce0861d30c3040d26d2}{Map\+Object} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_map_object_a6d1c6e3754501b52af5a79a3322f0fba}{Map\+Object} (char type)
+\item 
+char \hyperlink{class_map_object_af740b1d1e4c4bbdb8727eeadcea0d008}{get\+Object\+Type} ()
+\item 
+void \hyperlink{class_map_object_a8a0fb292fa5e3262f304baeaa5db39fc}{set\+Object\+Type} (char type)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_map_object_ae39a5ef412aa349b2e9b329fad940b2d}{}\label{class_map_object_ae39a5ef412aa349b2e9b329fad940b2d} 
+char {\bfseries object\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_map_object_ac98d07dd8f7b70e16ccb9a01abf56b9c}{boost\+::serialization\+::access}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for the implementation of a superclass which consists of all objects that can be added onto the map. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_map_object_a6d1c6e3754501b52af5a79a3322f0fba}{}\label{class_map_object_a6d1c6e3754501b52af5a79a3322f0fba} 
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\index{Map\+Object@{Map\+Object}!Map\+Object@{Map\+Object}}
+\subsubsection{\texorpdfstring{Map\+Object()}{MapObject()}}
+{\footnotesize\ttfamily Map\+Object\+::\+Map\+Object (\begin{DoxyParamCaption}\item[{char}]{type }\end{DoxyParamCaption})}
+
+Constructor 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: Type of the object on the map as a char value \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_map_object_af740b1d1e4c4bbdb8727eeadcea0d008}{}\label{class_map_object_af740b1d1e4c4bbdb8727eeadcea0d008} 
+\index{Map\+Object@{Map\+Object}!get\+Object\+Type@{get\+Object\+Type}}
+\index{get\+Object\+Type@{get\+Object\+Type}!Map\+Object@{Map\+Object}}
+\subsubsection{\texorpdfstring{get\+Object\+Type()}{getObjectType()}}
+{\footnotesize\ttfamily char Map\+Object\+::get\+Object\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to obtain the type of the map object \begin{DoxyReturn}{Returns}
+A map object type as a char value 
+\end{DoxyReturn}
+\hypertarget{class_map_object_a8a0fb292fa5e3262f304baeaa5db39fc}{}\label{class_map_object_a8a0fb292fa5e3262f304baeaa5db39fc} 
+\index{Map\+Object@{Map\+Object}!set\+Object\+Type@{set\+Object\+Type}}
+\index{set\+Object\+Type@{set\+Object\+Type}!Map\+Object@{Map\+Object}}
+\subsubsection{\texorpdfstring{set\+Object\+Type()}{setObjectType()}}
+{\footnotesize\ttfamily void Map\+Object\+::set\+Object\+Type (\begin{DoxyParamCaption}\item[{char}]{type }\end{DoxyParamCaption})}
+
+set the type of an object 
+\begin{DoxyParams}{Parameters}
+{\em type} & \+: Type of the object on the map as a char value \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_map_object_ac98d07dd8f7b70e16ccb9a01abf56b9c}{}\label{class_map_object_ac98d07dd8f7b70e16ccb9a01abf56b9c} 
+\index{Map\+Object@{Map\+Object}!boost\+::serialization\+::access@{boost\+::serialization\+::access}}
+\index{boost\+::serialization\+::access@{boost\+::serialization\+::access}!Map\+Object@{Map\+Object}}
+\subsubsection{\texorpdfstring{boost\+::serialization\+::access}{boost::serialization::access}}
+{\footnotesize\ttfamily friend class boost\+::serialization\+::access\hspace{0.3cm}{\ttfamily [friend]}}
+
+Serialization When the class Archive corresponds to an output archive, the \& operator is defined similar to $<$$<$. Likewise, when the class Archive is a type of input archive the \& operator is defined similar to $>$$>$. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_map_object_8h}{Map\+Object.\+h}\item 
+\hyperlink{_map_object_8cpp}{Map\+Object.\+cpp}\end{DoxyCompactItemize}

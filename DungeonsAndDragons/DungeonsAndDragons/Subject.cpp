@@ -1,5 +1,5 @@
 //! @file 
-//! @brief Cpp file for Subject class
+//! @brief Implementation file for Subject class
 
 #include "stdafx.h"
 #include "Subject.h"

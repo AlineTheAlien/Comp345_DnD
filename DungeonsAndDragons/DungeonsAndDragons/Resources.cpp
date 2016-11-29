@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for Resources class
+
 #include "stdafx.h"
 #include "Resources.h"
 
@@ -49,6 +52,13 @@ Resources::Resources()
 		cout << "Error loading texture..." << endl;
 		exit(1);
 	}
+
+	if (!friendlyTexture.loadFromFile("Textures/FriendlyTile.png"))
+	{
+		//error
+		cout << "Error loading texture..." << endl;
+		exit(1);
+	}
 }
 
 
@@ -92,6 +102,11 @@ const sf::Texture&  Resources::getGroundTexture()
 const sf::Texture&  Resources::getWallTexture()
 {
 	return wallTexture;
+}
+
+const sf::Texture& Resources::getFriendlyTexture()
+{
+	return friendlyTexture;
 }
 
 Resources::~Resources()

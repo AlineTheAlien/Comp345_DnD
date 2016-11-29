@@ -1,3 +1,6 @@
+//! @file 
+//! @brief Implementation file for EditorGUI class
+
 #include "stdafx.h"
 #include "EditorGUI.h"
 
@@ -797,6 +800,7 @@ void EditorGUI::openMapView()
 	sf::FloatRect doorButton;
 	sf::FloatRect treasureButton;
 	sf::FloatRect enemyButton;
+	sf::FloatRect friendButton;
 	sf::FloatRect saveButton;
 	sf::FloatRect backButton;
 
@@ -806,6 +810,7 @@ void EditorGUI::openMapView()
 	sf::Text doorText;
 	sf::Text treasureText;
 	sf::Text enemyText;
+	sf::Text friendText;
 	sf::Text saveText;
 	sf::Text backText;
 
@@ -820,6 +825,7 @@ void EditorGUI::openMapView()
 	bool doorClicked = false;
 	bool treasureClicked = false;
 	bool enemyClicked = false;
+	bool friendClicked = false;
 	bool saveClicked = false;
 	bool backClicked = false;
 
@@ -858,6 +864,11 @@ void EditorGUI::openMapView()
 	enemyText.setStyle(sf::Text::Italic);
 	enemyText.setCharacterSize(15);
 
+	friendText.setString("Friend");
+	friendText.setFont(textFont);
+	friendText.setStyle(sf::Text::Italic);
+	friendText.setCharacterSize(15);
+
 	saveText.setString("Save");
 	saveText.setFont(textFont);
 	saveText.setStyle(sf::Text::Italic);
@@ -874,6 +885,7 @@ void EditorGUI::openMapView()
 	doorText.setPosition(sf::Vector2f(400, 700));
 	wallText.setPosition(sf::Vector2f(500, 700));
 	treasureText.setPosition(sf::Vector2f(600, 700));
+	friendText.setPosition(sf::Vector2f(300, 750));
 	saveText.setPosition(sf::Vector2f(670, 300));
 	backText.setPosition(sf::Vector2f(670, 400));
 
@@ -882,6 +894,7 @@ void EditorGUI::openMapView()
 	playerButton = playerText.getGlobalBounds();
 	enemyButton = enemyText.getGlobalBounds();
 	treasureButton = treasureText.getGlobalBounds();
+	friendButton = friendText.getGlobalBounds();
 	doorButton = doorText.getGlobalBounds();
 	saveButton = saveText.getGlobalBounds();
 	backButton = backText.getGlobalBounds();
@@ -892,6 +905,7 @@ void EditorGUI::openMapView()
 	buttons.push_back(doorButton);
 	buttons.push_back(wallButton);
 	buttons.push_back(treasureButton);
+	buttons.push_back(friendButton);
 
 	texts.push_back(groundText);
 	texts.push_back(playerText);
@@ -899,6 +913,7 @@ void EditorGUI::openMapView()
 	texts.push_back(doorText);
 	texts.push_back(wallText);
 	texts.push_back(treasureText);
+	texts.push_back(friendText);
 
 	clicked.push_back(groundClicked);
 	clicked.push_back(playerClicked);
@@ -906,6 +921,7 @@ void EditorGUI::openMapView()
 	clicked.push_back(doorClicked);
 	clicked.push_back(wallClicked);
 	clicked.push_back(treasureClicked);
+	clicked.push_back(friendClicked);
 
 
 	cout << "Map View " << endl;
@@ -926,6 +942,8 @@ void EditorGUI::openMapView()
 				mapTiles.back().setTexture(textures.getWallTexture());
 			if (mapEditor->getTile(j, i) == 'E')
 				mapTiles.back().setTexture(textures.getEnemyTexture());
+			if (mapEditor->getTile(j, i) == 'F')
+				mapTiles.back().setTexture(textures.getFriendlyTexture());
 			mapTiles.back().setPosition(j * mapTiles.back().getLocalBounds().width, i * mapTiles.back().getLocalBounds().height);
 			//mapTiles.back().setOrigin(mapTiles.back().getLocalBounds().width / 2, mapTiles.back().getLocalBounds().height / 2);
 			cout << mapEditor->getTile(j, i) << " ";
@@ -975,6 +993,8 @@ void EditorGUI::openMapView()
 							selectedTile = 'W';
 						if (clicked.at(5))
 							selectedTile = 'C';
+						if (clicked.at(6))
+							selectedTile = 'F';
 
 						cout << "Current Tile Selection : " << selectedTile << endl;
 					}
@@ -1024,6 +1044,13 @@ void EditorGUI::openMapView()
 								MapObject* enemy = new MapObject('E');
 								enemy->setObjectType('E');
 								mapEditor->setTile(j, i, enemy);
+							}
+							if (selectedTile == 'F')
+							{
+								mapTiles.at(index).setTexture(textures.getFriendlyTexture());
+								MapObject* newFriend = new MapObject('F');
+								newFriend->setObjectType('F');
+								mapEditor->setTile(j, i, newFriend);
 							}
 							if (selectedTile == 'C')
 							{
@@ -1711,6 +1738,8 @@ void EditorGUI::openCampaignView()
 					mapTiles.back().setTexture(textures.getWallTexture());
 				if (currentTile == 'E')
 					mapTiles.back().setTexture(textures.getEnemyTexture());
+				if (currentTile == 'F')
+					mapTiles.back().setTexture(textures.getFriendlyTexture());
 				mapTiles.back().setPosition(k * mapTiles.back().getLocalBounds().width, j * mapTiles.back().getLocalBounds().height);
 				//mapTiles.back().setOrigin(mapTiles.back().getLocalBounds().width / 2, mapTiles.back().getLocalBounds().height / 2);
 				cout << currentTile << " ";

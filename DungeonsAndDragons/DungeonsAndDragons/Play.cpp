@@ -1,5 +1,11 @@
+//! @file 
+//! @brief Implementation file for the Play class  
+//!
 #include "stdafx.h"
 #include "Play.h"
+#include "Director.h"
+#include "MonsterBuilder.h"
+#include "FriendlyBuilder.h"
 
 
 Play::Play()
@@ -46,8 +52,8 @@ void Play::levelUpCharacter()
 	saveCharacter(character->getCharacterName());
 }
 
-void Play::adaptMapToPlayer(Map* map)
-{
+void Play::adaptMapToPlayer(Map* map){
+	mbuilder->setPlayerLevel(character->getCurrentLevel());	
 	mbuilder->setMap(map); // set the current map for the map builder
 	for (int i = 0; i < map->getMapY(); i++)
 	{
@@ -56,13 +62,29 @@ void Play::adaptMapToPlayer(Map* map)
 			if (map->getTile(j, i) == 'E') {
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
-				MapObject* enemy = new Character('E', 12, 12, 12, 12, 12 ,12);
+				Director director;
+				Character* enemy;
+				CharacterBuilder* monsterBuilder = new MonsterBuilder;
+				director.setCharacterBuilder(monsterBuilder);
+				director.constructCharacter();
+				enemy = director.getCharacter();
 				mbuilder->buildCharacter('E', j, i, enemy);
 			}
 			if (map->getTile(j, i) == 'C') {
 				MapObject* chest = map->getObjectTile(j, i);
 				vector<Item*> items = static_cast<ItemContainer*>(chest)->getItems(); // store a copy of items
 				mbuilder->buildContainer(j, i, items);
+			}
+			if (map->getTile(j, i) == 'F') {
+				delete map->getObjectTile(j, i);
+				map->setTile(j, i, NULL);
+				Director director;
+				Character* friendlyenemy;
+				CharacterBuilder* friendlybuilder = new FriendlyBuilder;
+				director.setCharacterBuilder(friendlybuilder);
+				director.constructCharacter();
+				friendlyenemy = director.getCharacter();
+				mbuilder->buildCharacter('F', j, i, friendlyenemy);
 			}
 		}
 	}
@@ -111,7 +133,6 @@ void Play::setAvailableCampaigns()
 	cout << "Available campaigns : ";
 	for (; i != boost::filesystem::directory_iterator(); i++)
 	{
-		//cout << i->path().filename().string() << endl;
 		availableCampaigns.push_back(i->path().filename().string());
 		cout << i->path().filename().string() << ", ";
 	}
@@ -172,7 +193,6 @@ void Play::setAvailableCharacters()
 	cout << "Available characters : ";
 	for (; i != boost::filesystem::directory_iterator(); i++)
 	{
-		//cout << i->path().filename().string() << endl;
 		availableCharacters.push_back(i->path().filename().string());
 		cout << i->path().filename().string() << ", ";
 	}
@@ -199,11 +219,45 @@ bool Play::loadCharacter(string characterName) {
 	ar.template register_type<Belt>();
 	//read class state from archive
 	ar >> character;
+
+	cout << character->getCurrentLevel() << endl;
+	
+	//from here on, we are setting all the attributes that we have not loaded
+	int modifiers[6];
+
+	character->assignAbilityModifiers(modifiers);
+
+	sort(modifiers, modifiers + 6, greater<int>());
+
+	character->setDexterityModifier(modifiers[0]);
+	character->setConstitutionModifier(modifiers[1]);
+	character->setStrengthModifier(modifiers[2]);
+	character->setIntelligenceModifier(modifiers[3]);
+	character->setCharismaModifier(modifiers[4]);
+	character->setWisdomModifier(modifiers[5]);
+
+	//set hit points as 10 summed with the character's calculated  constitution modifier
+	character->setCurrentHitPoints(10 + character->getConstitutionModifier());
+
+	//Initially, as character is not hit, the maximum HP is the same as the current HP
+	character->setMaxHitPoints(character->getHitPoints());
+
+	//Depending on type of armor worn, armor class differs
+	//Default armor class will be 11 + dexterity modifier, as I don't have access to the Items class yet
+	character->setArmorClass(11 + character->getDexterityModifier());
+
+	//Attack bonus, is based on strength modifier, dexterity modifier, and level
+	//In the default constructor, level is 0 therefore attack bonus is just based on strength + dexterity modifiers
+	character->setAttackBonus(character->getStrengthModifier() + character->getDexterityModifier());
+
+	//Damage bonus, based on strength modifier
+	character->setDamageBonus(character->getStrengthModifier());
+
+
 	character->displayCharacterInfo();
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
 	cout << character->getObjectType() << endl;
-	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	ifs.close();
 	//Check validity of the campaign
 	return true;

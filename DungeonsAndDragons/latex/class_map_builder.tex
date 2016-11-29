@@ -1,0 +1,80 @@
+\hypertarget{class_map_builder}{}\section{Map\+Builder Class Reference}
+\label{class_map_builder}\index{Map\+Builder@{Map\+Builder}}
+
+
+Class for the implementation of a \hyperlink{class_map_builder}{Map\+Builder}.  
+
+
+
+
+{\ttfamily \#include $<$Map\+Builder.\+h$>$}
+
+Inheritance diagram for Map\+Builder\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_map_builder}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_map_builder_a15fd21ef4019954fd7a09c6c6d33de34}{}\label{class_map_builder_a15fd21ef4019954fd7a09c6c6d33de34} 
+virtual void {\bfseries build\+Character} (char, int, int, \hyperlink{class_map_object}{Map\+Object} $\ast$)=0
+\item 
+\hypertarget{class_map_builder_a7c95f41ce6057ca116298837bb11795d}{}\label{class_map_builder_a7c95f41ce6057ca116298837bb11795d} 
+virtual void {\bfseries build\+Container} (int, int, vector$<$ \hyperlink{class_item}{Item} $\ast$$>$ \&)=0
+\item 
+\hyperlink{class_map}{Map} $\ast$ \hyperlink{class_map_builder_a6ea698affc46e8fab291eaf7b3ae8547}{get\+Map} ()
+\item 
+void \hyperlink{class_map_builder_aa8a9483778deb9083c5704b557adefdd}{set\+Map} (\hyperlink{class_map}{Map} $\ast$m)
+\item 
+void \hyperlink{class_map_builder_a6d61977f2e49d1113c37352249f808c7}{set\+Player\+Level} (int player\+Level)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_map_builder_a92d737b9ed6aeb247ac5cf9b3f226f70}{}\label{class_map_builder_a92d737b9ed6aeb247ac5cf9b3f226f70} 
+\hyperlink{class_map}{Map} $\ast$ {\bfseries map}
+\item 
+\hypertarget{class_map_builder_a8850fe2b8a73585561fd7ffcaef76555}{}\label{class_map_builder_a8850fe2b8a73585561fd7ffcaef76555} 
+int {\bfseries player\+Level}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class for the implementation of a \hyperlink{class_map_builder}{Map\+Builder}. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_map_builder_a6ea698affc46e8fab291eaf7b3ae8547}{}\label{class_map_builder_a6ea698affc46e8fab291eaf7b3ae8547} 
+\index{Map\+Builder@{Map\+Builder}!get\+Map@{get\+Map}}
+\index{get\+Map@{get\+Map}!Map\+Builder@{Map\+Builder}}
+\subsubsection{\texorpdfstring{get\+Map()}{getMap()}}
+{\footnotesize\ttfamily \hyperlink{class_map}{Map}$\ast$ Map\+Builder\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method to get map return A pointer to a map \hypertarget{class_map_builder_aa8a9483778deb9083c5704b557adefdd}{}\label{class_map_builder_aa8a9483778deb9083c5704b557adefdd} 
+\index{Map\+Builder@{Map\+Builder}!set\+Map@{set\+Map}}
+\index{set\+Map@{set\+Map}!Map\+Builder@{Map\+Builder}}
+\subsubsection{\texorpdfstring{set\+Map()}{setMap()}}
+{\footnotesize\ttfamily void Map\+Builder\+::set\+Map (\begin{DoxyParamCaption}\item[{\hyperlink{class_map}{Map} $\ast$}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Method to set a map 
+\begin{DoxyParams}{Parameters}
+{\em m} & \+: Pointer to a map \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_map_builder_a6d61977f2e49d1113c37352249f808c7}{}\label{class_map_builder_a6d61977f2e49d1113c37352249f808c7} 
+\index{Map\+Builder@{Map\+Builder}!set\+Player\+Level@{set\+Player\+Level}}
+\index{set\+Player\+Level@{set\+Player\+Level}!Map\+Builder@{Map\+Builder}}
+\subsubsection{\texorpdfstring{set\+Player\+Level()}{setPlayerLevel()}}
+{\footnotesize\ttfamily void Map\+Builder\+::set\+Player\+Level (\begin{DoxyParamCaption}\item[{int}]{player\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+method to set the level of a player 
+\begin{DoxyParams}{Parameters}
+{\em player\+Level} & \+: level of player \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_map_builder_8h}{Map\+Builder.\+h}\end{DoxyCompactItemize}

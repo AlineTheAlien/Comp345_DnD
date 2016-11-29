@@ -14,7 +14,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	level = static_cast<Character*>(character)->getCurrentLevel();
 	currentHP = static_cast<Character*>(character)->getHitPoints();
 	totalHP = static_cast<Character*>(character)->getMaxHitPoints();
-	str= static_cast<Character*>(character)->getStrengthScore();
+	str = static_cast<Character*>(character)->getStrengthScore();
 	dex = static_cast<Character*>(character)->getDexterityScore();
 	con = static_cast<Character*>(character)->getConstitutionScore();
 	intel = static_cast<Character*>(character)->getIntelligenceScore();
@@ -40,7 +40,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 	if (playerLevel > level) {
 		while (bonus != 0) {
 			randIndex = rand() % 6; // There are six ability scores inside the array, randomly get an index
-			// Max scores for an ability is 30, if it reaches 30, it won't do anything
+									// Max scores for an ability is 30, if it reaches 30, it won't do anything
 			if (abilityScores[randIndex] != 30) {
 				abilityScores[randIndex] += 1;
 				bonus--;
@@ -70,7 +70,7 @@ void ConcreteBuilderA::buildCharacter(char type, int j, int i, MapObject* charac
 		totalHP -= (differenceInConstitution + sum);
 	}
 	// Set all the attributes of the character
-	character->setObjectType('E');
+	character->setObjectType(type);
 	static_cast<Character*>(character)->setLevel(playerLevel);
 	static_cast<Character*>(character)->setCurrentHitPoints(currentHP);
 	static_cast<Character*>(character)->setTotalHitPoints(totalHP);

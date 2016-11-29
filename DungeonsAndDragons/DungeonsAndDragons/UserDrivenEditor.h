@@ -1,3 +1,5 @@
+//! @file 
+//! @brief Header file for UserDrivenEditor class
 #pragma once
 #include "ItemContainer.h"
 #include "CharacterObserver.h"

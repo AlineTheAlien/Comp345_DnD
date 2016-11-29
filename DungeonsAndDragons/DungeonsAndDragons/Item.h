@@ -51,10 +51,10 @@ public:
 	void displayEnhancements();
 	virtual bool validateItem();
 
-	// Serialization
-	// When the class Archive corresponds to an output archive, the
-	// & operator is defined similar to <<. Likewise, when the class Archive
-	// is a type of input archive the & operator is defined similar to >>.
+	//! Serialization
+	//! When the class Archive corresponds to an output archive, the
+	//! & operator is defined similar to <<. Likewise, when the class Archive
+	//! is a type of input archive the & operator is defined similar to >>.
 private:
 	friend class boost::serialization::access;
 	template<class Archive>

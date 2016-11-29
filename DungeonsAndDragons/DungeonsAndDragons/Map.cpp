@@ -34,7 +34,6 @@ Map::Map(int x, int y)
 		y = MAX_LENGTH;
 	mapX = x;
 	mapY = y;
-	//map = new char[mapX * mapY];
 
 	for (int i = 0; i < mapX * mapY; i++) {
 		MapObject* p = NULL;
@@ -155,7 +154,7 @@ void Map::setTile(int x, int y, MapObject* object)
 		}
 
 		if (object->getObjectType() != EMPTY && object->getObjectType() != ENEMY && object->getObjectType() != DOOR &&
-			object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST)
+			object->getObjectType() != WALL && object->getObjectType() != PLAYER && object->getObjectType() != CHEST && object->getObjectType() != FRIEND)
 		{
 			cout << "Invalid object input for setTile, an empty object was placed" << endl;
 			return;
@@ -211,6 +210,10 @@ MapObject* Map::getObjectTile(int x, int y)
 	return map[x + y * mapX];
 }
 
+//! Implementation movePlayer to move player on the map on the desired cell
+//! empties the cell of the previous position occupied by player
+//! @param x : an integer value of the vertical index of the map's grid
+//! @param y : an integer value of the horizontal index of the map's grid
 void Map::movePlayer(int x, int y, MapObject* object)
 {
 	if (object->getObjectType() == PLAYER)

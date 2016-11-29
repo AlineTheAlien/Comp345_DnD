@@ -1,5 +1,5 @@
 //! @file 
-//! @brief Implementation file for the Item class  
+//! @brief Implementation file for the Enhancement class  
 //!
 
 #include "stdafx.h"

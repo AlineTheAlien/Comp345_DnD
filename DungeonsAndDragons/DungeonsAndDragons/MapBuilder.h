@@ -1,3 +1,5 @@
+//! @file 
+//! Builder design pattern for map
 #pragma once
 #include "Map.h"
 #include "MapObject.h"
@@ -23,6 +25,8 @@ public:
 		map = m;
 	}
 
+	//!method to set the level of a player 
+	//! @param playerLevel : level of player
 	void setPlayerLevel(int playerLevel) {
 		this->playerLevel = playerLevel;
 	}
