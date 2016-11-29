@@ -260,6 +260,55 @@ void Map::showMap()
 	cout << endl;
 }
 
+//! Method to verify that a character is nearby
+//! @param character : The targeted character
+//! @param i : Position i of the player
+//! @param j : Position j of the player
+bool Map::verifyNearbyCharacter(MapObject* targetCharacter, int j, int i)
+{
+	bool check = false;
+	int iOtherCharacter;
+	int jOtherCharacter;
+
+	if (targetCharacter != NULL) {
+		iOtherCharacter = targetCharacter->getMapY();
+		jOtherCharacter = targetCharacter->getMapX();
+		// If other character at the top
+		if (i - 1 == iOtherCharacter && j == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the left
+		if (i == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the right
+		if (i == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at the bottom
+		if (i + 1 == iOtherCharacter && j == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at top left
+		if (i - 1 == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at top right
+		if (i - 1 == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at bottom left
+		if (i + 1 == iOtherCharacter && j - 1 == jOtherCharacter) {
+			check = true;
+		}
+		// If other character at bottom right
+		if (i + 1 == iOtherCharacter && j + 1 == jOtherCharacter) {
+			check = true;
+		}
+	}
+	return check; // If other targeted character is not nearby, return false
+}
+
 Map::~Map()
 {
 	//for (int i = 0; i < map.size(); i++) {

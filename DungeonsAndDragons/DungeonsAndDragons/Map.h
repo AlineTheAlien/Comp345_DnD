@@ -83,6 +83,7 @@ public:
 	int getMapY();
 	int getMapX();
 	char getTile(int x, int y);
+	bool verifyNearbyCharacter(MapObject*, int, int);
 	MapObject* getObjectTile(int x, int y);
 	bool isOccupied(int x, int y);
 	void showMap();
