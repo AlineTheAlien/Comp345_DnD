@@ -142,6 +142,7 @@ private:
 		ar & attackBonus;
 		ar & damageBonus;
 		ar & numberofAttacks;
+		ar & strategy;
 	}
 };
 

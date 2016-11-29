@@ -34,7 +34,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
 				if (nearby)
 					break;
-				Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
+				//Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
 				numOfMoves--;
 				if (numOfMoves < 0)
 					numOfAttack--;

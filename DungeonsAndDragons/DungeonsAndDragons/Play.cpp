@@ -7,9 +7,6 @@
 #include "MonsterBuilder.h"
 #include "FriendlyBuilder.h"
 #include "HumanPlayerStrategy.h"
-#include "AggressorStrategy.h"
-#include "FriendlyStrategy.h"
-#include "Combat.h"
 
 Play::Play()
 {
@@ -57,8 +54,8 @@ void Play::levelUpCharacter()
 
 //! Method to adapt the map to a player
 //! @param map : Pointer to a map object
-void Play::adaptMapToPlayer(Map* map){
-	mbuilder->setPlayerLevel(character->getCurrentLevel());	
+void Play::adaptMapToPlayer(Map* map) {
+	mbuilder->setPlayerLevel(character->getCurrentLevel());
 	mbuilder->setMap(map); // set the current map for the map content builder
 	for (int i = 0; i < map->getMapY(); i++)
 	{
@@ -174,26 +171,6 @@ bool Play::loadMaps()
 		//read class state from archive
 		ar >> campaignMaps[i];
 
-		Map* map = campaignMaps[i];
-		char type;
-		// Loop through the map and set strategy to all characters on the map
-		for (int i = 0; i < map->getMapY(); i++)
-		{
-			for (int j = 0; j < map->getMapX(); j++)
-			{
-				type = map->getTile(j, i);
-				if (type == 'F') {
-					character->setStrategy(new FriendlyStrategy());
-				}
-				else if (type == 'P') {
-					character->setStrategy(new HumanPlayerStrategy());
-				}
-				else if (type == 'E') {
-					character->setStrategy(new AggressorStrategy());
-				}
-			}
-		}
-
 		if (!campaignMaps[i]->validatePath())
 		{
 			cout << "A map in the campaign is invalid, failed to load campaign." << endl;
@@ -247,7 +224,7 @@ bool Play::loadCharacter(string characterName) {
 	ar >> character;
 
 	cout << character->getCurrentLevel() << endl;
-	
+
 	//from here on, we are setting all the attributes that we have not loaded
 	int modifiers[6];
 
@@ -341,55 +318,6 @@ void Play::placeCharacterOnMap(Map* map)
 	adaptMapToPlayer(map);
 }
 
-bool Play::moveCharacterDuringCombat(Map* map, char direction)
-{
-	for (int i = 0; i < map->getMapY(); i++)
-	{
-		for (int j = 0; j < map->getMapX(); j++)
-		{
-			if (map->getTile(j, i) == 'P')
-			{
-				if (direction == 'L' && j > 0)
-				{	
-					if (!(map->getTile(j - 1, i) == 'G'))
-					{
-						map->movePlayer(j - 1, i, character);
-					}
-					return true;
-				}
-				else
-				if (direction == 'R' && j < map->getMapX() - 1)
-				{
-					if (!(map->getTile(j + 1, i) == 'G'))
-					{
-						map->movePlayer(j + 1, i, character);
-					}
-					return true;
-				}
-				else
-				if (direction == 'U' && i > 0)
-				{
-					if (!(map->getTile(j, i - 1) == 'G'))
-					{
-						map->movePlayer(j, i - 1, character);
-					}
-					return true;
-				}
-				else
-				if (direction == 'D' && i < map->getMapY() - 1)
-				{
-					if (!(map->getTile(j, i + 1) == 'C'))
-					{
-						map->movePlayer(j, i + 1, character);
-					}
-					return true;
-				}
-			}
-		}
-	}
-	return false;
-}
-
 bool Play::moveCharacter(Map* map, char direction)
 {
 	for (int i = 0; i < map->getMapY(); i++)
@@ -399,7 +327,7 @@ bool Play::moveCharacter(Map* map, char direction)
 			if (map->getTile(j, i) == 'P')
 			{
 				if (direction == 'L' && j > 0)
-				{	
+				{
 					if (map->getTile(j - 1, i) == 'C')
 					{
 						character->displayBackpack();
@@ -410,149 +338,61 @@ bool Play::moveCharacter(Map* map, char direction)
 							x--;
 						}
 						character->displayBackpack();
-						map->movePlayer(j - 1, i, character);
 					}
-					else if (map->getTile(j - 1, i) == 'E')
-					{
-						MapObject* enemy = map->getObjectTile(j - 1, i);
-						Combat::startCombat(map, character, enemy);
-						if (static_cast<Character*>(character)->getHitPoints() <= 0) {
-							cout << "Played died." << endl;
-							// Send back to first page
-						}
-						else {
-							// If player dies, should display game over, else player can get fallen stuff from enemies
-						}
-					}
-					else if (map->getTile(j - 1, i) == 'F')
-					{
-						MapObject* npc = map->getObjectTile(j - 1, i);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, character); // this code contains startCombat() method if player attacks it
-						// If player dies, should display game over, else player can get fallen stuff from enemies
-					}
-					Combat::activateNPC(map, character);
+					map->movePlayer(j - 1, i, character);
 					return true;
 				}
 				else
-				if (direction == 'R' && j < map->getMapX() - 1)
-				{
-					if (map->getTile(j + 1, i) == 'C')
+					if (direction == 'R' && j < map->getMapX() - 1)
 					{
-						character->displayBackpack();
-						int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
-						while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+						if (map->getTile(j + 1, i) == 'C')
 						{
-							static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
-							x--;
+							character->displayBackpack();
+							int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
+							while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+							{
+								static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
+								x--;
+							}
+							character->displayBackpack();
 						}
-						character->displayBackpack();
 						map->movePlayer(j + 1, i, character);
-					}
-					else if (map->getTile(j + 1, i) == 'E')
-					{
-						MapObject* enemy = map->getObjectTile(j + 1, i);
-						Combat::startCombat(map, character, enemy);
-						if (static_cast<Character*>(character)->getHitPoints() <= 0) {
-							cout << "Played died." << endl;
-							// Send back to first page
-						}
-						else {
-							// If player dies, should display game over, else player can get fallen stuff from enemies
-						}
-					}
-					else if (map->getTile(j + 1, i) == 'F')
-					{
-						MapObject* npc = map->getObjectTile(j + 1, i);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, character); // this code contains startCombat() method if player attacks it
-						// If player dies, should display game over, else player can get fallen stuff from enemies
-					}
-					else {
-						map->movePlayer(j + 1, i, character);
-					}
-					Combat::activateNPC(map, character);
-					return true;
-				}
-				else
-				if (direction == 'U' && i > 0)
-				{
-					if (map->getTile(j, i - 1) == 'C')
-					{
-						character->displayBackpack();
-						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
-						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
-						{
-							static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
-							x--;
-						}
-						character->displayBackpack();
-						map->movePlayer(j, i - 1, character);
-					}
-					else if (map->getTile(j, i - 1) == 'E')
-					{
-						MapObject* enemy = map->getObjectTile(j, i - 1);
-						cout << "You encountered an enemy." << endl;
-						Combat::startCombat(map, character, enemy);
-						if (static_cast<Character*>(character)->getHitPoints() <= 0) {
-							cout << "Played died." << endl;
-							// Send back to first page
-						}
-						else {
-							// If player dies, should display game over, else player can get fallen stuff from enemies
-						}
-					}
-					else if (map->getTile(j, i - 1) == 'F')
-					{
-						MapObject* npc = map->getObjectTile(j, i - 1);
-						cout << "You encountered a friend." << endl;
-						static_cast<Character*>(npc)->executeStrategy(map, npc, character); // this code contains startCombat() method if player attacks it
-						// If player dies, should display game over, else player can get fallen stuff from enemies
-					}
-					else {
-						map->movePlayer(j, i - 1, character);
-					}
-					Combat::activateNPC(map, character);
-					return true;
-				}
-				else
-				if (direction == 'D' && i < map->getMapY() - 1)
-				{
-					if (map->getTile(j, i + 1) == 'C')
-					{
-						character->displayBackpack();
-						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
-						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
-						{
-							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
-							x--;
-						}
-						character->displayBackpack();
-						map->movePlayer(j, i + 1, character);
-					}
-					else if (map->getTile(j, i + 1) == 'E')
-					{
-						MapObject* enemy = map->getObjectTile(j, i + 1);
-						Combat::startCombat(map, character, enemy);
-						if (static_cast<Character*>(character)->getHitPoints() <= 0) {
-							cout << "Played died." << endl;
-							// Send back to first page
-						}
-						else {
-							// If player dies, should display game over, else player can get fallen stuff from enemies
-						}
-					}
-					else if (map->getTile(j, i + 1) == 'F')
-					{
-						MapObject* npc = map->getObjectTile(j, i + 1);
-						static_cast<Character*>(npc)->executeStrategy(map, npc, character); // this code contains startCombat() method if player attacks it
-						// If player dies, should display game over, else player can get fallen stuff from enemies
+						return true;
 					}
 					else
-					{
-						map->movePlayer(j, i + 1, character);
-					}
-					Combat::activateNPC(map, character);
-					return true;
-				}
+						if (direction == 'U' && i > 0)
+						{
+							if (map->getTile(j, i - 1) == 'C')
+							{
+								character->displayBackpack();
+								int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
+								while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
+								{
+									static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
+									x--;
+								}
+								character->displayBackpack();
+							}
+							map->movePlayer(j, i - 1, character);
+							return true;
+						}
+						else
+							if (direction == 'D' && i < map->getMapY() - 1)
+							{
+								if (map->getTile(j, i + 1) == 'C')
+								{
+									character->displayBackpack();
+									int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
+									while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
+									{
+										static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
+										x--;
+									}
+									character->displayBackpack();
+								}
+								map->movePlayer(j, i + 1, character);
+								return true;
+							}
 			}
 		}
 	}
@@ -598,19 +438,23 @@ void Play::modifyEquipment()
 		character->displayEquipment();
 	}
 	else
-	if (choice == 2)
-	{
-		do {
-			character->getEquippedItems()->displayItems();
-			cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
-			cin >> itemChoice;
-			if (itemChoice == -1)
-				return;
-		} while (itemChoice > character->getEquippedItems()->getItems().size() || itemChoice < 0);
-		character->unequipItem(itemChoice);
-		character->displayBackpack();
-		character->displayEquipment();
-	}
+		if (choice == 2)
+		{
+			do {
+				character->getEquippedItems()->displayItems();
+				cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
+				cin >> itemChoice;
+				if (itemChoice == -1)
+					return;
+			} while (itemChoice > character->getEquippedItems()->getItems().size() || itemChoice < 0);
+			character->unequipItem(itemChoice);
+			character->displayBackpack();
+			character->displayEquipment();
+		}
+}
+
+MapObject* Play::getCharacter() {
+	return character;
 }
 
 Play::~Play()

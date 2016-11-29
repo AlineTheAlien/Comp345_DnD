@@ -7,9 +7,18 @@
 //! can be performed as many time as the player wants. A player may have multiple attacks as per the game rules.
 #pragma once
 #include "Strategy.h"
-
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/string.hpp>
 //! Class for the implementation of a Human Player Strategy
 class HumanPlayerStrategy : public Strategy {
 public:
 	void execute(Map*,MapObject*, MapObject*);
+private:
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version)
+	{
+	}
 };

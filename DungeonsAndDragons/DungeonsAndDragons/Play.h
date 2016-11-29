@@ -41,12 +41,12 @@ public:
 	bool saveCharacter(string);
 	void modifyEquipment();
 	void placeCharacterOnMap(Map* map);
-	bool moveCharacterDuringCombat(Map* map, char direction);
 	bool moveCharacter(Map* map, char direction);
 	void adaptMapToPlayer(Map* map);
 	void levelUpCharacter();
 	void setCurrentMap(int);
 	int getCurrentMap();
+	MapObject* getCharacter();
 	~Play();
 };
 

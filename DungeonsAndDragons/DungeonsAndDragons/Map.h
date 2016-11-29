@@ -71,7 +71,6 @@ public:
 	const char PLAYER = 'P';
 	//! constant character that represents a friend npc on the map
 	const char FRIEND = 'F';
-
 	Map();
 	Map(int x, int y);
 	~Map();

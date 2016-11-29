@@ -62,24 +62,7 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 				break;
 		}
 	}
-	cout << "\nCOMBAT ENDED: " << endl;
-	if (playerHP <= 0) {
-		cout << "Player is defeated." << endl;
-		int i = player->getMapY();
-		int j = player->getMapX();
-		map->setTile(j, i, NULL);
-		map->showMap();
-		int done;
-		cin >> done;
-		exit(1);
-	}
-	else {
-		int i = other->getMapY();
-		int j = other->getMapX();
-		cout << "Enemy is defeated.\n" << endl;
-		map->setTile(j, i, NULL);
-		map->showMap();
-	}
+	cout << "\nCOMBAT ENDED" << endl;
 }
 
 //! Iterative method for making enemies or friendly character move towards the player.
@@ -325,15 +308,15 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 //! @param player : Poitner to a player object
 void Combat::activateNPC(Map* map, MapObject* player) {
 	// Get all friendly NPCs
-	vector<MapObject*> friends = map->findAllFriends();
-	vector<MapObject*> nearbyFriends;
+	//vector<MapObject*> friends = map->findAllFriends();
+	//vector<MapObject*> nearbyFriends;
 
-	// To store x,y position of the player on the map
-	int x = player->getMapX();
-	int y = player->getMapY();
+	//// To store x,y position of the player on the map
+	//int x = player->getMapX();
+	//int y = player->getMapY();
 
-	// When the player is free, friendly NPC walks towards player
-	for (int i = 0; i < friends.size(); i++) {
-		static_cast<Character*>(friends[i])->executeStrategy(map, friends[i], player);
-	}
+	//// When the player is free, friendly NPC walks towards player
+	//for (int i = 0; i < friends.size(); i++) {
+	//	static_cast<Character*>(friends[i])->executeStrategy(map, friends[i], player);
+	//}
 }

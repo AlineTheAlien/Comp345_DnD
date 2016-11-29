@@ -8,6 +8,9 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include "HumanPlayerStrategy.h"
+#include "AggressorStrategy.h"
+#include "FriendlyStrategy.h"
 
 void ConcreteContentBuilder::buildCharacter(char type, int j, int i, MapObject* character) {
 	// Get all attributes of the enemy
@@ -95,6 +98,14 @@ void ConcreteContentBuilder::buildCharacter(char type, int j, int i, MapObject* 
 	static_cast<Character*>(character)->setIntelligenceModifier(intelModif);
 	static_cast<Character*>(character)->setWisdomModifier(wisModif);
 	static_cast<Character*>(character)->setCharismaModifier(chaModif);
+
+	if (type == 'E') {
+		static_cast<Character*>(character)->setStrategy(new AggressorStrategy());
+	}
+	if (type == 'F')
+	{
+		static_cast<Character*>(character)->setStrategy(new FriendlyStrategy());
+	}
 	map->setTile(j, i, character);
 }
 
