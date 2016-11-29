@@ -241,11 +241,11 @@ void Map::movePlayer(int x, int y, MapObject* object)
 	}
 }
 
-//! Implementation move an npc to move player on the map on the desired cell
-//! empties the cell of the previous position occupied by player
+//! Implementation of a method that move a character and notify to the GUI
+//! Empties the cell of the previous position occupied by character
 //! @param x : an integer value of the vertical index of the map's grid
 //! @param y : an integer value of the horizontal index of the map's grid
-void Map::moveEnemyOrNPC(int x, int y, MapObject* object)
+void Map::moveCharacter(int x, int y, MapObject* object)
 {
 	int j = static_cast<Character*>(object)->getMapX();
 	int i = static_cast<Character*>(object)->getMapY();
@@ -273,7 +273,7 @@ bool Map::isOccupied(int x, int y)
 //! @return : a boolean true if the cell is occupied false otherwise
 bool Map::availableTile(int x, int y) {
 	if (map[x + y * mapX] != NULL) {
-		bool verify = (map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
+		bool verify = (map[x + y * mapX]->getObjectType() == DOOR || map[x + y * mapX]->getObjectType() == WALL || map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
 		return verify;
 	}
 	else

@@ -137,7 +137,6 @@ private:
 		ar & backpack;
 		ar & currentLevel;
 		ar & characterName;
-		ar & strategy;
 	}
 };
 

@@ -4,9 +4,6 @@
 #include "stdafx.h"
 #include "PlayGUI.h"
 #include "Combat.h"
-#include "HumanPlayerStrategy.h"
-#include "AggressorStrategy.h"
-#include "FriendlyStrategy.h"
 
 PlayGUI::PlayGUI()
 {
@@ -564,16 +561,22 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
+						currentMap = play->getCurrentMap();
+						subject->Detach(this);
 						subject = play->getCampaignMap(currentMap); // For observer pattern
+						subject->Attach(this);
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject->Detach(this);
+							subject = play->getCampaignMap(currentMap); // For observer pattern
+							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -627,17 +630,7 @@ void PlayGUI::openMapView()
 						MapObject* npc = map->getObjectTile(j - 1, i);
 						int choice;
 						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
-	
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -679,16 +672,22 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
+						currentMap = play->getCurrentMap();
+						subject->Detach(this);
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
+						subject->Attach(this);
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject->Detach(this);
+							subject = play->getCampaignMap(currentMap); // For observer pattern
+							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -739,18 +738,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j + 1, i);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -798,16 +786,22 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
+						currentMap = play->getCurrentMap();
+						subject->Detach(this);
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
+						subject->Attach(this);
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject->Detach(this);
+							subject = play->getCampaignMap(currentMap); // For observer pattern
+							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -858,18 +852,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j, i - 1);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -916,16 +899,22 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
+						currentMap = play->getCurrentMap();
+						subject->Detach(this);
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
+						subject->Attach(this);
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject->Detach(this);
+							subject = play->getCampaignMap(currentMap); // For observer pattern
+							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -976,18 +965,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j, i + 1);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -1077,6 +1055,10 @@ void PlayGUI::openMapView()
 				if (menuButton.contains(mousePosition))
 				{
 					play->setCurrentMap(0);
+					currentMap = play->getCurrentMap();
+					subject->Detach(this);
+					subject = play->getCampaignMap(currentMap); // For observer pattern
+					subject->Attach(this);
 					state.setLaunchState(LaunchState::MENU);
 					return;
 				}

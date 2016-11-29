@@ -34,7 +34,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
 				if (nearby)
 					break;
-				//Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
+				Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
 				numOfMoves--;
 				if (numOfMoves < 0)
 					numOfAttacks--;
@@ -44,7 +44,6 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				break;
 			}
 		}
-
 		// If it reaches here, it is nearby. It will start attacking.
 		if (numOfAttacks > 0) {
 			cout << "Enemy is attacking!" << endl;
