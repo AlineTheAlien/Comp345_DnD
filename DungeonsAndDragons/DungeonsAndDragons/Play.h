@@ -26,6 +26,7 @@ private:
 	vector<string> availableCharacters;
 	MapBuilder* mbuilder;
 	int currentMap;
+	bool playerAlive;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
@@ -42,6 +43,7 @@ public:
 	void createNewCharacter();
 	bool saveCharacter(string);
 	void modifyEquipment();
+	bool playerIsAlive();
 	void placeCharacterOnMap(Map* map);
 	bool moveCharacter(Map* map, char direction);
 	void startCombat(Map* map, MapObject* player, MapObject* other);

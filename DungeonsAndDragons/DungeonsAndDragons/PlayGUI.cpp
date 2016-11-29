@@ -871,6 +871,13 @@ void PlayGUI::openMapView()
 				}
 		}
 
+		if (!play->playerIsAlive())
+		{
+			play->setCurrentMap(0);
+			state.setLaunchState(LaunchState::MENU);
+			return;
+		}
+
 		window->clear();
 		for (int i = 0; i < maps[currentMap].size(); i++)
 			window->draw(maps[currentMap].at(i));

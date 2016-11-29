@@ -252,12 +252,12 @@ bool Play::loadCharacter(string characterName) {
 
 	//Damage bonus, based on strength modifier
 	character->setDamageBonus(character->getStrengthModifier());
-
 	character->displayCharacterInfo();
 	character->displayEquipment();
 	cout << "OBJECT TYPE" << endl;
 	cout << character->getObjectType() << endl;
 	ifs.close();
+	playerAlive = true;
 	//Check validity of the campaign
 	return true;
 }
@@ -329,6 +329,10 @@ bool Play::moveCharacter(Map* map, char direction)
 						}
 						character->displayBackpack();
 					}
+					if (map->getTile(j - 1, i) == 'E')
+					{
+						startCombat(map, character, map->getObjectTile(j - 1, i));
+					}
 					map->movePlayer(j - 1, i, character);
 					return true;
 				}
@@ -345,6 +349,10 @@ bool Play::moveCharacter(Map* map, char direction)
 							x--;
 						}
 						character->displayBackpack();
+					}
+					if (map->getTile(j + 1, i) == 'E')
+					{
+						startCombat(map, character, map->getObjectTile(j + 1, i));
 					}
 					map->movePlayer(j + 1, i, character);
 					return true;
@@ -363,6 +371,10 @@ bool Play::moveCharacter(Map* map, char direction)
 						}
 						character->displayBackpack();
 					}
+					if (map->getTile(j, i - 1) == 'E')
+					{
+						startCombat(map, character, map->getObjectTile(j, i - 1));
+					}
 					map->movePlayer(j, i - 1, character);
 					return true;
 				}
@@ -380,6 +392,10 @@ bool Play::moveCharacter(Map* map, char direction)
 						}
 						character->displayBackpack();
 					}
+					if (map->getTile(j, i + 1) == 'E')
+					{
+						startCombat(map, character, map->getObjectTile(j, i + 1));
+					}
 					map->movePlayer(j, i + 1, character);
 					return true;
 				}
@@ -389,10 +405,42 @@ bool Play::moveCharacter(Map* map, char direction)
 	return false;
 }
 
-void startCombat(Map* map, MapObject* player, MapObject* other)
+void Play::startCombat(Map* map, MapObject* player, MapObject* other)
 {
 	Combat::startCombat(map, player, other);
+
+	//if (static_cast<Character*>(player)->getHitPoints() <= 0) 
+	if (character->getHitPoints <= 0)
+	{
+		//cout << "Player is defeated." << endl;
+		//state.setLaunchState(LaunchState::MENU);
+		playerAlive = false;
+		return;
+	}
+	else
+	{
+		cout << "Enemy is defeated." << endl;
+		//int i = enemy->getMapY();
+		//int j = enemy->getMapX();
+		//int iPlayer = player->getMapY();
+		//int jPlayer = player->getMapX();
+		//// Take all the fallen items
+		//delete enemy;
+		//map->movePlayer(j, i, player);
+		//play->getCampaignMap(currentMap)->showMap();
+		//currentPositionX = j;
+		//currentPositionY = i;
+		//maps[currentMap].at(jPlayer + iPlayer * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
+		//maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
+		//Combat::activateNPC(map, player);
+	}
 }
+
+bool Play::playerIsAlive()
+{
+	return playerAlive;
+}
+				
 
 void Play::setCurrentMap(int index)
 {
