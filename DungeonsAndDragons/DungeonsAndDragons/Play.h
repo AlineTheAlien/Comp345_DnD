@@ -12,6 +12,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include "Combat.h"
 #include <boost/filesystem.hpp>
 
 class Play
@@ -24,6 +25,7 @@ private:
 	vector<string> availableCharacters;
 	ContentBuilder* mbuilder;
 	int currentMap;
+	bool playerAlive;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
@@ -36,6 +38,7 @@ public:
 	bool loadCharacter(string characterName);
 	int getAvailableCharactersSize();
 	int getCampaignSize();
+	void startCombat(Map*, MapObject*, MapObject*);
 	string getAvailableCharacters(int index);
 	void createNewCharacter();
 	bool saveCharacter(string);
