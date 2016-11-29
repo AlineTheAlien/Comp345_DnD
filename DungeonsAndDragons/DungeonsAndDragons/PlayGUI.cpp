@@ -4,9 +4,6 @@
 #include "stdafx.h"
 #include "PlayGUI.h"
 #include "Combat.h"
-#include "HumanPlayerStrategy.h"
-#include "AggressorStrategy.h"
-#include "FriendlyStrategy.h"
 
 PlayGUI::PlayGUI()
 {
