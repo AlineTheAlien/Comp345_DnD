@@ -567,11 +567,12 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -673,11 +674,12 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -782,11 +784,12 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->levelUpCharacter();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
@@ -890,11 +893,12 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
+							currentMap = play->getCurrentMap();
+							subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
 						}
-						currentMap = play->getCurrentMap();
 						play->placeCharacterOnMap(play->getCampaignMap(currentMap));
 						for (int i = 0; i < play->getCampaignMap(currentMap)->getMapY(); i++)
 							for (int j = 0; j < play->getCampaignMap(currentMap)->getMapX(); j++)
@@ -1035,6 +1039,8 @@ void PlayGUI::openMapView()
 				if (menuButton.contains(mousePosition))
 				{
 					play->setCurrentMap(0);
+					currentMap = play->getCurrentMap();
+					subject = play->getCampaignMap(currentMap); // For observer pattern
 					state.setLaunchState(LaunchState::MENU);
 					return;
 				}
