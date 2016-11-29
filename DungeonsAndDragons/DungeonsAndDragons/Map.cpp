@@ -273,7 +273,7 @@ bool Map::isOccupied(int x, int y)
 //! @return : a boolean true if the cell is occupied false otherwise
 bool Map::availableTile(int x, int y) {
 	if (map[x + y * mapX] != NULL) {
-		bool verify = (map[x + y * mapX]->getObjectType() == WALL || map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
+		bool verify = (map[x + y * mapX]->getObjectType() == DOOR || map[x + y * mapX]->getObjectType() == WALL || map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
 		return verify;
 	}
 	else
