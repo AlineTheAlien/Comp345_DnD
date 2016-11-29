@@ -389,6 +389,11 @@ bool Play::moveCharacter(Map* map, char direction)
 	return false;
 }
 
+void startCombat(Map* map, MapObject* player, MapObject* other)
+{
+	Combat::startCombat(map, player, other);
+}
+
 void Play::setCurrentMap(int index)
 {
 	currentMap = index;

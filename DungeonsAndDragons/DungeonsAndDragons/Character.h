@@ -35,6 +35,7 @@
 #include "Subject.h"
 #include "MapObject.h"
 #include "ItemContainer.h"
+#include "Strategy.h"
 #include <string>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/string.hpp>
@@ -107,6 +108,8 @@ public:
 	string getCharacterName();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
+	void setStrategy(Strategy* strategy);
+	void executeStrategy(Map* map, MapObject* first, MapObject* second);
 private:
 	int abilityScores[6];
 	int abilityModifiers[6];

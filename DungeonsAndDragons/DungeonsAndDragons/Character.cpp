@@ -882,3 +882,20 @@ void Character::displayBackpack() {
 	}
 	cout << endl;
 }
+
+
+//! Method to set the strategy of the character
+//! @param strategy : A concrete strategy object
+void Character::setStrategy(Strategy* strategy) {
+	this->strategy = strategy;
+}
+//! Method to execute the strategy of the character
+//! @param map : Map in which characters are placed in
+//! @param i : Position i of the player
+//! @param j : Position j of the player
+void Character::executeStrategy(Map* map, MapObject* firstCharacter, MapObject* secondCharacter) {
+	if (strategy != NULL)
+		strategy->execute(map, firstCharacter, secondCharacter);
+}
+
+

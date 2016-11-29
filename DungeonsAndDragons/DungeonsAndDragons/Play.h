@@ -10,6 +10,7 @@
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include "UserDrivenEditor.h"
+#include "Combat.h"
 #include <iostream>
 #include <vector>
 #include <fstream>
@@ -43,6 +44,7 @@ public:
 	void modifyEquipment();
 	void placeCharacterOnMap(Map* map);
 	bool moveCharacter(Map* map, char direction);
+	void startCombat(Map* map, MapObject* player, MapObject* other);
 	void adaptMapToPlayer(Map* map);
 	void levelUpCharacter();
 	void setCurrentMap(int);
