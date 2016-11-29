@@ -189,6 +189,21 @@
     <ClInclude Include="FriendlyBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AggressorStrategy.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Combat.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="FriendlyStrategy.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanPlayerStrategy.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="Strategy.h">
+      <Filter>Header Files\Design Patterns</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -310,6 +325,18 @@
     </ClCompile>
     <ClCompile Include="FriendlyBuilder.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AggressorStrategy.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Combat.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="FriendlyStrategy.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanPlayerStrategy.cpp">
+      <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
