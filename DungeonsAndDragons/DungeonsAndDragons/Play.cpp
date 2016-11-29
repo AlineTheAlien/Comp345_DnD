@@ -237,7 +237,7 @@ bool Play::loadCharacter(string characterName) {
 	character->setWisdomModifier(modifiers[5]);
 
 	//set hit points as 10 summed with the character's calculated  constitution modifier
-	character->setCurrentHitPoints(10 + character->getConstitutionModifier());
+	//character->setCurrentHitPoints(10 + character->getConstitutionModifier());
 
 	//Initially, as character is not hit, the maximum HP is the same as the current HP
 	character->setCurrentHitPoints(character->getMaxHitPoints());
