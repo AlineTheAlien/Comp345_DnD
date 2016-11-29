@@ -15,6 +15,7 @@ public:
 	virtual void Attach(Observer* o);
 	virtual void Detach(Observer* o);
 	virtual void Notify();
+	virtual void NotifyGUI();
 	int getNumberObservers();
 	//list <Observer*> getObservers();
 private:

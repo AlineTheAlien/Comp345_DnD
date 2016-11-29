@@ -5,9 +5,10 @@
 #include <SFML/Graphics.hpp>
 #include "Resources.h"
 #include "GameState.h"
+#include "Observer.h"
 class Launch;
 
-class PlayGUI
+class PlayGUI : public Observer
 {
 private:
 	Play* play;
@@ -16,6 +17,9 @@ private:
 	Launch* launch;
 	sf::RenderWindow *window;
 	GameState state;
+	Map* subject;
+	vector<vector<sf::Sprite>> maps; // for the observer...
+	int currentMap;
 public:
 	PlayGUI();
 	PlayGUI(sf::RenderWindow &window);
@@ -25,6 +29,7 @@ public:
 	void Update();
 	void Display();
 	void Start();
+	void UpdateGUI();
 	~PlayGUI();
 };
 

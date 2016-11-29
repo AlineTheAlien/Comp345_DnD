@@ -13,6 +13,7 @@ public:
 	CharacterObserver(Character* c);
 	~CharacterObserver();
 	void Update();
+	void UpdateGUI();
 	void display();
 private: 
 	Character *_subject;

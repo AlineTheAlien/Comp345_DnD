@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Map.h"
 #include "Character.h"
+
 using std::cout;
 using std::cin;
 using std::endl;
@@ -189,6 +190,7 @@ void Map::setTile(int x, int y, MapObject* object)
 			}
 		map[x + y * mapX] = ptr;
 		ptr->setMapPosition(x, y);
+
 	}
 	else
 		map[x + y * mapX] = NULL;
@@ -237,6 +239,20 @@ void Map::movePlayer(int x, int y, MapObject* object)
 		map[x + y * mapX] = object;
 		static_cast<Character*>(object)->setMapPosition(x, y);
 	}
+}
+
+//! Implementation move an npc to move player on the map on the desired cell
+//! empties the cell of the previous position occupied by player
+//! @param x : an integer value of the vertical index of the map's grid
+//! @param y : an integer value of the horizontal index of the map's grid
+void Map::moveEnemyOrNPC(int x, int y, MapObject* object)
+{
+	int j = static_cast<Character*>(object)->getMapX();
+	int i = static_cast<Character*>(object)->getMapY();
+	map[x + y * mapX] = object;
+	map[j + i * mapX] = NULL;
+	static_cast<Character*>(object)->setMapPosition(x, y);
+	NotifyGUI();
 }
 
 //! Implementation isOccupied to check if a tile has a wall

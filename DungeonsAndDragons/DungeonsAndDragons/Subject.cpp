@@ -39,6 +39,14 @@ void Subject::Notify() {
 	}
 }
 
+//! Notify function that triggers an update for every observer that is attached to the subject
+void Subject::NotifyGUI() {
+	list <Observer *>::iterator i = _observers->begin();
+	for (; i != _observers->end(); ++i) {
+		(*i)->UpdateGUI();
+	}
+}
+
 //! For debugging purposes, returns the number of observers attached to the calling subject
 //! return int, number of observers in the list of observers of a given subject
 int Subject::getNumberObservers() {

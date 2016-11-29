@@ -96,3 +96,7 @@ void CharacterObserver::display() {
 	cout << " Helmet worn is : " << helmet << endl;
 	cout << endl;
 }
+
+void CharacterObserver::UpdateGUI() {
+
+}

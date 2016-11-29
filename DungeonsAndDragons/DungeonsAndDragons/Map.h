@@ -24,10 +24,11 @@
 #include "Shield.h"
 #include "Weapon.h"
 #include "Helmet.h"
+#include "Subject.h"
 using namespace std;
 
 //! Class implementing a game map
-class Map
+class Map : public Subject
 {
 private:
 	//! constant integer for map length
@@ -78,6 +79,7 @@ public:
 	bool findPath(int x, int y);
 	void setTile(int x, int y, MapObject* object);
 	void movePlayer(int x, int y, MapObject* object);
+	void moveEnemyOrNPC(int x, int y, MapObject* object);
 	int getMapY();
 	int getMapX();
 	char getTile(int x, int y);
