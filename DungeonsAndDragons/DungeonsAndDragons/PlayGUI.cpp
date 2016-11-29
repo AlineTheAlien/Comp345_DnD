@@ -627,17 +627,7 @@ void PlayGUI::openMapView()
 						MapObject* npc = map->getObjectTile(j - 1, i);
 						int choice;
 						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
-	
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -739,18 +729,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j + 1, i);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -858,18 +837,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j, i - 1);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);
@@ -976,18 +944,7 @@ void PlayGUI::openMapView()
 						int i = currentPositionY;
 						MapObject* player = play->getCharacter();
 						MapObject* npc = map->getObjectTile(j, i + 1);
-						int choice;
-						cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
-						cin >> choice;
-						cout << endl;
-						if (choice == 1) {
-							cout << "You decided to ignore." << endl;
-						}
-						if (choice == 2) {
-							cout << "Friendly NPC became an enemy..." << endl;
-							static_cast<Character*>(npc)->setStrategy(new AggressorStrategy());
-							Combat::startCombat(map, player, npc);
-						}
+						static_cast<Character*>(npc)->executeStrategy(map, npc, player);
 						if (static_cast<Character*>(player)->getHitPoints() <= 0) {
 							cout << "Played is defeated." << endl;
 							state.setLaunchState(LaunchState::MENU);

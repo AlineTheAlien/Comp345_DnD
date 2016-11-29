@@ -34,7 +34,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
 				if (nearby)
 					break;
-				//Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
+				Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
 				numOfMoves--;
 				if (numOfMoves < 0)
 					numOfAttacks--;
@@ -44,7 +44,6 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				break;
 			}
 		}
-
 		// If it reaches here, it is nearby. It will start attacking.
 		if (numOfAttacks > 0) {
 			cout << "Enemy is attacking!" << endl;
@@ -52,8 +51,6 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			int damageRoll;
 			int targetArmorClass;
 			int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
-
-			
 			// Attack roll
 			attackRoll = Dice::roll("1d20");
 			// If the d20 roll for attack is 1, the attack misses regardless of target's armor class

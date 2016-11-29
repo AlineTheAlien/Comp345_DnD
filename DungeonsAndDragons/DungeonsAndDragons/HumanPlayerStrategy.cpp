@@ -33,12 +33,49 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 
 		if (choice == 1) {
 			if (numOfMoves > 0 || numOfAttacks > 0) {
-				// ADD PLAYER MOVE HERE :O
+				cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
+				map->showMap();
+				cin >> choice;
+				cout << endl;
+				// Move left
+				if (choice == 1) {
+					iNew = i;
+					jNew = j - 1;
+				}
+				// Move right
+				if (choice == 2) {
+					iNew = i;
+					jNew = j + 1;
+				}
+				// Move up
+				if (choice == 3) {
+					iNew = i - 1;
+					jNew = j;
+				}
+				// Move down
+				if (choice == 4) {
+					iNew = i + 1;
+					jNew = j;
+				}
+				taken = map->getObjectTile(jNew, iNew);
+				// If the position is not taken
+				if (taken == NULL) {
+					map->moveCharacter(jNew, iNew, player);
+					map->showMap();
+					numOfMoves--;
+					// If player does not want to attack and instead want to move, it cannot attack
+					if (numOfMoves <= 0 && numOfAttacks > 0) {
+						numOfAttacks--;
+					}
+				}
+				else
+					cout << "You cannot move to this position as it is occupied." << endl;
 			}
 			else
 			{
 				cout << "You have reached the maximum number of moves. You may only perform free actions or complete the turn." << endl;
 			}
+
 		}
 		else if (choice == 2) {
 			if (numOfAttacks > 0) {
