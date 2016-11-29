@@ -15,11 +15,11 @@ using namespace std;
 //! @param targetCharacter : Pointer to the character the enemy is targeting
 void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* targetCharacter) {
 	cout << "*** ENEMY'S TURN ***" << endl;
-	int numOfAttack = 1;
 	int numOfMoves = 6;
+	int numOfAttacks = static_cast<Character*>(targetCharacter)->getNumberOfAttacks();
 	// Get position of the enemy character
-	int i = static_cast<Character*>(enemyCharacter)->getMapY();
-	int j = static_cast<Character*>(enemyCharacter)->getMapX();
+	int i = enemyCharacter->getMapY();
+	int j = enemyCharacter->getMapX();
 	int mapX = map->getMapX();
 	int mapY = map->getMapY();
 	bool done = false;
@@ -28,7 +28,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 	while (!done) {
 		// If player is not nearby, it will move towards it during combat mode only.
 		while (!nearby) {
-			while (numOfMoves > 0 || numOfAttack > 0) {
+			while (numOfMoves > 0 || numOfAttacks > 0) {
 				i = enemyCharacter->getMapY();
 				j = enemyCharacter->getMapX();
 				nearby = map->verifyNearbyCharacter(targetCharacter, j, i);
@@ -37,20 +37,23 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				//Combat::moveAlongPath(map, enemyCharacter, targetCharacter);
 				numOfMoves--;
 				if (numOfMoves < 0)
-					numOfAttack--;
+					numOfAttacks--;
 			}
-			if (numOfMoves <= 0 && numOfAttack <= 0) {
+			if (numOfMoves <= 0 && numOfAttacks <= 0) {
 				done = true;
 				break;
 			}
 		}
-		if (numOfAttack > 0) {
+
+		// If it reaches here, it is nearby. It will start attacking.
+		if (numOfAttacks > 0) {
 			cout << "Enemy is attacking!" << endl;
 			int attackRoll;
 			int damageRoll;
 			int targetArmorClass;
 			int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
 
+			
 			// Attack roll
 			attackRoll = Dice::roll("1d20");
 			// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
@@ -93,7 +96,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 					cout << "Attack missed! Attack Roll is smaller than player's Armor Class" << endl;
 				}
 			}
-			numOfAttack--;
+			numOfAttacks--;
 		}
 		else {
 			done = true;

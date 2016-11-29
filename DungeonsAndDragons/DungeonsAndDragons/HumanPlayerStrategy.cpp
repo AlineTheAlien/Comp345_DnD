@@ -14,9 +14,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 	// Max number of move is 6 grids. According to the rules, if game is grid-based and a fighter character has a speed of 30ft,
 	// and one grid is 5ft, then the character can only move up to a maximum of 6 grids.
 	int numOfMoves = 6;
-
-	// Player can only attack once and do other moves until boolean done is true
-	int numOfAttack = 1;
+	int numOfAttacks = static_cast<Character*>(targetCharacter)->getNumberOfAttacks();
 	int choice = 1;
 	bool done = false;
 	int iNew = 0;
@@ -34,7 +32,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 		MapObject* taken = NULL;
 
 		if (choice == 1) {
-			if (numOfMoves > 0 || numOfAttack > 0) {
+			if (numOfMoves > 0 || numOfAttacks > 0) {
 				// ADD PLAYER MOVE HERE :O
 			}
 			else
@@ -43,7 +41,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 			}
 		}
 		else if (choice == 2) {
-			if (numOfAttack > 0) {
+			if (numOfAttacks > 0) {
 				// To check if enemy is nearby
 				bool nearby = false;
 				// Get position of the player
@@ -104,7 +102,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 							cout << "Attack missed! Attack Roll is smaller than target's Armor Class" << endl;
 						}
 					}
-					numOfAttack--;
+					numOfAttacks--;
 				}
 				else {
 					cout << "Enemy is not within range. Try something else." << endl;
