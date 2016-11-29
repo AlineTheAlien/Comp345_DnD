@@ -561,7 +561,7 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX - 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap() + 1;
+						currentMap = play->getCurrentMap();
 						subject = play->getCampaignMap(currentMap); // For observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
@@ -668,7 +668,7 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX + 1, currentPositionY) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap() + 1;
+						currentMap = play->getCurrentMap();
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
@@ -778,7 +778,7 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY - 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap() + 1;
+						currentMap = play->getCurrentMap();
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
@@ -887,7 +887,7 @@ void PlayGUI::openMapView()
 					if (play->getCampaignMap(currentMap)->getTile(currentPositionX, currentPositionY + 1) == 'D')
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
-						currentMap = play->getCurrentMap() + 1;
+						currentMap = play->getCurrentMap();
 						subject = play->getCampaignMap(currentMap); // For Observer pattern
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{

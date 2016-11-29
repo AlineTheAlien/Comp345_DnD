@@ -19,7 +19,7 @@ private:
 	GameState state;
 	Map* subject;
 	vector<vector<sf::Sprite>> maps; // for the observer...
-	int currentMap;
+	int currentMap = 0;
 public:
 	PlayGUI();
 	PlayGUI(sf::RenderWindow &window);
