@@ -1,4 +1,72 @@
-X X X X X X D X X X 
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X E 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X E X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X E X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -8,73 +76,40 @@ X X X X X X X X X X
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X P X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X P X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X P X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X P X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X P X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X P X X X 
+X X X X X X E X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -82,10 +117,15 @@ X X X X X X X X X X
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -94,9 +134,14 @@ X X X X X X X X X X
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
-X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -106,8 +151,273 @@ X X X X X X X X X X
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
-X X X X X X P X X X 
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 16
+Enemy Current Hit Points: 70/86
+*** PLAYER FINISHED A TURN ***
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 12
+Player's Current Hit Points: 2/14
+*** ENEMY FINISHED A TURN ***
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Rolled a 1!
+Attack automatically missed!
+*** PLAYER FINISHED A TURN ***
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Attack missed! Attack Roll is smaller than player's Armor Class 
+*** ENEMY FINISHED A TURN ***
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+*** PLAYER FINISHED A TURN ***
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 9
+*** ENEMY FINISHED A TURN ***
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 20
+Ememy's initiative roll: 14
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X E 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X E X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X E X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -121,96 +431,43 @@ X X X X X X X X X X
 Current map loaded: 
 Good
 Maps remaining in this campaign: 
-Good -> Good ->  End 
+Good -> enemy ->  End 
 
-Dice roll gives a: 4
-
-X X X X X X D X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
+X X X X X X X X X E 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
+X X X X X P X X X X 
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X P X X X X X 
 X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X E X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X P X X X X X 
+X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -219,13 +476,75 @@ X X X X X X X X X X
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-
-
-X X X X X X D X X X 
+X X X X X X X E X X 
+X X X X X X X X X X 
 X X X X X P X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -233,8 +552,98 @@ X X X X X X X X X X
 X X X X X X X X X X 
 
 
-X X X X X X D X X X 
-X X X X X X P X X X 
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -248,9 +657,7 @@ X X X X X X X X X X
 Current map loaded: 
 Good
 Maps remaining in this campaign: 
-Good -> Good ->  End 
-
-Dice roll gives a: 8
+Good -> enemy ->  End 
 
 X X X X X X D X X X 
 X X X X X X X X X X 
@@ -373,187 +780,9 @@ X X X X X X X X X X
 
 
 Current map loaded: 
-Good
+enemy
 Maps remaining in this campaign: 
-Good -> Good ->  End 
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X X D X X X 
-X X X X X P X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X P D X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-Current map loaded: 
-Good
-Maps remaining in this campaign: 
-Good ->  End 
-
-Dice roll gives a: 9
-
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X E 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X P X X X X 
-
+enemy ->  End 
 
 X X X X X D X X X X 
 X X X X X X X X X X 
@@ -584,8 +813,8 @@ X X X X X X X X E X
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
+X X X X X P X X X X 
 X X X X X X X X X X 
-X X X X P X X X X X 
 X X X X X X X X X X 
 
 
@@ -600,24 +829,7 @@ X X X X X X X X X X
 X X X X X X X X X X 
 X X X X X X X E X X 
 X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X E X X X 
-X X X X P X X X X X 
+X X X X X P X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -633,15 +845,14 @@ X X X X X X X X X X
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X P X X X X X 
-X X X X X E X X X X 
+X X X X X P E X X X 
+X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 
 
 X X X X X D X X X X 
-X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
@@ -651,43 +862,57 @@ X X X X X X X X X X
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X P X X X X 
-X X X X X E X X X X 
+X X X X X X E X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
+X X X X X X X X X X 
 
 
-Dice roll gives a: 2
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 
-Dice roll gives a: 2
 
-Dice roll gives a: 13
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 10
+Enemy Current Hit Points: 15/25
+*** PLAYER FINISHED A TURN ***
 
-Dice roll gives a: 3
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 18
+Player's Current Hit Points: 10/28
+*** ENEMY FINISHED A TURN ***
 
-Dice roll gives a: 1
+*** PLAYER'S TURN ***
+Attacking enemy!
+Rolled a 1!
+Attack automatically missed!
+*** PLAYER FINISHED A TURN ***
 
-Dice roll gives a: 1
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 23
+*** ENEMY FINISHED A TURN ***
 
-Dice roll gives a: 17
+Combat starting.. rolling initiative...
+Player's initiative roll: 17
+Ememy's initiative roll: 11
+*** PLAYER BEGINS THE ROUND ***
 
-Dice roll gives a: 3
-
-Dice roll gives a: 20
-
-Dice roll gives a: 14
-
-Dice roll gives a: 3
-
-Dice roll gives a: 13
-
-Dice roll gives a: 17
-
-Dice roll gives a: 10
-
-Dice roll gives a: 5
-
-Dice roll gives a: 18
-
-Dice roll gives a: 17
+COMBAT ENDED
 

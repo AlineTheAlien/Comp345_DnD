@@ -6,6 +6,7 @@
 #include "AggressorStrategy.h"
 #include "Combat.h"
 #include <iostream>
+#include "GameLogger.h"
 
 using namespace std;
 
@@ -16,20 +17,26 @@ bool FriendlyStrategy::logFriendly = true;
 //! @param friendlyCharacter : Pointer to a friendly character
 //! @param targetCharacter : Pointer to a character targeted by the friendly character
 void FriendlyStrategy::execute(Map* map, MapObject* friendlyCharacter, MapObject* targetCharacter) {
+	string s = "";
 	int choice;
 	cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
 	cin >> choice;
 	cout << endl;
 	if (choice == 1) {
-		if (logFriendly == true)
+		if (logFriendly == true) {
 			cout << "You decided to ignore." << endl;
+			s += "You decided to ignore. \n";
+		}
 	}
 	if (choice == 2) {
-		if (logFriendly == true)
+		if (logFriendly == true) {
 			cout << "Friendly NPC became an enemy..." << endl;
+			s += "Friendly NPC became an enemy...\n";
+		}
 		static_cast<Character*>(friendlyCharacter)->setStrategy(new AggressorStrategy());
 		Combat::startCombat(map, targetCharacter, friendlyCharacter);
 	}
+	GameLogger::writeToLogFile(s);
 }
 
 void FriendlyStrategy::setFriendlyLog(bool value) {

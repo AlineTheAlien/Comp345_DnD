@@ -11,7 +11,5 @@ public:
 	GameLogger();
 	~GameLogger();
 	static void writeToLogFile(string);
-	static void openLogFile();
-	static void closeLogFile();
 };
 

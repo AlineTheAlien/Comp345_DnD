@@ -6,6 +6,7 @@
 #include "Combat.h"
 #include <iostream>
 #include "Dice.h"
+#include "GameLogger.h"
 
 using namespace std;
 
@@ -16,8 +17,11 @@ bool AggressorStrategy::logAgressor = true;
 //! @param enemyCharacter : Pointer to an enemy character
 //! @param targetCharacter : Pointer to the character the enemy is targeting
 void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* targetCharacter) {
-	if (logAgressor == true)
+	string s = "";
+	if (logAgressor == true) {
 		cout << "*** ENEMY'S TURN ***" << endl;
+		s += "*** ENEMY'S TURN *** \n";
+	}
 	int numOfMoves = 6;
 	int numOfAttacks = static_cast<Character*>(targetCharacter)->getNumberOfAttacks();
 	// Get position of the enemy character
@@ -49,8 +53,10 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 		}
 		// If it reaches here, it is nearby. It will start attacking.
 		if (numOfAttacks > 0) {
-			if (logAgressor == true)
+			if (logAgressor == true) {
 				cout << "Enemy is attacking!" << endl;
+				s += "Enemy is attacking! \n";
+			}
 			int attackRoll;
 			int damageRoll;
 			int targetArmorClass;
@@ -62,29 +68,37 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			attackRoll = Dice::roll("1d20");
 			// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 			if (attackRoll == 1) {
-				if (logAgressor == true)
+				if (logAgressor == true) {
 					cout << "Rolled a " << attackRoll << "!" << endl;
-				if (logAgressor == true)
+					s += "Rolled a " + to_string(attackRoll) + "! \n";
 					cout << "Attack automatically missed!" << endl;
+					s += "Attack automatically missed! \n";
+				}
 			}
 			// If the d20 roll for attack is 20, the attack hits regardless of target's armor class
 			else if (attackRoll == 20) {
-				if (logAgressor == true)
+				if (logAgressor == true) {
 					cout << "Rolled a " << attackRoll << "!" << endl;
-				if (logAgressor == true)
+					s += "Rolled a " + to_string(attackRoll) + "! \n";
 					cout << "Critical Hit!" << endl;
+					s += "Critical Hit! \n";
+				}
 				// Own implementation of the dice... Roll twice
 				damageRoll = Dice::roll("2d20");
 				damageRoll += static_cast<Character*>(enemyCharacter)->getDamageBonus();
-				if (logAgressor == true)
+				if (logAgressor == true) {
 					cout << "Total damage roll: " << damageRoll << endl;
+					s += "Total damage roll: " + to_string(damageRoll) + " \n";
+				}
 				targetHP -= damageRoll;
 				if (targetHP <= 0) {
 					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 					break;
 				}
-				if (logAgressor == true)
-					cout << "Player's Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
+				if (logAgressor == true) {
+					cout << "Player's Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
+					s += "Player's Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
+				}
 				static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 			}
 			else {
@@ -92,21 +106,27 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				targetArmorClass = static_cast<Character*>(targetCharacter)->getArmorClass();
 				if (attackRoll > targetArmorClass) {
 					damageRoll = Dice::roll("1d20") + static_cast<Character*>(enemyCharacter)->getDamageBonus();
-					if (logAgressor == true)
+					if (logAgressor == true) {
 						cout << "Total damage roll: " << damageRoll << endl;
+						s += "Total damage roll: " + to_string(damageRoll) + "\n";
+					}
 					targetHP -= damageRoll;
 					if (targetHP <= 0) {
 						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 						break;
 					}
-					if (logAgressor == true)
-						cout << "Player's Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
+					if (logAgressor == true) {
+						cout << "Player's Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
+						s += "Player's Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
+					}
 					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 				}
 				else
 				{
-					if (logAgressor == true)
+					if (logAgressor == true) {
 						cout << "Attack missed! Attack Roll is smaller than player's Armor Class" << endl;
+						s += "Attack missed! Attack Roll is smaller than player's Armor Class \n";
+					}
 				}
 			}
 			numOfAttacks--;
@@ -116,8 +136,11 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			break;
 		}
 	}
-	if (logAgressor == true)
+	if (logAgressor == true) {
 		cout << "*** ENEMY FINISHED A TURN ***\n" << endl;
+		s += "*** ENEMY FINISHED A TURN ***\n";
+	}
+	GameLogger::writeToLogFile(s);
 }
 
 void AggressorStrategy::setAgressorLog(bool value) {

@@ -5,6 +5,7 @@
 #include "Character.h"
 #include <iostream>
 #include "Dice.h"
+#include "GameLogger.h"
 using namespace std;
 
 bool HumanPlayerStrategy::logHumanPlayer = true;
@@ -22,8 +23,11 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 	bool done = false;
 	int iNew = 0;
 	int jNew = 0;
-	if (logHumanPlayer == true)
+	string s = "";
+	if (logHumanPlayer == true) {
 		cout << "*** PLAYER'S TURN ***" << endl;
+		s += "*** PLAYER'S TURN ***\n";
+	}
 	// While there are still actions remaining
 	while (!done) {
 		// Get position of player
@@ -37,8 +41,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 
 		if (choice == 1) {
 			if (numOfMoves > 0 || numOfAttacks > 0) {
-				if (logHumanPlayer == true)
-					cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
+				cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
 				map->showMap();
 				cin >> choice;
 				cout << endl;
@@ -94,8 +97,10 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 
 				if (nearby)
 				{
-					if (logHumanPlayer == true)
+					if (logHumanPlayer == true) {
 						cout << "Attacking enemy!" << endl;
+						s += "Attacking enemy!\n";
+					}
 					int attackRoll;
 					int damageRoll;
 					int targetArmorClass;
@@ -106,30 +111,38 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 					attackRoll = Dice::roll("1d20");
 					// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 					if (attackRoll == 1) {
-						if (logHumanPlayer == true)
+						if (logHumanPlayer == true) {
 							cout << "Rolled a " << attackRoll << "!" << endl;
-						if (logHumanPlayer == true)
+							s += "Rolled a " + to_string(attackRoll) + "!\n";
 							cout << "Attack automatically missed!" << endl;
+							s += "Attack automatically missed!\n";
+						}
 					}
 					// If the d20 roll for attack is 20, the attack hits regardless of target's armor class
 					else if (attackRoll == 20) {
-						if (logHumanPlayer == true)
+						if (logHumanPlayer == true) {
 							cout << "Rolled a " << attackRoll << "!" << endl;
-						if (logHumanPlayer == true)
+							s += "Rolled a " + to_string(attackRoll) + "!\n";
 							cout << "Critical Hit!" << endl;
+							s += "Critical Hit!\n";
+						}
 						// Own implementation of the dice... Roll twice
 						damageRoll = Dice::roll("2d20");
 						damageRoll += static_cast<Character*>(player)->getDamageBonus();
-						if (logHumanPlayer == true)
+						if (logHumanPlayer == true) {
 							cout << "Total damage roll: " << damageRoll << endl;
+							s += "Total damage roll: " + to_string(damageRoll) + "\n";
+						}
 						targetHP -= damageRoll;
 						if (targetHP <= 0) {
 							static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 							done = true;
 							break;
 						}
-						if (logHumanPlayer == true)
-							cout << "Enemy Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
+						if (logHumanPlayer == true) {
+							cout << "Enemy Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
+							s += "Enemy Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
+						}
 						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 					}
 					else {
@@ -137,16 +150,20 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 						targetArmorClass = static_cast<Character*>(targetCharacter)->getArmorClass();
 						if (attackRoll > targetArmorClass) {
 							damageRoll = Dice::roll("1d20") + static_cast<Character*>(player)->getDamageBonus();
-							if (logHumanPlayer == true)
+							if (logHumanPlayer == true) {
 								cout << "Total damage roll: " << damageRoll << endl;
+								s += "Total damage roll: " + to_string(damageRoll) + "\n";
+							}
 							targetHP -= damageRoll;
 							if (targetHP <= 0) {
 								static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
 								done = true;
 								break;
 							}
-							if (logHumanPlayer == true)
-								cout << "Enemy Current Hit Point: " << targetHP << "/" << maxTargetHP << endl;
+							if (logHumanPlayer == true) {
+								cout << "Enemy Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
+								s += "Enemy Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
+							}
 							static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
 						}
 						else
@@ -170,11 +187,14 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 		}
 		else if (choice == 4) {
 			done = true;
-			if (logHumanPlayer == true)
+			if (logHumanPlayer == true) {
 				cout << "*** PLAYER FINISHED A TURN ***\n" << endl;
+				s += "*** PLAYER FINISHED A TURN ***\n";
+			}
 			break;
 		}
 	}
+	GameLogger::writeToLogFile(s);
 }
 
 void HumanPlayerStrategy::setHumanPlayerLog(bool value) {

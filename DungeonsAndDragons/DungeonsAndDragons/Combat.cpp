@@ -12,6 +12,7 @@
 #include "Dice.h"
 #include <iostream>
 #include <ctime>
+#include "GameLogger.h"
 
 using namespace std;
 
@@ -21,8 +22,11 @@ bool Combat::logCombat = true;
 //! @param other : Pointer to the target character (Enemy or NPC)
 //! Static class used to start the combat mechanism
 void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
-	if (logCombat == true)
+	string s = "";
+	if (logCombat == true) {
 		cout << "Combat starting.. rolling initiative..." << endl;
+		s += "Combat starting.. rolling initiative...\n";
+	}
 	int initiativePlayer;
 	int initiativeOther;
 	int playerHP = static_cast<Character*>(player)->getHitPoints();
@@ -34,16 +38,22 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 	initiativeOther = Dice::roll("1d20") + static_cast<Character*>(other)->getDexterityModifier();
 
 	// Display results
-	if (logCombat == true)
+	if (logCombat == true) {
 		cout << "Player's initiative roll: " << initiativePlayer << endl;
-	if (logCombat == true)
+		s += "Player's initiative roll: " + to_string(initiativePlayer) + "\n";
+	}
+	if (logCombat == true) {
 		cout << "Enemy's initiative roll: " << initiativeOther << endl;
+		s += "Ememy's initiative roll: " + to_string(initiativeOther) + "\n";
+	}
 	cout << endl;
 
 	// If player has higher initiative roll, player will start the round, else it will be the other character
 	if (initiativePlayer > initiativeOther) {
-		if (logCombat == true)
+		if (logCombat == true) {
 			cout << "*** PLAYER BEGINS THE ROUND ***" << endl;
+			s += "*** PLAYER BEGINS THE ROUND ***\n";
+		}
 		while (playerHP > 0 && otherHP > 0) {
 			static_cast<Character*>(player)->executeStrategy(map, player, other); // Player uses Human Player Strategy
 			otherHP = static_cast<Character*>(other)->getHitPoints();
@@ -56,8 +66,10 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 		}
 	}
 	else {
-		if (logCombat == true)
+		if (logCombat == true) {
 			cout << "*** ENEMY BEGINS THE ROUND ***" << endl;
+			s += "*** ENEMY BEGINS THE ROUND ***\n";
+		}
 		while (playerHP > 0 && otherHP > 0) {
 			static_cast<Character*>(other)->executeStrategy(map, other, player); // Enemy uses Aggressor Strategy
 			playerHP = static_cast<Character*>(player)->getHitPoints();
@@ -69,8 +81,11 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 				break;
 		}
 	}
-	if (logCombat == true)
+	if (logCombat == true) {
 		cout << "\nCOMBAT ENDED" << endl;
+		s += "\nCOMBAT ENDED\n";
+	}
+	GameLogger::writeToLogFile(s);
 }
 
 //! Iterative method for making enemies or friendly character move towards the player.
