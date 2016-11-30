@@ -33,7 +33,8 @@ public:
 	Dice();
 	static int roll(string diceString);
 	static bool isValid(string test);
-
+	static void setLogDiceRoll(bool);
+	static bool logDiceRoll;
 private:
 	//! variable to keep track of the total value after a roll
 	int rollResult;

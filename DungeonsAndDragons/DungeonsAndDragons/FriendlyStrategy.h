@@ -17,10 +17,12 @@ class FriendlyStrategy: public Strategy {
 public:
 	void execute(Map*, MapObject*, MapObject*);
 	friend class boost::serialization::access;
+	void setFriendlyLog(bool);
 private:
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
 	{
 	}
+	bool logFriendly = true;
 };

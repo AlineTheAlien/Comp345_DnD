@@ -30,4 +30,6 @@ public:
 	static void startCombat(Map*, MapObject*, MapObject*);
 	static void moveAlongPath(Map* map, MapObject* character, MapObject* target);
 	static void activateNPC(Map* map, MapObject* player);
+	static void setLogCombat(bool);
+	static bool logCombat;
 };

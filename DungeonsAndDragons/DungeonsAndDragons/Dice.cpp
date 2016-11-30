@@ -6,6 +6,8 @@
 #include "stdafx.h"
 #include "Dice.h"
 
+bool Dice::logDiceRoll = true;
+
 Dice::Dice() : rollResult(0)
 {}
 
@@ -54,9 +56,16 @@ int Dice::roll(string diceString)
 		if (arr.size() == 3) {
 			myDice.rollResult += myDice.rollResult + arr[2];
 		}
+
+		if (myDice.logDiceRoll == true)
+			cout << "Dice roll gives a: " << myDice.rollResult << endl;
 		return myDice.rollResult;
 	}
 
 	else
 		return -1;
+}
+
+void Dice::setLogDiceRoll(bool value) {
+	logDiceRoll = value;
 }

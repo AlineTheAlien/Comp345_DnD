@@ -14,11 +14,12 @@
 class AggressorStrategy : public Strategy {
 public:
 	void execute(Map*, MapObject*, MapObject*);
+	void setAgressorLog(bool);
 private:
+	bool logAgressor = true;
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
 	{
 	}
-
 };

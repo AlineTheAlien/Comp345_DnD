@@ -19,14 +19,17 @@ void FriendlyStrategy::execute(Map* map, MapObject* friendlyCharacter, MapObject
 	cin >> choice;
 	cout << endl;
 	if (choice == 1) {
-		cout << "You decided to ignore." << endl;
+		if (logFriendly == true)
+			cout << "You decided to ignore." << endl;
 	}
 	if (choice == 2) {
-		cout << "Friendly NPC became an enemy..." << endl;
+		if (logFriendly == true)
+			cout << "Friendly NPC became an enemy..." << endl;
 		static_cast<Character*>(friendlyCharacter)->setStrategy(new AggressorStrategy());
 		Combat::startCombat(map, targetCharacter, friendlyCharacter);
 	}
+}
 
-
-
+void FriendlyStrategy::setFriendlyLog(bool value) {
+	logFriendly = value;
 }

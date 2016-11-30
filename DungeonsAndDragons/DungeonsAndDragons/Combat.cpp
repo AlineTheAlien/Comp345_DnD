@@ -15,11 +15,14 @@
 
 using namespace std;
 
+bool Combat::logCombat = true;
+
 //! @param player : Pointer to a player character
 //! @param other : Pointer to the target character (Enemy or NPC)
 //! Static class used to start the combat mechanism
 void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
-	cout << "Combat starting.. rolling initiative..." << endl;
+	if (logCombat == true)
+		cout << "Combat starting.. rolling initiative..." << endl;
 	int initiativePlayer;
 	int initiativeOther;
 	int playerHP = static_cast<Character*>(player)->getHitPoints();
@@ -31,13 +34,16 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 	initiativeOther = Dice::roll("1d20") + static_cast<Character*>(other)->getDexterityModifier();
 
 	// Display results
-	cout << "Player's initiative roll: " << initiativePlayer << endl;
-	cout << "Enemy's initiative roll: " << initiativeOther << endl;
+	if (logCombat == true)
+		cout << "Player's initiative roll: " << initiativePlayer << endl;
+	if (logCombat == true)
+		cout << "Enemy's initiative roll: " << initiativeOther << endl;
 	cout << endl;
 
 	// If player has higher initiative roll, player will start the round, else it will be the other character
 	if (initiativePlayer > initiativeOther) {
-		cout << "*** PLAYER BEGINS THE ROUND ***" << endl;
+		if (logCombat == true)
+			cout << "*** PLAYER BEGINS THE ROUND ***" << endl;
 		while (playerHP > 0 && otherHP > 0) {
 			static_cast<Character*>(player)->executeStrategy(map, player, other); // Player uses Human Player Strategy
 			otherHP = static_cast<Character*>(other)->getHitPoints();
@@ -50,7 +56,8 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 		}
 	}
 	else {
-		cout << "*** ENEMY BEGINS THE ROUND ***" << endl;
+		if (logCombat == true)
+			cout << "*** ENEMY BEGINS THE ROUND ***" << endl;
 		while (playerHP > 0 && otherHP > 0) {
 			static_cast<Character*>(other)->executeStrategy(map, other, player); // Enemy uses Aggressor Strategy
 			playerHP = static_cast<Character*>(player)->getHitPoints();
@@ -62,7 +69,8 @@ void Combat::startCombat(Map* map, MapObject* player, MapObject* other) {
 				break;
 		}
 	}
-	cout << "\nCOMBAT ENDED" << endl;
+	if (logCombat == true)
+		cout << "\nCOMBAT ENDED" << endl;
 }
 
 //! Iterative method for making enemies or friendly character move towards the player.
@@ -326,4 +334,8 @@ void Combat::activateNPC(Map* map, MapObject* player) {
 			Combat::moveAlongPath(map, enemies[i], player);
 		}
 	}
+}
+
+void Combat::setLogCombat(bool value) {
+	logCombat = value;
 }
