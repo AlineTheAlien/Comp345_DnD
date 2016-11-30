@@ -96,7 +96,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// move right
 			if (!nearby && !(j + 1 > map->getMapX() || j + 1 < 0 || i > map->getMapY() || i < 0) && !(map->availableTile(j + 1, i))) {
@@ -104,7 +104,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 		}
 		else if (i > iTarget && j > jTarget) {
@@ -114,7 +114,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// move up
 			if (!nearby && !(j > map->getMapX() || j < 0 || i - 1 > map->getMapY() || i - 1 < 0) && !(map->availableTile(j, i - 1))) {
@@ -122,7 +122,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 		}
 		else if (i < iTarget && j < jTarget) {
@@ -132,7 +132,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// move right
 			if (!nearby && !(j + 1 > map->getMapX() || j + 1 < 0 || i > map->getMapY() || i < 0) && !(map->availableTile(j + 1, i))) {
@@ -140,7 +140,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 		}
 		else if (i < iTarget && j > jTarget) {
@@ -150,7 +150,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// move left
 			if (!nearby && !(j - 1 > map->getMapX() || j - 1 < 0 || i > map->getMapY() || i < 0) && !(map->availableTile(j - 1, i))) {
@@ -158,7 +158,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 		}
 	}
@@ -172,7 +172,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// If blocked, move left or move right
 			if (!nearby && !(j > map->getMapX() || j < 0 || i + 1 > map->getMapY() || i + 1 < 0) && (map->availableTile(j, i + 1))) {
@@ -182,14 +182,14 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					i = character->getMapY();
 					j = character->getMapX();
 					nearby = map->verifyNearbyCharacter(target, j, i);
-					map->showMap();
+					//map->showMap();
 				}
 				else if (!nearby && !(j + 1 > map->getMapX() || j + 1 < 0 || i > map->getMapY() || i < 0) && !(map->availableTile(j + 1, i))) {
 					map->moveCharacter(j + 1, i, character);
 					i = character->getMapY();
 					j = character->getMapX();
 					nearby = map->verifyNearbyCharacter(target, j, i);
-					map->showMap();
+					//map->showMap();
 				}
 			}
 		}
@@ -201,7 +201,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 
 			// If blocked, move left or move right
@@ -212,7 +212,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					i = character->getMapY();
 					j = character->getMapX();
 					nearby = map->verifyNearbyCharacter(target, j, i);
-					map->showMap();
+					//map->showMap();
 				}
 			}
 			else {
@@ -222,7 +222,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					i = character->getMapY();
 					j = character->getMapX();
 					nearby = map->verifyNearbyCharacter(target, j, i);
-					map->showMap();
+					//map->showMap();
 				}
 			}
 		}
@@ -237,7 +237,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// If blocked, move left or move right
 			if (!nearby && !(j > map->getMapX() || j < 0 || i - 1 > map->getMapY() || i - 1 < 0) && (map->availableTile(j, i - 1))) {
@@ -246,7 +246,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					map->moveCharacter(j - 1, i, character);
 					i = character->getMapY();
 					j = character->getMapX();
-					map->showMap();
+					//map->showMap();
 				}
 			}
 			else {
@@ -255,7 +255,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					map->moveCharacter(j + 1, i, character);
 					i = character->getMapY();
 					j = character->getMapX();
-					map->showMap();
+					//map->showMap();
 				}
 			}
 		}
@@ -266,7 +266,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 				i = character->getMapY();
 				j = character->getMapX();
 				nearby = map->verifyNearbyCharacter(target, j, i);
-				map->showMap();
+				//map->showMap();
 			}
 			// If blocked, move up
 			if (!nearby && !(j > map->getMapX() || j < 0 || i - 1 > map->getMapY() || i - 1 < 0) && (map->availableTile(j, i - 1))) {
@@ -276,7 +276,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					i = character->getMapY();
 					j = character->getMapX();
 					nearby = map->verifyNearbyCharacter(target, j, i);
-					map->showMap();
+					//map->showMap();
 				}
 			}
 			else {
@@ -285,7 +285,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 					map->moveCharacter(j + 1, i, character);
 					i = character->getMapY();
 					j = character->getMapX();
-					map->showMap();
+					//map->showMap();
 				}
 			}
 		}

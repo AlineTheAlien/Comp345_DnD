@@ -6,6 +6,7 @@
 #include <iostream>
 #include "Map.h"
 #include "Character.h"
+#include "GameLogger.h"
 
 using std::cout;
 using std::cin;
@@ -284,17 +285,26 @@ bool Map::availableTile(int x, int y) {
 //! Implementation showMap to display the map on the console
 void Map::showMap()
 {
+	string s = "";
+
 	if (logMap == true) {
 		for (int i = 0; i < mapY; i++)
 		{
 			for (int j = 0; j < mapX; j++)
 			{
 				cout << getTile(j, i) << " ";
+				s += (string(1, getTile(j, i)) + " ");
+				//GameLogger::writeToLogFile(s1);
 			}
 			cout << endl;
+			s += "\n";
+			//GameLogger::writeToLogFile("\n");
 		}
 		cout << endl;
+		s += "\n";
+		//GameLogger::writeToLogFile("\n");
 	}
+	GameLogger::writeToLogFile(s);
 }
 
 Map::~Map()
