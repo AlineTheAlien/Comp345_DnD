@@ -5,8 +5,10 @@
 //
 #include "stdafx.h"
 #include "Dice.h"
+#include "GameLogger.h"
 
-bool Dice::logDiceRoll = true;
+//Dice output is disabled by default
+bool Dice::logDiceRoll = false; 
 
 Dice::Dice() : rollResult(0)
 {}
@@ -60,6 +62,8 @@ int Dice::roll(string diceString)
 		if (myDice.logDiceRoll == true) {
 			//cout << "Dice roll value:" << myDice.rollResult << ", ";
 			cout << "Dice roll gives a: " << myDice.rollResult << endl;
+			string s = "Dice roll gives a: " + to_string(myDice.rollResult) + "\n";
+			GameLogger::writeToLogFile(s);
 		}
 		return myDice.rollResult;
 	}

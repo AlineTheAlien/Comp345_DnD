@@ -1,0 +1,251 @@
+Dice roll gives a: 3
+Dice roll gives a: 4
+
+Dice roll gives a: 4
+
+Dice roll gives a: 1
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 4
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 1
+
+Dice roll gives a: 3
+
+Dice roll gives a: 2
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 6
+
+Dice roll gives a: 4
+
+Dice roll gives a: 6
+
+Dice roll gives a: 3
+
+Dice roll gives a: 3
+
+Dice roll gives a: 2
+
+Dice roll gives a: 2
+
+Dice roll gives a: 6
+
+Dice roll gives a: 2
+
+Dice roll gives a: 3
+
+Dice roll gives a: 3
+
+Dice roll gives a: 2
+
+Dice roll gives a: 3
+
+Dice roll gives a: 6
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 1
+
+Dice roll gives a: 4
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 5
+
+Dice roll gives a: 4
+
+Dice roll gives a: 3
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 3
+
+Dice roll gives a: 7
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 5
+
+Dice roll gives a: 1
+
+Dice roll gives a: 4
+
+Dice roll gives a: 2
+
+Dice roll gives a: 5
+
+Dice roll gives a: 2
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 2
+
+Dice roll gives a: 2
+
+Dice roll gives a: 4
+
+Dice roll gives a: 2
+
+Dice roll gives a: 6
+
+Dice roll gives a: 5
+
+Dice roll gives a: 1
+
+Dice roll gives a: 2
+
+Dice roll gives a: 5
+
+Dice roll gives a: 5
+
+Dice roll gives a: 5
+
+Dice roll gives a: 4
+
+Dice roll gives a: 2
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 3
+
+Dice roll gives a: 4
+
+Dice roll gives a: 1
+
+Dice roll gives a: 4
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 2
+
+Dice roll gives a: 1
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 4
+
+Dice roll gives a: 4
+
+Dice roll gives a: 6
+
+Dice roll gives a: 5
+
+Dice roll gives a: 4
+
+Dice roll gives a: 2
+
+Dice roll gives a: 5
+
+Dice roll gives a: 4
+
+Dice roll gives a: 3
+
+Dice roll gives a: 2
+
+Dice roll gives a: 2
+
+Dice roll gives a: 4
+
+Dice roll gives a: 1
+
+Dice roll gives a: 3
+
+Dice roll gives a: 2
+
+Dice roll gives a: 4
+
+Dice roll gives a: 2
+
+Dice roll gives a: 4
+
+Dice roll gives a: 4
+
+Dice roll gives a: 4
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 6
+
+Dice roll gives a: 5
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 6
+
+Dice roll gives a: 3
+
+Dice roll gives a: 5
+
+Dice roll gives a: 1
+
+Dice roll gives a: 3
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 3
+
+Dice roll gives a: 1
+
+Dice roll gives a: 5
+
+Dice roll gives a: 1
+
+Dice roll gives a: 2
+

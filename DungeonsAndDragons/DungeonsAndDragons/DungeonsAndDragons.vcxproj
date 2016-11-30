@@ -169,6 +169,7 @@
     <ClInclude Include="Director.h" />
     <ClInclude Include="FriendlyBuilder.h" />
     <ClInclude Include="FriendlyStrategy.h" />
+    <ClInclude Include="GameLogger.h" />
     <ClInclude Include="HumanPlayerStrategy.h" />
     <ClInclude Include="ContentBuilder.h" />
     <ClInclude Include="MonsterBuilder.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="Director.cpp" />
     <ClCompile Include="FriendlyBuilder.cpp" />
     <ClCompile Include="FriendlyStrategy.cpp" />
+    <ClCompile Include="GameLogger.cpp" />
     <ClCompile Include="HumanPlayerStrategy.cpp" />
     <ClCompile Include="MonsterBuilder.cpp" />
     <ClCompile Include="NimbleBuilder.cpp" />
