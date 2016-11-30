@@ -193,6 +193,7 @@ bool Play::loadMaps()
 void Play::setAvailableCharacters()
 {
 	//Get Campaigns
+	availableCharacters.clear();
 	boost::filesystem::path path("Characters/");
 	boost::filesystem::directory_iterator i(path);
 	availableCharacters.clear();
@@ -269,7 +270,7 @@ bool Play::loadCharacter(string characterName) {
 	if (type == 'P') {
 		character->setStrategy(new HumanPlayerStrategy());
 	}
-
+	playerAlive = true;
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -286,6 +287,7 @@ string Play::getAvailableCharacters(int index) {
 void Play::createNewCharacter()
 {
 	character = UserDrivenEditor::createCharacter();
+	playerAlive = true;
 	saveCharacter(character->getCharacterName());
 }
 
@@ -314,10 +316,9 @@ void Play::placeCharacterOnMap(Map* map)
 	{
 		for (int j = 0; j < map->getMapX(); j++)
 		{
-			if (map->getTile(j, i) == 'P') {
+			if (map->getTile(j, i) == 'P')
+			{
 				map->setTile(j, i, character);
-				MapObject* player = map->getObjectTile(j, i);
-				static_cast<Character*>(player)->setStrategy(new HumanPlayerStrategy);
 			}
 		}
 	}
@@ -326,82 +327,249 @@ void Play::placeCharacterOnMap(Map* map)
 
 bool Play::moveCharacter(Map* map, char direction)
 {
-	for (int i = 0; i < map->getMapY(); i++)
+	int j = static_cast<Character*>(character)->getMapX();
+	int i = static_cast<Character*>(character)->getMapY();
+
+	if (direction == 'L' && j > 0)
 	{
-		for (int j = 0; j < map->getMapX(); j++)
+		if (map->getTile(j - 1, i) == 'C')
 		{
-			if (map->getTile(j, i) == 'P')
+			character->displayBackpack();
+			int x = static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size() - 1;
+			while (!static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().empty())
 			{
-				if (direction == 'L' && j > 0)
-				{
-					if (map->getTile(j - 1, i) == 'C')
+				static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), x);
+				x--;
+			}
+			character->displayBackpack();
+			map->movePlayer(j - 1, i, character);
+		}
+		else
+			if (map->getTile(j - 1, i) == 'E')
+			{
+				MapObject* enemy = map->getObjectTile(j - 1, i);
+				if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
+					character->displayBackpack();
+					int x = static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().size() - 1;
+					while (!static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().empty())
 					{
+						static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->transfer(character->getBackpack(), x);
+						x--;
+					}
+					character->displayBackpack();
+					map->movePlayer(j - 1, i, character);
+				}
+				else
+					startCombat(map, character, map->getObjectTile(j - 1, i));
+			}
+			else
+				if (map->getTile(j - 1, i) == 'F')
+				{
+					MapObject* friendly = map->getObjectTile(j - 1, i);
+					if ((static_cast<Character*>(friendly)->getHitPoints()) <= 0) {
 						character->displayBackpack();
-						int x = static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().size() - 1;
-						while (!static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->getItems().empty())
+						int x = static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().size() - 1;
+						while (!static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().empty())
 						{
-							static_cast<ItemContainer*>(map->getObjectTile(j - 1, i))->transfer(character->getBackpack(), x);
+							static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->transfer(character->getBackpack(), x);
 							x--;
 						}
 						character->displayBackpack();
+						map->movePlayer(j - 1, i, character);
 					}
-					map->movePlayer(j - 1, i, character);
-					return true;
+					else {
+						if (friendInteraction(map, character, map->getObjectTile(j - 1, i))) {
+							// if friend is dead
+						}
+						else
+							return false;
+					}
 				}
 				else
-					if (direction == 'R' && j < map->getMapX() - 1)
-					{
-						if (map->getTile(j + 1, i) == 'C')
+					map->movePlayer(j - 1, i, character);
+		return true;
+	}
+	else
+		if (direction == 'R' && j < map->getMapX() - 1)
+		{
+			if (map->getTile(j + 1, i) == 'C')
+			{
+				character->displayBackpack();
+				int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
+				while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+				{
+					static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
+					x--;
+				}
+				character->displayBackpack();
+				map->movePlayer(j + 1, i, character);
+			}
+			else
+				if (map->getTile(j + 1, i) == 'E')
+				{
+					MapObject* enemy = map->getObjectTile(j + 1, i);
+					if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
+						character->displayBackpack();
+						int x = static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().size() - 1;
+						while (!static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().empty())
 						{
+							static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
+						map->movePlayer(j + 1, i, character);
+					}
+					else
+						startCombat(map, character, map->getObjectTile(j + 1, i));
+				}
+				else
+					if (map->getTile(j + 1, i) == 'F')
+					{
+						MapObject* friendly = map->getObjectTile(j + 1, i);
+						if ((static_cast<Character*>(friendly)->getHitPoints()) <= 0) {
 							character->displayBackpack();
-							int x = static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().size() - 1;
-							while (!static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->getItems().empty())
+							int x = static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().size() - 1;
+							while (!static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().empty())
 							{
-								static_cast<ItemContainer*>(map->getObjectTile(j + 1, i))->transfer(character->getBackpack(), x);
+								static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->transfer(character->getBackpack(), x);
 								x--;
 							}
 							character->displayBackpack();
+							map->movePlayer(j + 1, i, character);
 						}
-						map->movePlayer(j + 1, i, character);
-						return true;
+						else {
+							if (friendInteraction(map, character, map->getObjectTile(j + 1, i))) {
+							}
+							else
+								return false;
+						}
 					}
 					else
-						if (direction == 'U' && i > 0)
-						{
-							if (map->getTile(j, i - 1) == 'C')
+						map->movePlayer(j + 1, i, character);
+
+
+			return true;
+		}
+		else
+			if (direction == 'U' && i > 0)
+			{
+				if (map->getTile(j, i - 1) == 'C')
+				{
+					character->displayBackpack();
+					int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
+					while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
+					{
+						static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
+						x--;
+					}
+					character->displayBackpack();
+					map->movePlayer(j, i - 1, character);
+				}
+				else
+					if (map->getTile(j, i - 1) == 'E')
+					{
+						MapObject* enemy = map->getObjectTile(j, i - 1);
+						if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
+							character->displayBackpack();
+							int x = static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().size() - 1;
+							while (!static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().empty())
 							{
+								static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->transfer(character->getBackpack(), x);
+								x--;
+							}
+							character->displayBackpack();
+							map->movePlayer(j, i - 1, character);
+						}
+						else
+							startCombat(map, character, map->getObjectTile(j, i - 1));
+					}
+					else
+						if (map->getTile(j, i - 1) == 'F')
+						{
+							MapObject* friendly = map->getObjectTile(j, i - 1);
+							if ((static_cast<Character*>(friendly)->getHitPoints()) <= 0) {
 								character->displayBackpack();
-								int x = static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().size() - 1;
-								while (!static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->getItems().empty())
+								int x = static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().size() - 1;
+								while (!static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().empty())
 								{
-									static_cast<ItemContainer*>(map->getObjectTile(j, i - 1))->transfer(character->getBackpack(), x);
+									static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->transfer(character->getBackpack(), x);
 									x--;
 								}
 								character->displayBackpack();
+								map->movePlayer(j, i - 1, character);
 							}
-							map->movePlayer(j, i - 1, character);
-							return true;
+							else {
+								if (friendInteraction(map, character, map->getObjectTile(j, i - 1))) {
+								}
+								else
+									return false;
+							}
 						}
 						else
-							if (direction == 'D' && i < map->getMapY() - 1)
-							{
-								if (map->getTile(j, i + 1) == 'C')
+							map->movePlayer(j, i - 1, character);
+
+				return true;
+			}
+			else
+				if (direction == 'D' && i < map->getMapY() - 1)
+				{
+					if (map->getTile(j, i + 1) == 'C')
+					{
+						character->displayBackpack();
+						int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
+						while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
+						{
+							static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
+							x--;
+						}
+						character->displayBackpack();
+						map->movePlayer(j, i + 1, character);
+					}
+					else
+						if (map->getTile(j, i + 1) == 'E')
+						{
+							MapObject* enemy = map->getObjectTile(j, i + 1);
+							if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
+								character->displayBackpack();
+								int x = static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().size() - 1;
+								while (!static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().empty())
 								{
+									static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->transfer(character->getBackpack(), x);
+									x--;
+								}
+								character->displayBackpack();
+								map->movePlayer(j, i + 1, character);
+							}
+							else
+								startCombat(map, character, map->getObjectTile(j, i + 1));
+
+						}
+						else
+							if (map->getTile(j, i + 1) == 'F')
+							{
+								MapObject* friendly = map->getObjectTile(j, i + 1);
+								if ((static_cast<Character*>(friendly)->getHitPoints()) <= 0) {
 									character->displayBackpack();
-									int x = static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().size() - 1;
-									while (!static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->getItems().empty())
+									int x = static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().size() - 1;
+									while (!static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().empty())
 									{
-										static_cast<ItemContainer*>(map->getObjectTile(j, i + 1))->transfer(character->getBackpack(), x);
+										static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->transfer(character->getBackpack(), x);
 										x--;
 									}
 									character->displayBackpack();
+									map->movePlayer(j, i + 1, character);
 								}
-								map->movePlayer(j, i + 1, character);
-								return true;
+								else {
+									if (friendInteraction(map, character, map->getObjectTile(j, i + 1))) {
+									}
+									else
+										return false;
+								}
 							}
-			}
-		}
-	}
+							else
+								map->movePlayer(j, i + 1, character);
+					return true;
+				}
 	return false;
 }
 
@@ -432,6 +600,38 @@ void Play::setCurrentMap(int index)
 int Play::getCurrentMap()
 {
 	return currentMap;
+}
+
+void Play::startCombat(Map* map, MapObject* player, MapObject* enemy)
+{
+	Combat::startCombat(map, player, enemy);
+
+	if (character->getHitPoints() <= 0)
+	{
+		cout << "Player is defeated." << endl;
+		playerAlive = false;
+		return;
+	}
+	else
+	{
+		cout << "Enemy is defeated." << endl;
+	}
+}
+
+bool Play::friendInteraction(Map* map, MapObject* player, MapObject* npc)
+{
+	static_cast<Character*>(npc)->executeStrategy(map, npc, player);
+	if (character->getHitPoints() <= 0) {
+		cout << "Played is defeated." << endl;
+		playerAlive = false;
+		return false;
+	}
+	else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
+	{
+		cout << "NPC is defeated." << endl;
+		return true;
+	}
+	return false;
 }
 
 void Play::modifyEquipment()
@@ -480,6 +680,11 @@ void Play::modifyEquipment()
 
 MapObject* Play::getCharacter() {
 	return character;
+}
+
+bool Play::playerIsAlive()
+{
+	return playerAlive;
 }
 
 Play::~Play()

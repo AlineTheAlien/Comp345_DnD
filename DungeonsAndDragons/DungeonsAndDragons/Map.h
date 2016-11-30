@@ -87,11 +87,11 @@ public:
 	MapObject* getObjectTile(int x, int y);
 	bool isOccupied(int x, int y);
 	void showMap();
-	void move(Map* map, MapObject* player); // Used for combat only
 	bool verifyNearbyCharacter(MapObject*, int, int);
 	vector<MapObject*> findAllEnemies();
 	vector<MapObject*> findAllFriends();
-	bool availableTile(int x, int y);
+	bool unavailableTile(int x, int y);
+	//bool availableTile(int x, int y);
 	static void setMapLog(bool);
 };
 

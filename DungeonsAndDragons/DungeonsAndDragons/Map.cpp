@@ -197,6 +197,8 @@ void Map::setTile(int x, int y, MapObject* object)
 	}
 	else
 		map[x + y * mapX] = NULL;
+
+	NotifyGUI();
 }
 
 //! Implementation getTile to retrieve a specific tile on the map
@@ -239,8 +241,14 @@ void Map::movePlayer(int x, int y, MapObject* object)
 				}
 			}
 		}
+		if (map[x + y * mapX] != NULL)
+		{
+			delete map[x + y * mapX];
+			map[x + y * mapX] = NULL;
+		}
 		map[x + y * mapX] = object;
 		static_cast<Character*>(object)->setMapPosition(x, y);
+		NotifyGUI();
 	}
 }
 
@@ -252,6 +260,11 @@ void Map::moveCharacter(int x, int y, MapObject* object)
 {
 	int j = static_cast<Character*>(object)->getMapX();
 	int i = static_cast<Character*>(object)->getMapY();
+	if (map[x + y * mapX] != NULL)
+	{
+		delete map[x + y * mapX];
+		map[x + y * mapX] = NULL;
+	}
 	map[x + y * mapX] = object;
 	map[j + i * mapX] = NULL;
 	static_cast<Character*>(object)->setMapPosition(x, y);
@@ -270,13 +283,13 @@ bool Map::isOccupied(int x, int y)
 	else
 		return false;
 }
-//! Implementation availableTile to check if a tile is available. This is used for combat movements.
+//! Implementation unavailableTile to check if a tile is unavailable. This is used for combat movements.
 //! @param x : an integer value of vertical index of the map's grid
 //! @param y : an integer value of horizontal index of the map's grid
 //! @return : a boolean true if the cell is occupied false otherwise
-bool Map::availableTile(int x, int y) {
+bool Map::unavailableTile(int x, int y) {
 	if (map[x + y * mapX] != NULL) {
-		bool verify = (map[x + y * mapX]->getObjectType() == DOOR || map[x + y * mapX]->getObjectType() == WALL || map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
+		bool verify = (map[x + y * mapX]->getObjectType() == CHEST || map[x + y * mapX]->getObjectType() == DOOR || map[x + y * mapX]->getObjectType() == WALL || map[x + y * mapX]->getObjectType() == PLAYER) || (map[x + y * mapX]->getObjectType() == ENEMY) || (map[x + y * mapX]->getObjectType() == FRIEND);
 		return verify;
 	}
 	else
@@ -370,7 +383,7 @@ vector<MapObject*> Map::findAllEnemies() {
 	for (int i = 0; i < mapY * mapX; i++)
 	{
 		if (map[i] != NULL) {
-			if (map[i]->getObjectType() == ENEMY)
+			if (map[i]->getObjectType() == ENEMY && static_cast<Character*>(map[i])->getHitPoints() > 0)
 				v.push_back(map[i]);
 		}
 	}
@@ -384,97 +397,9 @@ vector<MapObject*> Map::findAllFriends() {
 	for (int i = 0; i < mapY * mapX; i++)
 	{
 		if (map[i] != NULL) {
-			if (map[i]->getObjectType() == FRIEND)
+			if (map[i]->getObjectType() == FRIEND && static_cast<Character*>(map[i])->getHitPoints() > 0)
 				v.push_back(map[i]);
 		}
 	}
 	return v;
-}
-
-//! Method that allows player to move on the map via the console. Only used for combat mode.
-//! @param map : Pointer to a map
-//! @param player : Pointer to a player character
-void Map::move(Map* map, MapObject* player) {
-	int jNew;
-	int iNew;
-	int done = false;
-	int choice = 5; // for user input
-	int i = static_cast<Character*>(player)->getMapY();
-	int j = static_cast<Character*>(player)->getMapX();
-	while (!done) {
-		cout << "Where would you like to move?\n1- Left\n2- Right\n3- Top\n4- Bottom" << endl;
-		map->showMap();
-		cin >> choice;
-		cout << endl;
-		MapObject* tile = NULL;
-
-		// Move left
-		if (choice == 1) {
-			if (j - 1 >= 0) {
-				iNew = i;
-				jNew = j - 1;
-				tile = map->getObjectTile(jNew, iNew);
-				done = true;
-			}
-			else
-			{
-				cout << "Cannot move there. You will be out of the map." << endl;
-			}
-		}
-		// Move right
-		if (choice == 2) {
-			if (j + 1 < map->getMapX()) {
-				iNew = i;
-				jNew = j + 1;
-				tile = map->getObjectTile(jNew, iNew);
-				done = true;
-			}
-			else
-			{
-				cout << "Cannot move there. You will be out of the map." << endl;
-			}
-		}
-		// Move up
-		if (choice == 3) {
-			if (i - 1 >= 0) {
-				iNew = i - 1;
-				jNew = j;
-				tile = map->getObjectTile(jNew, iNew);
-				done = true;
-			}
-			else
-			{
-				cout << "Cannot move there. You will be out of the map." << endl;
-			}
-		}
-		// Move down
-		if (choice == 4) {
-			if (i + 1 < map->getMapY()) {
-				iNew = i + 1;
-				jNew = j;
-				tile = map->getObjectTile(jNew, iNew);
-				done = true;
-			}
-			else
-			{
-				cout << "Cannot move there. You will be out of the map." << endl;
-			}
-		}
-		// If the position is not taken
-		if (done == true && tile == NULL) {
-			map->movePlayer(jNew, iNew, player);
-			map->showMap();
-		}
-		else if (tile != NULL) {
-			cout << "You cannot move to this position as it is occupied." << endl;
-		}
-		// For cppunit to get out of the loop...
-		if (choice == 5) {
-			done = true;
-		}
-	}
-}
-
-void Map::setMapLog(bool value) {
-	logMap = value;
 }
