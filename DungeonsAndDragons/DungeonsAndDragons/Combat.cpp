@@ -304,29 +304,27 @@ void Combat::activateNPC(Map* map, MapObject* player) {
 		int iPos = friends[i]->getMapY();
 		int jPos = friends[i]->getMapX();
 
-		bool nearby = map->verifyNearbyCharacter(friends[i], jPos, iPos);
-		while (!nearby) {
-			iPos = friends[i]->getMapY();
-			jPos = friends[i]->getMapX();
-			nearby = map->verifyNearbyCharacter(friends[i], jPos, iPos);
-			nearby = true; //test
+		bool nearby = map->verifyNearbyCharacter(player, jPos, iPos);
+		if (!nearby) {
 			// Call a static method from Combat class to make the NPC move towards you
 			Combat::moveAlongPath(map, friends[i], player);
+			iPos = friends[i]->getMapY();
+			jPos = friends[i]->getMapX();
+			nearby = map->verifyNearbyCharacter(player, jPos, iPos);
 		}
 	}
 
-	// When the player is free, friendly NPC walks towards player
+	// When the player is free, enemies walk towards player
 	for (int i = 0; i < enemies.size(); i++) {
 		int iPos = enemies[i]->getMapY();
 		int jPos = enemies[i]->getMapX();
-		bool nearby = map->verifyNearbyCharacter(enemies[i], jPos, iPos);
-		while (!nearby) {
-			iPos = enemies[i]->getMapY();
-			jPos = enemies[i]->getMapX();
-			nearby = map->verifyNearbyCharacter(enemies[i], jPos, iPos);
-			nearby = true; //test
+		bool nearby = map->verifyNearbyCharacter(player, jPos, iPos);
+		if (!nearby) {
 			// Call a static method from Combat class to make the NPC move towards you
 			Combat::moveAlongPath(map, enemies[i], player);
+			iPos = enemies[i]->getMapY();
+			jPos = enemies[i]->getMapX();
+			nearby = map->verifyNearbyCharacter(player, jPos, iPos);
 		}
 	}
 }
