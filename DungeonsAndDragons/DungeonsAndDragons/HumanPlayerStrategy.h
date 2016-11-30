@@ -15,12 +15,12 @@
 class HumanPlayerStrategy : public Strategy {
 public:
 	void execute(Map*,MapObject*, MapObject*);
-	void setHumanPlayerLog(bool);
+	static void setHumanPlayerLog(bool);
 private:
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)
 	{
 	}
-	bool logHumanPlayer = true;
+	static bool logHumanPlayer;
 };

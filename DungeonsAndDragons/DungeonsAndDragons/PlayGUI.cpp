@@ -1069,6 +1069,7 @@ void PlayGUI::openMapView()
 					{
 						mapClicked = true;
 						cout << "Map info toggled" << endl;
+						
 						//Add logic here after
 					}
 					else

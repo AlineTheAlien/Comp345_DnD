@@ -45,7 +45,8 @@ private:
 	bool *correctPath;
 	//! Pointer to a one dimension dynamic array of booleans that represents the locations the player visited
 	bool *wasHere;
-
+	//! boolean for logger displaying
+	static bool logMap;
 
 	//Boost serialization
 	friend class boost::serialization::access;
@@ -91,5 +92,6 @@ public:
 	vector<MapObject*> findAllEnemies();
 	vector<MapObject*> findAllFriends();
 	bool availableTile(int x, int y);
+	static void setMapLog(bool);
 };
 

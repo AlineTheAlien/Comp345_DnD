@@ -24,6 +24,7 @@ private:
 	vector<string> availableCharacters;
 	ContentBuilder* mbuilder;
 	int currentMap;
+	static bool logCampaignInfo;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
@@ -47,6 +48,7 @@ public:
 	void setCurrentMap(int);
 	int getCurrentMap();
 	MapObject* getCharacter();
+	static void setCampaignInfoLog(bool);
 	~Play();
 };
 

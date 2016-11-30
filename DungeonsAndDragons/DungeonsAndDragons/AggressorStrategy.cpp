@@ -9,6 +9,8 @@
 
 using namespace std;
 
+bool AggressorStrategy::logAgressor = true;
+
 //! Method to execute the Aggressor strategy
 //! @param map : Pointer to a map
 //! @param enemyCharacter : Pointer to an enemy character

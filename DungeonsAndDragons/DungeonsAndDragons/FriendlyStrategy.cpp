@@ -9,6 +9,8 @@
 
 using namespace std;
 
+bool FriendlyStrategy::logFriendly = true;
+
 //! Method to execute the Friendly strategy
 //! @param map : Pointer to a map object
 //! @param friendlyCharacter : Pointer to a friendly character

@@ -14,9 +14,9 @@
 class AggressorStrategy : public Strategy {
 public:
 	void execute(Map*, MapObject*, MapObject*);
-	void setAgressorLog(bool);
+	static void setAgressorLog(bool);
 private:
-	bool logAgressor = true;
+	static bool logAgressor;
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)

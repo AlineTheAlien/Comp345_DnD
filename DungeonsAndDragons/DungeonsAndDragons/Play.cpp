@@ -8,6 +8,8 @@
 #include "FriendlyBuilder.h"
 #include "HumanPlayerStrategy.h"
 
+bool Play::logCampaignInfo = true;
+
 Play::Play()
 {
 	setAvailableCampaigns();
@@ -404,6 +406,14 @@ bool Play::moveCharacter(Map* map, char direction)
 
 void Play::setCurrentMap(int index)
 {
+	cout << "Current map loaded: " << endl;
+	cout << campaign->getMap(index) << endl;
+
+	cout << "Maps remaining in this campaign:" << endl;
+	for (int i = index; i < campaign->getMapListSize(); i++)
+		cout << campaign->getMap(i) << " -> ";
+	cout << " End" << endl;
+
 	currentMap = index;
 }
 

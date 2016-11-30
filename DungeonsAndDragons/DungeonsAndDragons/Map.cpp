@@ -11,6 +11,8 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+bool Map::logMap = true;
+
 
 //! Implementation of the default constructor
 Map::Map()
@@ -282,15 +284,17 @@ bool Map::availableTile(int x, int y) {
 //! Implementation showMap to display the map on the console
 void Map::showMap()
 {
-	for (int i = 0; i < mapY; i++)
-	{
-		for (int j = 0; j < mapX; j++)
+	if (logMap == true) {
+		for (int i = 0; i < mapY; i++)
 		{
-			cout << getTile(j, i) << " ";
+			for (int j = 0; j < mapX; j++)
+			{
+				cout << getTile(j, i) << " ";
+			}
+			cout << endl;
 		}
 		cout << endl;
 	}
-	cout << endl;
 }
 
 Map::~Map()
@@ -459,4 +463,8 @@ void Map::move(Map* map, MapObject* player) {
 			done = true;
 		}
 	}
+}
+
+void Map::setMapLog(bool value) {
+	logMap = true;
 }

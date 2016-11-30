@@ -6,6 +6,9 @@
 #include <iostream>
 #include "Dice.h"
 using namespace std;
+
+bool HumanPlayerStrategy::logHumanPlayer = true;
+
 //! Method to execute the Human Player strategy
 //! @param map : Pointer to a map
 //! @param player: Pointer to a player character
