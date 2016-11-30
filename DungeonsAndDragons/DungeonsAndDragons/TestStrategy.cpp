@@ -33,10 +33,10 @@ using namespace std;
 class TestStrategy : public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(TestStrategy);
-	CPPUNIT_TEST(testAggressiveStrategy);
+	CPPUNIT_TEST(testAggressorStrategy);
 	CPPUNIT_TEST_SUITE_END();
 protected:
-	void testAggressiveStrategy();
+	void testAggressorStrategy();
 };
 
 //!Register for running the test
@@ -46,9 +46,9 @@ CPPUNIT_TEST_SUITE_REGISTRATION(TestStrategy);//most important
 //! Test Case: calling execute(..) method from the AggressiveStrategy class will have the enemy not occupy
 //! the same position on the map and move towards the player. Distance between the two characters should be smaller.
 //! It will also reduce player's HP if attack is successful, unless the enemy rolls a 1 for attack roll.
-void TestStrategy::testAggressiveStrategy()
+void TestStrategy::testAggressorStrategy()
 {
-	cout << "\nTEST 2\n" << endl;
+	cout << "\nTest case: Aggressor Strategy\n" << endl;
 	// Create two characters, a player and an enemy
 	MapObject* player = new Character('P', 12, 12, 12, 12, 12, 12);
 	MapObject* enemy = new Character('E', 5, 5, 5, 5, 5, 5);
