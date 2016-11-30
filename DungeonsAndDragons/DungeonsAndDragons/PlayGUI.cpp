@@ -593,8 +593,6 @@ void PlayGUI::openMapView()
 					{
 						if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
 						{
-							maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-							maps[currentMap].at(currentPositionX - 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 							currentPositionX--;
 							Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 							play->getCampaignMap(currentMap)->showMap();
@@ -644,8 +642,6 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
 							{
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + 1 + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionX++;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
@@ -696,8 +692,6 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
 							{
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + (currentPositionY - 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionY--;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
@@ -746,8 +740,6 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
 							{
-								maps[currentMap].at(currentPositionX + currentPositionY * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getGroundTexture());
-								maps[currentMap].at(currentPositionX + (currentPositionY + 1) * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getPlayerTexture());
 								currentPositionY++;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
@@ -964,6 +956,9 @@ void PlayGUI::UpdateGUI() {
 					}
 					if (type == 'C') {
 						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getTreasureTexture());
+					}
+					if (type == 'W') {
+						maps[currentMap].at(j + i * play->getCampaignMap(currentMap)->getMapX()).setTexture(textures.getWallTexture());
 					}
 				}
 

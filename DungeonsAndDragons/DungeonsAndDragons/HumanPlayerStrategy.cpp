@@ -29,7 +29,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 		cout << "What would you like to do?\n1- Move\n2- Attack\n3- Other (Free actions)\n4- Done" << endl;
 		cin >> choice;
 		cout << endl;
-		MapObject* taken = NULL;
+		MapObject* tile = NULL;
 
 		if (choice == 1) {
 			if (numOfMoves > 0 || numOfAttacks > 0) {
@@ -37,30 +37,59 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 				map->showMap();
 				cin >> choice;
 				cout << endl;
+				MapObject* tile = NULL;
+
 				// Move left
 				if (choice == 1) {
-					iNew = i;
-					jNew = j - 1;
+					if (j - 1 >= 0) {
+						iNew = i;
+						jNew = j - 1;
+						tile = map->getObjectTile(jNew, iNew);
+					}
+					else
+					{
+						cout << "Cannot move there. You will be out of the map." << endl;
+					}
 				}
 				// Move right
 				if (choice == 2) {
-					iNew = i;
-					jNew = j + 1;
+					if (j + 1 < map->getMapX()) {
+						iNew = i;
+						jNew = j + 1;
+						tile = map->getObjectTile(jNew, iNew);
+					}
+					else
+					{
+						cout << "Cannot move there. You will be out of the map." << endl;
+					}
 				}
 				// Move up
 				if (choice == 3) {
-					iNew = i - 1;
-					jNew = j;
+					if (i - 1 >= 0) {
+						iNew = i - 1;
+						jNew = j;
+						tile = map->getObjectTile(jNew, iNew);
+					}
+					else
+					{
+						cout << "Cannot move there. You will be out of the map." << endl;
+					}
 				}
 				// Move down
 				if (choice == 4) {
-					iNew = i + 1;
-					jNew = j;
+					if (i + 1 < map->getMapY()) {
+						iNew = i + 1;
+						jNew = j;
+						tile = map->getObjectTile(jNew, iNew);
+					}
+					else
+					{
+						cout << "Cannot move there. You will be out of the map." << endl;
+					}
 				}
-				taken = map->getObjectTile(jNew, iNew);
-				// If the position is not taken
-				if (taken == NULL) {
-					map->moveCharacter(jNew, iNew, player);
+
+				if (tile == NULL) {
+					map->movePlayer(jNew, iNew, player);
 					map->showMap();
 					numOfMoves--;
 					// If player does not want to attack and instead want to move, it cannot attack
@@ -75,7 +104,6 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 			{
 				cout << "You have reached the maximum number of moves. You may only perform free actions or complete the turn." << endl;
 			}
-
 		}
 		else if (choice == 2) {
 			if (numOfAttacks > 0) {
