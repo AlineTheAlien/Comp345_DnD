@@ -1,289 +1,693 @@
-X X X F X D X X X X 
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+Current map loaded: 
+Good
+Maps remaining in this campaign: 
+Good -> Good ->  End 
+
+Dice roll gives a: 4
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X P X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+Current map loaded: 
+Good
+Maps remaining in this campaign: 
+Good -> Good ->  End 
+
+Dice roll gives a: 8
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X P X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X P D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+Current map loaded: 
+Good
+Maps remaining in this campaign: 
+Good -> Good ->  End 
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X D X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X P D X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+Current map loaded: 
+Good
+Maps remaining in this campaign: 
+Good ->  End 
+
+Dice roll gives a: 9
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X E 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X E 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 X X X X X X X X E X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
 X X X X X X X X X X 
-X X X X X X X E X X 
 X X X X X X X X X X 
-X E X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X F X X X X X X X W 
-W X X X X P X X X X 
-W W X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
 
 
 X X X X X D X X X X 
-X X X X F X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 X X X X X X X E X X 
 X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X E X X X 
-X X X X X X X X X W 
-X X E X X X X X X W 
-X X X X X X X X X W 
-X X X X X P X X X W 
-W X F X X X X X X X 
-W W X X X X X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X F X X X X 
-X X X X X X E X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
+X X X X P X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X E X X X W 
-X X X X X X X X X W 
-X X X E X X X X X W 
-X X X F X X P X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X F X X X X 
-X W W X X X E X X X 
-W W W X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X E X X W 
-X X X X X X P X X W 
-X X X X E F X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
 
 
 X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X W W X X F X X X X 
-W W W X X X E X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X E X X W 
-X X X X E F X P X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X P X X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 
 
 X X X X X D X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X F X X X X 
-X X X X X X X E X X 
 X X X X X X X X X X 
 X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X E P X W 
-X X X X X E F X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X X E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
 
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
-X X X X X X F X X X 
-X X X X X X X E X X 
-X X X X X X X X X X 
-X X X X X X X P X W 
-X X X X X E E X X W 
-X X X X X X F X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 2
 
+Dice roll gives a: 2
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
-X X X X X X X X X X 
-X X X X X X F X X X 
-X X X X X X X E X X 
-X X X X X X E X P W 
-X X X X X X E X X W 
-X X X X X X X F X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 13
 
+Dice roll gives a: 3
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X F E P X 
-X X X X X X E E X W 
-X X X X X X X F X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 1
 
+Dice roll gives a: 1
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X P X 
-X X X X X X F E X X 
-X X X X X X E E X W 
-X X X X X X X X F W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 17
 
+Dice roll gives a: 3
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X X X 
-X X X X X X X X P X 
-X X X X X X X F X X 
-X X X X X X E E X X 
-X X X X X X X E F W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 20
 
+Dice roll gives a: 14
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X X X 
-W W W X X X X X P X 
-X X X X X X X F X X 
-X X X X X X X E X X 
-X X X X X X X E E F 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 3
 
+Dice roll gives a: 13
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X W W X X X X X P X 
-W W W X X X X F X X 
-X X X X X X X E X X 
-X X X X X X X X E F 
-X X X X X X X E X X 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 17
 
+Dice roll gives a: 10
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X P X 
-X W W X X X X F X X 
-W W W X X X X E X X 
-X X X X X X X X E F 
-X X X X X X X X E X 
-X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
+Dice roll gives a: 5
 
+Dice roll gives a: 18
 
-X X X X X D X X X X 
-X X X X X X X X X X 
-X X X X X X X X P X 
-X X X X X X X F X X 
-X W W X X X X E X X 
-W W W X X X X X E F 
-X X X X X X X E X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
-
-
-X X X X X D X X X X 
-X X X X X X X X P X 
-X X X X X X X F X X 
-X X X X X X X E X X 
-X W W X X X X X E F 
-W W W X X X X X E X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
-
-
-X X X X X D X X P X 
-X X X X X X X F X X 
-X X X X X X X E X X 
-X X X X X X X X E F 
-X W W X X X X E X X 
-W W W X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-X X X X X X X X X W 
-W X X X X X X X X X 
-W W X X X X X X X X 
-
+Dice roll gives a: 17
 

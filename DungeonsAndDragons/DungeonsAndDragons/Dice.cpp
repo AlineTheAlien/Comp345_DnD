@@ -59,10 +59,11 @@ int Dice::roll(string diceString)
 			myDice.rollResult += myDice.rollResult + arr[2];
 		}
 
+		string s = "";
 		if (myDice.logDiceRoll == true) {
 			//cout << "Dice roll value:" << myDice.rollResult << ", ";
 			cout << "Dice roll gives a: " << myDice.rollResult << endl;
-			string s = "Dice roll gives a: " + to_string(myDice.rollResult) + "\n";
+			s += "Dice roll gives a: " + to_string(myDice.rollResult) + "\n";
 			GameLogger::writeToLogFile(s);
 		}
 		return myDice.rollResult;

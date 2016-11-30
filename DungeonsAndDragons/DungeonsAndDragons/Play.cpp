@@ -7,6 +7,7 @@
 #include "MonsterBuilder.h"
 #include "FriendlyBuilder.h"
 #include "HumanPlayerStrategy.h"
+#include "GameLogger.h"
 
 bool Play::logCampaignInfo = true;
 
@@ -406,18 +407,26 @@ bool Play::moveCharacter(Map* map, char direction)
 
 void Play::setCurrentMap(int index)
 {
-	if (currentMap >= getCampaignSize()) {
+	string s = "";
+	if (currentMap < getCampaignSize()) {
 		if (logCampaignInfo == true) {
 			cout << "Current map loaded: " << endl;
 			cout << campaign->getMap(index) << endl;
+			s += "Current map loaded: \n";
+			s += (campaign->getMap(index));
 
-			cout << "Maps remaining in this campaign:" << endl;
-			for (int i = index; i < campaign->getMapListSize(); i++)
+			cout << "Maps remaining in this campaign: " << endl;
+			s += "\nMaps remaining in this campaign: \n";
+			for (int i = index; i < campaign->getMapListSize(); i++) {
 				cout << campaign->getMap(i) << " -> ";
+				s += campaign->getMap(i) + " -> ";
+			}
 			cout << " End" << endl;
+			s += " End \n";
 		}
 	}
 	currentMap = index;
+	GameLogger::writeToLogFile(s);
 }
 
 int Play::getCurrentMap()

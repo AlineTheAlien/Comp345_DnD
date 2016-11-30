@@ -438,7 +438,7 @@ void PlayGUI::openMapView()
 
 	bool modifyClicked = false;
 	bool menuClicked = false;
-	bool diceClicked = false;
+	bool diceClicked = true;
 	bool mapClicked = true;
 	bool combatClicked = true;
 	bool eventClicked = true;
@@ -1124,14 +1124,14 @@ void PlayGUI::openMapView()
 					if (diceClicked)
 					{
 						diceClicked = false;
-						cout << "Dice info toggled off" << endl;
-						Dice::setLogDiceRoll(false);
+						cout << "Dice info toggled on" << endl;
+						Dice::setLogDiceRoll(true);
 					}
 					else
 					{
 						diceClicked = true;
-						cout << "Dice info toggled on" << endl;
-						Dice::setLogDiceRoll(true);
+						cout << "Dice info toggled off" << endl;
+						Dice::setLogDiceRoll(false);
 					}
 				}
 			}
