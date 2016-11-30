@@ -10,6 +10,7 @@
 #include <boost/archive/binary_iarchive.hpp>
 #include "UserDrivenEditor.h"
 #include <iostream>
+#include "Combat.h"
 #include <vector>
 #include <fstream>
 #include <boost/filesystem.hpp>
@@ -24,6 +25,7 @@ private:
 	vector<string> availableCharacters;
 	ContentBuilder* mbuilder;
 	int currentMap;
+	bool playerAlive;
 public:
 	Play();
 	bool loadCampaign(string campaignName);
@@ -36,6 +38,9 @@ public:
 	bool loadCharacter(string characterName);
 	int getAvailableCharactersSize();
 	int getCampaignSize();
+	bool playerIsAlive();
+	void startCombat(Map*, MapObject*, MapObject*);
+	bool friendInteraction(Map*, MapObject*, MapObject*);
 	string getAvailableCharacters(int index);
 	void createNewCharacter();
 	bool saveCharacter(string);

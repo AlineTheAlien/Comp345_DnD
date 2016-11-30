@@ -236,6 +236,11 @@ void Map::movePlayer(int x, int y, MapObject* object)
 				}
 			}
 		}
+		if (map[x + y * mapX] != NULL)
+		{
+			delete map[x + y * mapX];
+			map[x + y * mapX] = NULL;
+		}
 		map[x + y * mapX] = object;
 		static_cast<Character*>(object)->setMapPosition(x, y);
 	}

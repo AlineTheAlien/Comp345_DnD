@@ -266,7 +266,7 @@ bool Play::loadCharacter(string characterName) {
 	if (type == 'P') {
 		character->setStrategy(new HumanPlayerStrategy());
 	}
-
+	playerAlive = true;
 	ifs.close();
 	//Check validity of the campaign
 	return true;
@@ -311,11 +311,8 @@ void Play::placeCharacterOnMap(Map* map)
 	{
 		for (int j = 0; j < map->getMapX(); j++)
 		{
-			if (map->getTile(j, i) == 'P') {
+			if (map->getTile(j, i) == 'P')
 				map->setTile(j, i, character);
-				MapObject* player = map->getObjectTile(j, i);
-				static_cast<Character*>(player)->setStrategy(new HumanPlayerStrategy);
-			}
 		}
 	}
 	adaptMapToPlayer(map);
@@ -341,8 +338,24 @@ bool Play::moveCharacter(Map* map, char direction)
 							x--;
 						}
 						character->displayBackpack();
+						map->movePlayer(j - 1, i, character);
 					}
-					map->movePlayer(j - 1, i, character);
+					else
+						if (map->getTile(j - 1, i) == 'E')
+						{
+							startCombat(map, character, map->getObjectTile(j - 1, i));
+							map->movePlayer(j - 1, i, character);
+						}
+						else
+							if (map->getTile(j - 1, i) == 'F')
+							{
+								if (friendInteraction(map, character, map->getObjectTile(j - 1, i)))
+									map->movePlayer(j - 1, i, character);
+								else
+									return false;
+							}
+							else
+								map->movePlayer(j - 1, i, character);
 					return true;
 				}
 				else
@@ -358,8 +371,26 @@ bool Play::moveCharacter(Map* map, char direction)
 								x--;
 							}
 							character->displayBackpack();
+							map->movePlayer(j + 1, i, character);
 						}
-						map->movePlayer(j + 1, i, character);
+						else
+							if (map->getTile(j + 1, i) == 'E')
+							{
+								startCombat(map, character, map->getObjectTile(j + 1, i));
+								map->movePlayer(j + 1, i, character);
+							}
+							else
+								if (map->getTile(j + 1, i) == 'F')
+								{
+									if (friendInteraction(map, character, map->getObjectTile(j + 1, i)))
+										map->movePlayer(j + 1, i, character);
+									else
+										return false;
+								}
+								else
+									map->movePlayer(j + 1, i, character);
+
+
 						return true;
 					}
 					else
@@ -375,8 +406,25 @@ bool Play::moveCharacter(Map* map, char direction)
 									x--;
 								}
 								character->displayBackpack();
+								map->movePlayer(j, i - 1, character);
 							}
-							map->movePlayer(j, i - 1, character);
+							else
+								if (map->getTile(j, i - 1) == 'E')
+								{
+									startCombat(map, character, map->getObjectTile(j, i - 1));
+									map->movePlayer(j, i - 1, character);
+								}
+								else
+									if (map->getTile(j, i - 1) == 'F')
+									{
+										if (friendInteraction(map, character, map->getObjectTile(j, i - 1)))
+											map->movePlayer(j, i - 1, character);
+										else
+											return false;
+									}
+									else
+										map->movePlayer(j, i - 1, character);
+
 							return true;
 						}
 						else
@@ -392,8 +440,25 @@ bool Play::moveCharacter(Map* map, char direction)
 										x--;
 									}
 									character->displayBackpack();
+									map->movePlayer(j, i + 1, character);
 								}
-								map->movePlayer(j, i + 1, character);
+								else
+									if (map->getTile(j, i + 1) == 'E')
+									{
+										startCombat(map, character, map->getObjectTile(j, i + 1));
+										map->movePlayer(j, i + 1, character);
+									}
+									else
+										if (map->getTile(j, i + 1) == 'F')
+										{
+											if (friendInteraction(map, character, map->getObjectTile(j, i + 1)))
+												map->movePlayer(j, i + 1, character);
+											else
+												return false;
+										}
+										else
+											map->movePlayer(j, i + 1, character);
+
 								return true;
 							}
 			}
@@ -410,6 +475,40 @@ void Play::setCurrentMap(int index)
 int Play::getCurrentMap()
 {
 	return currentMap;
+}
+
+void Play::startCombat(Map* map, MapObject* player, MapObject* enemy)
+{
+	Combat::startCombat(map, player, enemy);
+
+	if (character->getHitPoints() <= 0)
+	{
+		cout << "Player is defeated." << endl;
+		playerAlive = false;
+		return;
+	}
+	else
+	{
+		cout << "Enemy is defeated." << endl;
+		// Take all the fallen items
+	}
+}
+
+bool Play::friendInteraction(Map* map, MapObject* player, MapObject* npc)
+{
+	static_cast<Character*>(npc)->executeStrategy(map, npc, player);
+	if (character->getHitPoints() <= 0) {
+		cout << "Played is defeated." << endl;
+		playerAlive = false;
+		return false;
+	}
+	else if (static_cast<Character*>(npc)->getHitPoints() <= 0)
+	{
+		cout << "NPC is defeated." << endl;
+		// Take all the fallen items
+		return true;
+	}
+	return false;
 }
 
 void Play::modifyEquipment()
@@ -458,6 +557,11 @@ void Play::modifyEquipment()
 
 MapObject* Play::getCharacter() {
 	return character;
+}
+
+bool Play::playerIsAlive()
+{
+	return playerAlive;
 }
 
 Play::~Play()
