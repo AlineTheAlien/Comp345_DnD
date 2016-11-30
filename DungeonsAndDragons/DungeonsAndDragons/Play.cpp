@@ -190,6 +190,7 @@ bool Play::loadMaps()
 void Play::setAvailableCharacters()
 {
 	//Get Campaigns
+	availableCharacters.clear();
 	boost::filesystem::path path("Characters/");
 	boost::filesystem::directory_iterator i(path);
 	availableCharacters.clear();

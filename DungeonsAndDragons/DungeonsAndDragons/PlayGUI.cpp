@@ -194,6 +194,7 @@ void PlayGUI::openLoadCharacterWindow()
 					if (newCharacterClicked)
 					{
 						play->createNewCharacter();
+						play->setAvailableCharacters();
 						play->setAvailableCampaigns();
 						state.setPlayState(PlayState::CAMPAIGN_SELECTION);
 						return;
