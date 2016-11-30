@@ -466,5 +466,5 @@ void Map::move(Map* map, MapObject* player) {
 }
 
 void Map::setMapLog(bool value) {
-	logMap = true;
+	logMap = value;
 }

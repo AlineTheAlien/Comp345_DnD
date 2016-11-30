@@ -57,8 +57,10 @@ int Dice::roll(string diceString)
 			myDice.rollResult += myDice.rollResult + arr[2];
 		}
 
-		if (myDice.logDiceRoll == true)
+		if (myDice.logDiceRoll == true) {
+			//cout << "Dice roll value:" << myDice.rollResult << ", ";
 			cout << "Dice roll gives a: " << myDice.rollResult << endl;
+		}
 		return myDice.rollResult;
 	}
 

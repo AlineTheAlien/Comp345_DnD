@@ -439,9 +439,9 @@ void PlayGUI::openMapView()
 	bool modifyClicked = false;
 	bool menuClicked = false;
 	bool diceClicked = false;
-	bool mapClicked = false;
-	bool combatClicked = false;
-	bool eventClicked = false;
+	bool mapClicked = true;
+	bool combatClicked = true;
+	bool eventClicked = true;
 
 	if (!textFont.loadFromFile("Fonts/OldSchool.ttf"))
 	{
@@ -473,7 +473,7 @@ void PlayGUI::openMapView()
 	combatText.setStyle(sf::Text::Italic);
 	combatText.setCharacterSize(15);
 
-	eventText.setString("Event info");
+	eventText.setString("Campaign info");
 	eventText.setFont(textFont);
 	eventText.setStyle(sf::Text::Italic);
 	eventText.setCharacterSize(15);
@@ -1065,64 +1065,73 @@ void PlayGUI::openMapView()
 
 				if (mapButton.contains(mousePosition))
 				{
-					if (!mapClicked)
-					{
-						mapClicked = true;
-						cout << "Map info toggled" << endl;
-						
-						//Add logic here after
-					}
-					else
+					if (mapClicked)
 					{
 						mapClicked = false;
 						cout << "Map info toggled off" << endl;
+						Map::setMapLog(false);
+					}
+					else
+					{
+						mapClicked = true;
+						cout << "Map info toggled on" << endl;
+						Map::setMapLog(true);
 					}
 
 				}
 
-				if (eventButton.contains(mousePosition))
+				if (eventButton.contains(mousePosition)) //campaign info
 				{
-					if (!eventClicked)
+					if (eventClicked)
 					{
-						eventClicked = true;
-						cout << "Game events info toggled" << endl;
-						//Add logic here after
+						eventClicked = false;
+						cout << "Campaign and map progress info toggled off" << endl;
+						Play::setCampaignInfoLog(false);
 					}
 					else
 					{
-						eventClicked = false;
-						cout << "Game events toggled off" << endl;
+						eventClicked = true;
+						cout << "Campaign and map progress info toggled on" << endl;
+						Play::setCampaignInfoLog(true);
 					}
 				}
 
 				if (combatButton.contains(mousePosition))
 				{
-					if (!combatClicked)
-					{
-						combatClicked = true;
-						cout << "Combat info toggled" << endl;
-						//Add logic here after
-					}
-					else
+					if (combatClicked)
 					{
 						combatClicked = false;
 						cout << "Combat info toggled off" << endl;
+						AggressorStrategy::setAgressorLog(false);
+						HumanPlayerStrategy::setHumanPlayerLog(false);
+						FriendlyStrategy::setFriendlyLog(false);
+						Combat::setLogCombat(false);
+					}
+					else
+					{
+						combatClicked = true;
+						cout << "Combat info toggled on" << endl;
+						AggressorStrategy::setAgressorLog(true);
+						HumanPlayerStrategy::setHumanPlayerLog(true);
+						FriendlyStrategy::setFriendlyLog(true);
+						Combat::setLogCombat(true);
 					}
 
 				}
 
 				if (diceButton.contains(mousePosition))
 				{
-					if (!diceClicked)
-					{
-						diceClicked = true;
-						cout << "Dice info toggled on" << endl;
-						//Add logic here after
-					}
-					else
+					if (diceClicked)
 					{
 						diceClicked = false;
 						cout << "Dice info toggled off" << endl;
+						Dice::setLogDiceRoll(false);
+					}
+					else
+					{
+						diceClicked = true;
+						cout << "Dice info toggled on" << endl;
+						Dice::setLogDiceRoll(true);
 					}
 				}
 			}

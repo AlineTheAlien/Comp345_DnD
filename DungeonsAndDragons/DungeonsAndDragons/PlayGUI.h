@@ -6,6 +6,9 @@
 #include "Resources.h"
 #include "GameState.h"
 #include "Observer.h"
+#include "AggressorStrategy.h"
+#include "HumanPlayerStrategy.h"
+#include "FriendlyStrategy.h"
 class Launch;
 
 class PlayGUI : public Observer

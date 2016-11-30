@@ -406,14 +406,17 @@ bool Play::moveCharacter(Map* map, char direction)
 
 void Play::setCurrentMap(int index)
 {
-	cout << "Current map loaded: " << endl;
-	cout << campaign->getMap(index) << endl;
+	if (currentMap >= getCampaignSize()) {
+		if (logCampaignInfo == true) {
+			cout << "Current map loaded: " << endl;
+			cout << campaign->getMap(index) << endl;
 
-	cout << "Maps remaining in this campaign:" << endl;
-	for (int i = index; i < campaign->getMapListSize(); i++)
-		cout << campaign->getMap(i) << " -> ";
-	cout << " End" << endl;
-
+			cout << "Maps remaining in this campaign:" << endl;
+			for (int i = index; i < campaign->getMapListSize(); i++)
+				cout << campaign->getMap(i) << " -> ";
+			cout << " End" << endl;
+		}
+	}
 	currentMap = index;
 }
 
@@ -482,4 +485,8 @@ Play::~Play()
 		campaignMaps[i] = NULL;
 	}
 	delete mbuilder;
+}
+
+void Play::setCampaignInfoLog(bool value) {
+	logCampaignInfo = value;
 }
