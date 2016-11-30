@@ -5,6 +5,7 @@
 //! the enemy will either attack the player or move towards the player to stay within range of attack.
 #pragma once
 #include "Strategy.h"
+#include "GameLogger.h"
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/serialization/vector.hpp>

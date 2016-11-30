@@ -232,7 +232,7 @@ void Combat::moveAlongPath(Map* map, MapObject* character, MapObject* target) {
 			}
 			else {
 				// move right
-				if (!nearby && !(j + 1 > map->getMapX() || j + 1 < 0 || i > map->getMapY() || i < 0) && !(map->availableTile(j + 1, i))) {
+				if (!nearby && !(j + 1 > map->getMapX() || j + 1 < 0 || i > map->getMapY() || i < 0) && !(map->unavailableTile(j + 1, i))) {
 					map->moveCharacter(j + 1, i, character);
 					i = character->getMapY();
 					j = character->getMapX();

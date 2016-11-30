@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "PlayGUI.h"
 #include "Combat.h"
+#include "GameLogger.h"
+#include "Map.h"
 
 PlayGUI::PlayGUI()
 {

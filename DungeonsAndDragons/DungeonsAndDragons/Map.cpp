@@ -403,3 +403,7 @@ vector<MapObject*> Map::findAllFriends() {
 	}
 	return v;
 }
+
+void Map::setMapLog(bool value) {
+	logMap = value;
+}
