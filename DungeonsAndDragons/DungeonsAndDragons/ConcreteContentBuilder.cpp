@@ -36,7 +36,7 @@ void ConcreteContentBuilder::buildCharacter(char type, int j, int i, MapObject* 
 	// Since the character is a fighter, a d10 hit dice was used
 	// to get a number that will be added or removed to the total and current hit points
 	int sum = 0;
-	string dice = to_string(playerLevel) + "d10";
+	string dice = to_string(playerLevel) + "d6";
 	sum = Dice::roll(dice);
 
 	// After getting the ability scores bonus that must be assigned, randomly assign to one of the abilities.
