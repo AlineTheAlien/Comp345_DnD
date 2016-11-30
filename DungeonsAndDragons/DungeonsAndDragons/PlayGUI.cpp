@@ -358,6 +358,8 @@ void PlayGUI::openLoadCampaignWindow()
 								play->loadMaps();
 								
 								play->placeCharacterOnMap(play->getCampaignMap(play->getCurrentMap()));
+								subject = play->getCampaignMap(play->getCurrentMap());
+								subject->Attach(this);
 								state.setPlayState(PlayState::MAP_VIEW);
 								return;
 							}
@@ -413,6 +415,9 @@ void PlayGUI::openMapView()
 {
 	//vector<vector<sf::Sprite>> maps;
 	//int currentMap = play->getCurrentMap();
+	if (subject != NULL) {
+		subject->Detach(this);
+	}
 	currentMap = play->getCurrentMap();
 	subject = play->getCampaignMap(currentMap);// For observer pattern
 	subject->Attach(this);
@@ -526,7 +531,7 @@ void PlayGUI::openMapView()
 		cout << endl;
 		maps.push_back(mapTiles);
 	}
-
+	UpdateGUI();
 	int currentPositionX;
 	int currentPositionY;
 
