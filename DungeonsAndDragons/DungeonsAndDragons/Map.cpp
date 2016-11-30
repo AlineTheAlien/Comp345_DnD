@@ -194,6 +194,8 @@ void Map::setTile(int x, int y, MapObject* object)
 	}
 	else
 		map[x + y * mapX] = NULL;
+
+	NotifyGUI();
 }
 
 //! Implementation getTile to retrieve a specific tile on the map

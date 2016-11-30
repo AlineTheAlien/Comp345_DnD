@@ -5,6 +5,7 @@
 #include "Character.h"
 #include <iostream>
 #include "Dice.h"
+#include "Play.h"
 using namespace std;
 //! Method to execute the Human Player strategy
 //! @param map : Pointer to a map
@@ -180,7 +181,50 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 			}
 		}
 		else if (choice == 3) {
-			cout << "Performing free actions... (equip items, take a potion, etc.) Can be done as many time as player wants." << endl;
+			cout << "You may perform the following free actions.\n1. Modify equipment" << endl;
+			cin >> choice;
+			cout << endl;
+			if (choice == 1) {
+				int itemChoice;
+				int size = static_cast<Character*>(player)->getBackpack()->getItems().size();
+				bool isValid = false;
+				do {
+					cout << "Press 1 to equip items, or press 2 to unequip your current items. Enter -1 to exit" << endl;
+					cin >> choice;
+					if (choice == 1 || choice == 2)
+						isValid = true;
+					if (choice == -1)
+						return;
+				} while (isValid == false);
+
+				if (choice == 1)
+				{
+					do {
+						static_cast<Character*>(player)->displayBackpack();
+						cout << "Which index item do you want to equip? Enter -1 to exit" << endl;
+						cin >> itemChoice;
+						if (itemChoice == -1)
+							return;
+					} while (itemChoice > size || itemChoice < 0);
+					static_cast<Character*>(player)->equipItem(itemChoice);
+					static_cast<Character*>(player)->displayBackpack();
+					static_cast<Character*>(player)->displayEquipment();
+				}
+				else
+					if (choice == 2)
+					{
+						do {
+							static_cast<Character*>(player)->getEquippedItems()->displayItems();
+							cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
+							cin >> itemChoice;
+							if (itemChoice == -1)
+								return;
+						} while (itemChoice > static_cast<Character*>(player)->getEquippedItems()->getItems().size() || itemChoice < 0);
+						static_cast<Character*>(player)->unequipItem(itemChoice);
+						static_cast<Character*>(player)->displayBackpack();
+						static_cast<Character*>(player)->displayEquipment();
+					}
+			}
 		}
 		else if (choice == 4) {
 			done = true;

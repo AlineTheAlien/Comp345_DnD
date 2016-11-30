@@ -375,6 +375,7 @@ bool Play::moveCharacter(Map* map, char direction)
 					}
 					else {
 						if (friendInteraction(map, character, map->getObjectTile(j - 1, i))) {
+							// if friend is dead
 						}
 						else
 							return false;
@@ -591,8 +592,6 @@ void Play::startCombat(Map* map, MapObject* player, MapObject* enemy)
 	else
 	{
 		cout << "Enemy is defeated." << endl;
-		static_cast<Character*>(enemy)->setStrategy(NULL);
-		// Take all the fallen items
 	}
 }
 

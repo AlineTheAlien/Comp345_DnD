@@ -356,6 +356,7 @@ void PlayGUI::openLoadCampaignWindow()
 							if (play->loadCampaign(play->getAvailableCampaigns(i)))
 							{
 								play->loadMaps();
+								
 								play->placeCharacterOnMap(play->getCampaignMap(play->getCurrentMap()));
 								state.setPlayState(PlayState::MAP_VIEW);
 								return;
@@ -562,8 +563,9 @@ void PlayGUI::openMapView()
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
-						subject->Detach(this);
+
 						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For Observer pattern
 							subject->Attach(this);
 						}
@@ -574,7 +576,6 @@ void PlayGUI::openMapView()
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
-							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -593,7 +594,8 @@ void PlayGUI::openMapView()
 					{
 						if (play->moveCharacter(play->getCampaignMap(currentMap), 'L'))
 						{
-							currentPositionX--;
+							int x = static_cast<Character*>(play->getCharacter())->getMapX();
+							currentPositionX = x;
 							Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 							play->getCampaignMap(currentMap)->showMap();
 						}
@@ -610,8 +612,8 @@ void PlayGUI::openMapView()
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
-						subject->Detach(this);
 						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For Observer pattern
 							subject->Attach(this);
 						}
@@ -622,7 +624,6 @@ void PlayGUI::openMapView()
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
-							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -642,7 +643,8 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'R'))
 							{
-								currentPositionX++;
+								int x = static_cast<Character*>(play->getCharacter())->getMapX();
+								currentPositionX = x;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
 							}
@@ -660,8 +662,8 @@ void PlayGUI::openMapView()
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
-						subject->Detach(this);
 						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For Observer pattern
 							subject->Attach(this);
 						}
@@ -669,10 +671,9 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
+							currentMap = 0;
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
-							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -692,7 +693,8 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'U'))
 							{
-								currentPositionY--;
+								int y = static_cast<Character*>(play->getCharacter())->getMapY();
+								currentPositionY = y;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
 							}
@@ -709,8 +711,8 @@ void PlayGUI::openMapView()
 					{
 						play->setCurrentMap(play->getCurrentMap() + 1);
 						currentMap = play->getCurrentMap();
-						subject->Detach(this);
 						if (play->getCurrentMap() < play->getCampaignSize()) {
+							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For Observer pattern
 							subject->Attach(this);
 						}
@@ -718,10 +720,9 @@ void PlayGUI::openMapView()
 						{
 							play->levelUpCharacter();
 							play->setCurrentMap(0);
-							currentMap = play->getCurrentMap();
+							currentMap = 0;
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
-							subject->Attach(this);
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -740,7 +741,8 @@ void PlayGUI::openMapView()
 						{
 							if (play->moveCharacter(play->getCampaignMap(currentMap), 'D'))
 							{
-								currentPositionY++;
+								int y = static_cast<Character*>(play->getCharacter())->getMapY();
+								currentPositionY = y;
 								Combat::activateNPC(play->getCampaignMap(currentMap), play->getCharacter());
 								play->getCampaignMap(currentMap)->showMap();
 							}
@@ -799,7 +801,7 @@ void PlayGUI::openMapView()
 				if (menuButton.contains(mousePosition))
 				{
 					play->setCurrentMap(0);
-					currentMap = play->getCurrentMap();
+					currentMap = 0;
 					subject->Detach(this);
 					subject = play->getCampaignMap(currentMap); // For observer pattern
 					subject->Attach(this);
@@ -912,8 +914,10 @@ void PlayGUI::openMapView()
 		if (!play->playerIsAlive())
 		{
 			play->setCurrentMap(0);
-			currentMap = play->getCurrentMap();
+			currentMap = 0;
+			subject->Detach(this);
 			subject = play->getCampaignMap(currentMap); // For observer pattern
+			subject->Attach(this);
 			state.setLaunchState(LaunchState::MENU);
 			return;
 		}
