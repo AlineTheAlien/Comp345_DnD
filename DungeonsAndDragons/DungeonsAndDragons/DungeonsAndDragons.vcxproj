@@ -226,6 +226,7 @@
     <ClCompile Include="NimbleBuilder.cpp" />
     <ClCompile Include="TankBuilder.cpp" />
     <ClCompile Include="TestCharacter.cpp" />
+    <ClCompile Include="TestMap.cpp" />
     <ClCompile Include="TestStrategy.cpp" />
     <ClCompile Include="UserDrivenEditor.cpp" />
     <ClCompile Include="Dice.cpp" />
