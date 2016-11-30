@@ -460,16 +460,16 @@ int main(int argc, char* argv[])
 //int x;
 //cin >> x;
 
-	system("PAUSE");
-	getchar();
-	Launch game;
-	game.Start();
-	//delete player;
-	//delete testBackPack;
-	//delete testEquipped;
-	//delete s1;
-	//delete s2;
-	//delete ar1;
-	//delete newChest;
-	return 0;
+	//system("PAUSE");
+	//getchar();
+	//Launch game;
+	//game.Start();
+	////delete player;
+	////delete testBackPack;
+	////delete testEquipped;
+	////delete s1;
+	////delete s2;
+	////delete ar1;
+	////delete newChest;
+	//return 0;
 }

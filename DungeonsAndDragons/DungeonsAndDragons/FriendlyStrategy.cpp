@@ -14,6 +14,18 @@ using namespace std;
 //! @param friendlyCharacter : Pointer to a friendly character
 //! @param targetCharacter : Pointer to a character targeted by the friendly character
 void FriendlyStrategy::execute(Map* map, MapObject* friendlyCharacter, MapObject* targetCharacter) {
+	int iPos = friendlyCharacter->getMapY();
+	int jPos = friendlyCharacter->getMapX();
+
+	bool nearby = map->verifyNearbyCharacter(targetCharacter, jPos, iPos);
+	while (!nearby) {
+		// Call a static method from Combat class to make the NPC move towards you
+		Combat::moveAlongPath(map, friendlyCharacter, targetCharacter);
+		iPos = friendlyCharacter->getMapY();
+		jPos = friendlyCharacter->getMapX();
+		nearby = map->verifyNearbyCharacter(targetCharacter, jPos, iPos);
+	}
+
 	int choice;
 	cout << "You encountered a friend.\nYou may choose to: 1. Ignore or 2. Attack" << endl;
 	cin >> choice;
@@ -26,7 +38,4 @@ void FriendlyStrategy::execute(Map* map, MapObject* friendlyCharacter, MapObject
 		static_cast<Character*>(friendlyCharacter)->setStrategy(new AggressorStrategy());
 		Combat::startCombat(map, targetCharacter, friendlyCharacter);
 	}
-
-
-
 }

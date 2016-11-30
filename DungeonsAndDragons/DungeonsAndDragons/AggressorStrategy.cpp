@@ -65,7 +65,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			else if (attackRoll == 20) {
 				cout << "Rolled a " << attackRoll << "!" << endl;
 				cout << "Critical Hit!" << endl;
-				// Own implementation of the dice... Roll twice
+				// Roll twice
 				damageRoll = Dice::roll("2d20");
 				damageRoll += static_cast<Character*>(enemyCharacter)->getDamageBonus();
 				cout << "Total damage roll: " << damageRoll << endl;

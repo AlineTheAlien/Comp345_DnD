@@ -221,9 +221,12 @@
     <ClCompile Include="FriendlyBuilder.cpp" />
     <ClCompile Include="FriendlyStrategy.cpp" />
     <ClCompile Include="HumanPlayerStrategy.cpp" />
+    <ClCompile Include="ItemContainer.cpp" />
     <ClCompile Include="MonsterBuilder.cpp" />
     <ClCompile Include="NimbleBuilder.cpp" />
     <ClCompile Include="TankBuilder.cpp" />
+    <ClCompile Include="TestCharacter.cpp" />
+    <ClCompile Include="TestStrategy.cpp" />
     <ClCompile Include="UserDrivenEditor.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="DungeonsAndDragons.cpp" />
@@ -232,7 +235,6 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemContainer.cpp" />
     <ClCompile Include="Launch.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapEditor.cpp" />
