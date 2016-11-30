@@ -283,6 +283,7 @@ string Play::getAvailableCharacters(int index) {
 void Play::createNewCharacter()
 {
 	character = UserDrivenEditor::createCharacter();
+	playerAlive = true;
 	saveCharacter(character->getCharacterName());
 }
 
@@ -312,7 +313,9 @@ void Play::placeCharacterOnMap(Map* map)
 		for (int j = 0; j < map->getMapX(); j++)
 		{
 			if (map->getTile(j, i) == 'P')
+			{
 				map->setTile(j, i, character);
+			}
 		}
 	}
 	adaptMapToPlayer(map);
