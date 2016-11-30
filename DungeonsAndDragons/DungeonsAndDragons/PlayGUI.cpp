@@ -500,6 +500,7 @@ void PlayGUI::openMapView()
 	eventButton = eventText.getGlobalBounds();
 	diceButton = diceText.getGlobalBounds();
 
+	maps.clear();
 	for (int i = 0; i < play->getCampaignSize(); i++)
 	{
 		vector<sf::Sprite> mapTiles;
