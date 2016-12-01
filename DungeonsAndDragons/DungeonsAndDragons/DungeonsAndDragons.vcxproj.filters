@@ -62,7 +62,7 @@
       <UniqueIdentifier>{b1033f84-b4e5-44aa-8af9-755dbea24fb8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Test Cases">
-      <UniqueIdentifier>{d215d075-da1a-4c6a-a2cc-5c9f3cf34e76}</UniqueIdentifier>
+      <UniqueIdentifier>{0607e2cc-9f16-4b65-a44b-c6b0ac627e33}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -205,7 +205,7 @@
       <Filter>Header Files\Design Patterns</Filter>
     </ClInclude>
     <ClInclude Include="GameLogger.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\View</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +275,9 @@
     <ClCompile Include="Character.cpp">
       <Filter>Source Files\Map Objects</Filter>
     </ClCompile>
+    <ClCompile Include="ItemContainer.cpp">
+      <Filter>Source Files\Map Objects</Filter>
+    </ClCompile>
     <ClCompile Include="MapObject.cpp">
       <Filter>Source Files\Map Objects</Filter>
     </ClCompile>
@@ -335,23 +338,20 @@
     <ClCompile Include="Combat.cpp">
       <Filter>Source Files\Design Patterns</Filter>
     </ClCompile>
-    <ClCompile Include="TestStrategy.cpp">
-      <Filter>Source Files\Test Cases</Filter>
-    </ClCompile>
     <ClCompile Include="TestCharacter.cpp">
-      <Filter>Source Files\Test Cases</Filter>
-    </ClCompile>
-    <ClCompile Include="ItemContainer.cpp">
-      <Filter>Source Files\Map Objects</Filter>
-    </ClCompile>
-    <ClCompile Include="TestMap.cpp">
       <Filter>Source Files\Test Cases</Filter>
     </ClCompile>
     <ClCompile Include="TestEditor.cpp">
       <Filter>Source Files\Test Cases</Filter>
     </ClCompile>
+    <ClCompile Include="TestMap.cpp">
+      <Filter>Source Files\Test Cases</Filter>
+    </ClCompile>
+    <ClCompile Include="TestStrategy.cpp">
+      <Filter>Source Files\Test Cases</Filter>
+    </ClCompile>
     <ClCompile Include="GameLogger.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\View</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
