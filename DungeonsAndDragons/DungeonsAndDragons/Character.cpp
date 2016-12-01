@@ -615,13 +615,13 @@ void Character::chooseScoresOnLevelUp() {
 			abilityScores[2] = abilityScores[2] + 2;
 		}
 		else if (chooseAbility == 4) {
-			abilityScores[3] = abilityScores[3] + 2;
-		}
-		else if (chooseAbility == 5) {
 			abilityScores[4] = abilityScores[4] + 2;
 		}
-		else if (chooseAbility == 6) {
+		else if (chooseAbility == 5) {
 			abilityScores[5] = abilityScores[5] + 2;
+		}
+		else if (chooseAbility == 6) {
+			abilityScores[3] = abilityScores[3] + 2;
 		}
 		else {
 			cout << "error" << endl;
@@ -660,13 +660,13 @@ void Character::chooseScoresOnLevelUp() {
 				abilityScores[2] = abilityScores[2] + 1;
 			}
 			else if (chooseAbility == 4) {
-				abilityScores[3] = abilityScores[3] + 1;
-			}
-			else if (chooseAbility == 5) {
 				abilityScores[4] = abilityScores[4] + 1;
 			}
-			else if (chooseAbility == 6) {
+			else if (chooseAbility == 5) {
 				abilityScores[5] = abilityScores[5] + 1;
+			}
+			else if (chooseAbility == 6) {
+				abilityScores[3] = abilityScores[3] + 1;
 			}
 			ctr++;
 		}
@@ -947,16 +947,39 @@ void Character::displayEquipment() {
 	string ring = this->getWornItemName("RING");
 	string helmet = this->getWornItemName("HELMET");
 	string belt = this->getWornItemName("BELT");
-
-	cout << "\n\n Displaying your character's current equipped items..." << endl;
-	cout << "\n Armor worn is : " << armor << endl;
-	cout << " Shield equipped is : " << shield << endl;
-	cout << " Weapon equipped is : " << weapon << endl;
-	cout << " Boots worn are : " << boots << endl;
-	cout << " Ring equipped is : " << ring << endl;
-	cout << " Helmet worn is : " << helmet << endl;
-	cout << " Belt worn is : " << belt << endl;
-	cout << endl;
+	if (objectType == 'P') {
+		cout << "\n\n Displaying your character's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
+	else if (objectType == 'E') {
+		cout << "\n\n Enemy's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
+	else if (objectType == 'F') {
+		cout << "\n\nNPC's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
 }
 
 //! Method that displays character's inventory pane

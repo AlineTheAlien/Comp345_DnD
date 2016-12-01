@@ -139,51 +139,54 @@ void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) 
 	int maxNumBonus = playerLevel + 1; // For demo purpose, we decided that max bonus number for each level is the player level + 1
 	int numOfItems = items.size();
 	vector<Enhancement> enh;
-	// Get the total number of bonus currently inside chest
-	for (int i = 0; i < numOfItems; i++) {
-		enh = (items[i]->getEnhancements());
-		for (int i = 0; i < enh.size(); i++) {
-			currentTotalBonus += enh[i].getBonus();
+	if (numOfItems > 0) {
+		// Get the total number of bonus currently inside chest
+		for (int i = 0; i < numOfItems; i++) {
+			enh = (items[i]->getEnhancements());
+			for (int i = 0; i < enh.size(); i++) {
+				currentTotalBonus += enh[i].getBonus();
+			}
 		}
-	}
 
-	int scoresToAdd = maxNumBonus - currentTotalBonus;
-	int randItemIndex;
-	int randEnhancementIndex;
-	int bonus; // Bonus of one enhancement type
-	int totalBonus; // Total bonus to set to a specified enhancement types
-	int numOfEnhancements;
-	// If the difference is positive, there are scores to add to any of the enhancement type
-	if (scoresToAdd > 0) {
-		while (scoresToAdd != 0) {
-			randItemIndex = rand() % numOfItems; // Get the index of a random item
-			enh = items[randItemIndex]->getEnhancements(); // Store the item's enhancements in enh
-			numOfEnhancements = enh.size(); // Get the number of enhancements the item has
-			if (numOfEnhancements != 0) {
-				randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
-				bonus = enh[randEnhancementIndex].getBonus();
-				totalBonus = bonus + 1;
-				if (totalBonus <= 5) {
-					items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
-					scoresToAdd--;
+		int scoresToAdd = maxNumBonus - currentTotalBonus;
+		int randItemIndex;
+		int randEnhancementIndex;
+		int bonus; // Bonus of one enhancement type
+		int totalBonus; // Total bonus to set to a specified enhancement types
+		int numOfEnhancements;
+		// If the difference is positive, there are scores to add to any of the enhancement type
+		if (scoresToAdd > 0) {
+			while (scoresToAdd != 0) {
+				randItemIndex = rand() % numOfItems; // Get the index of a random item
+				enh = items[randItemIndex]->getEnhancements(); // Store the item's enhancements in enh
+				numOfEnhancements = enh.size(); // Get the number of enhancements the item has
+				if (numOfEnhancements != 0) {
+					randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
+					bonus = enh[randEnhancementIndex].getBonus();
+					totalBonus = bonus + 1;
+					if (totalBonus <= 5 && totalBonus >= 0) {
+						items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
+						scoresToAdd--;
+					}
+				}
+			}
+		}
+		else if (scoresToAdd < 0) {
+			while (scoresToAdd != 0) {
+				randItemIndex = rand() % numOfItems; // Get the index of a random item
+				enh = items[randItemIndex]->getEnhancements(); // Store the item's enhancements in enh
+				numOfEnhancements = enh.size(); // Get the number of enhancements the item has
+				if (numOfEnhancements != 0) {
+					randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
+					bonus = enh[randEnhancementIndex].getBonus();
+					totalBonus = bonus - 1;
+					if (totalBonus >= 0 && totalBonus <= 5) {
+						items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
+						scoresToAdd++;
+					}
 				}
 			}
 		}
 	}
-	else {
-		while (scoresToAdd != 0) {
-			randItemIndex = rand() % numOfItems; // Get the index of a random item
-			enh = items[randItemIndex]->getEnhancements(); // Store the item's enhancements in enh
-			numOfEnhancements = enh.size(); // Get the number of enhancements the item has
-			if (numOfEnhancements != 0) {
-				randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
-				bonus = enh[randEnhancementIndex].getBonus();
-				totalBonus = bonus - 1;
-				if (totalBonus >= 0) {
-					items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
-					scoresToAdd++;
-				}
-			}
-		}
-	}
+	
 }

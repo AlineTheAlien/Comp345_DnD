@@ -12,12 +12,15 @@
 #include <fstream>
 using namespace std;
 
+//! Constructor
 UserDrivenEditor::UserDrivenEditor()
 {
 
 
 }
 
+//! Method to create a chest
+//! @return a pointer to an item container
 ItemContainer* UserDrivenEditor::createChest()
 {
 	MapObject* newChest = new ItemContainer("CHEST");
@@ -275,7 +278,7 @@ ItemContainer* UserDrivenEditor::createChest()
 //! @return A pointer to an item container
 ItemContainer* UserDrivenEditor::createBackpack()
 {
-	MapObject* newChest = new ItemContainer("CHEST");
+	MapObject* newChest = new ItemContainer("BACKPACK");
 	int numOfItems = 1;
 	string chestName = "";
 	string empty = "";
