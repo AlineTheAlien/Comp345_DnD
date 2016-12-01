@@ -662,25 +662,32 @@ void Character::chooseScoresOnLevelUp() {
 //! Method that increments the level by one to show that the character has leveled up
 void Character::levelUp() {
 
-	if (currentLevel != 0 && currentLevel % 5 == 0) {
-		numberofAttacks++; //number of attacks/round increases every 5 levels 
+	if (currentLevel <= 20) {
+		if (currentLevel != 0 && currentLevel % 5 == 0) {
+			numberofAttacks++; //number of attacks/round increases every 5 levels 
+		}
+
+		currentLevel++;
+
+		maxHitPoints = maxHitPoints + levelHitPoints();
+		currentHitPoints = maxHitPoints; //For now, HP refills back to full on level up
+
+		chooseScoresOnLevelUp(); //Ability scores to modify are chosen by the user
+
+		for (int i = 0; i <= 5; i++) {
+			abilityModifiers[i] = generateAbilityModifier(abilityScores[i]);
+			//modify new ability modifiers
+		}
+
+		attackBonus++; //attack bonus goes up by one
+
+		Notify(); //Notify observers that level has been increased
 	}
-
-	currentLevel++;
-
-	maxHitPoints = maxHitPoints + levelHitPoints();
-	currentHitPoints = maxHitPoints; //For now, HP refills back to full on level up
-
-	chooseScoresOnLevelUp(); //Ability scores to modify are chosen by the user
-
-	for (int i = 0; i <= 5; i++ ) {
-		abilityModifiers[i] = generateAbilityModifier(abilityScores[i]);
-		//modify new ability modifiers
+	else {
+		Notify();
+		cout << "\nYou are at the max level, can not level up from here." << endl;
 	}
-
-	attackBonus++; //attack bonus goes up by one
-
-	Notify(); //Notify observers that level has been increased
+	
 }
 
 void Character::userChoiceLevelUp() {

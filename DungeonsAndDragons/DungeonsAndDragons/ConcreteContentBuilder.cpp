@@ -75,29 +75,49 @@ void ConcreteContentBuilder::buildCharacter(char type, int j, int i, MapObject* 
 		currentHP -= (differenceInConstitution + sum);
 		totalHP -= (differenceInConstitution + sum);
 	}
+
+	level = static_cast<Character*>(character)->getCurrentLevel();
+	currentHP = static_cast<Character*>(character)->getHitPoints();
+	totalHP = static_cast<Character*>(character)->getMaxHitPoints();
+	str = static_cast<Character*>(character)->getStrengthScore();
+	dex = static_cast<Character*>(character)->getDexterityScore();
+	con = static_cast<Character*>(character)->getConstitutionScore();
+	intel = static_cast<Character*>(character)->getIntelligenceScore();
+	wis = static_cast<Character*>(character)->getWisdomScore();
+	cha = static_cast<Character*>(character)->getCharismaScore();
+
 	// Set all the attributes of the character
 	character->setObjectType(type);
 	static_cast<Character*>(character)->setLevel(playerLevel);
-	static_cast<Character*>(character)->setCurrentHitPoints(currentHP);
-	static_cast<Character*>(character)->setTotalHitPoints(totalHP);
-	static_cast<Character*>(character)->setStrengthScore(abilityScores[0]);
-	static_cast<Character*>(character)->setDexterityScore(abilityScores[1]);
-	static_cast<Character*>(character)->setConstitutionScore(abilityScores[2]);
-	static_cast<Character*>(character)->setIntelligenceScore(abilityScores[3]);
-	static_cast<Character*>(character)->setWisdomScore(abilityScores[4]);
-	static_cast<Character*>(character)->setCharismaScore(abilityScores[5]);
-	strModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[0]);
-	dexModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[1]);
-	conModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[2]);
-	intelModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[3]);
-	wisModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[4]);
-	chaModif = static_cast<Character*>(character)->generateAbilityModifier(abilityScores[5]);
-	static_cast<Character*>(character)->setStrengthModifier(strModif);
-	static_cast<Character*>(character)->setDexterityModifier(dexModif);
-	static_cast<Character*>(character)->setConstitutionModifier(conModif);
-	static_cast<Character*>(character)->setIntelligenceModifier(intelModif);
-	static_cast<Character*>(character)->setWisdomModifier(wisModif);
-	static_cast<Character*>(character)->setCharismaModifier(chaModif);
+	level = static_cast<Character*>(character)->getCurrentLevel();
+	static_cast<Character*>(character)->setCurrentHitPoints(currentHP*0.6);
+	currentHP = static_cast<Character*>(character)->getHitPoints();
+	static_cast<Character*>(character)->setTotalHitPoints(totalHP*0.6);
+	totalHP = static_cast<Character*>(character)->getMaxHitPoints();
+	static_cast<Character*>(character)->setStrengthScore(abilityScores[0]*0.6);
+	str = static_cast<Character*>(character)->getStrengthScore();
+	static_cast<Character*>(character)->setDexterityScore(abilityScores[1]*0.8);
+	dex = static_cast<Character*>(character)->getDexterityScore();
+	static_cast<Character*>(character)->setConstitutionScore(abilityScores[2] * 0.6);
+	con = static_cast<Character*>(character)->getConstitutionScore();
+	static_cast<Character*>(character)->setIntelligenceScore(abilityScores[3] * 0.6);
+	intel = static_cast<Character*>(character)->getIntelligenceScore();
+	static_cast<Character*>(character)->setWisdomScore(abilityScores[4] * 0.6);
+	wis = static_cast<Character*>(character)->getWisdomScore();
+	static_cast<Character*>(character)->setCharismaScore(abilityScores[5] * 0.6);
+	cha = static_cast<Character*>(character)->getCharismaScore();
+	strModif = static_cast<Character*>(character)->generateAbilityModifier(str * 0.6);
+	dexModif = static_cast<Character*>(character)->generateAbilityModifier(dex * 0.6);
+	conModif = static_cast<Character*>(character)->generateAbilityModifier(con * 0.6);
+	intelModif = static_cast<Character*>(character)->generateAbilityModifier(intel * 0.6);
+	wisModif = static_cast<Character*>(character)->generateAbilityModifier(wis * 0.6);
+	chaModif = static_cast<Character*>(character)->generateAbilityModifier(cha * 0.6);
+	static_cast<Character*>(character)->setStrengthModifier(strModif*0.6);
+	static_cast<Character*>(character)->setDexterityModifier(dexModif*0.6);
+	static_cast<Character*>(character)->setConstitutionModifier(conModif*0.6);
+	static_cast<Character*>(character)->setIntelligenceModifier(intelModif*0.6);
+	static_cast<Character*>(character)->setWisdomModifier(wisModif*0.6);
+	static_cast<Character*>(character)->setCharismaModifier(chaModif*0.6);
 
 	if (type == 'E') {
 		static_cast<Character*>(character)->setStrategy(new AggressorStrategy());
