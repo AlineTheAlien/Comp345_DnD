@@ -88,14 +88,18 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Library\Boost\boost_1_62_0;C:\Library\SFML\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Library\cppunit-1.12.1\include;C:\Library\Boost\boost_1_62_0;C:\Library\SFML\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Library\Boost\boost_1_62_0\stage\lib;C:\Library\SFML\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Library\cppunit-1.12.1\lib\cppunit.lib;sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(TargetPath)"</Command>
+      <Message>Unit Tests...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -219,9 +223,14 @@
     <ClCompile Include="FriendlyStrategy.cpp" />
     <ClCompile Include="GameLogger.cpp" />
     <ClCompile Include="HumanPlayerStrategy.cpp" />
+    <ClCompile Include="ItemContainer.cpp" />
     <ClCompile Include="MonsterBuilder.cpp" />
     <ClCompile Include="NimbleBuilder.cpp" />
     <ClCompile Include="TankBuilder.cpp" />
+    <ClCompile Include="TestCharacter.cpp" />
+    <ClCompile Include="TestEditor.cpp" />
+    <ClCompile Include="TestMap.cpp" />
+    <ClCompile Include="TestStrategy.cpp" />
     <ClCompile Include="UserDrivenEditor.cpp" />
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="DungeonsAndDragons.cpp" />
@@ -230,7 +239,6 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Helmet.cpp" />
     <ClCompile Include="Item.cpp" />
-    <ClCompile Include="ItemContainer.cpp" />
     <ClCompile Include="Launch.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MapEditor.cpp" />
