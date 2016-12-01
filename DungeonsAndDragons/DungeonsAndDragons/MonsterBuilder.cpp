@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "MonsterBuilder.h"
 
-
+//! Monsterbuilder constructor
 MonsterBuilder::MonsterBuilder()
 {
 }
 
-
+//! MonsterBuildor destructor
 MonsterBuilder::~MonsterBuilder()
 {
 }
 
+//! Method that prioritizes ability scores based on the score priority for Enemy type of characters
 void MonsterBuilder::buildAbilityScores() {
 	//for the sake of this project, monsters are created with highest ability score
 	//being strength, followed by dexterity, constitution, charisma, intelligence, and wisdom.

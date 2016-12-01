@@ -2,7 +2,6 @@
 //! @brief Implementation file for Dice class
 
 // Dice.cpp : Defines the entry point for the console application.
-//
 #include "stdafx.h"
 #include "Dice.h"
 #include "GameLogger.h"

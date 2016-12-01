@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "TankBuilder.h"
 
-
+//! TankBuilder constructor
 TankBuilder::TankBuilder()
 {
 }
 
-
+//! TankBuilder destructor
 TankBuilder::~TankBuilder()
 {
 }
 
+//! Method that prioritizes ability scores based on the score priority for Tank type of fighter characters
 void TankBuilder::buildAbilityScores() {
 	int temp[6];
 	int modifiers[6];
