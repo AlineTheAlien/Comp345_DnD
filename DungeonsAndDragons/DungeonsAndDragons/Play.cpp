@@ -11,6 +11,7 @@
 
 bool Play::logCampaignInfo = true;
 
+//! Implementation of the default constructor
 Play::Play()
 {
 	setAvailableCampaigns();
@@ -30,11 +31,15 @@ string Play::getAvailableCampaigns(int index)
 }
 
 
+//! Implementation of getAvailableCampaignsSize
+//! @return : integer value representing the size of the available campaigns
 int Play::getAvailableCampaignsSize()
 {
 	return availableCampaigns.size();
 }
 
+//! Implementation of getCampaignSize
+//! @return : integer value representing the number of maps in the campaign
 int Play::getCampaignSize()
 {
 	return campaign->getMapListSize();
@@ -48,6 +53,7 @@ Map* Play::getCampaignMap(int index)
 	return campaignMaps[index];
 }
 
+//! Implementation of levelUpCharacter to level up the character when exiting a map
 void Play::levelUpCharacter()
 {
 	character->levelUp();
@@ -223,6 +229,7 @@ bool Play::loadMaps()
 	return true;
 }
 
+//! Implementation of setAvailableCharacters() to get all the characters available
 void Play::setAvailableCharacters()
 {
 	//Get Campaigns
@@ -239,6 +246,9 @@ void Play::setAvailableCharacters()
 	cout << endl;
 }
 
+//! Implementation of loadCharacter to load the character object
+//! @param characterName : string value representing the name of the character
+//! @return : true if the character was found and successfully loaded
 bool Play::loadCharacter(string characterName) {
 	delete character;
 	character = NULL;
@@ -309,14 +319,21 @@ bool Play::loadCharacter(string characterName) {
 	return true;
 }
 
+
+//! Implementation of getAvailableCharactersSize()
+//! @return : an integer value representing the number of characters availables
 int Play::getAvailableCharactersSize() {
 	return (availableCharacters.size());
 }
 
+//! Implementation of getAvailableCharacters to get the name of a character
+//! @param index : integer value of the position in the vector
+//! @return : string value representing the name of the player
 string Play::getAvailableCharacters(int index) {
 	return availableCharacters[index];
 }
 
+//! Implementation of createNewCharacter() to create a new character
 void Play::createNewCharacter()
 {
 	character = UserDrivenEditor::createCharacter();
@@ -324,6 +341,9 @@ void Play::createNewCharacter()
 	saveCharacter(character->getCharacterName());
 }
 
+//! Implementation of saveCharacter to save the character object into a file
+//! @param characterName : string value of the name of the character
+//! @return : boolean value if the saving was successful
 bool Play::saveCharacter(string characterName) {
 	ofstream ofs("Characters/" + characterName, std::ios::binary);
 	boost::archive::binary_oarchive ar(ofs);
@@ -343,6 +363,8 @@ bool Play::saveCharacter(string characterName) {
 	return true;
 }
 
+//! Implementation of placeCharacterOnMap to set the character when loading a map
+//! @param map : pointer to a map object 
 void Play::placeCharacterOnMap(Map* map)
 {
 	for (int i = 0; i < map->getMapY(); i++)
@@ -358,6 +380,11 @@ void Play::placeCharacterOnMap(Map* map)
 	adaptMapToPlayer(map);
 }
 
+
+//! Implementation of moveCharacter to move the character on the map
+//! @param map : pointer to a map object
+//! @param direction : a char value representing the the direction the player wants to move
+//! @return : true if the move was successful
 bool Play::moveCharacter(Map* map, char direction)
 {
 	int j = static_cast<Character*>(character)->getMapX();
@@ -606,6 +633,9 @@ bool Play::moveCharacter(Map* map, char direction)
 	return false;
 }
 
+
+//! Implementation of setCurrentMap
+//! @param index : integer of the index of the current map
 void Play::setCurrentMap(int index)
 {
 	string s = "";
@@ -630,11 +660,17 @@ void Play::setCurrentMap(int index)
 	GameLogger::writeToLogFile(s);
 }
 
+//! Implementation of getCurrentMap to get the index of the current map
+//! @return : integer value representing the index of the currentMap in the vector
 int Play::getCurrentMap()
 {
 	return currentMap;
 }
 
+//! Implementation of startCombat. Used to start the combat mechanism
+//! @param map : pointer to a map
+//! @param player : pointer to a map object
+//! @param enemy : pointer to an enemy
 void Play::startCombat(Map* map, MapObject* player, MapObject* enemy)
 {
 	Combat::startCombat(map, player, enemy);
@@ -651,6 +687,11 @@ void Play::startCombat(Map* map, MapObject* player, MapObject* enemy)
 	}
 }
 
+//! Implementation of friendInteraction when interacting with NPCs
+//! @param map : pointer to a map
+//! @param player : pointer to a MapObject
+//! @param npc : pointer to a MapObject
+//! @return : true if the npc was killed, false otherwise
 bool Play::friendInteraction(Map* map, MapObject* player, MapObject* npc)
 {
 	static_cast<Character*>(npc)->executeStrategy(map, npc, player);
@@ -667,6 +708,7 @@ bool Play::friendInteraction(Map* map, MapObject* player, MapObject* npc)
 	return false;
 }
 
+//! Implementation of modifyEquipment to modify the character's equipments
 void Play::modifyEquipment()
 {
 	int choice;
@@ -711,10 +753,14 @@ void Play::modifyEquipment()
 		}
 }
 
+//! Implementation of getCharacter to return the player character
+//! @return : MapObject representing the character
 MapObject* Play::getCharacter() {
 	return character;
 }
 
+//! Implementation of playerIsAlive to check if the player is alive
+//! @return : true if the player is alive, false otherwise
 bool Play::playerIsAlive()
 {
 	return playerAlive;
