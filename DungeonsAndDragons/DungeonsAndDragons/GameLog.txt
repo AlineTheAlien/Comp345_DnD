@@ -983,3 +983,119 @@ X X X X X X X X X X
 X X X X X X X X X X 
 
 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X F X X X X C 
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+P X X X F X X X X C 
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+D X X X X X X X X X 
+X X X X X X X X X X 
+P X X X F X X X X C 
+
+
+X X X X D X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+P X X X F X X X X C 
+
+
+Current map loaded: 
+Belt map
+Maps remaining in this campaign: 
+Belt map ->  End 
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X X X 
+X X X X P X X X X X 
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+D X X X X X X X X C 
+X X X X X X X X X X 
+X X X X P X X X X X 
+
+
+Current map loaded: 
+Armor map
+Maps remaining in this campaign: 
+Armor map ->  End 
+
+Current map loaded: 
+Armor map
+Maps remaining in this campaign: 
+Armor map ->  End 
+
+Current map loaded: 
+Armor map
+Maps remaining in this campaign: 
+Armor map ->  End 
+
