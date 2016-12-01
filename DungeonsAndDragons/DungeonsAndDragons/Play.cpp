@@ -305,9 +305,7 @@ bool Play::loadCharacter(string characterName) {
 
 	character->displayCharacterInfo();
 	character->displayEquipment();
-	cout << "OBJECT TYPE" << endl;
 	char type = character->getObjectType();
-	cout << type << endl;
 
 	// Set strategy to Human Player Strategy
 	if (type == 'P') {
@@ -639,7 +637,7 @@ bool Play::moveCharacter(Map* map, char direction)
 void Play::setCurrentMap(int index)
 {
 	string s = "";
-	if (currentMap < getCampaignSize()) {
+	if (index < getCampaignSize()) {
 		if (logCampaignInfo == true) {
 			cout << "Current map loaded: " << endl;
 			cout << campaign->getMap(index) << endl;
