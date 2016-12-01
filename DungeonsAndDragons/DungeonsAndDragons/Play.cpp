@@ -79,7 +79,7 @@ void Play::adaptMapToPlayer(Map* map) {
 				int x = static_cast<Character*>(oldEnemy)->getBackpack()->getItems().size() - 1;
 				while (!static_cast<Character*>(oldEnemy)->getBackpack()->getItems().empty())
 				{
-					static_cast<Character*>(oldEnemy)->getBackpack()->transfer(backpack, x);
+					static_cast<Character*>(oldEnemy)->getBackpack()->transferNoOutput(backpack, x);
 					x--;
 				}
 				vector<Item*> items = static_cast<ItemContainer*>(backpack)->getItems(); // store a copy of items
@@ -111,7 +111,7 @@ void Play::adaptMapToPlayer(Map* map) {
 				int x = static_cast<Character*>(oldFriend)->getBackpack()->getItems().size() - 1;
 				while (!static_cast<Character*>(oldFriend)->getBackpack()->getItems().empty())
 				{
-					static_cast<Character*>(oldFriend)->getBackpack()->transfer(backpack, x);
+					static_cast<Character*>(oldFriend)->getBackpack()->transferNoOutput(backpack, x);
 					x--;
 				}
 				vector<Item*> items = static_cast<ItemContainer*>(backpack)->getItems(); // store a copy of items

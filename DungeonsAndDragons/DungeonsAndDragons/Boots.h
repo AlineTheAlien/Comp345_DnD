@@ -14,17 +14,17 @@ using namespace std;
 class Boots : public Item
 {
 public:
-	//! Default constructor
+	// Default constructor
 	Boots();
-	//! Constructor
+	// Constructor
 	Boots(string name, int armorClass, int dexterity);
-	//! Constructor taking a vector of enhancements as parameter
+	// Constructor taking a vector of enhancements as parameter
 	Boots(string name, vector<Enhancement> enhancements);
-	//! Overrided method to validate that the armor only enhances 'ARMOR CLASS' and 'DEXTERITY' and verify that the bonus values are within [1..5]
+	// Overrided method to validate that the armor only enhances 'ARMOR CLASS' and 'DEXTERITY' and verify that the bonus values are within [1..5]
 	bool validateItem();
 
 private:
-	//! serialization
+	// Serialization
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version)

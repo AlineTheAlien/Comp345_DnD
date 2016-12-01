@@ -1,5 +1,5 @@
 //! @file 
-//! Builder design pattern for a map's content
+//! Builder design pattern for building a map's content
 #pragma once
 #include "Map.h"
 #include "MapObject.h"
@@ -13,7 +13,7 @@ public:
 	virtual void buildCharacter(char, int, int, MapObject*) = 0;
 	virtual void buildContainer(int, int, vector<Item*>&) = 0;
 
-	//! Method to get map
+	//! Method to get map product
 	//! return A pointer to a map
 	Map* getMap() {
 		return map;
@@ -25,7 +25,7 @@ public:
 		map = m;
 	}
 
-	//!method to set the level of a player 
+	//! Method to set the level of a player 
 	//! @param playerLevel : level of player
 	void setPlayerLevel(int playerLevel) {
 		this->playerLevel = playerLevel;

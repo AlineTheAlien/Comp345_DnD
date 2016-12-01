@@ -95,7 +95,7 @@ Item* ItemContainer::getItem(string itemName)
 //! @return The index position of the item inside the vector
 int ItemContainer::addItem(Item* item)
 {
-	cout << "*** Adding " << item->getName() << " to " << type << " ***\n" << endl;
+	//cout << "*** Adding " << item->getName() << " to " << type << " ***\n" << endl;
 	items.push_back(item);
 	int position = items.size() - 1;
 	return position;
@@ -106,15 +106,12 @@ int ItemContainer::addItem(Item* item)
 //! @return A pointer to the item
 Item* ItemContainer::removeItem(string itemName)
 {
-	cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
+	//cout << "*** Removing " << itemName << " from " << type << " ***\n" << endl;
 	int pos = getItemPosition(itemName);
 	Item* temp = items[pos];
 	items.erase(items.begin() + pos);
-	cout << "After removing the item, here is the content of the container: " << endl;
-	this->displayItems();
 	return temp;
 }
-
 
 //! Method to remove an item from the container by its index position in the vector
 //! @param index : Index position of the item inside the vector
@@ -122,11 +119,9 @@ Item* ItemContainer::removeItem(string itemName)
 Item* ItemContainer::removeItem(int index)
 {
 	vector<Item*> origin = this->getItems();
-	cout << "*** Removing " << origin[index]->getName() << " from " << type << " ***\n" << endl;
+	//cout << "*** Removing " << origin[index]->getName() << " from " << type << " ***\n" << endl;
 	Item* temp = items[index]; //temp points to where items[index] points to
 	items.erase(items.begin() + index); //remove the pointer at the specified index from the vector
-	cout << "After removing the item, here is the content of the container: " << endl;
-	this->displayItems();
 	return temp; //returns the pointer
 }
 
@@ -136,6 +131,15 @@ Item* ItemContainer::removeItem(int index)
 void ItemContainer::transfer(ItemContainer* destination, int index) {
 	vector<Item*> origin = this->getItems();
 	cout << "*** Transferring " << origin[index]->getName() << " from " << this->getType() << " to " << destination->getType() << " ***" << endl;
+	Item* transferItem = this->removeItem(index); //Remove item
+	destination->addItem(transferItem); //Add the removed item into the destination container
+}
+
+//! Method to transfer an item between different two containers without displaying output information
+//! @param destination : Pointer to the destination container
+//! @param index : Index of the item inside the origin container
+void ItemContainer::transferNoOutput(ItemContainer* destination, int index) {
+	vector<Item*> origin = this->getItems();
 	Item* transferItem = this->removeItem(index); //Remove item
 	destination->addItem(transferItem); //Add the removed item into the destination container
 }
@@ -157,8 +161,9 @@ void ItemContainer::displayItems()
 	}
 }
 
+//! Destructor
 ItemContainer::~ItemContainer() {
-	//for (int i = 0; i < items.size(); i++) {
-	//	delete items[i];
-	//}
+	for (int i = 0; i < items.size(); i++) {
+		delete items[i];
+	}
 }

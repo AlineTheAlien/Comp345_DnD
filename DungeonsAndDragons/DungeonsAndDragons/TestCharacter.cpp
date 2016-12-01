@@ -163,12 +163,38 @@ void TestCharacter::testBuilderCreation() {
 //! Test Case: When character equips an item, the size of 'equipped' array should increase, and the size of 'backpack' should decrease
 void TestCharacter::testEquipItem()
 {
-	
+	cout << "\nTest case: Equip item\n" << endl; 
+	Character *fighter = new Character();
+	ItemContainer* items = new ItemContainer("BACKPACK");
+	Item* armor = new Armor();
+	items->addItem(armor);
+	fighter->setBackpack(items);
+	int backpackBefore = fighter->getBackpack()->getItems().size();
+	int equippedBefore = fighter->getEquippedItems()->getItems().size();
+	cout << backpackBefore << " " << equippedBefore << endl;
+	fighter->equipItem(0); // calling equip method
+	int backpackAfter = fighter->getBackpack()->getItems().size();
+	int equippedAfter = fighter->getEquippedItems()->getItems().size();
+	cout << backpackAfter << " " << equippedAfter << endl;
+	CPPUNIT_ASSERT(backpackBefore == equippedAfter && equippedBefore == backpackAfter);
 }
 
 //! Test method to test character unequip an item
 //! Test Case: When character unequip an item, the size of 'equipped' array should decrease, and the size of 'backpack' should increase
 void TestCharacter::testUnequipItem()
 {
-
+	cout << "\nTest case: Unequip item\n" << endl;
+	Character *fighter = new Character();
+	ItemContainer* items = new ItemContainer("EQUIPPED");
+	Item* armor = new Armor();
+	items->addItem(armor);
+	fighter->setEquippedItems(items);
+	int backpackBefore = fighter->getBackpack()->getItems().size();
+	int equippedBefore = fighter->getEquippedItems()->getItems().size();
+	cout << backpackBefore << " " << equippedBefore << endl;
+	fighter->unequipItem(0); // calling equip method
+	int backpackAfter = fighter->getBackpack()->getItems().size();
+	int equippedAfter = fighter->getEquippedItems()->getItems().size();
+	cout << backpackAfter << " " << equippedAfter << endl;
+	CPPUNIT_ASSERT(backpackBefore == equippedAfter && equippedBefore == backpackAfter);
 }

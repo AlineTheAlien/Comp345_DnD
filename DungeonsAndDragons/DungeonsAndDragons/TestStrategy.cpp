@@ -40,7 +40,7 @@ protected:
 };
 
 //!Register for running the test
-CPPUNIT_TEST_SUITE_REGISTRATION(TestStrategy);//most important
+CPPUNIT_TEST_SUITE_REGISTRATION(TestStrategy);
 
 //! Test method to test the execute function for the aggressive strategy.
 //! Test Case: calling execute(..) method from the AggressiveStrategy class will have the enemy not occupy
