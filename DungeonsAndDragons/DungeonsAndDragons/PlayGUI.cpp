@@ -872,18 +872,18 @@ void PlayGUI::openMapView()
 					{
 						combatClicked = false;
 						cout << "Combat info toggled on" << endl;
-						AggressorStrategy::setAgressorLog(false);
-						HumanPlayerStrategy::setHumanPlayerLog(false);
-						FriendlyStrategy::setFriendlyLog(false);
+						AggressorStrategy::setAgressorLog(true);
+						HumanPlayerStrategy::setHumanPlayerLog(true);
+						FriendlyStrategy::setFriendlyLog(true);
 						Combat::setLogCombat(true);
 					}
 					else
 					{
 						combatClicked = true;
 						cout << "Combat info toggled off" << endl;
-						AggressorStrategy::setAgressorLog(true);
-						HumanPlayerStrategy::setHumanPlayerLog(true);
-						FriendlyStrategy::setFriendlyLog(true);
+						AggressorStrategy::setAgressorLog(false);
+						HumanPlayerStrategy::setHumanPlayerLog(false);
+						FriendlyStrategy::setFriendlyLog(false);
 						Combat::setLogCombat(false);
 					}
 
