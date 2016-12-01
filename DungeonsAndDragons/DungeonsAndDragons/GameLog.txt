@@ -1851,3 +1851,644 @@ Total damage roll: 3
 Player's Current Hit Points: 8/11
 *** ENEMY FINISHED A TURN ***
 
+P X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+
+
+P X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X D X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X C X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X W X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+P X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X D 
+
+
+P W W W W 
+W W W W W 
+W W W W W 
+W W W W W 
+W W W W D 
+
+
+P X X X 
+X X X X 
+X X X X 
+X X X E 
+
+
+P X X X 
+X E X X 
+X X X X 
+X X X X 
+
+
+P X X X 
+X E X X 
+X X X X 
+X X X X 
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Attack missed! Attack Roll is smaller than player's Armor Class 
+*** ENEMY FINISHED A TURN ***
+
+P X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+
+
+P X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X D X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+X X X X X X X X X X X X X X X X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X C X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X W X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+
+
+P X X X X 
+X X X X X 
+X X X X X 
+X X X X X 
+X X X X D 
+
+
+P W W W W 
+W W W W W 
+W W W W W 
+W W W W W 
+W W W W D 
+
+
+P X X X 
+X X X X 
+X X X X 
+X X X E 
+
+
+P X X X 
+X E X X 
+X X X X 
+X X X X 
+
+
+P X X X 
+X E X X 
+X X X X 
+X X X X 
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Rolled a 20! 
+Critical Hit! 
+Total damage roll: 8 
+Player's Current Hit Points: 3/11
+*** ENEMY FINISHED A TURN ***
+
+Current map loaded: 
+Stupid map
+Maps remaining in this campaign: 
+Stupid map -> Stupid Map 2 ->  End 
+
+D X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W X X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X F X X P X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X F X P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X F P X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X X P X X X X X 
+X X X F X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X P X X X X X X 
+X X X F X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X P X X X X X X X 
+X X X F X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X P X X X X X X X X 
+X X F X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X X X X X X W W X X 
+X P X X X X X W X X 
+X F X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+X X X X X X W E X X 
+X P X X X X W W X X 
+X F X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W E X X 
+X P X X X X W X X X 
+X F X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+X X X X X X W X X X 
+P X X X X X W E X X 
+X F X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+D X X X X X W X X X 
+P X X X X X W E X X 
+F X X X X X W X X X 
+X X X X X X W W X X 
+X X X X X X X W X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+
+
+Current map loaded: 
+Stupid Map 2
+Maps remaining in this campaign: 
+Stupid Map 2 ->  End 
+
+W W W W W W X X X W 
+W X X X X E X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X P X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X E X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X P X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X E X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X P X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X E X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X P X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X E X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X P X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X E X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X P X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X E W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X X P W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X E D 
+W X X X X X X X P W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X E D 
+W X X X X X X P X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X D 
+W X X X X X P E X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X P X X D 
+W X X X X X X E X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X P X X W 
+W X X X X X E X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X P X W 
+W X X X X X E X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X E P W 
+W X X X X X X X X D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+W W W W W W X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X E X W 
+W X X X X X X X P D 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W X X X X X X X X W 
+W W W W W X W W W W 
+
+
+
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X E 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
