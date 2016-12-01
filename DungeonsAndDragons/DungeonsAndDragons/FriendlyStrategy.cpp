@@ -51,6 +51,8 @@ void FriendlyStrategy::execute(Map* map, MapObject* friendlyCharacter, MapObject
 	GameLogger::writeToLogFile(s);
 }
 
+//! Function that sets the combat log boolean 
+//! @param value: new boolean value of logFriendly
 void FriendlyStrategy::setFriendlyLog(bool value) {
 	logFriendly = value;
 }

@@ -780,6 +780,8 @@ Play::~Play()
 	delete mbuilder;
 }
 
+//! Function that sets the campaign info log boolean 
+//! @param value: new boolean value of logCampaignInfo
 void Play::setCampaignInfoLog(bool value) {
 	logCampaignInfo = value;
 }
