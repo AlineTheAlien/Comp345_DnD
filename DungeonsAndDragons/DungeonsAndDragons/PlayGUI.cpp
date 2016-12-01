@@ -448,9 +448,24 @@ void PlayGUI::openMapView()
 	bool modifyClicked = false;
 	bool menuClicked = false;
 	bool diceClicked = true;
-	bool mapClicked = true;
-	bool combatClicked = true;
-	bool eventClicked = true;
+	bool mapClicked = false;
+	bool combatClicked = false;
+	bool eventClicked = false;
+
+	cout << "Dice info toggled off" << endl;
+	Dice::setLogDiceRoll(false);
+
+	cout << "Combat info toggled on" << endl;
+	AggressorStrategy::setAgressorLog(true);
+	HumanPlayerStrategy::setHumanPlayerLog(true);
+	FriendlyStrategy::setFriendlyLog(true);
+	Combat::setLogCombat(true);
+
+	cout << "Campaign and map progress info toggled on" << endl;
+	Play::setCampaignInfoLog(true);
+
+	cout << "Map info toggled on" << endl;
+	Map::setMapLog(true);
 
 	if (!textFont.loadFromFile("Fonts/OldSchool.ttf"))
 	{
@@ -470,30 +485,31 @@ void PlayGUI::openMapView()
 	diceText.setString("Dice Info");
 	diceText.setFont(textFont);
 	diceText.setStyle(sf::Text::Italic);
-	diceText.setCharacterSize(15);
+	diceText.setCharacterSize(14);
 
 	mapText.setString("Map info");
 	mapText.setFont(textFont);
 	mapText.setStyle(sf::Text::Italic);
-	mapText.setCharacterSize(15);
+	mapText.setCharacterSize(14);
 
 	combatText.setString("Combat info");
 	combatText.setFont(textFont);
 	combatText.setStyle(sf::Text::Italic);
-	combatText.setCharacterSize(15);
+	combatText.setCharacterSize(14);
 
-	eventText.setString("Campaign info");
+	eventText.setString("Progress info");
 	eventText.setFont(textFont);
 	eventText.setStyle(sf::Text::Italic);
-	eventText.setCharacterSize(15);
+	eventText.setCharacterSize(14);
 
 
 	modifyText.setPosition(sf::Vector2f(300, GameState::WINDOW_SCALE - 100));
 	menuText.setPosition(sf::Vector2f(660, 300));
-	mapText.setPosition(sf::Vector2f(630, 50));
-	combatText.setPosition(sf::Vector2f(630, 100));
-	eventText.setPosition(sf::Vector2f(630, 150));
-	diceText.setPosition(sf::Vector2f(630, 200));
+	mapText.setPosition(sf::Vector2f(610, 50));
+	combatText.setPosition(sf::Vector2f(610, 100));
+	eventText.setPosition(sf::Vector2f(610, 150));
+	diceText.setPosition(sf::Vector2f(610, 200));
+	diceText.setFillColor(hoverColor);
 
 	modifyButton = modifyText.getGlobalBounds();
 	menuButton = menuText.getGlobalBounds();
@@ -825,14 +841,14 @@ void PlayGUI::openMapView()
 					if (mapClicked)
 					{
 						mapClicked = false;
-						cout << "Map info toggled off" << endl;
-						Map::setMapLog(false);
+						cout << "Map info toggled on" << endl;
+						Map::setMapLog(true);
 					}
 					else
 					{
 						mapClicked = true;
-						cout << "Map info toggled on" << endl;
-						Map::setMapLog(true);
+						cout << "Map info toggled off" << endl;
+						Map::setMapLog(false);
 					}
 
 				}
@@ -842,14 +858,14 @@ void PlayGUI::openMapView()
 					if (eventClicked)
 					{
 						eventClicked = false;
-						cout << "Campaign and map progress info toggled off" << endl;
-						Play::setCampaignInfoLog(false);
+						cout << "Campaign and map progress info toggled on" << endl;
+						Play::setCampaignInfoLog(true);
 					}
 					else
 					{
 						eventClicked = true;
-						cout << "Campaign and map progress info toggled on" << endl;
-						Play::setCampaignInfoLog(true);
+						cout << "Campaign and map progress info toggled off" << endl;
+						Play::setCampaignInfoLog(false);
 					}
 				}
 
@@ -858,20 +874,20 @@ void PlayGUI::openMapView()
 					if (combatClicked)
 					{
 						combatClicked = false;
-						cout << "Combat info toggled off" << endl;
+						cout << "Combat info toggled on" << endl;
 						AggressorStrategy::setAgressorLog(false);
 						HumanPlayerStrategy::setHumanPlayerLog(false);
 						FriendlyStrategy::setFriendlyLog(false);
-						Combat::setLogCombat(false);
+						Combat::setLogCombat(true);
 					}
 					else
 					{
 						combatClicked = true;
-						cout << "Combat info toggled on" << endl;
+						cout << "Combat info toggled off" << endl;
 						AggressorStrategy::setAgressorLog(true);
 						HumanPlayerStrategy::setHumanPlayerLog(true);
 						FriendlyStrategy::setFriendlyLog(true);
-						Combat::setLogCombat(true);
+						Combat::setLogCombat(false);
 					}
 
 				}
