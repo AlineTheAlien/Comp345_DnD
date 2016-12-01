@@ -12,6 +12,8 @@ GameLogger::~GameLogger()
 }
 
 
+//! Implementation of writeToLogFile
+//! @param : string value representing the text to write to the file
 void GameLogger::writeToLogFile(string text)
 {
 		ofstream myfile;
