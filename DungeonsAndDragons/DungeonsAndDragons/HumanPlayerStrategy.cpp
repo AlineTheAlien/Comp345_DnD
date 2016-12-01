@@ -35,7 +35,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 		int i = static_cast<Character*>(player)->getMapY();
 		int j = static_cast<Character*>(player)->getMapX();
 
-		cout << "What would you like to do?\n1- Move\n2- Attack\n3- Other (Free actions)\n4- Done" << endl;
+		cout << "What would you like to do?\n1- Move\n2- Attack\n3- Modify Equipment\n4- Done" << endl;
 		cin >> choice;
 		cout << endl;
 		MapObject* tile = NULL;
@@ -136,7 +136,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 					int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
 					int maxTargetHP = static_cast<Character*>(targetCharacter)->getMaxHitPoints(); // get max HPs from target
 
-					// Attack roll
+					// Attack roll : roll 1d20 die
 					attackRoll = Dice::roll("1d20");
 					// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 					if (attackRoll == 1) {
@@ -155,7 +155,7 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 							cout << "Critical Hit!" << endl;
 							s += "Critical Hit!\n";
 						}
-						// Own implementation of the dice... Roll twice
+						// Damage roll: Since it's a critical hit, it will roll a d20 twice: roll 2d20
 						damageRoll = Dice::roll("2d20");
 						damageRoll += static_cast<Character*>(player)->getDamageBonus();
 						if (logHumanPlayer == true) {
@@ -212,50 +212,48 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 			}
 		}
 		else if (choice == 3) {
-			cout << "You may perform the following free actions.\n1. Modify equipment" << endl;
 			cin >> choice;
 			cout << endl;
-			if (choice == 1) {
-				int itemChoice;
-				int size = static_cast<Character*>(player)->getBackpack()->getItems().size();
-				bool isValid = false;
-				do {
-					cout << "Press 1 to equip items, or press 2 to unequip your current items. Enter -1 to exit" << endl;
-					cin >> choice;
-					if (choice == 1 || choice == 2)
-						isValid = true;
-					if (choice == -1)
-						return;
-				} while (isValid == false);
 
-				if (choice == 1)
+			int itemChoice;
+			int size = static_cast<Character*>(player)->getBackpack()->getItems().size();
+			bool isValid = false;
+			do {
+				cout << "Press 1 to equip items, or press 2 to unequip your current items. Enter -1 to exit" << endl;
+				cin >> choice;
+				if (choice == 1 || choice == 2)
+					isValid = true;
+				if (choice == -1)
+					return;
+			} while (isValid == false);
+
+			if (choice == 1)
+			{
+				do {
+					static_cast<Character*>(player)->displayBackpack();
+					cout << "Which index item do you want to equip? Enter -1 to exit" << endl;
+					cin >> itemChoice;
+					if (itemChoice == -1)
+						return;
+				} while (itemChoice > size || itemChoice < 0);
+				static_cast<Character*>(player)->equipItem(itemChoice);
+				static_cast<Character*>(player)->displayBackpack();
+				static_cast<Character*>(player)->displayEquipment();
+			}
+			else
+				if (choice == 2)
 				{
 					do {
-						static_cast<Character*>(player)->displayBackpack();
-						cout << "Which index item do you want to equip? Enter -1 to exit" << endl;
+						static_cast<Character*>(player)->getEquippedItems()->displayItems();
+						cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
 						cin >> itemChoice;
 						if (itemChoice == -1)
 							return;
-					} while (itemChoice > size || itemChoice < 0);
-					static_cast<Character*>(player)->equipItem(itemChoice);
+					} while (itemChoice > static_cast<Character*>(player)->getEquippedItems()->getItems().size() || itemChoice < 0);
+					static_cast<Character*>(player)->unequipItem(itemChoice);
 					static_cast<Character*>(player)->displayBackpack();
 					static_cast<Character*>(player)->displayEquipment();
 				}
-				else
-					if (choice == 2)
-					{
-						do {
-							static_cast<Character*>(player)->getEquippedItems()->displayItems();
-							cout << "Which index item do you want to unequip? Enter -1 to exit" << endl;
-							cin >> itemChoice;
-							if (itemChoice == -1)
-								return;
-						} while (itemChoice > static_cast<Character*>(player)->getEquippedItems()->getItems().size() || itemChoice < 0);
-						static_cast<Character*>(player)->unequipItem(itemChoice);
-						static_cast<Character*>(player)->displayBackpack();
-						static_cast<Character*>(player)->displayEquipment();
-					}
-			}
 		}
 		else if (choice == 4) {
 			done = true;

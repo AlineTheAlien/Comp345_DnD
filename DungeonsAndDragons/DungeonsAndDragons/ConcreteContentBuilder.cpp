@@ -130,7 +130,9 @@ void ConcreteContentBuilder::buildCharacter(char type, int j, int i, MapObject* 
 }
 
 //! Method to adapt a chest level to the player's level
-
+//! @param j : Position j of the container
+//! @param i : Position i of the containe
+//! @param items : Reference to a vector of pointers to items
 void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) {
 
 	int currentTotalBonus = 0;
@@ -165,12 +167,6 @@ void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) 
 					items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
 					scoresToAdd--;
 				}
-			}
-			else
-			{
-				Enhancement armorClass = Enhancement("ARMOR CLASS", 1);
-				items[randItemIndex]->addEnhancement(armorClass);
-				scoresToAdd--;
 			}
 		}
 	}

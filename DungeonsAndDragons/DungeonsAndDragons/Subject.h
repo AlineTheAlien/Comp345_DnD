@@ -15,7 +15,7 @@ public:
 	virtual void Attach(Observer* o);
 	virtual void Detach(Observer* o);
 	virtual void Notify();
-	virtual void NotifyGUI();
+	virtual void NotifyGUI(); // Since sharing the same observer classes for two different subjects. This one is for PlayGUI class.
 	int getNumberObservers();
 	//list <Observer*> getObservers();
 private:

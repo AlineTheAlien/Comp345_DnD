@@ -109,6 +109,7 @@ public:
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
 	void setBackpack(ItemContainer*);
+	void setEquippedItems(ItemContainer*);
 	void setStrategy(Strategy*);
 	void executeStrategy(Map*, MapObject*, MapObject*);
 private:

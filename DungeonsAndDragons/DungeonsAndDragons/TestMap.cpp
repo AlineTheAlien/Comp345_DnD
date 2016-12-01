@@ -88,8 +88,7 @@ void TestMap::testsetTile()
 	map->showMap();
 	char type = chest->getObjectType();
 	cout << type << endl;
-	//map->getTile(2, 2) == 'C'
-	CPPUNIT_ASSERT(2 == 1+1);
+	CPPUNIT_ASSERT(map->getTile(2, 2) == 'C');
 }
 //! test method to test the isOccupied() method of the Map class 
 //! Test Case: the returned value should be true after filling the tile

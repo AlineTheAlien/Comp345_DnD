@@ -57,8 +57,8 @@ public:
 	Item* removeItem(string itemName); // remove item by name
 	Item* removeItem(int index); // remove item by index
 	void transfer(ItemContainer*, int);
+	void transferNoOutput(ItemContainer*, int);
 	void displayItems();
-
 
 private:
 	//! Serialization

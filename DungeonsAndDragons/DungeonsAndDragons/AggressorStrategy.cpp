@@ -51,8 +51,10 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				break;
 			}
 		}
+		map->showMap();
 		// If it reaches here, it is nearby. It will start attacking.
 		if (numOfAttacks > 0) {
+			
 			if (logAgressor == true) {
 				cout << "Enemy is attacking!" << endl;
 				s += "Enemy is attacking! \n";
@@ -63,9 +65,9 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			int targetHP = static_cast<Character*>(targetCharacter)->getHitPoints(); // get current HPs from target
 			int maxTargetHP = static_cast<Character*>(targetCharacter)->getMaxHitPoints(); // get max HPs from target
 
-
-			// Attack roll
+			// Attack roll : roll a 1d20 die
 			attackRoll = Dice::roll("1d20");
+
 			// If the d20 roll for attack is 1, the attack misses regardless of target's armor class
 			if (attackRoll == 1) {
 				if (logAgressor == true) {
@@ -83,43 +85,58 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 					cout << "Critical Hit!" << endl;
 					s += "Critical Hit! \n";
 				}
-				// Own implementation of the dice... Roll twice
+				
+				// Since rolling a 20 is a critical hit, the player gets to roll a d20 dice twice: roll 2d20 for damage roll
 				damageRoll = Dice::roll("2d20");
 				damageRoll += static_cast<Character*>(enemyCharacter)->getDamageBonus();
 				if (logAgressor == true) {
 					cout << "Total damage roll: " << damageRoll << endl;
 					s += "Total damage roll: " + to_string(damageRoll) + " \n";
 				}
+
+				// Subtract the damage to target's hit points
 				targetHP -= damageRoll;
+
+				// If the opponent is dead, his HP should be lower than 0 and the combat ends
 				if (targetHP <= 0) {
-					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
-					break;
+					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // Set the currentHP attribute to the opponent after getting attacked
+					break; // This will end the loop and get out of the strategy method
 				}
 				if (logAgressor == true) {
 					cout << "Player's Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
 					s += "Player's Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
 				}
-				static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
+				static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // Set the currentHP attribute to the opponent after getting attacked
 			}
+			// If the character did not roll 1 nor 20, this block will run
 			else {
+				// The total attack roll is the d20 result + attack bonus (which represents Strength + Dexterity modifiers)
 				attackRoll += static_cast<Character*>(enemyCharacter)->getAttackBonus();
+				// Get the armor class of the opponent
 				targetArmorClass = static_cast<Character*>(targetCharacter)->getArmorClass();
+				// If attack roll is higher than the opponent's armor class, then the attack hits
 				if (attackRoll > targetArmorClass) {
+					// Damage roll : roll a 1d20 die and add the damage bonus (based on Strength modifiers)
 					damageRoll = Dice::roll("1d20") + static_cast<Character*>(enemyCharacter)->getDamageBonus();
 					if (logAgressor == true) {
 						cout << "Total damage roll: " << damageRoll << endl;
 						s += "Total damage roll: " + to_string(damageRoll) + "\n";
 					}
+					// Subtract the damage to target's hit points
 					targetHP -= damageRoll;
+
+					// If the opponent is dead, his HP should be lower than 0 and the combat ends
 					if (targetHP <= 0) {
-						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP);
-						break;
+						static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // Set the currentHP attribute to the opponent after getting attacked
+						break; // This will end the loop and get out of the strategy method
 					}
+
 					if (logAgressor == true) {
 						cout << "Player's Current Hit Points: " << targetHP << "/" << maxTargetHP << endl;
 						s += "Player's Current Hit Points: " + to_string(targetHP) + "/" + to_string(maxTargetHP) + "\n";
 					}
-					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // remove HPs from target
+
+					static_cast<Character*>(targetCharacter)->setCurrentHitPoints(targetHP); // Set the currentHP attribute to the opponent after getting attacked
 				}
 				else
 				{
@@ -131,6 +148,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 			}
 			numOfAttacks--;
 		}
+		// If numOfAttacks is not > 0 and the character has no more moves left, his turn ends
 		else {
 			done = true;
 			break;

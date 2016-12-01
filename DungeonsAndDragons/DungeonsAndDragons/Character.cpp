@@ -282,6 +282,12 @@ void Character::setBackpack(ItemContainer* backpack) {
 	this->backpack = backpack;
 }
 
+//! Method to get set character's equipped items
+//! @param equipped: A pointer to a backpack
+void Character::setEquippedItems(ItemContainer* equipped) {
+	this->equipped = equipped;
+}
+
 //! Method to display the name of a specified type of equipped item
 //! @param : The type of the equipment as a string value
 //! return The name of the item as a string value
@@ -332,9 +338,10 @@ int Character::getNumberOfAttacks()
 	return numberofAttacks;
 }
 
+//! Method to set character type
 void Character::setType(char c)
 {
-	objectType = c;
+	setObjectType(c);
 }
 
 //! Method to equip an item on the character from the backpack

@@ -15,8 +15,8 @@ bonus value, ranging from +1 to +5.
 via a method inside the Item class.
 - The class contains methods to access the stats type and the bonus value of an Enhancement object.
 3) Libraries:
-- Only standard libraries were used.
-- String was included to use string data types
+- Standard libraries were used.
+- Boost was used for serialization.
 - In the .cpp file, iostream was included to output strings to the stream. Enhancements and their bonus can be easily displayed to the stream.
 **/
 

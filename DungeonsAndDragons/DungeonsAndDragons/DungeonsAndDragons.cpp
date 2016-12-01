@@ -52,29 +52,29 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 
-	//// Get the top level suite from the registry
-	//CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
+	// Get the top level suite from the registry
+	CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
 
-	//// Adds the test to the list of test to run
-	//CppUnit::TextUi::TestRunner runner;
-	//runner.addTest(suite);
+	// Adds the test to the list of test to run
+	CppUnit::TextUi::TestRunner runner;
+	runner.addTest(suite);
 
-	//// Change the default outputter to a compiler error format outputter
-	//runner.setOutputter(new CppUnit::CompilerOutputter(&runner.result(),
-	//	std::cerr));
-	//// Run the tests.
-	//bool wasSuccessful = runner.run();
+	// Change the default outputter to a compiler error format outputter
+	runner.setOutputter(new CppUnit::CompilerOutputter(&runner.result(),
+		std::cerr));
+	// Run the tests.
+	bool wasSuccessful = runner.run();
 
-	//getchar();
+	getchar();
 
-	//// Return error code 1 if the one of test failed.
-	//return wasSuccessful ? 0 : 1;
+	// Return error code 1 if the one of test failed.
+	return wasSuccessful ? 0 : 1;
 
 	
-	Launch game;
-	game.Start();
-	return 0;
+	//Launch game;
+	//game.Start();
+	//return 0;
 	
 }
