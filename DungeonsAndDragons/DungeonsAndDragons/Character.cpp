@@ -27,8 +27,7 @@ using std::string;
 //! Default constructor for a fighter character
 Character::Character()
 {
-
-	objectType = 'P';
+	setObjectType('P');
 
 	currentLevel = 0;
 	currentHitPoints = 0;
@@ -62,17 +61,19 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 
 	if (type == 'F') {
 		strategy = new FriendlyStrategy();
+		setObjectType('F');
 	}
 	else if (type == 'E') {
 		strategy = new AggressorStrategy();
+		setObjectType('E');
 	}
 	else if (type == 'P') {
 		strategy = new HumanPlayerStrategy();
+		setObjectType('P');
 	}
 
 	int modifierHolder[6];
 
-	objectType = type;
 	currentLevel = 0;
 
 	abilityScores[0] = str; //strength

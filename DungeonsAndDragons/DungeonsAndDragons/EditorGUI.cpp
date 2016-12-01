@@ -1783,6 +1783,11 @@ void EditorGUI::openCampaignView()
 							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
 								static_cast<ItemContainer*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->displayItems();
 						}
+						else if (campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'E' || campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'F') {
+							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition)) {
+								static_cast<Character*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->getBackpack()->displayItems();
+							}
+						}
 					}
 				}
 

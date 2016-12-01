@@ -164,8 +164,12 @@ bool MapEditor::loadMap(string mapName)
 	{
 		for (int j = 0; j < getMapSizeX(); j++)
 		{
-			if (map->getTile(j, i) == 'C')
+			if (map->getTile(j, i) == 'C') {
 				static_cast<ItemContainer*>(map->getObjectTile(j, i))->displayItems();
+			}
+			if (map->getTile(j, i) == 'E' || map->getTile(j, i) == 'F') {
+				static_cast<Character*>(map->getObjectTile(j, i))->getBackpack()->displayItems();
+			}
 		}
 	}
 	return true;
