@@ -207,3 +207,779 @@ Map3 ->  End
 
 
 
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X F X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X E X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X P X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X F X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X E X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X F X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X E W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W F X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X E X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X P X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W F X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X E X X X X X W 
+X X X X X X X X X W 
+X X X P X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W F X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X E X X X X X W 
+X X P X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X F X X X W 
+X X X X X X X X X W 
+X X P E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 3
+Enemy Current Hit Points: 4/7
+*** PLAYER FINISHED A TURN ***
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X F X X X W 
+X X X X X X X X X W 
+X X P E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 19
+*** ENEMY FINISHED A TURN ***
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 22
+Ememy's initiative roll: 2
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X F X X X X W 
+X X P E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X F X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X E X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X P X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X F X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X E X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X F X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X E W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X P X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W F X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X P X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W F X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X E X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X P X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W F X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X E X X X X X X X W 
+X X X X X X X X X W 
+X P X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X F X X X W 
+X X X X X X X X X W 
+X E X X X X X X X W 
+X P X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 3
+Enemy Current Hit Points: 4/7
+*** PLAYER FINISHED A TURN ***
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X F X X X W 
+X X X X X X X X X W 
+X E X X X X X X X W 
+X P X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Total damage roll: 19
+*** ENEMY FINISHED A TURN ***
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 22
+Ememy's initiative roll: 2
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X F X X X X W 
+X E X X X X X X X W 
+X P X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X F X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X E X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X P X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X F X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X E X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X F X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X E W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W F X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X E X X X X W 
+X X X X X X X X X W 
+X X X X X P X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W F X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X E X X X X W 
+X X X X P X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W F X X W 
+X X X X X X X X X W 
+X X X X E X X X X W 
+X X X P X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X F X X X W 
+X X X X X X X X X W 
+X X P E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X P X F X X X X W 
+X X X E X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X P X X X X X X W 
+X X E F X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X P X W W X X X W 
+X X E F X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X P X X W X X X X 
+X X E F W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X P X X W X X X X 
+X X E F X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X P X X X X X X X 
+X X E F X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X P X X X X X X X 
+X X E F X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X P X X X X X X 
+X X E F X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X E P X X X X X 
+X X X F X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X E P X X X X 
+X X X X F X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X P X X X X 
+X X X X E X X X X X 
+X X X X X F X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+X X X X X D X X X X 
+X X X X X P X X X X 
+X X X X E X X X X X 
+X X X X X X F X X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X C 
+
+
+Current map loaded: 
+Map2
+Maps remaining in this campaign: 
+Map2 -> Map3 ->  End 
+
+W W W X X X X X D X 
+W W X X X X X X X X 
+W X X X X X X X X X 
+W X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X W W 
+X X X X X X X X W W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X F X X P X X X E X 
+X X X X X X X X X X 
+
+
+W W W X X X X X D X 
+W W X X X X X X X X 
+W X X X X X X X X X 
+W X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X W W 
+X X X X X X X X W W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X F X P X X E X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+W W W X X X X X D X 
+W W X X X X X X X X 
+W X X X X X X X X X 
+W X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X W W 
+X X X X X X X X W W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X F P X E X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 15
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 19
+Ememy's initiative roll: 6
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+Friendly NPC became an enemy...
+
+W W W X X X X X D X 
+W W X X X X X X X X 
+W X X X X X X X X X 
+W X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X C 
+X X X X X X X X W W 
+X X X X X X X X W W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X F P E X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+
+

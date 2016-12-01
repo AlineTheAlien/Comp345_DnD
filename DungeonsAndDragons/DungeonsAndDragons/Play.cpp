@@ -372,6 +372,7 @@ void Play::placeCharacterOnMap(Map* map)
 			if (map->getTile(j, i) == 'P')
 			{
 				map->setTile(j, i, character);
+				character->setStrategy(new HumanPlayerStrategy());
 			}
 		}
 	}
