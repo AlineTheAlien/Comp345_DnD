@@ -52,8 +52,6 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	//srand(time(NULL));
-
 	//// Get the top level suite from the registry
 	//CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
 
@@ -72,7 +70,7 @@ int main(int argc, char* argv[])
 	//// Return error code 1 if the one of test failed.
 	//return wasSuccessful ? 0 : 1;
 
-	
+	srand(time(NULL));
 	Launch game;
 	game.Start();
 	return 0;
