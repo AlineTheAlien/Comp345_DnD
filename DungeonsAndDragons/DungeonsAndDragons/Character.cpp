@@ -615,13 +615,13 @@ void Character::chooseScoresOnLevelUp() {
 			abilityScores[2] = abilityScores[2] + 2;
 		}
 		else if (chooseAbility == 4) {
-			abilityScores[3] = abilityScores[3] + 2;
-		}
-		else if (chooseAbility == 5) {
 			abilityScores[4] = abilityScores[4] + 2;
 		}
-		else if (chooseAbility == 6) {
+		else if (chooseAbility == 5) {
 			abilityScores[5] = abilityScores[5] + 2;
+		}
+		else if (chooseAbility == 6) {
+			abilityScores[3] = abilityScores[3] + 2;
 		}
 		else {
 			cout << "error" << endl;
@@ -660,13 +660,13 @@ void Character::chooseScoresOnLevelUp() {
 				abilityScores[2] = abilityScores[2] + 1;
 			}
 			else if (chooseAbility == 4) {
-				abilityScores[3] = abilityScores[3] + 1;
-			}
-			else if (chooseAbility == 5) {
 				abilityScores[4] = abilityScores[4] + 1;
 			}
-			else if (chooseAbility == 6) {
+			else if (chooseAbility == 5) {
 				abilityScores[5] = abilityScores[5] + 1;
+			}
+			else if (chooseAbility == 6) {
+				abilityScores[3] = abilityScores[3] + 1;
 			}
 			ctr++;
 		}

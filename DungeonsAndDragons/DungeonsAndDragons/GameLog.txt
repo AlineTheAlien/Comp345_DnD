@@ -1,0 +1,209 @@
+Current map loaded: 
+Map1
+Maps remaining in this campaign: 
+Map1 -> Map2 -> Map3 ->  End 
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X F X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X E X X W X X X X 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X P X X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X F X X 
+X X X X X X X X X X 
+X X X X X W X X X X 
+X X X E X W X X X X 
+X X X X W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X P X C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X F X 
+X X X X X W X X X X 
+X X X X X W X X X X 
+X X X E W W X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X P C 
+
+
+X X X X X D X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X X X X X X 
+X X X X X W X X X F 
+X X X X X W X X X X 
+X X X X W W X X X W 
+X X X X E X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X W 
+X X X X X X X X X X 
+W X X X X X X X X X 
+W W X X X X X X X P 
+
+
+
+
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+*** PLAYER FINISHED A TURN ***
+
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Attack missed! Attack Roll is smaller than player's Armor Class 
+*** ENEMY FINISHED A TURN ***
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 18
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 20
+Ememy's initiative roll: 2
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+*** PLAYER FINISHED A TURN ***
+
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Rolled a 1! 
+Attack automatically missed! 
+*** ENEMY FINISHED A TURN ***
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 9
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 21
+Ememy's initiative roll: 18
+*** PLAYER BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+Friendly NPC became an enemy...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Current map loaded: 
+Map2
+Maps remaining in this campaign: 
+Map2 -> Map3 ->  End 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*** ENEMY'S TURN *** 
+Enemy is attacking! 
+Rolled a 1! 
+Attack automatically missed! 
+*** ENEMY FINISHED A TURN ***
+
+*** PLAYER'S TURN ***
+Attacking enemy!
+Total damage roll: 21
+
+Combat starting.. rolling initiative...
+Player's initiative roll: 5
+Ememy's initiative roll: 8
+*** ENEMY BEGINS THE ROUND ***
+
+COMBAT ENDED
+
+Friendly NPC became an enemy...
+
+
+
+
+
+
+Current map loaded: 
+Map3
+Maps remaining in this campaign: 
+Map3 ->  End 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
