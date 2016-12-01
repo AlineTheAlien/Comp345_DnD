@@ -163,7 +163,7 @@ void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) 
 				randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
 				bonus = enh[randEnhancementIndex].getBonus();
 				totalBonus = bonus + 1;
-				if (totalBonus <= 5) {
+				if (totalBonus <= 5 && totalBonus >=0) {
 					items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
 					scoresToAdd--;
 				}
@@ -179,7 +179,7 @@ void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) 
 				randEnhancementIndex = rand() % numOfEnhancements; // Get the index of a random enhancement
 				bonus = enh[randEnhancementIndex].getBonus();
 				totalBonus = bonus - 1;
-				if (totalBonus >= 0) {
+				if (totalBonus >= 0 && totalBonus <= 5) {
 					items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
 					scoresToAdd++;
 				}
