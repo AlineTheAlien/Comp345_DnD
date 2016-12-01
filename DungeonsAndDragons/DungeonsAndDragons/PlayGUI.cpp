@@ -786,6 +786,7 @@ void PlayGUI::openMapView()
 							{
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayCharacterInfo();
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayBackpack();
 							}
 						}
 
@@ -795,6 +796,7 @@ void PlayGUI::openMapView()
 							{
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayCharacterInfo();
 								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayEquipment();
+								static_cast<Character*>(play->getCampaignMap(currentMap)->getObjectTile(j, i))->displayBackpack();
 							}
 						}
 					}
