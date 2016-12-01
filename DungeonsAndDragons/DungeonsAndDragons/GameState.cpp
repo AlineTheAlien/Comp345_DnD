@@ -16,61 +16,86 @@ GameState::GameState()
 {
 }
 
+
+//! Implementation of setMapEditorState
+//! @param state : a mapeditorstate object
 void GameState::setMapEditorState(MapEditorState state)
 {
 	mapEditorState = state;
 }
 
+//! Implementation of setCampaignEditorState
+//! @param state : a CampaignEditorState object
 void GameState::setCampaignEditorState(CampaignEditorState state)
 {
 	campaignEditorState = state;
 }
 
+//! Implementation of setEditorSTate
+//! @param state : a setEditorState object
 void GameState::setEditorState(EditorState state)
 {
 	editorState = state;
 }
 
+//! Implementation of setLaunchState
+//! @param state : a LaunchState object
 void GameState::setLaunchState(LaunchState state)
 {
 	launchState = state;
 }
 
+//! Implementation of setActive
+//! @param active : a boolean value presenting the active state of the game
 void GameState::setActive(bool active)
 {
 	gameIsActive = active;
 }
 
+//! Implementation of setPlayState
+//! @param state : a PlayState object
 void GameState::setPlayState(PlayState state)
 {
 	playState = state;
 }
 
+//! Implementation of getMapEditorState
+//! @return : MapEditorState object
 MapEditorState GameState::getMapEditorState()
 {
 	return mapEditorState;
 }
 
+//! Implementation of getCampaignEditorState
+//! @return : CampaignEditorState object
 CampaignEditorState GameState::getCampaignEditorState()
 {
 	return campaignEditorState;
 }
 
+//! Implementation of getEditorState
+//! @return : EditorState object
 EditorState GameState::getEditorState()
 {
 	return editorState;
 }
 
+//! Implementation of getLauchState
+//! @return : LaunchState object
 LaunchState GameState::getLaunchState()
 {
 	return launchState;
 }
 
+//! Implementation of getPlayState
+//! @return : PlayState object
 PlayState GameState::getPlayState()
 {
 	return playState;
 }
 
+//! Implementation of isActive
+//! @return : a boolean value presenting the active state of the game
 bool GameState::isActive()
 {
 	return gameIsActive;
