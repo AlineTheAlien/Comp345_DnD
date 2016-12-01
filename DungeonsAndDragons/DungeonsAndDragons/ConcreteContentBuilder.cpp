@@ -168,6 +168,10 @@ void ConcreteContentBuilder::buildContainer(int j, int i, vector<Item*> &items) 
 						items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, totalBonus);
 						scoresToAdd--;
 					}
+					else {
+						items[randItemIndex]->setEnhancementBonus(randEnhancementIndex, 5);
+						scoresToAdd--;
+					}
 				}
 			}
 		}

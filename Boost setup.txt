@@ -1,6 +1,6 @@
 http://www.boost.org/users/history/version_1_62_0.html
 
-First Unzip the boost library to any directory of your choice. I recommend c:\directory.
+First Unzip the boost library to any directory of your choice.
 
     Open your visual c++.
     Create a new project.
@@ -14,10 +14,8 @@ First Unzip the boost library to any directory of your choice. I recommend c:\di
     Click on create/use pre-compiled header.
     Select not using pre-compiled header.
 
-Then go over to the link library were you experienced your problems.
-
     Go to were the extracted file was c:\boost_1_57_0.
-    Click on booststrap.bat (don't bother to type on the command window just wait and don't close the window that is the place I had my problem that took me two weeks to solve. After a while the booststrap will run and produce the same file, but now with two different names: b2, and bjam.
+    Click on booststrap.bat (don't bother to type on the command window just wait and don't close the window. After a while the booststrap will run and produce the same file, but now with two different names: b2, and bjam.
     Click on b2 and wait it to run.
     Click on bjam and wait it to run. Then a folder will be produce called stage. Then go back to step 4.
     Click on linker.

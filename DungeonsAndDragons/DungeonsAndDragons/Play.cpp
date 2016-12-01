@@ -312,6 +312,10 @@ bool Play::loadCharacter(string characterName) {
 		character->setStrategy(new HumanPlayerStrategy());
 	}
 	playerAlive = true;
+
+	CharacterObserver *charobserver;
+	charobserver = new CharacterObserver(character);
+
 	ifs.close();
 	//Check validity of the campaign
 	return true;

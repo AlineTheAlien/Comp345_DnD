@@ -117,7 +117,7 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 				// If attack roll is higher than the opponent's armor class, then the attack hits
 				if (attackRoll > targetArmorClass) {
 					// Damage roll : roll a 1d20 die and add the damage bonus (based on Strength modifiers)
-					damageRoll = Dice::roll("1d20") + static_cast<Character*>(enemyCharacter)->getDamageBonus();
+					damageRoll = Dice::roll("1d13") + static_cast<Character*>(enemyCharacter)->getDamageBonus();
 					if (logAgressor == true) {
 						cout << "Total damage roll: " << damageRoll << endl;
 						s += "Total damage roll: " + to_string(damageRoll) + "\n";

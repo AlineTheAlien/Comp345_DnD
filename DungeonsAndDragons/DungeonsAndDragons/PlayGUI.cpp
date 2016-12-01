@@ -600,7 +600,7 @@ void PlayGUI::openMapView()
 							play->levelUpCharacter();
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
-							subject = play->getCampaignMap(currentMap); // For observer pattern
+							//subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -647,7 +647,7 @@ void PlayGUI::openMapView()
 							play->levelUpCharacter();
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
-							subject = play->getCampaignMap(currentMap); // For observer pattern
+							//subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -696,7 +696,7 @@ void PlayGUI::openMapView()
 							play->levelUpCharacter();
 							currentMap = 0;
 							subject->Detach(this);
-							subject = play->getCampaignMap(currentMap); // For observer pattern
+							//subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
@@ -744,7 +744,7 @@ void PlayGUI::openMapView()
 							play->levelUpCharacter();
 							currentMap = 0;
 							subject->Detach(this);
-							subject = play->getCampaignMap(currentMap); // For observer pattern
+							//subject = play->getCampaignMap(currentMap); // For observer pattern
 							cout << "Completed the campaign" << endl;
 							state.setLaunchState(LaunchState::MENU);
 							return;
