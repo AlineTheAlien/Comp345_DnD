@@ -72,6 +72,8 @@ int Dice::roll(string diceString)
 		return -1;
 }
 
+//! Function that sets the dice roll log boolean 
+//! @param value: new boolean value of logDiceRoll
 void Dice::setLogDiceRoll(bool value) {
 	logDiceRoll = value;
 }

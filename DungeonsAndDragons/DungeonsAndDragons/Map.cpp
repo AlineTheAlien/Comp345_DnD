@@ -404,6 +404,8 @@ vector<MapObject*> Map::findAllFriends() {
 	return v;
 }
 
+//! Function that sets the map log boolean 
+//! @param value: new boolean value of logMap
 void Map::setMapLog(bool value) {
 	logMap = value;
 }

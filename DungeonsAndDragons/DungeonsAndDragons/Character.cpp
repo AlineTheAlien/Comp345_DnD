@@ -698,6 +698,23 @@ void Character::levelUp() {
 	
 }
 
+//! levels up character without asking for user input for ability scores to increase
+void Character::userChoiceLevelUp() {
+
+	if (currentLevel % 5 == 0) {
+		numberofAttacks++; //number of attacks/round increases every 5 levels 
+	}
+
+	currentLevel++;
+
+	maxHitPoints = maxHitPoints + levelHitPoints();
+	currentHitPoints = maxHitPoints; //For now, HP refills back to full on level up
+
+	attackBonus++; //attack bonus goes up by one
+
+	Notify(); //Notify observers that level has been increased
+}
+
 //! Mutator function that sets the name attribute of the character 
 //! @param: name, the new name of the character
 void Character::setCharacterName(string name) {
