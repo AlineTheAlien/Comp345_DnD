@@ -948,7 +948,7 @@ void Character::displayEquipment() {
 	cout << " Boots worn are : " << boots << endl;
 	cout << " Ring equipped is : " << ring << endl;
 	cout << " Helmet worn is : " << helmet << endl;
-	cout << " Belt worn is : " << helmet << endl;
+	cout << " Belt worn is : " << belt << endl;
 	cout << endl;
 }
 
