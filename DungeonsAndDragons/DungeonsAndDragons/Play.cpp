@@ -73,6 +73,8 @@ void Play::adaptMapToPlayer(Map* map) {
 					static_cast<Character*>(oldEnemy)->getBackpack()->transfer(backpack, x);
 					x--;
 				}
+				vector<Item*> items = static_cast<ItemContainer*>(backpack)->getItems(); // store a copy of items
+				mbuilder->buildContainer(j, i, items); // adapt to level
 				// delete the enemy
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
@@ -103,6 +105,9 @@ void Play::adaptMapToPlayer(Map* map) {
 					static_cast<Character*>(oldFriend)->getBackpack()->transfer(backpack, x);
 					x--;
 				}
+				vector<Item*> items = static_cast<ItemContainer*>(backpack)->getItems(); // store a copy of items
+				mbuilder->buildContainer(j, i, items); // adapt to level
+
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
 				Director director;
