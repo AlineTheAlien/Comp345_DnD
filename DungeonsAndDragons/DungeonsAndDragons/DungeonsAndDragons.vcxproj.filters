@@ -344,5 +344,8 @@
     <ClCompile Include="TestMap.cpp">
       <Filter>Source Files\Test Cases</Filter>
     </ClCompile>
+    <ClCompile Include="TestEditor.cpp">
+      <Filter>Source Files\Test Cases</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
