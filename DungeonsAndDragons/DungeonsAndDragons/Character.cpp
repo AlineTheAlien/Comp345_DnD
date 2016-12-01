@@ -947,16 +947,39 @@ void Character::displayEquipment() {
 	string ring = this->getWornItemName("RING");
 	string helmet = this->getWornItemName("HELMET");
 	string belt = this->getWornItemName("BELT");
-
-	cout << "\n\n Displaying your character's current equipped items..." << endl;
-	cout << "\n Armor worn is : " << armor << endl;
-	cout << " Shield equipped is : " << shield << endl;
-	cout << " Weapon equipped is : " << weapon << endl;
-	cout << " Boots worn are : " << boots << endl;
-	cout << " Ring equipped is : " << ring << endl;
-	cout << " Helmet worn is : " << helmet << endl;
-	cout << " Belt worn is : " << belt << endl;
-	cout << endl;
+	if (objectType == 'P') {
+		cout << "\n\n Displaying your character's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
+	else if (objectType == 'E') {
+		cout << "\n\n Enemy's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
+	else if (objectType == 'F') {
+		cout << "\n\nNPC's current equipped items..." << endl;
+		cout << "\n Armor worn is : " << armor << endl;
+		cout << " Shield equipped is : " << shield << endl;
+		cout << " Weapon equipped is : " << weapon << endl;
+		cout << " Boots worn are : " << boots << endl;
+		cout << " Ring equipped is : " << ring << endl;
+		cout << " Helmet worn is : " << helmet << endl;
+		cout << " Belt worn is : " << belt << endl;
+		cout << endl;
+	}
 }
 
 //! Method that displays character's inventory pane
