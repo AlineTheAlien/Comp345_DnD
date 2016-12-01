@@ -17,6 +17,8 @@
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/XmlOutputter.h>
 #include "Character.h"
+#include "CharacterObserver.h"
+#include "Subject.h"
 #include "BullyBuilder.h"
 #include "TankBuilder.h"
 #include "Director.h"
@@ -32,18 +34,116 @@ class TestCharacter : public CppUnit::TestFixture
 	CPPUNIT_TEST(testEquipItem);
 	CPPUNIT_TEST(testUnequipItem);
 	CPPUNIT_TEST(testBuilderCreation);
-	CPPUNIT_TEST(testNumberOfAttacks);
+	CPPUNIT_TEST(testValidateNewCharacter);
+	CPPUNIT_TEST(testInvalidNewCharacter);
+	CPPUNIT_TEST(testHit);
+	CPPUNIT_TEST(testLowestDiceRolls);
+	CPPUNIT_TEST(testHighestDiceRolls);
+	CPPUNIT_TEST(testAbilityModifier);
+	CPPUNIT_TEST(testManyObserversAttaching);
+	CPPUNIT_TEST(testDetachObserver);
 	CPPUNIT_TEST_SUITE_END();
 protected:
-	void testAggressorStrategy();
 	void testEquipItem();
 	void testUnequipItem();
 	void testBuilderCreation();
-	void testNumberOfAttacks();
+	void testValidateNewCharacter();
+	void testInvalidNewCharacter();
+	void testHit();
+	void testLowestDiceRolls();
+	void testHighestDiceRolls();
+	void testAbilityModifier();
+	void testManyObserversAttaching();
+	void testDetachObserver();
 };
 
 //!Register for running the test
 CPPUNIT_TEST_SUITE_REGISTRATION(TestCharacter);//most important
+
+//! Test method to test the validateNewCharacter() method of the Character class 
+//! Test Case: a valid newly created character should have all its ability scores in the [3-18] range
+//! Tested item: Character::validateNewCharacter()
+void TestCharacter::testValidateNewCharacter()
+{
+	Character *conan = new Character('P', 12, 12, 12, 12, 12, 12);
+	CPPUNIT_ASSERT(conan->validateNewCharacter());
+}
+
+//! test method to test the validateNewCharacter() method of the Character class 
+//! Test Case: an invalid newly created character should have any of its ability scores outside the [3-18] range
+//! Tested item: Character::validateNewCharacter()
+void TestCharacter::testInvalidNewCharacter()
+{
+	Character *conan = new Character('P', 20, 12, 12, 12, 12, 12);
+	CPPUNIT_ASSERT(conan->validateNewCharacter() == false);
+}
+
+//! test method to test the hit() method of the Map class 
+//! Test Case: a character that has been hit(x) should have its hit points reduced by x 
+//! Tested item: Character::hit()
+void TestCharacter::testHit()
+{
+	Character *conan = new Character('P', 12, 12, 12, 12, 12, 12);
+	conan->getDamaged(4);
+	CPPUNIT_ASSERT(conan->getHitPoints() == 7);
+}
+
+//! Test case to ensure that if dice rolls for ability scores were 1, 1, 1, and 1, summing up the highest 3 to a total of 3, that the odd negative ability modifier associated to it is rounded down instead of up.
+//! Test Case: A correct ability modifier associated with the lowest possible dice rolls must be -4
+//! Tested item: Character::generateAbilityModifiers()
+void TestCharacter::testLowestDiceRolls()
+{
+	Character *fighter = new Character();
+	int test = fighter->generateAbilityModifier(3);
+	CPPUNIT_ASSERT(test == -4);
+}
+
+//! Test case to ensure that if dice rolls for ability scores were 6, 6, 6, and 1-6, summing up the highest 3 to a total of 18, the ability modifier associated to it is 4.
+//! Test Case: A correct ability modifier associated with the highest possible dice rolls must be 4
+//! Tested item: Character::generateAbilityModifiers()
+void TestCharacter::testHighestDiceRolls()
+{
+	Character *fighter = new Character();
+	int test = fighter->generateAbilityModifier(18);
+	CPPUNIT_ASSERT(test == 4);
+}
+
+//! Test case to ensure that the ability modifiers are in the correct range, for the default constructor
+//! Test Case: A correct ability modifier should have all of its scores in the [-4, 4] range
+//! Tested item: Character::validateAbilityModifiers()
+void TestCharacter::testAbilityModifier()
+{
+	Character *fighter = new Character();
+	CPPUNIT_ASSERT(fighter->validateAbilityModifiers());
+}
+
+//! Test case to ensure that more than one observer can be succesfully attached to a subject
+//! Test Case: More than one observer can be attached to one subject
+//! Tested item: Subject::Attach(Observer* o)
+void TestCharacter::testManyObserversAttaching() {
+	int test = 0;
+	Character *fighter = new Character();
+	CharacterObserver *charobv = new CharacterObserver(fighter);
+	CharacterObserver *charobv2 = new CharacterObserver(fighter);
+
+	test = fighter->getNumberObservers();
+
+	CPPUNIT_ASSERT(test == 2);
+}
+
+//! Test case to ensure that the observers can be succesfully detached from the subject upon calling detach function
+//! Test Case: Detach function must remove the observer from the subject's list of observers
+//! Tested item: Subject::Detach(Observer* o)
+void TestCharacter::testDetachObserver() {
+	int test = 0;
+	Character *fighter = new Character();
+	CharacterObserver *charobv = new CharacterObserver(fighter);
+	fighter->Detach(charobv);
+
+	test = fighter->getNumberObservers();
+
+	CPPUNIT_ASSERT(test == 0);
+}
 
 
 //! Test case to ensure that the builder is correctly assigning ability scores
@@ -59,24 +159,6 @@ void TestCharacter::testBuilderCreation() {
 	CPPUNIT_ASSERT(myCharacter->validateNewCharacter());
 }
 
-//! Test case to ensure that the number of attacks/round increases by one every 5 levels
-//! Test Case: A correct implementation of numofattacks/round is if it increases by one per 5 levels
-//! Tested item: Character::levelUp()
-void TestCharacter::testNumberOfAttacks() {
-	Director director;
-	Character* myCharacter;
-	CharacterBuilder* tankbuilder = new TankBuilder();
-	director.setCharacterBuilder(tankbuilder);
-	director.constructCharacter();
-	myCharacter = director.getCharacter();
-
-	for (int i = 0; i < 21; i++) {
-		myCharacter->levelUp();
-	}
-	CPPUNIT_ASSERT(myCharacter->getNumberOfAttacks() == 5);
-}
-
-
 //! Test method to test character equip an item
 //! Test Case: When character equips an item, the size of 'equipped' array should increase, and the size of 'backpack' should decrease
 void TestCharacter::testEquipItem()
@@ -86,7 +168,7 @@ void TestCharacter::testEquipItem()
 
 //! Test method to test character unequip an item
 //! Test Case: When character unequip an item, the size of 'equipped' array should decrease, and the size of 'backpack' should increase
-void TestCharacter::testEquipItem()
+void TestCharacter::testUnequipItem()
 {
 
 }
