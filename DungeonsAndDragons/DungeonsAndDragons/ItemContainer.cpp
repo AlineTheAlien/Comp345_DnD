@@ -12,7 +12,7 @@ using namespace std;
 ItemContainer::ItemContainer()
 {
 	type = "UNNAMED CONTAINER";
-	objectType = 'C';
+	setObjectType('C');
 	items = vector<Item*>();
 }
 
@@ -21,7 +21,7 @@ ItemContainer::ItemContainer()
 //! @param items : Vector of items
 ItemContainer::ItemContainer(string type, vector<Item*> items)
 {
-	objectType = 'C';
+	setObjectType('C');
 	if (type == "BACKPACK" || type == "EQUIPPED" || type == "CHEST")
 	{
 		this->type = type;
@@ -39,7 +39,7 @@ ItemContainer::ItemContainer(string type, vector<Item*> items)
 //! @param type : String representing the type of item
 ItemContainer::ItemContainer(string type)
 {
-	objectType = 'C';
+	setObjectType('C');
 	if (type == "BACKPACK" || type == "EQUIPPED" || type == "CHEST")
 	{
 		this->type = type;

@@ -275,6 +275,12 @@ ItemContainer* Character::getBackpack() {
 	return backpack;
 }
 
+//! Method to get set character's backpack
+//! @param backpack : A pointer to a backpack
+void Character::setBackpack(ItemContainer* backpack) {
+	this->backpack = backpack;
+}
+
 //! Method to display the name of a specified type of equipped item
 //! @param : The type of the equipment as a string value
 //! return The name of the item as a string value

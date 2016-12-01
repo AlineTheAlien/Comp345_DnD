@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "CampaignEditor.h"
-
+#include "Character.h"
 
 //! Implementation of the default constructor of CampaignEditor
 CampaignEditor::CampaignEditor()
@@ -152,6 +152,7 @@ bool CampaignEditor::loadMaps()
 		ar.template register_type<Weapon>();
 		ar.template register_type<Shield>();
 		ar.template register_type<Belt>();
+		ar.template register_type<Character>();
 		//read class state from archive
 		ar >> campaignMaps[i];
 		if (!campaignMaps[i]->validatePath())
@@ -192,6 +193,7 @@ bool CampaignEditor::loadCampaign(string campaignName)
 	ar.template register_type<Weapon>();
 	ar.template register_type<Shield>();
 	ar.template register_type<Belt>();
+	ar.template register_type<Character>();
 	//read class state from archive
 	ar >> campaign;
 
@@ -240,6 +242,7 @@ void CampaignEditor::saveCampaign(string campaignName)
 		ar.template register_type<Weapon>();
 		ar.template register_type<Shield>();
 		ar.template register_type<Belt>();
+		ar.template register_type<Character>();
 		//Write data
 		ar << campaign;
 		cout << "Campaign is valid and was saved to file " << endl;

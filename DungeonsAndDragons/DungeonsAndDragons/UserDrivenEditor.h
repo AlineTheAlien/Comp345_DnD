@@ -19,6 +19,7 @@ class UserDrivenEditor
 public:
 	UserDrivenEditor();
 	static ItemContainer* createChest();
+	static ItemContainer* createBackpack();
 	static Character* createCharacter();
 	~UserDrivenEditor();
 };

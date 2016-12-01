@@ -1041,7 +1041,10 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'E')
 							{
 								mapTiles.at(index).setTexture(textures.getEnemyTexture());
-								MapObject* enemy = new MapObject('E');
+								//MapObject* enemy = new MapObject('E');
+								MapObject* enemy = new Character();
+								ItemContainer* backpack = UserDrivenEditor::createBackpack();
+								static_cast<Character*>(enemy)->setBackpack(backpack);
 								enemy->setObjectType('E');
 								mapEditor->setTile(j, i, enemy);
 							}
@@ -1049,6 +1052,8 @@ void EditorGUI::openMapView()
 							{
 								mapTiles.at(index).setTexture(textures.getFriendlyTexture());
 								MapObject* newFriend = new MapObject('F');
+								ItemContainer* backpack = UserDrivenEditor::createBackpack();
+								static_cast<Character*>(newFriend)->setBackpack(backpack);
 								newFriend->setObjectType('F');
 								mapEditor->setTile(j, i, newFriend);
 							}

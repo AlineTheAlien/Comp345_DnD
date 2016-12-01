@@ -62,6 +62,18 @@ void Play::adaptMapToPlayer(Map* map) {
 		for (int j = 0; j < map->getMapX(); j++)
 		{
 			if (map->getTile(j, i) == 'E') {
+				// get the enemy object
+				MapObject* oldEnemy = map->getObjectTile(j, i);
+				// create a new backpack to transfer enemy's backpack
+				ItemContainer* backpack = new ItemContainer("BACKPACK");
+				// transferring the backpack content before deleting...
+				int x = static_cast<Character*>(oldEnemy)->getBackpack()->getItems().size() - 1;
+				while (!static_cast<Character*>(oldEnemy)->getBackpack()->getItems().empty())
+				{
+					static_cast<Character*>(oldEnemy)->getBackpack()->transfer(backpack, x);
+					x--;
+				}
+				// delete the enemy
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
 				Director director;
@@ -71,6 +83,8 @@ void Play::adaptMapToPlayer(Map* map) {
 				director.constructCharacter();
 				enemy = director.getCharacter();
 				mbuilder->buildCharacter('E', j, i, enemy); // adapt to level
+				// set the enemy's backpack
+				static_cast<Character*>(enemy)->setBackpack(backpack);
 			}
 			if (map->getTile(j, i) == 'C') {
 				MapObject* chest = map->getObjectTile(j, i);
@@ -78,15 +92,27 @@ void Play::adaptMapToPlayer(Map* map) {
 				mbuilder->buildContainer(j, i, items); // adapt to level
 			}
 			if (map->getTile(j, i) == 'F') {
+				// get the character backpack
+				MapObject* oldFriend = map->getObjectTile(j, i);
+				// create a new backpack to transfer enemy's backpack
+				ItemContainer* backpack = new ItemContainer("BACKPACK");
+				// transferring...
+				int x = static_cast<Character*>(oldFriend)->getBackpack()->getItems().size() - 1;
+				while (!static_cast<Character*>(oldFriend)->getBackpack()->getItems().empty())
+				{
+					static_cast<Character*>(oldFriend)->getBackpack()->transfer(backpack, x);
+					x--;
+				}
 				delete map->getObjectTile(j, i);
 				map->setTile(j, i, NULL);
 				Director director;
-				Character* friendlyenemy;
+				Character* friendly;
 				CharacterBuilder* friendlybuilder = new FriendlyBuilder;
 				director.setCharacterBuilder(friendlybuilder);
 				director.constructCharacter();
-				friendlyenemy = director.getCharacter();
-				mbuilder->buildCharacter('F', j, i, friendlyenemy); // adapt to level
+				friendly = director.getCharacter();
+				mbuilder->buildCharacter('F', j, i, friendly); // adapt to level
+				static_cast<Character*>(friendly)->setBackpack(backpack);
 			}
 		}
 	}
@@ -113,6 +139,7 @@ bool Play::loadCampaign(string campaignName)
 	ar.template register_type<Weapon>();
 	ar.template register_type<Shield>();
 	ar.template register_type<Belt>();
+	ar.template register_type<Character>();
 	//read class state from archive
 	ar >> campaign;
 
@@ -168,6 +195,7 @@ bool Play::loadMaps()
 		ar.template register_type<Weapon>();
 		ar.template register_type<Shield>();
 		ar.template register_type<Belt>();
+		ar.template register_type<Character>();
 		//read class state from archive
 		ar >> campaignMaps[i];
 
@@ -347,10 +375,10 @@ bool Play::moveCharacter(Map* map, char direction)
 				MapObject* enemy = map->getObjectTile(j - 1, i);
 				if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
 					character->displayBackpack();
-					int x = static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().size() - 1;
-					while (!static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->getItems().empty())
+					int x = static_cast<Character*>(enemy)->getBackpack()->getItems().size() - 1;
+					while (!static_cast<Character*>(enemy)->getBackpack()->getItems().empty())
 					{
-						static_cast<Character*>(map->getObjectTile(j - 1, i))->getBackpack()->transfer(character->getBackpack(), x);
+						static_cast<Character*>(enemy)->getBackpack()->transfer(character->getBackpack(), x);
 						x--;
 					}
 					character->displayBackpack();
@@ -407,10 +435,10 @@ bool Play::moveCharacter(Map* map, char direction)
 					MapObject* enemy = map->getObjectTile(j + 1, i);
 					if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
 						character->displayBackpack();
-						int x = static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().size() - 1;
-						while (!static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->getItems().empty())
+						int x = static_cast<Character*>(enemy)->getBackpack()->getItems().size() - 1;
+						while (!static_cast<Character*>(enemy)->getBackpack()->getItems().empty())
 						{
-							static_cast<Character*>(map->getObjectTile(j + 1, i))->getBackpack()->transfer(character->getBackpack(), x);
+							static_cast<Character*>(enemy)->getBackpack()->transfer(character->getBackpack(), x);
 							x--;
 						}
 						character->displayBackpack();
@@ -468,10 +496,10 @@ bool Play::moveCharacter(Map* map, char direction)
 						MapObject* enemy = map->getObjectTile(j, i - 1);
 						if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
 							character->displayBackpack();
-							int x = static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().size() - 1;
-							while (!static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->getItems().empty())
+							int x = static_cast<Character*>(enemy)->getBackpack()->getItems().size() - 1;
+							while (!static_cast<Character*>(enemy)->getBackpack()->getItems().empty())
 							{
-								static_cast<Character*>(map->getObjectTile(j, i - 1))->getBackpack()->transfer(character->getBackpack(), x);
+								static_cast<Character*>(enemy)->getBackpack()->transfer(character->getBackpack(), x);
 								x--;
 							}
 							character->displayBackpack();
@@ -528,10 +556,10 @@ bool Play::moveCharacter(Map* map, char direction)
 							MapObject* enemy = map->getObjectTile(j, i + 1);
 							if ((static_cast<Character*>(enemy)->getHitPoints()) <= 0) {
 								character->displayBackpack();
-								int x = static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().size() - 1;
-								while (!static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->getItems().empty())
+								int x = static_cast<Character*>(enemy)->getBackpack()->getItems().size() - 1;
+								while (!static_cast<Character*>(enemy)->getBackpack()->getItems().empty())
 								{
-									static_cast<Character*>(map->getObjectTile(j, i + 1))->getBackpack()->transfer(character->getBackpack(), x);
+									static_cast<Character*>(enemy)->getBackpack()->transfer(character->getBackpack(), x);
 									x--;
 								}
 								character->displayBackpack();
