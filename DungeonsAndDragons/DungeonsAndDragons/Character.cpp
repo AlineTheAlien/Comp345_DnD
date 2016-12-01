@@ -27,8 +27,7 @@ using std::string;
 //! Default constructor for a fighter character
 Character::Character()
 {
-
-	objectType = 'P';
+	setObjectType('P');
 
 	currentLevel = 0;
 	currentHitPoints = 0;
@@ -62,17 +61,19 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 
 	if (type == 'F') {
 		strategy = new FriendlyStrategy();
+		setObjectType('F');
 	}
 	else if (type == 'E') {
 		strategy = new AggressorStrategy();
+		setObjectType('E');
 	}
 	else if (type == 'P') {
 		strategy = new HumanPlayerStrategy();
+		setObjectType('P');
 	}
 
 	int modifierHolder[6];
 
-	objectType = type;
 	currentLevel = 0;
 
 	abilityScores[0] = str; //strength
@@ -273,6 +274,12 @@ ItemContainer* Character::getEquippedItems() {
 //! @return A pointer to an item container representing the backpack
 ItemContainer* Character::getBackpack() {
 	return backpack;
+}
+
+//! Method to get set character's backpack
+//! @param backpack : A pointer to a backpack
+void Character::setBackpack(ItemContainer* backpack) {
+	this->backpack = backpack;
 }
 
 //! Method to display the name of a specified type of equipped item

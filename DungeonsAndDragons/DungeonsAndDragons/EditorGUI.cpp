@@ -1041,14 +1041,18 @@ void EditorGUI::openMapView()
 							if (selectedTile == 'E')
 							{
 								mapTiles.at(index).setTexture(textures.getEnemyTexture());
-								MapObject* enemy = new MapObject('E');
+								MapObject* enemy = new Character();
+								ItemContainer* backpack = UserDrivenEditor::createBackpack();
+								static_cast<Character*>(enemy)->setBackpack(backpack);
 								enemy->setObjectType('E');
 								mapEditor->setTile(j, i, enemy);
 							}
 							if (selectedTile == 'F')
 							{
 								mapTiles.at(index).setTexture(textures.getFriendlyTexture());
-								MapObject* newFriend = new MapObject('F');
+								MapObject* newFriend = new Character();
+								ItemContainer* backpack = UserDrivenEditor::createBackpack();
+								static_cast<Character*>(newFriend)->setBackpack(backpack);
 								newFriend->setObjectType('F');
 								mapEditor->setTile(j, i, newFriend);
 							}
@@ -1778,6 +1782,11 @@ void EditorGUI::openCampaignView()
 						{
 							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition))
 								static_cast<ItemContainer*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->displayItems();
+						}
+						else if (campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'E' || campaignEditor->getCampaignMap(currentMap)->getTile(j, i) == 'F') {
+							if (maps[currentMap].at(j + i * campaignEditor->getCampaignMap(currentMap)->getMapX()).getGlobalBounds().contains(mousePosition)) {
+								static_cast<Character*>(campaignEditor->getCampaignMap(currentMap)->getObjectTile(j, i))->getBackpack()->displayItems();
+							}
 						}
 					}
 				}

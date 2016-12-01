@@ -3,6 +3,7 @@
 
 #include "stdafx.h"
 #include "MapEditor.h"
+#include "Character.h"
 
 //! Default constructor for the MapEditor class
 MapEditor::MapEditor()
@@ -118,6 +119,7 @@ void MapEditor::saveMap(string mapName)
 		ar.template register_type<Weapon>();
 		ar.template register_type<Shield>();
 		ar.template register_type<Belt>();
+		ar.template register_type<Character>();
 		ar << map;
 		cout << "Map is valid and was saved to file " << endl;
 		ofs.close();
@@ -148,7 +150,7 @@ bool MapEditor::loadMap(string mapName)
 	ar.template register_type<Weapon>();
 	ar.template register_type<Shield>();
 	ar.template register_type<Belt>();
-
+	ar.template register_type<Character>();
 	//read class state from archive
 	ar >> map;
 	ifs.close();
@@ -162,8 +164,12 @@ bool MapEditor::loadMap(string mapName)
 	{
 		for (int j = 0; j < getMapSizeX(); j++)
 		{
-			if (map->getTile(j, i) == 'C')
+			if (map->getTile(j, i) == 'C') {
 				static_cast<ItemContainer*>(map->getObjectTile(j, i))->displayItems();
+			}
+			if (map->getTile(j, i) == 'E' || map->getTile(j, i) == 'F') {
+				static_cast<Character*>(map->getObjectTile(j, i))->getBackpack()->displayItems();
+			}
 		}
 	}
 	return true;

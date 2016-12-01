@@ -108,6 +108,7 @@ public:
 	string getCharacterName();
 	ItemContainer* getEquippedItems();
 	ItemContainer* getBackpack();
+	void setBackpack(ItemContainer*);
 	void setStrategy(Strategy*);
 	void executeStrategy(Map*, MapObject*, MapObject*);
 private:
