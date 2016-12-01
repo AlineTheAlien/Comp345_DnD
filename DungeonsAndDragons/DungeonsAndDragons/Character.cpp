@@ -670,7 +670,7 @@ void Character::chooseScoresOnLevelUp() {
 //! Method that increments the level by one and increases stats based on rules to show that the character has leveled up
 void Character::levelUp() {
 
-	if (currentLevel <= 20) {
+	if (currentLevel < 20) {
 		if (currentLevel != 0 && currentLevel % 5 == 0) {
 			numberofAttacks++; //number of attacks/round increases every 5 levels 
 		}
