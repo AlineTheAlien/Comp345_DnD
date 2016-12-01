@@ -143,6 +143,8 @@ void AggressorStrategy::execute(Map* map, MapObject* enemyCharacter, MapObject* 
 	GameLogger::writeToLogFile(s);
 }
 
+//! Function that sets the combat log boolean 
+//! @param value: new boolean value of logAgressor
 void AggressorStrategy::setAgressorLog(bool value) {
 	logAgressor = value;
 }

@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "BullyBuilder.h"
 
-
+//! BullyBuilder constructor
 BullyBuilder::BullyBuilder()
 {
 }
 
-
+//! Destructor for BullyBuilder objects
 BullyBuilder::~BullyBuilder()
 {
 }
 
+//! Method that prioritizes ability scores based on the score priority for Bully type of fighter characters
 void BullyBuilder::buildAbilityScores() {
 	int temp[6];
 	int modifiers[6];

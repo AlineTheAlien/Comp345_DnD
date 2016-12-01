@@ -113,7 +113,7 @@ Character::Character(char type, int str, int dex, int con, int intel, int wis, i
 	backpack = new ItemContainer("BACKPACK");
 }
 
-//! Destructor
+//! Destructor for Character
 Character::~Character() {
 	delete equipped;
 	delete backpack;
@@ -557,6 +557,7 @@ void Character::setWisdomModifier(int wis) {
 	abilityModifiers[5] = wis;
 }
 
+//! Function that allows user choice to increase two ability scores on level-up
 void Character::chooseScoresOnLevelUp() {
 	int chooseLevelOption = 1;
 	int chooseAbility = 1;
@@ -662,11 +663,11 @@ void Character::chooseScoresOnLevelUp() {
 			}
 			ctr++;
 		}
-		cout << "\n Your ability scores have now been modified. :)\n" << endl;
 	}
+	cout << "\n Your ability scores have now been modified. :)\n" << endl;
 }
 
-//! Method that increments the level by one to show that the character has leveled up
+//! Method that increments the level by one and increases stats based on rules to show that the character has leveled up
 void Character::levelUp() {
 
 	if (currentLevel <= 20) {
@@ -697,6 +698,7 @@ void Character::levelUp() {
 	
 }
 
+//! levels up character without asking for user input for ability scores to increase
 void Character::userChoiceLevelUp() {
 
 	if (currentLevel % 5 == 0) {
@@ -713,10 +715,13 @@ void Character::userChoiceLevelUp() {
 	Notify(); //Notify observers that level has been increased
 }
 
+//! Mutator function that sets the name attribute of the character 
+//! @param: name, the new name of the character
 void Character::setCharacterName(string name) {
 	characterName = name;
 }
 
+//! Accessor method that returns the character's current name attribute
 string Character::getCharacterName() {
 	return characterName;
 }

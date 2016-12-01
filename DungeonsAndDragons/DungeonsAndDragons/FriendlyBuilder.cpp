@@ -11,6 +11,7 @@ FriendlyBuilder::~FriendlyBuilder()
 {
 }
 
+//! Method that prioritizes ability scores based on the score priority for friendly NPC characters
 void FriendlyBuilder::buildAbilityScores() {
 	//for the sake of this project, friendly NPCs are created with highest ability score
 	//being strength, followed by dexterity, constitution, charisma, intelligence, and wisdom.

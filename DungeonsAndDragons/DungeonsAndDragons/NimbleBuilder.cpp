@@ -1,16 +1,17 @@
 #include "stdafx.h"
 #include "NimbleBuilder.h"
 
-
+//! NimbleBuilder constructor
 NimbleBuilder::NimbleBuilder()
 {
 }
 
-
+//! NimbleBuildor destructor
 NimbleBuilder::~NimbleBuilder()
 {
 }
 
+//! Method that prioritizes ability scores based on the score priority for Nimble type of fighter characters
 void NimbleBuilder::buildAbilityScores() {
 	int temp[6];
 	int modifiers[6];

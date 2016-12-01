@@ -2,7 +2,6 @@
 //! @brief Implementation file for Dice class
 
 // Dice.cpp : Defines the entry point for the console application.
-//
 #include "stdafx.h"
 #include "Dice.h"
 #include "GameLogger.h"
@@ -73,6 +72,8 @@ int Dice::roll(string diceString)
 		return -1;
 }
 
+//! Function that sets the dice roll log boolean 
+//! @param value: new boolean value of logDiceRoll
 void Dice::setLogDiceRoll(bool value) {
 	logDiceRoll = value;
 }

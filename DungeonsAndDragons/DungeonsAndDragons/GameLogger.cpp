@@ -1,16 +1,15 @@
 #include "stdafx.h"
 #include "GameLogger.h"
 
-
+//! GameLogger constructor
 GameLogger::GameLogger()
 {
 }
 
-
+//! GameLogger destructor
 GameLogger::~GameLogger()
 {
 }
-
 
 //! Implementation of writeToLogFile
 //! @param : string value representing the text to write to the file
