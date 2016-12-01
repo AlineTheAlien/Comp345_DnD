@@ -267,6 +267,8 @@ void HumanPlayerStrategy::execute(Map* map, MapObject* player, MapObject* target
 	GameLogger::writeToLogFile(s);
 }
 
+//! Function that sets the combat log boolean 
+//! @param value: new boolean value of logHumanPlayer
 void HumanPlayerStrategy::setHumanPlayerLog(bool value) {
 	logHumanPlayer = value;
 }

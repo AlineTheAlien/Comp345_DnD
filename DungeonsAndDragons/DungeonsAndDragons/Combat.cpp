@@ -352,6 +352,8 @@ void Combat::activateNPC(Map* map, MapObject* player) {
 	}
 }
 
+//! Function that sets the combat log boolean 
+//! @param value: new boolean value of logCombat
 void Combat::setLogCombat(bool value) {
 	logCombat = value;
 }

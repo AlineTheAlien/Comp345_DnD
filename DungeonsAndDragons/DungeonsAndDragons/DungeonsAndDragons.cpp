@@ -50,12 +50,6 @@
 #include <boost/archive/binary_iarchive.hpp>
 using namespace std;
 
-//! main() function. Entry point of the program
-//! It does the following: 
-//! 1. Create a test suite object from the registry as populated by the code in the Test Classes
-//! 2. Create a test runner that will execute all the tests in the registry
-//! 3. (optionally) sets an outputter that will output the results
-//! 4. Run the test cases. 
 int main(int argc, char* argv[])
 {
 	srand(time(NULL));

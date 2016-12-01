@@ -677,7 +677,7 @@ void Character::chooseScoresOnLevelUp() {
 //! Method that increments the level by one and increases stats based on rules to show that the character has leveled up
 void Character::levelUp() {
 
-	if (currentLevel <= 20) {
+	if (currentLevel < 20) {
 		if (currentLevel != 0 && currentLevel % 5 == 0) {
 			numberofAttacks++; //number of attacks/round increases every 5 levels 
 		}
@@ -955,7 +955,7 @@ void Character::displayEquipment() {
 	cout << " Boots worn are : " << boots << endl;
 	cout << " Ring equipped is : " << ring << endl;
 	cout << " Helmet worn is : " << helmet << endl;
-	cout << " Belt worn is : " << helmet << endl;
+	cout << " Belt worn is : " << belt << endl;
 	cout << endl;
 }
 

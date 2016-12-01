@@ -359,7 +359,7 @@ void PlayGUI::openLoadCampaignWindow()
 							if (play->loadCampaign(play->getAvailableCampaigns(i)))
 							{
 								play->loadMaps();
-								
+								play->setCurrentMap(0);
 								play->placeCharacterOnMap(play->getCampaignMap(play->getCurrentMap()));
 								subject = play->getCampaignMap(play->getCurrentMap());
 								subject->Attach(this);
@@ -421,6 +421,7 @@ void PlayGUI::openMapView()
 	if (subject != NULL) {
 		subject->Detach(this);
 	}
+
 	currentMap = play->getCurrentMap();
 	subject = play->getCampaignMap(currentMap);// For observer pattern
 	subject->Attach(this);
@@ -597,7 +598,6 @@ void PlayGUI::openMapView()
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
-							play->setCurrentMap(0);
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
@@ -645,7 +645,6 @@ void PlayGUI::openMapView()
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
-							play->setCurrentMap(0);
 							currentMap = play->getCurrentMap();
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
@@ -695,7 +694,6 @@ void PlayGUI::openMapView()
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
-							play->setCurrentMap(0);
 							currentMap = 0;
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
@@ -744,7 +742,6 @@ void PlayGUI::openMapView()
 						if (play->getCurrentMap() >= play->getCampaignSize())
 						{
 							play->levelUpCharacter();
-							play->setCurrentMap(0);
 							currentMap = 0;
 							subject->Detach(this);
 							subject = play->getCampaignMap(currentMap); // For observer pattern
@@ -875,18 +872,18 @@ void PlayGUI::openMapView()
 					{
 						combatClicked = false;
 						cout << "Combat info toggled on" << endl;
-						AggressorStrategy::setAgressorLog(false);
-						HumanPlayerStrategy::setHumanPlayerLog(false);
-						FriendlyStrategy::setFriendlyLog(false);
+						AggressorStrategy::setAgressorLog(true);
+						HumanPlayerStrategy::setHumanPlayerLog(true);
+						FriendlyStrategy::setFriendlyLog(true);
 						Combat::setLogCombat(true);
 					}
 					else
 					{
 						combatClicked = true;
 						cout << "Combat info toggled off" << endl;
-						AggressorStrategy::setAgressorLog(true);
-						HumanPlayerStrategy::setHumanPlayerLog(true);
-						FriendlyStrategy::setFriendlyLog(true);
+						AggressorStrategy::setAgressorLog(false);
+						HumanPlayerStrategy::setHumanPlayerLog(false);
+						FriendlyStrategy::setFriendlyLog(false);
 						Combat::setLogCombat(false);
 					}
 
