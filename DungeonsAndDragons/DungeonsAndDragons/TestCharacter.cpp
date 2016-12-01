@@ -27,29 +27,31 @@ using namespace CppUnit;
 using namespace std;
 
 //! Test Class for the Strategy class and its subclasses
-class TestStrategy : public CppUnit::TestFixture
+class TestCharacter : public CppUnit::TestFixture
 {
-	CPPUNIT_TEST_SUITE(TestStrategy);
+	CPPUNIT_TEST_SUITE(TestCharacter);
 	CPPUNIT_TEST(testEquipItem);
 	CPPUNIT_TEST(testUnequipItem);
 	CPPUNIT_TEST_SUITE_END();
 protected:
 	void testAggressorStrategy();
+	void testEquipItem();
+	void testUnequipItem();
 };
 
 //!Register for running the test
-CPPUNIT_TEST_SUITE_REGISTRATION(TestStrategy);//most important
+CPPUNIT_TEST_SUITE_REGISTRATION(TestCharacter);//most important
 
 //! Test method to test character equip an item
 //! Test Case: When character equips an item, the size of 'equipped' array should increase, and the size of 'backpack' should decrease
-void TestStrategy::testEquipItem()
+void TestCharacter::testEquipItem()
 {
 	
 }
 
 //! Test method to test character unequip an item
 //! Test Case: When character unequip an item, the size of 'equipped' array should decrease, and the size of 'backpack' should increase
-void TestStrategy::testEquipItem()
+void TestCharacter::testEquipItem()
 {
 
 }
